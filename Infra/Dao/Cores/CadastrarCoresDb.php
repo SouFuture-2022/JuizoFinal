@@ -7,7 +7,7 @@ use PDO;
 
 class CadastrarCores{
 
-    public function insert(){
+    public function CadastrarCores(){
         $db = new Conexao();
 		$sqlUsuario  = "INSERT INTO cores (nome_cor, quantidade_cor, id_produto, criado_em) VALUES (:nome_cor, :quantidade_cor, :id_produto, NOW())";
 		$stmt = $db->Conexao->prepare($sqlUsuario);

@@ -13,4 +13,5 @@ class CadastrarFavoritos{
 		$stmt->bindParam(':id_produto', $this->id_produto);
 		return $stmt->execute();
 	}
+	
 }

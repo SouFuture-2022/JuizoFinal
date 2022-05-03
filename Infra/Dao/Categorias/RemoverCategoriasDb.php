@@ -12,4 +12,5 @@ class RemoverCategorias{
 		$stmt->bindParam(':id_categoria', $id_categoria, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}
+	
 }

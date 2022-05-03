@@ -12,4 +12,5 @@ class RemoverFavoritos{
 		$stmt->bindParam(':id_favorito', $id_favorito, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}
+	
 }

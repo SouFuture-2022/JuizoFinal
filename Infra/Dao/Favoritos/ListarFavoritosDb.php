@@ -13,9 +13,6 @@ class Find_Favoritos{
 		$stmt->execute();
 		return $stmt->fetch();
 	}
-}
-
-class FindAll_Favoritos{
 
 	public function FindAll() {
 		$sql  = "SELECT id_usuario, id_produto FROM favoritos";
@@ -23,4 +20,5 @@ class FindAll_Favoritos{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
+	
 }

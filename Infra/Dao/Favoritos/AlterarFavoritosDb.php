@@ -14,4 +14,5 @@ class AlterarFavoritos{
 		$stmt->bindParam(':id_favorito', $id_favorito);
 		return $stmt->execute();
 	}
+	
 }

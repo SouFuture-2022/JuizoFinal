@@ -13,9 +13,6 @@ class Find_Categorias{
 		$stmt->execute();
 		return $stmt->fetch();
 	}
-}
-
-class FindAll_Categorias{
 
     public function FindAll() {
 		$sql  = "SELECT id_categoria, nome_categoria FROM categorias ORDER BY nome_categoria DESC";
@@ -23,9 +20,6 @@ class FindAll_Categorias{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
-}
-
-class FindAllCount_Categorias{
 
     public function FindAllCount() {
 		$sql  = "SELECT COUNT(id_categoria) FROM categorias";
@@ -33,9 +27,6 @@ class FindAllCount_Categorias{
 		$stmt->execute();
 		return $stmt->fetchColumn();
 	}
-}
-
-class FindAllSearch_Categorias{
 
     public function FindAllSearch($buscar) {
 		$sql  = "SELECT id_categoria, nome_categoria FROM categorias WHERE nome_categoria LIKE '%$buscar%'";
@@ -44,4 +35,5 @@ class FindAllSearch_Categorias{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
+	
 }

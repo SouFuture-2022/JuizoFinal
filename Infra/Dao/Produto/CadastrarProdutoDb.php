@@ -21,4 +21,5 @@ class CadastrarProduto{
 		$stmt->bindParam(':id_categoria', $this->id_categoria);
 		return $stmt->execute();
 	}
+	
 }

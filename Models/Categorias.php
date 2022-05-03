@@ -13,4 +13,5 @@ class Categorias {
 	public function getNomeCategoria() {
 		return $this->nome_categoria;
 	}
+	
 }

@@ -12,4 +12,5 @@ class RemoverProduto {
 		$stmt->bindParam(':id_produto', $id_produto, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}
+	
 }

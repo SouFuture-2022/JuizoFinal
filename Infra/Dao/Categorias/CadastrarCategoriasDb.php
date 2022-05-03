@@ -11,5 +11,6 @@ public function CadastrarCategoria(){
     $stmt = Conexao::prepare($sqlCategoria);
     $stmt->bindParam(':nome_categoria', $this->nome_categoria);
     return $stmt->execute();
-}
+    }
+
 }

@@ -13,9 +13,6 @@ class Find_Produto{
 		$stmt->execute();
 		return $stmt->fetch();
 	}
-}
-
-class FindAll_Produto{
 
 	public function FindAll($inicio, $quantidade_pagina) {
 		$sql  = "SELECT id_produto, nome, imagem_destaque, habilitar_cor, habilitar_tamanho, cor, tamanho, preco, quantidade, peso, un_medida, descricao, id_categoria FROM produtos ORDER BY id_produto DESC LIMIT $inicio, $quantidade_pagina";
@@ -23,9 +20,6 @@ class FindAll_Produto{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
-}
-
-class FindAllPopular_Produto{
     
 	public function FindAllPopular($inicio, $quantidade_pagina) {
 		$sql  = "SELECT id_produto, nome, imagem_destaque, habilitar_cor, habilitar_tamanho, cor, tamanho, preco, quantidade, peso, un_medida, descricao, id_categoria FROM produtos LIMIT $inicio, $quantidade_pagina";
@@ -33,9 +27,6 @@ class FindAllPopular_Produto{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
-}
-
-class FindAllRelated{
 
 	public function findAllRelated($inicio, $quantidade_pagina, $id_categoria) {
 		$sql  = "SELECT id_produto, nome, imagem_destaque, habilitar_cor, habilitar_tamanho, cor, tamanho, preco, quantidade, peso, un_medida, descricao, id_categoria FROM produtos WHERE id_categoria = :id_categoria LIMIT $inicio, $quantidade_pagina";
@@ -44,9 +35,6 @@ class FindAllRelated{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
-}
-
-class FindAllProduct{
 
 	public function findAllProduct() {
 		$sql  = "SELECT id_produto, nome FROM produtos ORDER BY nome ASC";
@@ -54,9 +42,6 @@ class FindAllProduct{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
-}
-
-class FindAllProductCategories{
 
 	public function findAllProductCategories($id_categoria) {
 		$sql  = "SELECT id_produto, nome, imagem_destaque, preco, descricao, id_categoria FROM produtos WHERE id_categoria =:id_categoria ORDER BY nome ASC";
@@ -65,9 +50,6 @@ class FindAllProductCategories{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
-}
-
-class FindAllSearch{
 
 	public function findAllSearch($buscar) {
 		$sql  = "SELECT id_produto, nome FROM produtos WHERE nome LIKE '%$buscar%'";
@@ -76,9 +58,6 @@ class FindAllSearch{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
-}
-
-class FindAllCount{
 
 	public function findAllCount() {
 		$sql  = "SELECT COUNT(id_produto) FROM produtos";
@@ -86,9 +65,6 @@ class FindAllCount{
 		$stmt->execute();
 		return $stmt->fetchColumn();
 	}
-}
-
-class FindAllCountProduct{
 
 	public function findAllCountProduct($id_categoria) {
 		$sql  = "SELECT COUNT(id_produto) FROM produtos WHERE id_categoria =:id_categoria";
@@ -97,9 +73,6 @@ class FindAllCountProduct{
 		$stmt->execute();
 		return $stmt->fetchColumn();
 	}
-}
-
-class FindAllSelect{
 
 	public function findAllSelect() {
 		$sql  = "SELECT id_produto, nome FROM produtos";
@@ -107,4 +80,5 @@ class FindAllSelect{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
+	
 }

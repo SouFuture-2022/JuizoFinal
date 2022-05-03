@@ -85,4 +85,5 @@ class Pedidos{
 	public function getIdusuario() {
 		return $this->id_user;
 	}
+
 }

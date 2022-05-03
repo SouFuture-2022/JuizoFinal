@@ -13,4 +13,5 @@ class RemoverPedido{
 		$stmt->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}
+	
 }

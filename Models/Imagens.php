@@ -22,4 +22,5 @@ class Imagens{
 	public function getIdproduto() {
 		return $this->id_produto;
 	}
+	
 }

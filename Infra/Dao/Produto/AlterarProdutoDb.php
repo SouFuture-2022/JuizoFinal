@@ -53,4 +53,5 @@ class AlterarEstoque{
 		$stmt->bindParam(':id_product', $id_product, PDO::PARAM_INT);
 		return $stmt->execute();
 	}
+	
 }

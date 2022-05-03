@@ -14,9 +14,6 @@ class Find_Pedido{
 		$stmt->execute();
 		return $stmt->fetch();
 	}
-}
-
-class FindAll_Pedido{
 
 	public function FindAll() {
 		$sql  = "SELECT id_pedido, num_pedido, produto, cor, tamanho, quantidade, preco, sub_total, data_pedido, id_produto, id_usuario FROM pedidos";
@@ -24,9 +21,6 @@ class FindAll_Pedido{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
-}
-
-class FindAllCountShopping_Pedido{
 
 	public function FindAllCountShopping($id_produto) {
 		$sql  = "SELECT SUM(quantidade) FROM pedidos WHERE id_produto =:id_produto";

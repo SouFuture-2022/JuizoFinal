@@ -22,4 +22,5 @@ class Favoritos{
 	public function getIdproduto() {
 		return $this->id_produto;
 	}
+	
 }

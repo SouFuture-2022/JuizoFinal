@@ -14,4 +14,5 @@ class AlterarImagens{
 		$stmt->bindParam(':id_imagem', $id_imagem);
 		return $stmt->execute();
 	}
+	
 }

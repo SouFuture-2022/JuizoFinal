@@ -112,4 +112,5 @@ class Produtos{
 	public function getIdcategoria() {
 		return $this->id_categoria;
 	}
+	
 }

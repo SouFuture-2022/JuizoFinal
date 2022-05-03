@@ -21,4 +21,5 @@ class CadastrarPedido{
 		$stmt->bindParam(':id_usuario', $this->id_user);
 		return $stmt->execute();
 	}
+	
 }

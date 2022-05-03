@@ -13,4 +13,5 @@ class RemoverImagens{
 		$stmt->bindParam(':id_imagem', $id_imagem, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}
+	
 }

@@ -13,4 +13,5 @@ class AlterarCategorias{
 		$stmt->bindParam(':id_categoria', $id_categoria);
 		return $stmt->execute();
 	}
+	
 }

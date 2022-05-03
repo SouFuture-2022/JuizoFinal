@@ -1,6 +1,6 @@
 <?php
 
-namespace Infra\Database;
+namespace Services\Infra\Database;
 use PDO;
 use PDOException;
 
@@ -24,9 +24,5 @@ class Conexao {
 		return self::$connection;
 	}
 }
-
-	#public static function prepare($sql){
-		return self::getInstance()->prepare($sql);
-	#}
 
 

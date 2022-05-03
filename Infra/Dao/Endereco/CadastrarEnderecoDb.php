@@ -1,8 +1,9 @@
 <?php 
 //cadastrar endereços
+namespace Infra\Dao\Endereco;
 use Infra\Database\Conexao;
 
-class Insert{
+class Insert_Endereco{
     public function insert(){
 		$sql = "INSERT INTO enderecos (numero, cep, rua, bairro, cidade, uf, id_usuario, criado_em) VALUES (:numero, :cep, :rua, :bairro, :cidade, :uf, :id_usuario, NOW())";
 		$stmt = Conexao::prepare($sql);

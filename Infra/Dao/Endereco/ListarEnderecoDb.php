@@ -1,8 +1,10 @@
 <?php 
-//Listar endereços
+
+namespace Infra\Dao\Endereco;
+use PDO;
 use Infra\Database\Conexao;
 
-class Find{
+class Find_Endereco{
     	public function find($id_endereco) {
 		$sql  = "SELECT numero, cep, rua, bairro, cidade, uf FROM enderecos WHERE id_endereco = :id_endereco";
 		$stmt = Conexao::prepare($sql);

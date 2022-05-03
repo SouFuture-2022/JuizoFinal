@@ -1,7 +1,7 @@
 <?php
-//Endereço
-namespace Models;
 
+namespace Models;
+//endereco
 class Enderecos{
 
 	private $numero;

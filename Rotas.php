@@ -4,9 +4,9 @@
 		Index::CreateView('Index');
 	});
 
-	Route::set('Admin', function() {
-		Admin::CreateView('Admin');
-	});
+	#Route::set('Admin', function() {
+		#Admin::CreateView('Admin');
+	#});
 
 	Route::set('AllCategorias', function() {
 		AllCategorias::CreateView('AllCategorias');

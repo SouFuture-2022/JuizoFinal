@@ -11,12 +11,28 @@ class ComposerStaticInit70c22141d731eabf891657e30a475032
         array (
             'Services\\' => 9,
         ),
+        'M' => 
+        array (
+            'Models\\' => 7,
+        ),
+        'I' => 
+        array (
+            'Infra\\' => 6,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Services\\' => 
         array (
             0 => __DIR__ . '/../..' . '/services',
+        ),
+        'Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modesl',
+        ),
+        'Infra\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Infra',
         ),
     );
 

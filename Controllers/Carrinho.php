@@ -1,2 +1,4 @@
 <?php
-class Carrinho extends Controller {}
+class Carrinho extends Controller {
+    
+}

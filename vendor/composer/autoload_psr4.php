@@ -7,4 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Services\\' => array($baseDir . '/services'),
+    'Models\\' => array($baseDir . '/Modesl'),
+    'Infra\\' => array($baseDir . '/Infra'),
 );

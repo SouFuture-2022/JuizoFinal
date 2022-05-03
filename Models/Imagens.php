@@ -1,5 +1,7 @@
 <?php
 
+namespace Models;
+
 class Imagens{
 
 	private $nome_imagem;

@@ -4,9 +4,9 @@ namespace Infra\Dao\Produto;
 use Infra\Database\Conexao;
 use PDO;
 
-class Find{
+class Find_Produto{
 
-    public function find($id_produto) {
+    public function Find($id_produto) {
 		$sql  = "SELECT id_produto, nome, imagem_destaque, habilitar_cor, habilitar_tamanho, cor, tamanho, preco, quantidade, peso, un_medida, descricao, id_categoria FROM produtos WHERE id_produto = :id_produto";
 		$stmt = Conexao::prepare($sql);
 		$stmt->bindParam(':id_produto', $id_produto, PDO::PARAM_INT);
@@ -15,9 +15,9 @@ class Find{
 	}
 }
 
-class FindAll{
+class FindAll_Produto{
 
-	public function findAll($inicio, $quantidade_pagina) {
+	public function FindAll($inicio, $quantidade_pagina) {
 		$sql  = "SELECT id_produto, nome, imagem_destaque, habilitar_cor, habilitar_tamanho, cor, tamanho, preco, quantidade, peso, un_medida, descricao, id_categoria FROM produtos ORDER BY id_produto DESC LIMIT $inicio, $quantidade_pagina";
 		$stmt = Conexao::prepare($sql);
 		$stmt->execute();
@@ -25,9 +25,9 @@ class FindAll{
 	}
 }
 
-class FindAllPopular{
+class FindAllPopular_Produto{
     
-	public function findAllPopular($inicio, $quantidade_pagina) {
+	public function FindAllPopular($inicio, $quantidade_pagina) {
 		$sql  = "SELECT id_produto, nome, imagem_destaque, habilitar_cor, habilitar_tamanho, cor, tamanho, preco, quantidade, peso, un_medida, descricao, id_categoria FROM produtos LIMIT $inicio, $quantidade_pagina";
 		$stmt = Conexao::prepare($sql);
 		$stmt->execute();

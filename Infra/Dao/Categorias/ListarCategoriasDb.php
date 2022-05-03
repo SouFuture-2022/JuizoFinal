@@ -4,7 +4,7 @@ namespace Infra\Dao\Categorias;
 use Infra\Database\Conexao;
 use PDO;
 
-class Find{
+class Find_Categorias{
 
     public function Find($id_categoria) {
 		$sql  = "SELECT id_categoria, nome_categoria FROM categorias WHERE id_categoria = :id_categoria";
@@ -15,7 +15,7 @@ class Find{
 	}
 }
 
-class FindAll{
+class FindAll_Categorias{
 
     public function FindAll() {
 		$sql  = "SELECT id_categoria, nome_categoria FROM categorias ORDER BY nome_categoria DESC";
@@ -25,7 +25,7 @@ class FindAll{
 	}
 }
 
-class FindAllCount{
+class FindAllCount_Categorias{
 
     public function FindAllCount() {
 		$sql  = "SELECT COUNT(id_categoria) FROM categorias";
@@ -35,7 +35,7 @@ class FindAllCount{
 	}
 }
 
-class FindAllSearch{
+class FindAllSearch_Categorias{
 
     public function FindAllSearch($buscar) {
 		$sql  = "SELECT id_categoria, nome_categoria FROM categorias WHERE nome_categoria LIKE '%$buscar%'";

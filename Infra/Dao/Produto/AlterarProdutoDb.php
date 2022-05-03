@@ -6,7 +6,7 @@ use PDO;
 
 class AlterarProduto{
 
-    public function update($id_produto) {
+    public function AlterarProduto($id_produto) {
 		$sql  = "UPDATE produtos SET nome = :nome, habilitar_cor = :habilitar_cor, habilitar_tamanho = :habilitar_tamanho, preco = :preco, 
 		quantidade = :quantidade, peso = :peso, descricao = :descricao WHERE id_produto = :id_produto";
 		$stmt = Conexao::prepare($sql);
@@ -24,7 +24,7 @@ class AlterarProduto{
 
 class AlterarCor{
 
-	public function updateCor($id_produto) {
+	public function AlterarCor($id_produto) {
 		$sql  = "UPDATE produtos SET cor = :cor WHERE id_produto = :id_produto";
 		$stmt = Conexao::prepare($sql);
 		$stmt->bindParam(':cor', $this->cor);
@@ -35,7 +35,7 @@ class AlterarCor{
 
 class AlterarTamanho{
 
-	public function updateTamanho($id_produto) {
+	public function AlterarTamanho($id_produto) {
 		$sql  = "UPDATE produtos SET tamanho = :tamanho WHERE id_produto = :id_produto";
 		$stmt = Conexao::prepare($sql);
 		$stmt->bindParam(':tamanho', $this->tamanho);
@@ -46,7 +46,7 @@ class AlterarTamanho{
 
 class AlterarEstoque{
 
-	public function updateStock($amount, $id_product) {
+	public function AlterarEstoque($amount, $id_product) {
 		$sql  = "UPDATE produtos SET quantidade = quantidade - :amount WHERE id_produto = :id_product";
 		$stmt = Conexao::prepare($sql);
 		$stmt->bindParam(':amount', $amount, PDO::PARAM_STR);

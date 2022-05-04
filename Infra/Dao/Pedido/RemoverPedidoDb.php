@@ -8,10 +8,10 @@ use PDO;
 class RemoverPedido{
 
     public function RemoverPedido($id_pedido) {
+		$db = new Conexao();
 		$sql  = "DELETE FROM pedidos WHERE id_pedido = :id_pedido";
-		$stmt = Conexao::prepare($sql);
+		$stmt = $db->Conexao->prepare($sql);
 		$stmt->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}
-	
 }

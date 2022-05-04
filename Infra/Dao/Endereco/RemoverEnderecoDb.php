@@ -14,4 +14,7 @@ class RemoverEndereco{
 		$stmt->bindParam(':id_endereco', $id_endereco, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}
+
+
+	
 }

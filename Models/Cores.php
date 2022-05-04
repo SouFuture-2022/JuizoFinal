@@ -1,8 +1,8 @@
 <?php
 
-require_once 'Crudcores.php';
+#Crud não interligado
 
-class Cores extends Crudcores {
+class Cores {
 
 	private $nome_cor;
 	private $quantidade_cor;
@@ -32,21 +32,4 @@ class Cores extends Crudcores {
 		return $this->id_produto;
 	}
 
-	public function insert(){
-		$sqlUsuario  = "INSERT INTO cores (nome_cor, quantidade_cor, id_produto, criado_em) VALUES (:nome_cor, :quantidade_cor, :id_produto, NOW())";
-		$stmt = Conexao::prepare($sqlUsuario);
-		$stmt->bindParam(':nome_cor', $this->nome_cor);
-		$stmt->bindParam(':quantidade_cor', $this->quantidade_cor);
-		$stmt->bindParam(':id_produto', $this->id_produto);
-		return $stmt->execute();
-	}
-
-	public function update($id_cor) {
-		$sql  = "UPDATE cores SET nome_cor = :nome_cor, quantidade_cor = :quantidade_cor WHERE id_cor = :id_cor";
-		$stmt = Conexao::prepare($sql);
-		$stmt->bindParam(':nome_cor', $this->nome_cor);
-		$stmt->bindParam(':quantidade_cor', $this->quantidade_cor);
-		$stmt->bindParam(':id_cor', $id_cor);
-		return $stmt->execute();
-	}
 }

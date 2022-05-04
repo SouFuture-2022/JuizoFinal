@@ -1,39 +1,38 @@
-<?php
+<?php 
 
-use Infra\Database\conexao;
+namespace Infra\Dao\Avaliacoes;
 
-abstract class Crudavaliacoes extends Conexao {
+use Infra\Database\Conexao;
+use PDO;
 
-	abstract public function insert();
-	abstract public function update($id_avaliacao);
+class ListarAvaliacoesDb {
+    
+    public function find($id_produto) {
+        $db = new Conexao();
 
-	public function find($id_produto) {
 		$sql  = "SELECT AVG(estrela) FROM avaliacoes WHERE id_produto = :id_produto";
-		$stmt = Conexao::prepare($sql);
+		$stmt = $db->Conexao->prepare($sql);
 		$stmt->bindParam(':id_produto', $id_produto, PDO::PARAM_INT);
 		$stmt->execute();
 		return $stmt->fetchColumn();
 	}
 
 	public function findAll() {
+        $db = new Conexao();
+
 		$sql  = "SELECT id_avaliacao, estrela , id_produto FROM avaliacoes";
-		$stmt = Conexao::prepare($sql);
+		$stmt = $db->Conexao->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
 	
 	public function findAllCount($id_produto) {
+        $db = new Conexao();
+
 		$sql  = "SELECT COUNT(id_produto) FROM avaliacoes WHERE id_produto =:id_produto";
-		$stmt = Conexao::prepare($sql);
+		$stmt = $db->Conexao->prepare($sql);
 		$stmt->bindParam(':id_produto', $id_produto, PDO::PARAM_INT);
 		$stmt->execute();
 		return $stmt->fetchColumn();
-	}
-
-	public function delete($id_avaliacao) {
-		$sql  = "DELETE FROM avaliacoes WHERE id_avaliacao = :id_avaliacao";
-		$stmt = Conexao::prepare($sql);
-		$stmt->bindParam(':id_avaliacao', $id_avaliacao, PDO::PARAM_INT);
-		return $stmt->execute(); 
 	}
 }

@@ -17,4 +17,9 @@ class AlterarEndereco{
 		$stmt->bindParam(':id', $id);
 		return $stmt->execute();
 	}
+
+
+
+
+	
 }

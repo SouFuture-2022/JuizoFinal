@@ -23,6 +23,4 @@ class ListarEndereco{
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
-	
-
 }

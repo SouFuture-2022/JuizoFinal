@@ -16,5 +16,4 @@ class AlterarUsuario {
 		$stmt->bindParam(':id', $id);
 		return $stmt->execute();
 	}
-    
 }

@@ -1,0 +1,8 @@
+.rating-css div { color: #ffe400; }
+.rating-css input { display: none; }
+.rating-css input:checked + label ~ label { color: #838383; }
+.rating-css input + label {
+  font-size: 30px;
+  text-shadow: 1px 1px 0 #ffe400;
+  cursor: pointer;
+}

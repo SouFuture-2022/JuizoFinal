@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
+        'pretty_version' => 'dev-refactor/Conexao',
+        'version' => 'dev-refactor/Conexao',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '4bc691e16d94393ea76aa6345c647067200d2583',
+        'reference' => '4779348c1f8b368fc78feb27fc8ee19882660567',
         'name' => 'juizofinal/mvc',
         'dev' => true,
     ),
     'versions' => array(
         'juizofinal/mvc' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
+            'pretty_version' => 'dev-refactor/Conexao',
+            'version' => 'dev-refactor/Conexao',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '4bc691e16d94393ea76aa6345c647067200d2583',
+            'reference' => '4779348c1f8b368fc78feb27fc8ee19882660567',
             'dev_requirement' => false,
         ),
     ),

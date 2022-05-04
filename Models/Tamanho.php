@@ -1,8 +1,8 @@
 <?php
 
-require_once 'Crudtamanho.php';
+#Crud não interligado
 
-class Tamanho extends Crudtamanho {
+class Tamanho{
 
 	private $sub_categoria;
 	private $tamanho_superior;
@@ -50,25 +50,4 @@ class Tamanho extends Crudtamanho {
 		return $this->id_produto;
 	}
 
-	public function insert(){
-		$sql = "INSERT INTO tamanhos (sub_categoria, tamanho_superior, tamanho_inferior, quantidade_tamanho, id_produto, criado_em) VALUES (:sub_categoria, :tamanho_superior, :tamanho_inferior, :quantidade_tamanho, :id_produto, NOW()";
-		$stmt = Conexao::prepare($sql);
-		$stmt->bindParam(':sub_categoria', $this->sub_categoria);
-		$stmt->bindParam(':tamanho_superior', $this->tamanho_superior);
-		$stmt->bindParam(':tamanho_inferior', $this->tamanho_inferior);
-		$stmt->bindParam(':quantidade_tamanho', $this->quantidade_tamanho);
-		$stmt->bindParam(':id_produto', $this->id_produto);
-		return $stmt->execute();
-	}
-
-	public function update($id_produto) {
-		$sql  = "UPDATE tamanhos SET sub_categoria = :sub_categoria, tamanho_superior = :tamanho_superior, tamanho_inferior = :tamanho_inferior, quantidade_tamanho = :quantidade_tamanho WHERE id_tamanho = :id_tamanho";
-		$stmt = Conexao::prepare($sql);
-		$stmt->bindParam(':sub_categoria', $this->sub_categoria);
-		$stmt->bindParam(':tamanho_superior', $this->tamanho_superior);
-		$stmt->bindParam(':tamanho_inferior', $this->tamanho_inferior);
-		$stmt->bindParam(':quantidade_tamanho', $this->quantidade_tamanho);
-		$stmt->bindParam(':id_tamanho', $id_tamanho);
-		return $stmt->execute();
-	}
 }

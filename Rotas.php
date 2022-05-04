@@ -44,9 +44,11 @@
 		CadastrarUsuario::CreateView('CadastrarUsuario');
 	});
 
+	/* Classe da view não existente
 	Route::set('ConsultarPedido', function() {
 		ConsultarPedido::CreateView('ConsultarPedido');
 	});
+	*/
 
 	Route::set('Contato', function() {
 		Contato::CreateView('Contato');
@@ -60,13 +62,16 @@
 		FinalizarCompra::CreateView('FinalizarCompra');
 	});
 
+	/* Classe da view não existente
 	Route::set('ListarCategorias', function() {
 		ListarCategorias::CreateView('ListarCategorias');
 	});
 
+	/* Classe da view não existente
 	Route::set('ListarProdutos', function() {
 		ListarProdutos::CreateView('ListarProdutos');
 	});
+	*/
 
 	Route::set('Login', function() {
 		Login::CreateView('Login');

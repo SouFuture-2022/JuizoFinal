@@ -20,4 +20,5 @@ class CadastrarEndereco{
 		$stmt->bindParam(':id_usuario', $this->id_usuario);
 		return $stmt->execute();
 	}
+	
 }

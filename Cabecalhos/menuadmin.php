@@ -5,26 +5,46 @@
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta http-equiv="cache-control" content="max-age=604800" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Loja Demo</title>
-	<link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
-	<script src="Assets/js/jquery-2.0.0.min.js" type="text/javascript"></script>
-	<script src="Assets/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-	<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-	<link href="Assets/css/all.min.css" type="text/css" rel="stylesheet">
-	<link href="Assets/css/ui.css" rel="stylesheet" type="text/css"/>
-	<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-	<script src="Assets/js/script.js" type="text/javascript"></script>
+	<title>Loja-Demo</title>
+	<link rel="stylesheet" href="style.css">
+	
 </head>
 
 <body>
 <header class="section-header">
 	<nav class="navbar navbar-dark navbar-expand p-0 bg-primary">
 		<div class="container">
-			<ul class="navbar-nav d-none d-md-flex mr-auto">
-				<li class="nav-item"><a class="nav-link" href="../Index">Home Admin</a></li>
-				<li class="nav-item"><a class="nav-link" href="../Sobre">Sobre</a></li>
-				<li class="nav-item"><a class="nav-link" href="../Contato">Contato</a></li>
+			<ul id="inicio-h">
+			<div class="esquerda">
+				
+				<li class="nav-item">
+					<a class="nav-link" href="../Index">Home Admin</a>
+				</li>
+				
+				<li class="nav-item">
+					<a class="nav-link" href="../Sobre">Sobre</a>
+				</li>
+				
+				<li class="nav-item">
+					<a class="nav-link" href="../Contato">Contato</a>
+				</li>
+
+             </div>
+			
+			 <div class="direita">
+				
+			 	<li>
+					<a class="nav-link" href="#">Cadastre-se</a>
+				</li>
+				
+				<li>
+					<a class="nav-link" href="#">Entrar</a>
+				</li>
+
+			 </div>
+				
 			</ul>
+			
 			<ul class="navbar-nav">
 				<li  class="nav-item"><a href="#" class="nav-link">Fone: +55 (00) 9.0000-0000</a></li>
 				<!-- <li class="nav-item dropdown">
@@ -163,4 +183,4 @@
 		</div>
 	</div>
 </nav>
-</header>
+</header> 

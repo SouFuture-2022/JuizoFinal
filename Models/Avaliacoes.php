@@ -2,7 +2,7 @@
 
 #require_once 'Crudavaliacoes.php';
 
-#Crud não conectadoooo
+#Crud não conectado
 
 class Avaliacoes {
 

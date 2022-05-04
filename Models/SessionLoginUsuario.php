@@ -27,4 +27,8 @@ class SessionLogin{
 		session_destroy();
 		echo "<script> alert('Sessão Encerrada...'); window.location='http://homolocacaominhalojinha.orgfree.com/Login'</script>";
     }
+
+
+
+	
 }

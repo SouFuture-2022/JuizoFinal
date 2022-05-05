@@ -1,5 +1,5 @@
 <?php
-
+namespace Models;
 use Infra\Database\Conexao;
 use PDO;
 

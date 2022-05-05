@@ -1,12 +1,7 @@
 <?php
-
-use Models\Enderecos;
-use Infra\Dao\Enderecos\CadastrarEnderecoDb;
-
-	$endereco = new Enderecos();
-	$cadastrar_endereco = new CadastrarEnderecoDb();
-	$cadastrar_endereco ->insert();
 	
+	$endereco = new Enderecos();
+
 	if(isset($_POST['btCadastrar'])) {
 		$numero = $_POST['numero'];
 		$cep = $_POST['cep'];
@@ -24,7 +19,7 @@ use Infra\Dao\Enderecos\CadastrarEnderecoDb;
 		$endereco->setUf($uf);
 		$endereco->setIdusuario($id_usuario);
 
-		if($cadastrar_endereco->insert()) {
+		if($endereco->insert()) {
 			$_SESSION['msg_sucesso'] = 
 			'<div class="alert alert-success" role="alert">
 				<i class="fa fa-check-circle" aria-hidden="true"></i> Cadastro Realizado Com sucesso...

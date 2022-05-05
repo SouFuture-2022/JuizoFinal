@@ -1,10 +1,10 @@
 <?php 
 
-namespace Infra\Dao\Usuarios;
+namespace Infra\Dao\Usuario;
 
 use Infra\Database\Conexao;
 
-class CadastrarUsuarioDb{
+class CadastrarUsuario{
 
     public function insert(){
 		$db = new Conexao();

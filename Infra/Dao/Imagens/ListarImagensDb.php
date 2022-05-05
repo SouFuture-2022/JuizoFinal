@@ -5,7 +5,7 @@ namespace Infra\Dao\Imagens;
 use Infra\Database\Conexao;
 use PDO;
 
-class ListarImagensDb{
+class Find_Imagens{
 
     public function Find($id_produto) {
 		$db = new Conexao();

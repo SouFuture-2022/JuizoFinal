@@ -4,7 +4,7 @@ namespace Infra\Dao\Categorias;
 
 use Infra\Database\Conexao;
 
-class CadastrarCategoriaDb{
+class CadastrarCategoria{
 
 public function insert(){
     $db = new Conexao();

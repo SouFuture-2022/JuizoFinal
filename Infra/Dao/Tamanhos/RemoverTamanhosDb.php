@@ -5,7 +5,7 @@ namespace Infra\Dao\Tamanhos;
 use Infra\Database\Conexao;
 use PDO;
 
-class RemoverTamanhosDb {
+class RemoveTamanhosDb {
 
 	public function delete($id_tamanho) {
         $db = new Conexao();

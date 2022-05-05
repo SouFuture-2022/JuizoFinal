@@ -4,7 +4,7 @@ namespace Infra\Dao\Pedido;
 
 use Infra\Database\Conexao;
 
-class CadastrarPedidoDb{
+class CadastrarPedido{
 
     public function insert(){
 		$db = new Conexao();

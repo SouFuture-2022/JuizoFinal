@@ -8,7 +8,7 @@ use PDO;
 class ListarCoresDb {
     
 
-    public function find($id_produto) {
+    public function find_Cores($id_produto) {
         $db = new Conexao();
 		$sql  = "SELECT id_cor, nome_cor, quantidade_cor FROM cores WHERE quantidade_cor > 0 AND id_produto = :id_produto";
 		$stmt = $db->Conexao->prepare($sql);
@@ -17,7 +17,7 @@ class ListarCoresDb {
 		return $stmt->fetchAll();
 	}
 
-	public function findAll() {
+	public function findAll_Cores() {
         $db = new Conexao();
 		$sql  = "SELECT id_cor, nome_cor, quantidade_cor FROM cores";
 		$stmt = $db->Conexao->prepare($sql);

@@ -5,9 +5,9 @@ namespace Infra\Dao\Imagens;
 use Infra\Database\Conexao;
 use PDO;
 
-class RemoverImagensDb{
+class RemoverImagens{
 
-    public function delete($id_imagem) {
+    public function RemoverImagens($id_imagem) {
 		$db = new Conexao();
 		$sql  = "DELETE FROM usuarios WHERE id_imagem = :id_imagem";
 		$stmt = $db->Conexao->prepare($sql);

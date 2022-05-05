@@ -4,9 +4,9 @@ namespace Infra\Dao\Cores;
 
 use Infra\Database\Conexao;
 
-class AlterarCoresDb {
+class AlterarCores {
     
-	public function update($id_cor) {
+	public function AlterarCores($id_cor) {
         $db = new Conexao();
 		$sql  = "UPDATE cores SET nome_cor = :nome_cor, quantidade_cor = :quantidade_cor WHERE id_cor = :id_cor";
 		$stmt = $db->Conexao->prepare($sql);

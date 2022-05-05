@@ -3,7 +3,7 @@
 namespace Infra\Dao\Produto;
 use Infra\Database\Conexao;
 
-class CadastrarProdutoDb{
+class CadastrarProduto{
 
     public function insert(){
 		$db = new Conexao();

@@ -1,11 +1,5 @@
 <?php
 
-use Infra\Dao\Imagens\CadastrarImagensDb;
-use Infra\Dao\Imagens\ListarImagensDb;
-use Infra\Dao\Produto\ListarProdutoDb;
-use Models\Imagens;
-use Models\Produtos;
-
 	session_start();
 
 	if(isset($_SESSION['msg_error'])) {
@@ -14,14 +8,11 @@ use Models\Produtos;
 	}
 
 	$imagem = new Imagens();
-	$listar_imagem = new ListarImagensDb;
-	$insert_imagens = new CadastrarImagensDb;
 	$produto = new Produtos();
-	$produto = new ListarProdutoDb;
 
 	if(isset($_POST['btCadastrar'])) {
 		$id_produto = $_POST['id_produto'];
-		$verifica_insercao = $listar_imagem->findAllCount($id_produto);
+		$verifica_insercao = $imagem->findAllCount($id_produto);
 
 		if($verifica_insercao < 3) {
 			$extensao = strtolower(substr($_FILES['nome_imagem']['name'], -4));
@@ -33,7 +24,7 @@ use Models\Produtos;
 			$imagem->setNomeimagem($nome_imagem);
 			$imagem->setIdproduto($id_produto);
 
-			if($insert_imagens->insert()) {
+			if($imagem->insert()) {
 				include('Includes/MsgSucesso.php');
 			}
 

@@ -1,6 +1,8 @@
 <?php
-
-	$usuario = new Usuarios();
+	use Models\Usuarios;
+	use Infra\Dao\Usuario\CadastrarUsuario;
+	$usuario = new Usuarios;
+	$cadastrar_usuario = new CadastrarUsuario;
 
 	if(isset($_POST['btCadastrar'])) {
 		$extensao = strtolower(substr($_FILES['perfil']['name'], -4));
@@ -26,7 +28,7 @@
 		$usuario->setSexo($sexo);
 		$usuario->setPerfil($perfil);
 
-		if($usuario->insert()) {
+		if($cadastrar_usuario->insert()) {
 			$_SESSION['msg_sucesso'] = 
 			'<div class="alert alert-success" role="alert">
 				<i class="fa fa-check-circle" aria-hidden="true"></i> Cadastro Realizado Com sucesso...

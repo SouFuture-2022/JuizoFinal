@@ -5,7 +5,7 @@ namespace Infra\Dao\Usuarios;
 use Infra\Database\Conexao;
 use PDO; 
 
-class ListarUsuarioDb{
+class ListarUsuario{
 
     public function Find($id_usuario) {
         $db = new Conexao();

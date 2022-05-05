@@ -4,9 +4,9 @@
 	use Infra\Database\Conexao;
 	use PDO;
 	
-	class ListarCategoriasDb{
+	class ListarCategoriaDb{
 	
-		public function find($id_categoria) {
+		public function Find($id_categoria) {
 			$db = new Conexao();
 			$sql  = "SELECT id_categoria, nome_categoria FROM categorias WHERE id_categoria = :id_categoria";
 			$stmt = $db->Conexao->prepare($sql);
@@ -15,7 +15,7 @@
 			return $stmt->fetch();
 		}
 	
-		public function findAll() {
+		public function FindAll() {
 			$db = new Conexao();
 			$sql  = "SELECT id_categoria, nome_categoria FROM categorias ORDER BY nome_categoria DESC";
 			$stmt = $db->Conexao->prepare($sql);
@@ -23,7 +23,7 @@
 			return $stmt->fetchAll();
 		}
 	
-		public function findAllCount() {
+		public function FindAllCount() {
 			$db = new Conexao();
 			$sql  = "SELECT COUNT(id_categoria) FROM categorias";
 			$stmt = $db->Conexao->prepare($sql);
@@ -31,7 +31,7 @@
 			return $stmt->fetchColumn();
 		}
 	
-		public function findAllSearch($buscar) {
+		public function FindAllSearch($buscar) {
 			$db = new Conexao();
 			$sql  = "SELECT id_categoria, nome_categoria FROM categorias WHERE nome_categoria LIKE '%$buscar%'";
 			$stmt = $db->Conexao->prepare($sql);

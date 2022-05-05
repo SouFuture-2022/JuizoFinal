@@ -4,7 +4,7 @@ namespace Infra\Dao\Favoritos;
 use Infra\Database\Conexao;
 use PDO;
 
-class Find_FavoritosDb{
+class Find_Favoritos{
 
     public function Find($id_favorito) {
 		$db = new Conexao();

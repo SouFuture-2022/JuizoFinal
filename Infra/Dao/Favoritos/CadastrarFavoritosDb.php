@@ -4,9 +4,9 @@ namespace Infra\Dao\Favoritos;
 use Infra\Database\Conexao;
 use PDO;
 
-class CadastrarFavoritosDb{
+class CadastrarFavoritos{
 
-    public function insert(){
+    public function CadastrarFavoritos(){
 		$db = new Conexao();
 		$sql = "INSERT INTO favoritos (id_usuario, id_produto, criado_em) VALUES (:id_usuario, :id_produto, NOW())";
 		$stmt = $db->Conexao->prepare($sql);

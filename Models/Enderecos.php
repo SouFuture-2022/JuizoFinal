@@ -1,7 +1,5 @@
 <?php
 
-namespace Models;
-
 class Enderecos{
 
 	private $numero;

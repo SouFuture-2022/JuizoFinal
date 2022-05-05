@@ -1,7 +1,6 @@
 <?php
 
 #require_once 'Crudavaliacoes.php';
-namespace Models;
 #Crud não conectado
 
 class Avaliacoes {

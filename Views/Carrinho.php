@@ -1,4 +1,9 @@
 <?php
+	use Infra\Database\Conexao; 
+	use Models\Produtos;
+	use Infra\Dao\Pedido\CadastrarPedido;
+	use Infra\Dao\Produto\AlterarProduto;
+	use Models\Pedidos;
 
 	include('AcaoCarrinho.php');
 
@@ -8,7 +13,9 @@
 	}
 
 	$produto = new Produtos();
-	$pedido = new Pedidos();
+	$alterar_produto = new AlterarProduto;
+	$pedido = new Pedidos;
+	$cadastrar_pedido = new CadastrarPedido;
 
 	if(isset($_POST['btCadastrar'])) {
 		$nome = $_POST['nome'];
@@ -49,8 +56,8 @@
 			$pedido->setIdproduto($id_product);
 			$pedido->setIdusuario($id_user);
 
-			if($pedido->insert()) {
-				$produto->updateStock($amount, $id_product);
+			if($cadastrar_pedido->insert()) {
+				$Alterar_produto->updateStock($amount, $id_product);
 
 				$_SESSION['msg_sucesso'] = 
 				'<div class="alert alert-success" role="alert">
@@ -97,9 +104,10 @@
 						<tbody>
 							<form action="?acao=up" method="POST">
 							<?php
+								$db = new Conexao; 
 								foreach($_SESSION['carrinho'] as $id_produto => $qtd) {
 								$sql  = "SELECT * FROM produtos WHERE id_produto = $id_produto";
-								$stmt = Conexao::prepare($sql);
+								$stmt = $db->Conexao->prepare($sql);
 								$stmt->bindParam(1, $id_produto);
 								$stmt->execute();
 								$ln = $stmt->fetchAll();
@@ -194,7 +202,7 @@
 							<?php
 							foreach($_SESSION['carrinho'] as $id_produto => $qtd) {
 								$sql  = "SELECT * FROM produtos WHERE id_produto = $id_produto";
-								$stmt = Conexao::prepare($sql);
+								$stmt = $db->Conexao->prepare($sql);
 								$stmt->bindParam(1, $id_produto);
 								$stmt->execute();
 								$ln = $stmt->fetchAll();

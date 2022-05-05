@@ -1,14 +1,23 @@
 <?php
 
-	
+use Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
+use Infra\Dao\Categorias\ListarCategoriaDb;
+use Infra\Dao\Produto\ListarProdutoDb;
+use Models\Produtos;
+use Models\Categorias;
+use Models\Avaliacoes;
 
 	$produto = new Produtos();
 	$categoria = new Categorias();
 	$avaliacao = new Avaliacoes;
+	$listar_categoria = new ListarCategoriaDb;
+	$listar_produto = new ListarProdutoDb;
+	$listar_avaliacao = new ListarAvaliacoesDb;
+
 	
 	if(isset($_GET['acao']) && $_GET['acao'] == 'cate') {
 			$id_categoria = (int)base64_decode($_GET['categoria']);
-			$resultado = $produto->findAllProductCategories($id_categoria);
+			$resultado = $listar_produto->findAllProductCategories($id_categoria);
 ?>
 
 <section class="section-name bg padding-y-sm">
@@ -38,7 +47,7 @@
 							</a>
 						</header>
 
-						<div class="filter-content collapse show" id="collapse_1" style="">
+						<div class="filter-content collapse show" id="collapse_1">
 							<div class="card-body">
 								<form action="" method="POST" class="pb-3">
 									<div class="input-group">
@@ -61,7 +70,7 @@
 							</div>
 					<?php } else { ?>
 						<div class="alert alert-dark" role="alert">
-					<?php foreach($categoria->findAllSearch($buscar) as $key => $value) { ?>
+					<?php foreach($listar_categoria->findAllSearch($buscar) as $key => $value) { ?>
 							  <p class="text-center"><a href="../Categoria?acao=cate&categoria=<?php echo base64_encode($value->id_categoria); ?>"><?php echo $value->nome_categoria; ?></a></p>
 					<?php } ?>
 						</div>
@@ -74,10 +83,10 @@
 							</a>
 						</header>
 
-						<div class="filter-content collapse show" id="collapse_2" style="">
+						<div class="filter-content collapse show" id="collapse_2" >
 							<div class="card-body">
 								<ul class="list-menu">
-								<?php foreach($categoria->findAll() as $key => $value) { ?>
+								<?php foreach($listar_categoria->findAll() as $key => $value) { ?>
 									<li><a href="../AllCategorias?acao=cate&categoria=<?php echo base64_encode($value->id_categoria); ?>"><?php echo $value->nome_categoria; ?></a></li>
 								<?php } ?>
 								</ul>
@@ -92,10 +101,10 @@
 							</a>
 						</header>
 
-						<div class="filter-content collapse show" id="collapse_3" style="">
+						<div class="filter-content collapse show" id="collapse_3">
 							<div class="card-body">
 								<ul class="list-menu">
-								<?php foreach($produto->findAllProductCategories($id_categoria) as $key => $value) { ?>
+								<?php foreach($listar_produto->findAllProductCategories($id_categoria) as $key => $value) { ?>
 									<li><a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"><?php echo $value->nome; ?></a></li>
 								<?php } ?>
 								</ul>
@@ -110,7 +119,7 @@
 			<main class="col-md-9">
 				<header class="border-bottom mb-4 pb-3">
 						<div class="form-inline">
-							<span class="mr-md-auto"><?php $linhas = $produto->findAllCountProduct($id_categoria); echo $linhas; ?> itens encontrados</span>
+							<span class="mr-md-auto"><?php $linhas = $listar_produto->findAllCountProduct($id_categoria); echo $linhas; ?> itens encontrados</span>
 							<select class="mr-2 form-control">
 								<option>Latest items</option>
 								<option>Trending</option>
@@ -129,7 +138,7 @@
 				$quantidade_pagina = 4;
 				$inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
 
-				foreach($produto->findAllRelated($inicio, $quantidade_pagina, $id_categoria) as $key => $value) { ?>
+				foreach($listar_produto->findAllRelated($inicio, $quantidade_pagina, $id_categoria) as $key => $value) { ?>
 				<article class="card card-product-list">
 					<div class="row no-gutters">
 						<aside class="col-md-3">
@@ -144,7 +153,7 @@
 								<a href="#" class="h5 title"><?php echo $value->nome; ?></a>
 								<div class="rating-wrap mb-3">
 									<ul class="rating-stars">
-										<?php $total_media = $avaliacao->find($id_produto); $media = intval($total_media); $total = $avaliacao->findAllCount($id_produto); ?>
+										<?php $total_media = $listar_avaliacao->find($id_produto); $media = intval($total_media); $total = $listar_avaliacao->findAllCount($id_produto); ?>
 										<li style="width:80%" class="stars-active">
 										<?php if($media == 1) { ?>
 											<i class="fa fa-star"></i>
@@ -198,7 +207,7 @@
 					  </a>
 					</li>
 					<?php
-						$linhas = $produto->findAllCount();
+						$linhas = $listar_produto->findAllCount();
 						$quantidade_linhas = ceil($linhas / $quantidade_pagina);
 						$maximo_links = 3;
 

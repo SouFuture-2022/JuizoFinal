@@ -1,7 +1,13 @@
 <?php
+	use Models\Tamanho;
+	use Models\Produtos;
+	use Infra\Dao\Tamanhos\CadastrarTamanhosDb;
+	use Infra\Dao\Produto\ListarProdutoDb;
 
 	$tamanho = new Tamanho();
 	$produto = new Produtos();
+	$listar_produto = new ListarProdutoDb;
+	$cadastrar_tamanho = new CadastrarTamanhosDb;
 
 	if(isset($_POST['btCadastrar'])) {
 		$sub_categoria  = $_POST['sub_categoria'];
@@ -16,7 +22,7 @@
 		$tamanho->setQuantidadetamanho($quantidade_tamanho);
 		$tamanho->setIdproduto($id_produto);
 
-		if($tamanho->insert()) {
+		if($cadastrar_tamanho->insert()) {
 			include('Includes/MsgSucesso.php');
 		}
 	}
@@ -73,7 +79,7 @@
 					<div class="col-md-6">
 						<select class="form-control" name="id_produto" required >
 							<option value="">Produto</option>
-							<?php foreach($produto->findAllSelect() as $key => $value) { ?>
+							<?php foreach($listar_produto->findAllSelect() as $key => $value) { ?>
 							<option value="<?php echo $value->id_produto; ?>"><?php echo $value->nome; ?></option>
 							<?php } ?>
 						</select>

@@ -1,6 +1,6 @@
 <?php 
 
-namespace Infra\Dao\Usuarios;
+namespace Infra\Dao\Usuario;
 
 use Infra\Database\Conexao;
 

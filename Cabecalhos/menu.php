@@ -1,4 +1,4 @@
-<?php include('./Views/AcaoCarrinho.php'); $produto = new Produtos(); ?>
+<?php #use Models\Produtos; include('./Views/AcaoCarrinho.php'); $produto = new Produtos(); ?>
 
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -71,15 +71,15 @@
 						<a href="../Carrinho" class="icon icon-sm rounded-circle border">
 							<span class="badge badge-pill badge-danger notify"><?php echo $qtd_prod_carrinho; ?></span><i class="fa fa-cart-plus" aria-hidden="true"></i>
 						</a>
-						<!-- <div class="dropdown">
+						<!-- <div class="dropdown"-->
 						<!-- Carrinho -->
 							<!-- <a href="../Carrinho" class="icon icon-sm rounded-circle border" data-toggle="dropdown" aria-expanded="false">
 								<i class="fa fa-cart-plus" aria-hidden="true"></i>
 							</a> -->
 							<!-- Quantidade de Produtos no Carrinho -->
-							<!-- <span class="badge badge-pill badge-danger notify"><?php //echo $qtd_prod_carrinho; ?></span>
+							<!-- <span class="badge badge-pill badge-danger notify"><?php //echo $qtd_prod_carrinho; ?></span> -->
 
-							<!-- <div class="dropdown-menu p-3 dropdown-menu-right" style="min-width: 280px; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(200px, 38px, 0px);" x-placement="bottom-end">
+							<!-- class="dropdown-menu p-3 dropdown-menu-right" style="min-width: 280px; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(200px, 38px, 0px);" x-placement="bottom-end">-->
 
 								<figure class="itemside mb-3">
 									<div class="aside"><img src="bootstrap-ecommerce-html/images/items/1.jpg" class="img-sm border"></div>
@@ -178,6 +178,9 @@
 </header>
 
 <?php
+/*
+$ds = new Produtos();
+
 if(isset($_POST['btBuscarProduto'])) { $buscar  = $_POST['buscar'];
 	if(empty($buscar)) { ?>
 	<div class="alert alert-danger" role="alert">
@@ -185,8 +188,10 @@ if(isset($_POST['btBuscarProduto'])) { $buscar  = $_POST['buscar'];
 	</div>
 <?php } else { ?>
 	<div class="alert alert-dark" role="alert">
-<?php foreach($produto->findAllSearch($buscar) as $key => $value) { ?>
+<?php foreach($ds->produto->findAllSearch($buscar) as $key => $value) { ?>
 		<p class="text-center"><a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"><?php echo $value->nome; ?></a></p>
 <?php } ?>
 	</div>
-<?php }} ?>
+<?php }}
+*/
+?>

@@ -29,13 +29,13 @@ use Models\Categorias;
 	$insert_avaliacao = new CadastrarAvaliacoesDb;
 	$listar_produto = new ListarProdutoDb;
 	$update_produto = new AlterarProdutoDb;
+	$insert_favoritar = new CadastrarFavoritosDb;
 	$produto = new Produtos();
 	$categoria = new Categorias();
 	$imagem = new Imagens();
 	$cor = new Cores();
 	$tamanho = new Tamanho();
 	$favoritar = new Favoritos();
-	$insert_favoritar = new CadastrarFavoritosDb;
 	$avaliacao = new Avaliacoes();
 	$pedidos = new Pedidos();
 

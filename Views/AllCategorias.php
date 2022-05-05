@@ -1,11 +1,11 @@
 <?php
 
-use Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
-use Infra\Dao\Categorias\ListarCategoriaDb;
-use Infra\Dao\Produto\ListarProdutoDb;
-use Models\Produtos;
-use Models\Categorias;
-use Models\Avaliacoes;
+	use Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
+	use Infra\Dao\Categorias\ListarCategoriaDb;
+	use Infra\Dao\Produto\ListarProdutoDb;
+	use Models\Produtos;
+	use Models\Categorias;
+	use Models\Avaliacoes;
 
 	$produto = new Produtos();
 	$categoria = new Categorias();

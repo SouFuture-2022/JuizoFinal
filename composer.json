@@ -1,0 +1,10 @@
+{
+    "name" : "juizofinal/mvc", 
+    "autoload" : {
+        "psr-4": {
+            "Models\\" : "Models/",
+            "Infra\\" : "Infra/",
+            "Services\\" : "services/"
+        }
+    }
+}

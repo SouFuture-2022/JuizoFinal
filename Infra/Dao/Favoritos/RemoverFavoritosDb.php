@@ -4,9 +4,9 @@ namespace Infra\Dao\Favoritos;
 use Infra\Database\Conexao;
 use PDO;
 
-class RemoverFavoritos{
+class RemoverFavoritosDb{
 
-    public function RemoverFavoritos($id_favorito) {
+    public function delete($id_favorito) {
 		$db = new Conexao();
 		$sql  = "DELETE FROM favoritos WHERE id_favorito = :id_favorito";
 		$stmt = $db->Conexao->prepare($sql);

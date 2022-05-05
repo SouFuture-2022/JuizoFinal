@@ -5,9 +5,9 @@ namespace Infra\Dao\Pedido;
 use Infra\Database\Conexao;
 use PDO;
 
-class RemoverPedido{
+class RemoverPedidoDb{
 
-    public function RemoverPedido($id_pedido) {
+    public function delete($id_pedido) {
 		$db = new Conexao();
 		$sql  = "DELETE FROM pedidos WHERE id_pedido = :id_pedido";
 		$stmt = $db->Conexao->prepare($sql);

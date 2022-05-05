@@ -5,7 +5,7 @@ namespace Infra\Dao\Cores;
 use Infra\Database\Conexao;
 use PDO;
 
-class CadastrarCores{
+class CadastrarCoresDb{
 
     public function insert(){
         $db = new Conexao();

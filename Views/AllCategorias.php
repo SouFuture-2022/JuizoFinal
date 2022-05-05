@@ -1,4 +1,7 @@
 <?php
+
+	
+
 	$produto = new Produtos();
 	$categoria = new Categorias();
 	$avaliacao = new Avaliacoes;

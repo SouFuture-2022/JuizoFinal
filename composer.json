@@ -2,7 +2,7 @@
     "name" : "juizofinal/mvc", 
     "autoload" : {
         "psr-4": {
-            "Models\\" : "Modesl/",
+            "Models\\" : "Models/",
             "Infra\\" : "Infra/",
             "Services\\" : "services/"
         }

@@ -1,5 +1,8 @@
 <?php
 
+use Models\Produtos;
+use Models\Categorias;
+
 	session_start();
 
 	if(isset($_SESSION['msg_sucesso'])) {

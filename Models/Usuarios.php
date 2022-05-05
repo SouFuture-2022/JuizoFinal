@@ -1,8 +1,6 @@
 <?php
 
-require_once 'Crudusuarios.php';
-
-class Usuarios extends Crudusuarios {
+class Usuarios{
 
 	private $nome;
 	private $email;
@@ -75,29 +73,5 @@ class Usuarios extends Crudusuarios {
 
 	public function getPerfil() {
 		return $this->perfil;
-	}
-
-	public function insert(){
-		$sql = "INSERT INTO usuarios (nome, email, senha, telefone, cpf, data_nascimento, sexo, perfil, criado_em) 
-		VALUES (:nome, :email, md5(:senha), :telefone, :cpf, :data_nascimento, :sexo, :perfil, NOW())";
-		$stmt = Conexao::prepare($sql);
-		$stmt->bindParam(':nome', $this->nome);
-		$stmt->bindParam(':email', $this->email);
-		$stmt->bindParam(':senha', $this->senha);
-		$stmt->bindParam(':telefone', $this->telefone);
-		$stmt->bindParam(':cpf', $this->cpf);
-		$stmt->bindParam(':data_nascimento', $this->data_nascimento);
-		$stmt->bindParam(':sexo', $this->sexo);
-		$stmt->bindParam(':perfil', $this->perfil);
-		return $stmt->execute();
-	}
-
-	public function update($id_usuario) {
-		$sql  = "UPDATE usuarios SET nome = :nome, email = :email WHERE id = :id";
-		$stmt = Conexao::prepare($sql);
-		$stmt->bindParam(':nome', $this->nome);
-		$stmt->bindParam(':email', $this->email);
-		$stmt->bindParam(':id', $id);
-		return $stmt->execute();
 	}
 }

@@ -1,15 +1,17 @@
 <?php
 
-require_once 'Conexao.php';
+use Infra\Database\Conexao;
+use PDO;
 
-abstract class Crudusuarios extends Conexao {
+abstract class Crudusuarios{
 
 	abstract public function insert();
 	abstract public function update($id);
 
 	public function login($email, $senha) {
+		$db = new Conexao();
 		$sql  = "SELECT email, senha FROM usuarios WHERE email = :email AND senha = :senha";
-		$stmt = Conexao::prepare($sql);
+		$stmt = $db->Conexao->prepare($sql);
 		$stmt->bindParam(':email', $email, PDO::PARAM_STR);
 		$stmt->bindParam(':senha', $senha, PDO::PARAM_STR);
 		$stmt->execute();
@@ -28,26 +30,4 @@ abstract class Crudusuarios extends Conexao {
 		session_destroy();
 		echo "<script> alert('Sessão Encerrada...'); window.location='http://homolocacaominhalojinha.orgfree.com/Login'</script>";
     }
-
-	public function find($id_usuario) {
-		$sql  = "SELECT nome email, senha, telefone, cpf data_nascimento, sexo FROM usuarios WHERE id_usuario = :id_usuario";
-		$stmt = Conexao::prepare($sql);
-		$stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
-		$stmt->execute();
-		return $stmt->fetch();
-	}
-
-	public function findAll() {
-		$sql  = "SELECT nome email, senha, telefone, cpf data_nascimento, sexo FROM usuarios";
-		$stmt = Conexao::prepare($sql);
-		$stmt->execute();
-		return $stmt->fetchAll();
-	}
-
-	public function delete($id_usuario) {
-		$sql  = "DELETE FROM usuarios WHERE id_usuario = :id_usuario";
-		$stmt = Conexao::prepare($sql);
-		$stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
-		return $stmt->execute(); 
-	}
 }

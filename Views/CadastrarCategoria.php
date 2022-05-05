@@ -1,13 +1,16 @@
 <?php
-
+	use Infra\Dao\Categorias\CadastrarCategoria;
+	use Models\Categorias;
 	$categoria = new Categorias();
+	$cadastrar_categoria = new CadastrarCategoria;
+	
 
 	if(isset($_POST['btCadastrar'])) {
 		$nome_categoria  = $_POST['nome_categoria'];
 
 		$categoria->setNomeCategotia($nome_categoria);
 
-		if($categoria->insert()) {
+		if($cadastrar_categoria->insert()) {
 			include('Includes/MsgSucesso.php');
 		}
 	}

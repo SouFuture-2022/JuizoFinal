@@ -1,5 +1,5 @@
 <?php
-
+namespace Models;
 #Crud não interligado
 
 class Tamanho{

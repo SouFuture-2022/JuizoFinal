@@ -1,5 +1,5 @@
 <?php
-
+namespace Models;
 class Categorias{
 
 	private $nome_categoria;

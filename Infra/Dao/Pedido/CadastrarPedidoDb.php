@@ -6,7 +6,7 @@ use Infra\Database\Conexao;
 
 class CadastrarPedido{
 
-    public function CadastrarPedido(){
+    public function insert(){
 		$db = new Conexao();
 		$sql = "INSERT INTO pedidos (num_pedido, nome, cor, tamanho, quantidade, preco, sub_total, id_produto, id_usuario, data_pedido) 
 		VALUES (:num_pedido, :nome, :cor, :tamanho, :quantidade, :preco, :sub_total, :id_produto, :id_usuario, NOW())";

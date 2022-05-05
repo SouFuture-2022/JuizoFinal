@@ -4,7 +4,7 @@
 	use Infra\Database\Conexao;
 	use PDO;
 	
-	class Find{
+	class ListarCategoriaDb{
 	
 		public function Find($id_categoria) {
 			$db = new Conexao();

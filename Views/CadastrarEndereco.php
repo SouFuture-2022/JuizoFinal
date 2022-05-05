@@ -1,5 +1,5 @@
 <?php
-
+	
 	$endereco = new Enderecos();
 
 	if(isset($_POST['btCadastrar'])) {

@@ -4,7 +4,7 @@ namespace Infra\Dao\Produto;
 use Infra\Database\Conexao;
 use PDO;
 
-class AlterarProduto{
+class AlterarProdutoDb{
 
     public function update($id_produto) {
 		$db = new Conexao();
@@ -21,9 +21,6 @@ class AlterarProduto{
 		$stmt->bindParam(':id_produto', $id_produto);
 		return $stmt->execute();
 	}
-}
-
-class AlterarCor{
 
 	public function updateCor($id_produto) {
 		$db = new Conexao();
@@ -33,9 +30,6 @@ class AlterarCor{
 		$stmt->bindParam(':id_produto', $id_produto);
 		return $stmt->execute();
 	}
-}
-
-class AlterarTamanho{
 
 	public function updateTamanho($id_produto) {
 		$db = new Conexao();
@@ -45,9 +39,6 @@ class AlterarTamanho{
 		$stmt->bindParam(':id_produto', $id_produto);
 		return $stmt->execute();
 	}
-}
-
-class AlterarEstoque{
 
 	public function updateStock($amount, $id_product) {
 		$db = new Conexao();

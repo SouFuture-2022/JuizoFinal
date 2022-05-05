@@ -4,7 +4,7 @@ namespace Infra\Dao\Produto;
 use Infra\Database\Conexao;
 use PDO;
 
-class RemoverProduto {
+class RemoverProdutoDb {
 
     public function delete($id_produto) {
 		$db = new Conexao();

@@ -5,7 +5,7 @@ namespace Infra\Dao\Pedido;
 use Infra\Database\Conexao;
 use PDO;
 
-class Find_Pedido{
+class ListarPedidoDb{
 
     public function Find($id_pedido) {
 		$db = new Conexao();

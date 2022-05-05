@@ -1,5 +1,7 @@
 <?php
 
+use Models\Categorias;
+
 	session_start();
 	$categoria = new Categorias();
 

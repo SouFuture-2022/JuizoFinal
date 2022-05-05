@@ -1,5 +1,7 @@
 <?php
 
+namespace Models;
+
 class Favoritos{
 
 	private $id_usuario;

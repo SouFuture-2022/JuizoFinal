@@ -5,7 +5,7 @@ namespace Infra\Dao\Endereco;
 use Infra\Database\Conexao;
 use PDO;
 
-class RemoverEndereco{
+class RemoverEnderecoDb{
 
     public function delete($id_endereco) {
         $db = new Conexao();

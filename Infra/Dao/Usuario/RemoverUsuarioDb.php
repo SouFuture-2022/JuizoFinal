@@ -5,7 +5,7 @@ namespace Infra\Dao\Usuarios;
 use Infra\Database\Conexao;
 use PDO; 
 
-class RemoverUsuario{
+class RemoverUsuarioDb{
 
     public function delete($id_usuario) {
 		$db = new Conexao();

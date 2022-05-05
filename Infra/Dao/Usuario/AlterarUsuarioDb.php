@@ -4,9 +4,9 @@ namespace Infra\Dao\Usuarios;
 
 use Infra\Database\Conexao;
 
-class AlterarUsuario {
+class AlterarUsuarioDb {
     //id_usuario não é utilizado 
-    public function AlterarUsuario($id_usuario) {
+    public function update($id_usuario) {
 		$db = new Conexao();
 		$sql  = "UPDATE usuarios SET nome = :nome, email = :email WHERE id = :id";
 		$stmt = $db->Conexao->prepare($sql);

@@ -1,5 +1,7 @@
 <?php
 
+namespace Models;
+
 class Route {
 
 	public static $validaRotas = array();

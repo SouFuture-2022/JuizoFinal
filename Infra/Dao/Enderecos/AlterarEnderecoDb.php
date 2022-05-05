@@ -5,7 +5,7 @@ namespace Infra\Dao\Endereco;
 use Infra\Database\Conexao;
 use PDO;
 
-class AlterarEndereco{
+class AlterarEnderecoDb{
     //id_usuario não está sendo utilizado
 	public function update($id_usuario) {
         $db = new Conexao();

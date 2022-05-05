@@ -1,11 +1,10 @@
 <?php 
 
-namespace Infra\Dao\Endereco;
+namespace Infra\Dao\Enderecos;
 
 use Infra\Database\Conexao;
-use PDO;
 
-class CadastrarEndereco{
+class CadastrarEnderecoDb{
 
 	public function insert(){
         $db = new Conexao();

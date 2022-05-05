@@ -4,7 +4,7 @@ namespace Infra\Dao\Usuarios;
 
 use Infra\Database\Conexao;
 
-class CadastrarUsuario{
+class CadastrarUsuarioDb{
 
     public function insert(){
 		$db = new Conexao();

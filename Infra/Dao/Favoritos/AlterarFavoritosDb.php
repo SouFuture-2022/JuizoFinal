@@ -4,9 +4,9 @@ namespace Infra\Dao\Favoritos;
 use Infra\Database\Conexao;
 use PDO;
 
-class AlterarFavoritos{
+class AlterarFavoritosDb{
 
-    public function AlterarFavoritos($id_favorito) {
+    public function update($id_favorito) {
 		$db = new Conexao();
 		$sql  = "UPDATE favoritos SET id_usuario = :id_usuario, id_produto = :id_produto WHERE id_favorito = :id_favorito";
 		$stmt = $db->Conexao->prepare($sql);

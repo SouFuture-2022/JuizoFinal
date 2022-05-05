@@ -1,11 +1,12 @@
 <?php
+
 	$produto = new Produtos();
 	$categoria = new Categorias();
 	$avaliacao = new Avaliacoes;
 	
 	if(isset($_GET['acao']) && $_GET['acao'] == 'cate') {
 			$id_categoria = (int)base64_decode($_GET['categoria']);
-			$resultado = $produto->findAllProductCategories($id_categoria);
+			$resultado = $produto->FindAllProductCategories($id_categoria);
 ?>
 
 <section class="section-name bg padding-y-sm">

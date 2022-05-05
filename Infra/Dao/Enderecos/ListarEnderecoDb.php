@@ -5,7 +5,7 @@ namespace Infra\Dao\Endereco;
 use Infra\Database\Conexao;
 use PDO;
 
-class ListarEndereco{
+class ListarEnderecoDb{
 
     public function Find($id_endereco) {
         $db = new Conexao();

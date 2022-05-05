@@ -4,7 +4,7 @@ namespace Infra\Dao\Produto;
 use Infra\Database\Conexao;
 use PDO;
 
-class Find{
+class ListarProdutoDb{
 
     public function Find($id_produto) {
 		$db = new Conexao();

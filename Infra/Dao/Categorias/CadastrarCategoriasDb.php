@@ -4,9 +4,9 @@ namespace Infra\Dao\Categorias;
 
 use Infra\Database\Conexao;
 
-class CadastrarCategoria{
+class CadastrarCategoriaDb{
 
-public function CadastrarCategoria(){
+public function insert(){
     $db = new Conexao();
     $sqlCategoria  = "INSERT INTO categorias (nome_categoria, criado_em) VALUES (:nome_categoria, NOW())";
     $stmt = $db->Conexao->prepare($sqlCategoria);

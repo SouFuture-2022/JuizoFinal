@@ -4,9 +4,9 @@ namespace Infra\Dao\Imagens;
 
 use Infra\Database\Conexao;
 
-class CadastrarImagens{
+class CadastrarImagensDb{
 
-    public function CadastrarImagens(){
+    public function insert(){
 		$db = new Conexao();
 		$sql = "INSERT INTO imagens (nome_imagem, id_produto, criado_em) VALUES (:nome_imagem, :id_produto, NOW())";
 		$stmt = $db->Conexao->prepare($sql);

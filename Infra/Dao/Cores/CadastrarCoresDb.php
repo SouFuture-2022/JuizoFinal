@@ -5,9 +5,9 @@ namespace Infra\Dao\Cores;
 use Infra\Database\Conexao;
 use PDO;
 
-class CadastrarCores{
+class CadastrarCoresDb{
 
-    public function CadastrarCores(){
+    public function insert(){
         $db = new Conexao();
 		$sqlUsuario  = "INSERT INTO cores (nome_cor, quantidade_cor, id_produto, criado_em) VALUES (:nome_cor, :quantidade_cor, :id_produto, NOW())";
 		$stmt = $db->Conexao->prepare($sqlUsuario);

@@ -1,5 +1,21 @@
 <?php
 
+use Infra\Dao\Avaliacoes\CadastrarAvaliacoesDb;
+use Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
+use Infra\Dao\Favoritos\CadastrarFavoritosDb;
+use Infra\Dao\Imagens\ListarImagensDb;
+use Infra\Dao\Pedido\ListarPedidoDb;
+use Infra\Dao\Produto\AlterarProdutoDb;
+use Infra\Dao\Produto\ListarProdutoDb;
+use Models\Produtos;
+use Models\Categorias;
+use Models\Tamanho;
+use Models\Imagens;
+use Models\Cores;
+use Models\Favoritos;
+use Models\Avaliacoes;
+use Models\Pedidos;
+
 	session_start();
 
 	if(isset($_SESSION['msg_sucesso'])) {
@@ -15,6 +31,13 @@
 	$favoritar = new Favoritos();
 	$avaliacao = new Avaliacoes();
 	$pedidos = new Pedidos();
+	$alterar_produto = new AlterarProdutoDb;
+	$insert_favoritar = new CadastrarFavoritosDb;
+	$insert_avaliacao = new CadastrarAvaliacoesDb;
+	$listar_produto = new ListarProdutoDb;
+	$listar_imagem = new ListarImagensDb;
+	$listar_avaliacao = new ListarAvaliacoesDb;
+	$listar_pedidos = new ListarPedidoDb;
 
 	if(isset($_POST['btEscolherCor'])) {
 		$id_produto = $_POST['id_produto'];
@@ -22,7 +45,7 @@
 
 		$produto->setCor($cor);
 
-		if($produto->updateCor($id_produto)) {
+		if($alterar_produto->updateCor($id_produto)) {
 			$_SESSION['msg_sucesso'] = 
 			'<div class="alert alert-success" role="alert">
 				Cor Escolhida Com sucesso...
@@ -37,7 +60,7 @@
 
 		$produto->setTamanho($tamanho);
 
-		if($produto->updateTamanho($id_produto)) {
+		if($alterar_produto->updateTamanho($id_produto)) {
 			$_SESSION['msg_sucesso'] = 
 			'<div class="alert alert-success" role="alert">
 				Tamanho Escolhido Com sucesso...
@@ -53,7 +76,7 @@
 		$favoritar->setIdusuario($id_usuario);
 		$favoritar->setIdproduto($id_produto);
 
-		if($favoritar->insert()) {
+		if($insert_favoritar->insert()) {
 			$_SESSION['msg_sucesso'] = 
 			'<div class="alert alert-success" role="alert">
 				Favorito Adicionado Com sucesso...
@@ -70,7 +93,7 @@
 			$avaliacao->setEstrela($estrela);
 			$avaliacao->setIdproduto($id_produto);
 
-			if($avaliacao->insert()) {
+			if($insert_avaliacao->insert()) {
 				$_SESSION['msg_sucesso'] = 
 				'<div class="alert alert-success" role="alert">
 					Avaliação Realizada Com sucesso...
@@ -102,7 +125,7 @@
 		<?php
 		if(isset($_GET['acao']) && $_GET['acao'] == 'prod') {
 			$id_produto = (int)base64_decode($_GET['produto']);
-			$resultado = $produto->find($id_produto);
+			$resultado = $listar_produto->find($id_produto);
 		?>
 			<div class="row no-gutters">
 				<aside class="col-md-6">
@@ -119,7 +142,7 @@
 									<div class="carousel-item active">
 										<img class="d-block w-100" src="Uploads/ProdutosDestaque/<?php echo $resultado->imagem_destaque; ?>" alt="First slide">
 									</div>
-								<?php foreach($imagem->find($id_produto) as $key => $value) { ?>
+								<?php foreach($listar_imagem->find($id_produto) as $key => $value) { ?>
 									<div class="carousel-item">
 										<img class="d-block w-100" src="Uploads/Produtos/<?php echo $value->nome_imagem; ?>" alt="Second slide">
 									</div>
@@ -167,7 +190,7 @@
 
 				<div class="rating-wrap my-3">
 					<ul class="rating-stars">
-					<?php $total_media = $avaliacao->find($id_produto); $media = intval($total_media); $total = $avaliacao->findAllCount($id_produto); ?>
+					<?php $total_media = $listar_avaliacao->find($id_produto); $media = intval($total_media); $total = $listar_avaliacao->findAllCount($id_produto); ?>
 						<li style="width:80%" class="stars-active">
 						<?php if($media == 1) { ?>
 							<i class="fa fa-star"></i>
@@ -194,7 +217,7 @@
 	
 					<small class="label-rating text-success">
 						<i class="far fa-check-square"></i> 
-						<?php $compras = $pedidos->findAllCountShopping($resultado->id_produto); echo $compras; ?> compras
+						<?php $compras = $listar_pedidos->findAllCountShopping($resultado->id_produto); echo $compras; ?> compras
 					</small>
 
 					<small class="label-rating">

@@ -28,7 +28,7 @@ class ComposerStaticInit70c22141d731eabf891657e30a475032
         ),
         'Models\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/Modesl',
+            0 => __DIR__ . '/../..' . '/Models',
         ),
         'Infra\\' => 
         array (

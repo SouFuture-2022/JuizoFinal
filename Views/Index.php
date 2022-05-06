@@ -1,7 +1,13 @@
 <?php
+	use Models\Produtos;
+	use Models\Avaliacoes;
+	use Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
+	use Infra\Dao\Produto\ListarProdutoDb;
 
 	$produto = new Produtos();
 	$avaliacao = new Avaliacoes;
+	$listar_produto = new ListarProdutoDb;
+	$listar_avaliacao = new ListarAvaliacoesDb;
 	session_start();
 
 	if(isset($_SESSION['msg_sucesso'])) {
@@ -99,7 +105,7 @@
 			$quantidade_pagina = 4;
 			$inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
 
-			foreach($produto->findAllPopular($inicio, $quantidade_pagina) as $key => $value) { ?>
+			foreach($listar_produto->findAllPopular($inicio, $quantidade_pagina) as $key => $value) { ?>
 				<div class="col-md-3">
 					<div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>" class="card card-product-grid">
 						<a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>" class="img-wrap"><img src="Uploads/ProdutosDestaque/<?php echo $value->imagem_destaque; ?>" /></a>
@@ -108,7 +114,7 @@
 
 							<div class="rating-wrap">
 								<ul class="rating-stars">
-								<?php $total_media = $avaliacao->find($value->id_produto); $media = intval($total_media); $total = $avaliacao->findAllCount($value->id_produto); ?>
+								<?php $total_media = $listar_avaliacao->find($value->id_produto); $media = intval($total_media); $total = $listar_avaliacao->findAllCount($value->id_produto); ?>
 									<li style="width:80%" class="stars-active">
 									<?php if($media == 1) { ?>
 										<i class="fa fa-star"></i>
@@ -144,7 +150,7 @@
 			  </a>
 			</li>
 			<?php
-				$linhas = $produto->findAllCount();
+				$linhas = $listar_produto->findAllCount();
 				$quantidade_linhas = ceil($linhas / $quantidade_pagina);
 				$maximo_links = 3;
 
@@ -190,7 +196,7 @@
 			$quantidade_pagina = 4;
 			$inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
 
-			foreach($produto->findAll($inicio, $quantidade_pagina) as $key => $value) { ?>
+			foreach($listar_produto->findAll($inicio, $quantidade_pagina) as $key => $value) { ?>
 				<div class="col-md-3">
 					<div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>" class="card card-product-grid">
 						<a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>" class="img-wrap"><img src="Uploads/ProdutosDestaque/<?php echo $value->imagem_destaque; ?>" /></a>
@@ -199,7 +205,7 @@
 
 							<div class="rating-wrap">
 								<ul class="rating-stars">
-								<?php $total_media = $avaliacao->find($value->id_produto); $media = intval($total_media); $total = $avaliacao->findAllCount($value->id_produto); ?>
+								<?php $total_media = $listar_avaliacao->find($value->id_produto); $media = intval($total_media); $total = $listar_avaliacao->findAllCount($value->id_produto); ?>
 									<li style="width:80%" class="stars-active">
 									<?php if($media == 1) { ?>
 										<i class="fa fa-star"></i>
@@ -235,7 +241,7 @@
 			  </a>
 			</li>
 			<?php
-				$linhas = $produto->findAllCount();
+				$linhas = $listar_produto->findAllCount();
 				$quantidade_linhas = ceil($linhas / $quantidade_pagina);
 				$maximo_links = 3;
 

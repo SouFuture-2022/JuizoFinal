@@ -1,5 +1,8 @@
 <?php
 
+namespace Models;
+
+
 class Produtos{
 
 	private $nome;

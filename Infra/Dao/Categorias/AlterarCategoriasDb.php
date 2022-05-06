@@ -4,11 +4,12 @@ namespace Infra\Dao\Categorias;
 
 use Infra\Database\Conexao;
 
-class AlterarCategorias{
+class AlterarCategoriasDb{
 
-    public function AlterarCategorias($id_categoria) {
+    public function update($id_categoria) {
+		$db = new Conexao();
 		$sql  = "UPDATE categorias SET nome_categoria = :nome_categoria WHERE id_categoria = :id_categoria";
-		$stmt = Conexao::prepare($sql);
+		$stmt = $db->Conexao->prepare($sql);
 		$stmt->bindParam(':nome_categoria', $this->nome_categoria);
 		$stmt->bindParam(':id_categoria', $id_categoria);
 		return $stmt->execute();

@@ -1,8 +1,6 @@
 <?php
-
-require_once 'Crudenderecos.php';
-
-class Enderecos extends Crudenderecos {
+namespace Models;
+class Enderecos{
 
 	private $numero;
 	private $cep;
@@ -66,27 +64,5 @@ class Enderecos extends Crudenderecos {
 
 	public function getIdusuario() {
 		return $this->id_usuario;
-	}
-
-	public function insert(){
-		$sql = "INSERT INTO enderecos (numero, cep, rua, bairro, cidade, uf, id_usuario, criado_em) VALUES (:numero, :cep, :rua, :bairro, :cidade, :uf, :id_usuario, NOW())";
-		$stmt = Conexao::prepare($sql);
-		$stmt->bindParam(':numero', $this->numero);
-		$stmt->bindParam(':cep', $this->cep);
-		$stmt->bindParam(':rua', $this->rua);
-		$stmt->bindParam(':bairro', $this->bairro);
-		$stmt->bindParam(':cidade', $this->cidade);
-		$stmt->bindParam(':uf', $this->uf);
-		$stmt->bindParam(':id_usuario', $this->id_usuario);
-		return $stmt->execute();
-	}
-
-	public function update($id_usuario) {
-		$sql  = "UPDATE enderecos SET nome = :nome, email = :email WHERE id = :id";
-		$stmt = Conexao::prepare($sql);
-		$stmt->bindParam(':nome', $this->nome);
-		$stmt->bindParam(':email', $this->email);
-		$stmt->bindParam(':id', $id);
-		return $stmt->execute();
 	}
 }

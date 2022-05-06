@@ -7,12 +7,21 @@
 		unset($_SESSION['msg_error']);
 	}
 
+	use Infra\Dao\Imagens\CadastrarImagens;
+	use Models\Imagens;
+	use Models\Produtos;
+	use Infra\Dao\Imagens\ListarImagensDb;
+	use Infra\Dao\Produto\CadastrarProduto;
+
 	$imagem = new Imagens();
+	$listar_imagens = new ListarImagensDb;
 	$produto = new Produtos();
+	$cadastrar_produto = new CadastrarProduto;
+	$cadastrar_imagens = new CadastrarImagens;
 
 	if(isset($_POST['btCadastrar'])) {
 		$id_produto = $_POST['id_produto'];
-		$verifica_insercao = $imagem->findAllCount($id_produto);
+		$verifica_insercao = $listar_imagem->findAllCount($id_produto);
 
 		if($verifica_insercao < 3) {
 			$extensao = strtolower(substr($_FILES['nome_imagem']['name'], -4));
@@ -24,7 +33,7 @@
 			$imagem->setNomeimagem($nome_imagem);
 			$imagem->setIdproduto($id_produto);
 
-			if($imagem->insert()) {
+			if($cadastrar_imagem->insert()) {
 				include('Includes/MsgSucesso.php');
 			}
 
@@ -60,7 +69,7 @@
 						<div class="form-group">
 							<select class="form-control" name="id_produto" required >
 								<option value="">Produto</option>
-								<?php foreach($produto->findAllSelect() as $key => $value) { ?>
+								<?php foreach($listar_produto->findAllSelect() as $key => $value) { ?>
 								<option value="<?php echo $value->id_produto; ?>"><?php echo $value->nome; ?></option>
 								<?php } ?>
 							</select>

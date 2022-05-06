@@ -1,5 +1,7 @@
 <?php
-namespace Models;
+
+namespace App\Models;
+
 class Pedidos{
 
 	private $num_pedido;

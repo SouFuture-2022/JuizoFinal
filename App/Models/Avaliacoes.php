@@ -1,5 +1,6 @@
 <?php
-namespace Models;
+
+namespace App\Models;
 #require_once 'Crudavaliacoes.php';
 
 #Crud não conectado

@@ -1,5 +1,6 @@
 <?php
-namespace Models;
+
+namespace App\Models;
 #Crud não interligado
 
 class Cores {

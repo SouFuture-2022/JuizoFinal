@@ -7,7 +7,7 @@ use PDO;
 
 class RemoverCoresDb {
     
-    public function RemoverCoresDb($id_cor) {
+    public function delete($id_cor) {
         $db = new Conexao();
 
 		$sql  = "DELETE FROM cores WHERE id_cor = :id_cor";

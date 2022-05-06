@@ -5,9 +5,9 @@ namespace Infra\Dao\Imagens;
 use Infra\Database\Conexao;
 use PDO;
 
-class AlterarImagens{
+class AlterarImagensDb{
 
-    public function AlterarImagens($id_imagem) {
+    public function update($id_imagem) {
 		$db = new Conexao();
 		$sql  = "UPDATE imagens SET nome_imagem = :nome_imagem WHERE id_imagem = :id_imagem";
 		$stmt = $db->Conexao->prepare($sql);

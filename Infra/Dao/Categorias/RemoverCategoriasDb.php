@@ -4,9 +4,9 @@ namespace Infra\Dao\Categorias;
 use Infra\Database\Conexao;
 use PDO;
 
-class RemoverCategorias{
+class RemoverCategoriasDb{
 
-	public function RemoverCategorias($id_categoria) {
+	public function delete($id_categoria) {
 		$db = new Conexao();
 		$sql  = "DELETE FROM categorias WHERE id_categoria = :id_categoria";
 		$stmt = $db->Conexao->prepare($sql);

@@ -7,7 +7,7 @@ use PDO;
 
 class ListarImagensDb{
 
-    public function Find($id_produto) {
+    public function find($id_produto) {
 		$db = new Conexao();
 		$sql  = "SELECT id_imagem, nome_imagem, id_produto FROM imagens WHERE id_produto = :id_produto";
 		$stmt = $db->Conexao->prepare($sql);
@@ -16,7 +16,7 @@ class ListarImagensDb{
 		return $stmt->fetchAll();
 	}
 
-	public function FindAll() {
+	public function findAll() {
 		$db = new Conexao();
 		$sql  = "SELECT id_imagem, nome_imagem, id_produto FROM imagens";
 		$stmt = $db->Conexao->prepare($sql);
@@ -24,7 +24,7 @@ class ListarImagensDb{
 		return $stmt->fetchAll();
 	}
 
-	public function FindAllCount($id_produto) {
+	public function findAllCount($id_produto) {
 		$db = new Conexao();
 		$sql  = "SELECT COUNT(id_produto) FROM imagens WHERE id_produto =:id_produto";
 		$stmt = $db->Conexao->prepare($sql);

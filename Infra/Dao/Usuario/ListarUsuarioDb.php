@@ -5,9 +5,9 @@ namespace Infra\Dao\Usuarios;
 use Infra\Database\Conexao;
 use PDO; 
 
-class ListarUsuario{
+class ListarUsuarioDb{
 
-    public function Find($id_usuario) {
+    public function find($id_usuario) {
         $db = new Conexao();
 		$sql  = "SELECT nome email, senha, telefone, cpf data_nascimento, sexo FROM usuarios WHERE id_usuario = :id_usuario";
 		$stmt = $db->Conexao->prepare($sql);
@@ -16,7 +16,7 @@ class ListarUsuario{
 		return $stmt->fetch();
 	}
 
-	public function FindAll() {
+	public function findAll() {
         $db = new Conexao();
 		$sql  = "SELECT nome email, senha, telefone, cpf data_nascimento, sexo FROM usuarios";
 		$stmt = $db->Conexao->prepare($sql);

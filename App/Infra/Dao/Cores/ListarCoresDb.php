@@ -1,6 +1,6 @@
 <?php 
 
-namespace Infra\Dao\Cores;
+namespace App\Infra\Dao\Cores;
 
 use Infra\Database\Conexao;
 use PDO;

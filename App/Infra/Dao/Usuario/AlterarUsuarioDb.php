@@ -1,6 +1,6 @@
 <?php 
 
-namespace Infra\Dao\Usuarios;
+namespace App\Infra\Dao\Usuarios;
 
 use Infra\Database\Conexao;
 
@@ -13,7 +13,7 @@ class AlterarUsuarioDb {
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':email', $this->email);
     //id não é uma variável válida
-		$stmt->bindParam(':id', $id);
+		$stmt->bindParam(':id', $id_usuario);
 		return $stmt->execute();
 	}
 }

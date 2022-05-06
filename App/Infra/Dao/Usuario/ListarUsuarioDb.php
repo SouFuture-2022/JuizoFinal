@@ -1,6 +1,6 @@
 <?php 
 
-namespace Infra\Dao\Usuarios;
+namespace App\Infra\Dao\Usuarios;
 
 use Infra\Database\Conexao;
 use PDO; 

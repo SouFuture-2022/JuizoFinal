@@ -1,6 +1,6 @@
 <?php 
 
-namespace Infra\Dao\Endereco;
+namespace App\Infra\Dao\Endereco;
 
 use Infra\Database\Conexao;
 use PDO;
@@ -14,7 +14,7 @@ class AlterarEndereco{
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':email', $this->email);
         //id não é uma variável definida
-		$stmt->bindParam(':id', $id);
+		$stmt->bindParam(':id', $id_usuario);
 		return $stmt->execute();
 	}
 }

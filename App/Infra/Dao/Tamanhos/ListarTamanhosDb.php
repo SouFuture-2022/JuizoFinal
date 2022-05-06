@@ -1,6 +1,6 @@
 <?php 
 
-namespace Infra\Dao\TamanhosDb;
+namespace App\Infra\Dao\TamanhosDb;
 
 use Infra\Database\Conexao;
 use PDO;

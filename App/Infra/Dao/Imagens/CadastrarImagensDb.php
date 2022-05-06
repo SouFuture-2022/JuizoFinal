@@ -1,6 +1,6 @@
 <?php 
 
-namespace Infra\Dao\Imagens;
+namespace App\Infra\Dao\Imagens;
 
 use Infra\Database\Conexao;
 

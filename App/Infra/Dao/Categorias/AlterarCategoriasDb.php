@@ -1,6 +1,6 @@
 <?php  
 
-namespace Infra\Dao\Categorias;
+namespace App\Infra\Dao\Categorias;
 
 use Infra\Database\Conexao;
 

@@ -1,6 +1,6 @@
 <?php 
 
-namespace Infra\Dao\Endereco;
+namespace App\Infra\Dao\Endereco;
 
 use Infra\Database\Conexao;
 use PDO;

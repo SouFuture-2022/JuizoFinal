@@ -1,6 +1,6 @@
 <?php 
 
-namespace Infra\Dao\Avaliacoes;
+namespace App\Infra\Dao\Avaliacoes;
 
 use Infra\Database\Conexao;
 

@@ -1,6 +1,6 @@
 <?php 
 
-namespace Infra\Dao\Favoritos;
+namespace App\Infra\Dao\Favoritos;
 use Infra\Database\Conexao;
 use PDO;
 

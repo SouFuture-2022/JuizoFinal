@@ -1,6 +1,6 @@
 <?php
 
-namespace Infra\Dao\Tamanhos;
+namespace App\Infra\Dao\Tamanhos;
 use Infra\Database\Conexao;
 
 class CadastrarTamanhosDb {

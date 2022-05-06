@@ -1,6 +1,6 @@
 <?php 
 
-namespace Infra\Dao\Pedido; 
+namespace App\Infra\Dao\Pedido; 
 
 use Infra\Database\Conexao;
 

@@ -1,6 +1,7 @@
 <?php  
 
 namespace App\Infra\Dao\Produto;
+
 use Infra\Database\Conexao;
 use PDO;
 

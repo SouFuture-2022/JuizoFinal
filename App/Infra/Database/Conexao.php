@@ -1,6 +1,7 @@
 <?php
 
-namespace Infra\Database;
+namespace App\Infra\Database;
+
 use PDO;
 use PDOException;
 

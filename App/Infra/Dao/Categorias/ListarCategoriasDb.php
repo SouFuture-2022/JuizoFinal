@@ -1,6 +1,7 @@
 <?php 
 
 	namespace App\Infra\Dao\Categorias;
+	
 	use Infra\Database\Conexao;
 	use PDO;
 	

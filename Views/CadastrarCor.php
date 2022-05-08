@@ -1,7 +1,13 @@
 <?php
-
+	use Infra\Dao\Cores\CadastrarCores;
+	use Infra\Dao\Produto\ListarProdutoDb;
+	use Models\Cores;
+	use Models\Produtos;
 	$cor = new Cores();
+	$cadastrar_cor = new CadastrarCores;
 	$produto = new Produtos();
+	$listar_produto = new ListarProdutoDb;
+
 
 	if(isset($_POST['btCadastrar'])) {
 		$nome_cor  = $_POST['nome_cor'];
@@ -12,7 +18,7 @@
 		$cor->setQuantidadecor($quantidade_cor);
 		$cor->setIdproduto($id_produto);
 
-		if($cor->insert()) {
+		if($cadastrar_cor->insert()) {
 			include('Includes/MsgSucesso.php');
 		}
 	}
@@ -47,7 +53,7 @@
 						<div class="form-group">
 							<select class="form-control" name="id_produto" required>
 								<option value="">Produto</option>
-								<?php foreach($produto->findAllSelect() as $key => $value) { ?>
+								<?php foreach($listar_produto->findAllSelect() as $key => $value) { ?>
 								<option value="<?php echo $value->id_produto; ?>"><?php echo $value->nome; ?></option>
 								<?php } ?>
 							</select>

@@ -1,4 +1,5 @@
-<?php #use App\Models\Produtos; #include('./Views/AcaoCarrinho.php'); $categoria = new Produtos(); ?>
+<?php #use App\Models\Produtos; include('./Views/AcaoCarrinho.php'); $produto = new Produtos(); ?>
+
 
 <!DOCTYPE HTML>
 <html lang="pt-br">

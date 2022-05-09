@@ -4,8 +4,7 @@ use App\Models\Categorias;
 
 
 	session_start();
-	//$categoria = new Categorias();
-
+	#$categoria = new Categorias();
 	$menu = 0;
 	if($menu == 0) {
 		include('/Users/Sou Future 8/Xampp/htdocs/Fim/JuizoFinal/Cabecalhos/menu.php');
@@ -33,7 +32,6 @@ use App\Models\Categorias;
 	} else {
 		include('./Rodapes/rodapeadmin.php');
 	}
-
 
 	require_once __DIR__ . '/vendor/autoload.php';
 

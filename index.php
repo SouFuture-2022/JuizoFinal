@@ -3,7 +3,7 @@
 use App\Models\Categorias;
 
 	session_start();
-	#$categoria = new Categorias();
+	//$categoria = new Categorias();
 
 	$menu = 0;
 	if($menu == 0) {
@@ -17,8 +17,8 @@ use App\Models\Categorias;
 	include('Rotas.php');
 	//	Redenriza o corpo da página.
 	#function __autoload($class_name) {
-		if(file_exists('./Models/' . $class_name . '.php')) {
-			include('./Models/' . $class_name . '.php');
+		if(file_exists('./App/Models/' . $class_name . '.php')) {
+			include('./App/Models/' . $class_name . '.php');
 		} elseif(file_exists('./Controllers/' . $class_name . '.php')) {
 			include('./Controllers/' . $class_name . '.php');
 		}

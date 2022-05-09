@@ -1,9 +1,9 @@
 <?php
-	use Infra\Database\Conexao; 
-	use Models\Produtos;
-	use Infra\Dao\Pedido\CadastrarPedido;
-	use Infra\Dao\Produto\AlterarProduto;
-	use Models\Pedidos;
+	use App\Infra\Database\Conexao; 
+	use App\Models\Produtos;
+	use App\Infra\Dao\Pedido\CadastrarPedidoDb;
+	use App\Infra\Dao\Produto\AlterarProdutoDb;
+	use App\Models\Pedidos;
 
 	include('AcaoCarrinho.php');
 
@@ -12,10 +12,10 @@
 		unset($_SESSION['msg_sucesso']);
 	}
 
-	$produto = new Produtos();
-	$alterar_produto = new AlterarProduto;
+	$produto = new Produtos;
+	$alterar_produto = new AlterarProdutoDb;
 	$pedido = new Pedidos;
-	$cadastrar_pedido = new CadastrarPedido;
+	$cadastrar_pedido = new CadastrarPedidoDb;
 
 	if(isset($_POST['btCadastrar'])) {
 		$nome = $_POST['nome'];

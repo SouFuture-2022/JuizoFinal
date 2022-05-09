@@ -2,7 +2,7 @@
 
 namespace App\Infra\Dao\Favoritos;
 
-use Infra\Database\Conexao;
+use App\Infra\Database\Conexao;
 use PDO;
 
 class AlterarFavoritosDb{

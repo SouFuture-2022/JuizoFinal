@@ -5,7 +5,7 @@ namespace App\Infra\Database;
 use PDO;
 use PDOException;
 
-class Conexao {
+class Conexao{
 
 	private static $connection;
 

@@ -2,7 +2,7 @@
 
 namespace App\Infra\Dao\Cores;
 
-use Infra\Database\Conexao;
+use App\Infra\Database\Conexao;
 use PDO;
 
 class CadastrarCoresDb{

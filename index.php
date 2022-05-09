@@ -5,7 +5,6 @@ use App\Models\Categorias;
 
 	session_start();
 	#$categoria = new Categorias();
-/*
 	$menu = 0;
 	if($menu == 0) {
 		include('/Users/Sou Future 8/Xampp/htdocs/Fim/JuizoFinal/Cabecalhos/menu.php');
@@ -18,8 +17,8 @@ use App\Models\Categorias;
 	include('Rotas.php');
 	//	Redenriza o corpo da página.
 	#function __autoload($class_name) {
-		if(file_exists('./Models/' . $class_name . '.php')) {
-			include('./Models/' . $class_name . '.php');
+		if(file_exists('./App/Models/' . $class_name . '.php')) {
+			include('./App/Models/' . $class_name . '.php');
 		} elseif(file_exists('./Controllers/' . $class_name . '.php')) {
 			include('./Controllers/' . $class_name . '.php');
 		}
@@ -33,8 +32,6 @@ use App\Models\Categorias;
 	} else {
 		include('./Rodapes/rodapeadmin.php');
 	}
-	*/
-
 
 	require_once __DIR__ . '/vendor/autoload.php';
 

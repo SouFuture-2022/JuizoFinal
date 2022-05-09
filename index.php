@@ -1,13 +1,16 @@
 <?php
 
+use App\Models\Categorias;
+
+
 	session_start();
 	#$categoria = new Categorias();
 /*
 	$menu = 0;
 	if($menu == 0) {
-		include('/home/daniel/juizo_final/JuizoFinal/Cabecalhos/menu.php');
+		include('/Users/Sou Future 8/Xampp/htdocs/Fim/JuizoFinal/Cabecalhos/menu.php');
 	} elseif($menu == 1) {
-		include('/home/daniel/juizo_final/JuizoFinal/Cabecalhos/menucliente.php');
+		include('/Users/Sou Future 8/Xampp/htdocs/Fim/JuizoFinal/Cabecalhos/menucliente.php');
 	} else {
 		include('./Cabecalhos/menuadmin.php');
 	}

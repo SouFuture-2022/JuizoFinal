@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Infra\Dao\Tamanhos;
+
 use Infra\Database\Conexao;
 
 class CadastrarTamanhosDb {

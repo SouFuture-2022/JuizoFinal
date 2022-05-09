@@ -1,20 +1,20 @@
 <?php
 
-use Infra\Dao\Avaliacoes\CadastrarAvaliacoesDb;
-use Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
-use Infra\Dao\Favoritos\CadastrarFavoritosDb;
-use Infra\Dao\Imagens\ListarImagensDb;
-use Infra\Dao\Pedido\ListarPedidoDb;
-use Infra\Dao\Produto\AlterarProdutoDb;
-use Infra\Dao\Produto\ListarProdutoDb;
-use Models\Produtos;
-use Models\Categorias;
-use Models\Tamanho;
-use Models\Imagens;
-use Models\Cores;
-use Models\Favoritos;
-use Models\Avaliacoes;
-use Models\Pedidos;
+use App\Infra\Dao\Avaliacoes\CadastrarAvaliacoesDb;
+use App\Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
+use App\Infra\Dao\Favoritos\CadastrarFavoritosDb;
+use App\Infra\Dao\Imagens\ListarImagensDb;
+use App\Infra\Dao\Pedido\ListarPedidoDb;
+use App\Infra\Dao\Produto\AlterarProdutoDb;
+use App\Infra\Dao\Produto\ListarProdutoDb;
+use App\Models\Produtos;
+use App\Models\Categorias;
+use App\Models\Tamanho;
+use App\Models\Imagens;
+use App\Models\Cores;
+use App\Models\Favoritos;
+use App\Models\Avaliacoes;
+use App\Models\Pedidos;
 
 	session_start();
 

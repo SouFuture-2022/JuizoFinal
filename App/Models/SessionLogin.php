@@ -1,6 +1,8 @@
 <?php
-namespace Models;
-use Infra\Database\Conexao;
+
+namespace App\Models;
+
+use App\Infra\Database\Conexao;
 use PDO;
 
 abstract class Crudusuarios{

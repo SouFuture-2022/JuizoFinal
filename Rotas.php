@@ -1,5 +1,16 @@
 <?php
 
+
+return [
+	'/' => 'Home@index',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@index',
+	'/user/[0-9]+/name/[a-z]' => 'User@show'
+];
+
+
+
+/*
 	Route::set('Index', function() {
 		Index::CreateView('Index');
 	});
@@ -50,6 +61,8 @@
 	});
 	*/
 
+	/*
+
 	Route::set('Contato', function() {
 		Contato::CreateView('Contato');
 	});
@@ -73,6 +86,7 @@
 	});
 	*/
 
+	/*	
 	Route::set('Login', function() {
 		Login::CreateView('Login');
 	});
@@ -84,3 +98,5 @@
 	Route::set('Sobre', function() {
 		Sobre::CreateView('Sobre');
 	});
+
+	*/

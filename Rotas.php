@@ -1,5 +1,5 @@
 <?php
-
+	use App\Models\Route;
 	Route::set('Index', function() {
 		Index::CreateView('Index');
 	});

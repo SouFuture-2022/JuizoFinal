@@ -1,11 +1,11 @@
 <?php
-	use Models\Produtos;
-	use Models\Avaliacoes;
-	use Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
-	use Infra\Dao\Produto\ListarProdutoDb;
+	use App\Models\Produtos;
+	use App\Models\Avaliacoes;
+	use App\Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
+	use App\Infra\Dao\Produto\ListarProdutoDb;
 
 	$produto = new Produtos();
-	$avaliacao = new Avaliacoes;
+	$avaliacao = new Avaliacoes();
 	$listar_produto = new ListarProdutoDb;
 	$listar_avaliacao = new ListarAvaliacoesDb;
 	session_start();

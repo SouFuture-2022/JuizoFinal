@@ -1,6 +1,6 @@
 <?php
-	use Models\Enderecos;
-	use Infra\Dao\Endereco\CadastrarEndereco;
+	use App\Models\Enderecos;
+	use App\Infra\Dao\Endereco\CadastrarEndereco;
 	$endereco = new Enderecos();
 	$cadastrar_endereco = new CadastrarEndereco;
 

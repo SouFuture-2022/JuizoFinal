@@ -1,8 +1,8 @@
 <?php
-	use Models\Tamanho;
-	use Models\Produtos;
-	use Infra\Dao\Tamanhos\CadastrarTamanhosDb;
-	use Infra\Dao\Produto\ListarProdutoDb;
+	use App\Models\Tamanho;
+	use App\Models\Produtos;
+	use App\Infra\Dao\Tamanhos\CadastrarTamanhosDb;
+	use App\Infra\Dao\Produto\ListarProdutoDb;
 
 	$tamanho = new Tamanho();
 	$produto = new Produtos();

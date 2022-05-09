@@ -1,10 +1,10 @@
 <?php
-	use Infra\Dao\Cores\CadastrarCores;
-	use Infra\Dao\Produto\ListarProdutoDb;
-	use Models\Cores;
-	use Models\Produtos;
+	use App\Infra\Dao\Cores\CadastrarCoresDb;
+	use App\Infra\Dao\Produto\ListarProdutoDb;
+	use App\Models\Cores;
+	use App\Models\Produtos;
 	$cor = new Cores();
-	$cadastrar_cor = new CadastrarCores;
+	$cadastrar_cor = new CadastrarCoresDb;
 	$produto = new Produtos();
 	$listar_produto = new ListarProdutoDb;
 

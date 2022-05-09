@@ -69,7 +69,7 @@
 				<div class="widgets-wrap float-md-right">
 					<div class="widget-header mr-3">
 						<a href="../Carrinho" class="icon icon-sm rounded-circle border">
-							<span class="badge badge-pill badge-danger notify"><?php echo $qtd_prod_carrinho; ?></span><i class="fa fa-cart-plus" aria-hidden="true"></i>
+							<span class="badge badge-pill badge-danger notify"><?php //echo $qtd_prod_carrinho; ?></span><i class="fa fa-cart-plus" aria-hidden="true"></i>
 						</a>
 						<!-- <div class="dropdown"-->
 						<!-- Carrinho -->

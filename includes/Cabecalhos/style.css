@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#inicio-h{
+   display: flex;
+   list-style: none;
+   padding: 0px;
+   background-color: black;
+   justify-content: space-between;
+
+}
+
+#inicio-h li{
+    display: inline;
+}
+#inicio-h li a{
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    padding: 20px;
+}
+#inicio-h li a:hover{
+    background-color: aqua;
+    transition: background .8s;
+}
+
+section{
+    display: flex;
+    
+}
+

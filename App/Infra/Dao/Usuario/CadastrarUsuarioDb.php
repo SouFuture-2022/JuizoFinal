@@ -2,7 +2,7 @@
 
 namespace App\Infra\Dao\Usuario;
 
-use Infra\Database\Conexao;
+use App\Infra\Database\Conexao;
 
 class CadastrarUsuarioDb{
 

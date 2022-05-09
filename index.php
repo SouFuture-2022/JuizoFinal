@@ -2,6 +2,7 @@
 
 use App\Models\Categorias;
 
+
 	session_start();
 	//$categoria = new Categorias();
 
@@ -32,4 +33,11 @@ use App\Models\Categorias;
 	} else {
 		include('./Rodapes/rodapeadmin.php');
 	}
+
+
+	require_once __DIR__ . '/vendor/autoload.php';
+
+	rota();
+
+
 ?>

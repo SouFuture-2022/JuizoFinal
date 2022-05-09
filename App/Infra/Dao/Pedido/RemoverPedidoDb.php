@@ -2,7 +2,7 @@
 
 namespace App\Infra\Dao\Pedido; 
 
-use Infra\Database\Conexao;
+use App\Infra\Database\Conexao;
 use PDO;
 
 class RemoverPedidoDb{

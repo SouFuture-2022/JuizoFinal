@@ -7,20 +7,20 @@ session_start();
 #$categoria = new Categorias();
 $menu = 0;
 if ($menu == 0) {
-	include('/Users/Sou Future 8/Xampp/htdocs/Fim/JuizoFinal/Cabecalhos/menu.php');
+	include('includes/Cabecalhos/menu.php');
 } elseif ($menu == 1) {
-	include('/Users/Sou Future 8/Xampp/htdocs/Fim/JuizoFinal/Cabecalhos/menucliente.php');
+	include('includes/Cabecalhos/menucliente.php');
 } else {
-	include('./Cabecalhos/menuadmin.php');
+	include('includes/Cabecalhos/menuadmin.php');
 }
 
 include('Rotas.php');
 //	Redenriza o corpo da página.
 #function __autoload($class_name) {
-if (file_exists('./App/Models/' . $class_name . '.php')) {
-	include('./App/Models/' . $class_name . '.php');
-} elseif (file_exists('./Controllers/' . $class_name . '.php')) {
-	include('./Controllers/' . $class_name . '.php');
+if (file_exists('App/Models/' . $class_name . '.php')) {
+	include('App/Models/' . $class_name . '.php');
+} elseif (file_exists('App/Controllers/' . $class_name . '.php')) {
+	include('App/Controllers/' . $class_name . '.php');
 }
 #}
 

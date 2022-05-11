@@ -2,7 +2,7 @@
 
 namespace App\Infra\Dao\Tamanhos;
 
-use Infra\Database\Conexao;
+use App\Infra\Database\Conexao;
 
 class  AlterarTamanhosDb {
     #id_produto estava sendo passado como parametro na função update, gerando um erro no bind param

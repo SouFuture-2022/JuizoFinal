@@ -2,7 +2,7 @@
 
 namespace App\Infra\Dao\Imagens;
 
-use Infra\Database\Conexao;
+use App\Infra\Database\Conexao;
 use PDO;
 
 class AlterarImagensDb{

@@ -2,7 +2,7 @@
 
 namespace App\Infra\Dao\Endereco;
 
-use Infra\Database\Conexao;
+use App\Infra\Database\Conexao;
 use PDO;
 
 class ListarEndereco{

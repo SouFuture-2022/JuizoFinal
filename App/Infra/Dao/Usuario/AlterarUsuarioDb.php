@@ -2,7 +2,7 @@
 
 namespace App\Infra\Dao\Usuarios;
 
-use Infra\Database\Conexao;
+use App\Infra\Database\Conexao;
 
 class AlterarUsuarioDb {
     //id_usuario não é utilizado 

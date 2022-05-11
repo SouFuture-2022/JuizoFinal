@@ -1,0 +1,32 @@
+/*
+
+$rotas = array();
+
+$rotas['/'] = [
+    'rota' => '/',
+    'controller' => 'MainController',
+    'action' => 'index'
+];
+
+
+$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+foreach ($rotas as $rota) :
+    if ($url === $rota['rota']) :
+        $controlador = 'App\\Controllers\\' . ucfirst($rota['controller']);
+        $metodo = $rota['action'];
+        /*
+        echo 'estou aqui 1';
+        var_dump($controlador);
+        var_dump($metodo);
+        
+        $ctr = new $controlador();
+        $ctr->$metodo();
+        return;
+    endif;
+endforeach;
+
+$ctr = new MainController();
+#$ctr->index();
+#return;
+
+*/

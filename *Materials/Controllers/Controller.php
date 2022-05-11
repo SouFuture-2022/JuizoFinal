@@ -1,5 +1,5 @@
 <?php
-use Infra\Database\Conexao;
+use App\Infra\Database\Conexao;
 
 	class Controller {
 

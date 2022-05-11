@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '556f11909e1a03ab235f95ed6105e52b' => $baseDir . '/App/Router.php',
+    '4e3f276ca78d223cf69ca9b8e88e0b6e' => $baseDir . '/App/Core/Controllers/loadController.php',
 );

@@ -22,26 +22,48 @@ function repairQueryString($uri, $routes){
     );
 }
 
+function params($uri, $matchUr){
+    if(!empty($matchUri)){
+        $matchToGet = array_keys($matchUri)[0];
+        return array_diff(
+            $uri,
+            explode('/', ltrim($matchToGet, '/'))
+        );
+    }
+    return [];
+}
+
+function paramsFormat($uri, $params){
+    $paramsData = [];
+    foreach($params as $index => $param){
+        $paramsData[$uri[$index - 1]] = $param;
+    }
+    return $paramsData;
+}
+
 function rota(){
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
     $routes = rotas();
 
-    $arr1 = [
-        'user', '1', 'name', 'daniel'
-    ];
-
-    $arr2 = [
-        'user', '[0-9]'
-    ];
-
     $matchUri = matchUri($uri, $routes);
 
+    $params = [];
     if(empty($matchUri)){
         $matchUri = repairQueryString($uri, $routes);
+        $uri = explode('/', ltrim($uri, '/'));
+        $params = params($uri, $matchUri);
+        $params = paramsFormat($uri, $params);
     }
-    var_dump($matchUri);
-    die();
+
+    if(!empty($matchUri)){
+        return loadController($matchUri, $params);
+        
+
+    }
+
+    throw new Exception("Algo deu errado", 1);
+
 
 }
 

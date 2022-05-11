@@ -1,0 +1,44 @@
+* {
+
+    padding: 0;
+    margin: 0;
+}
+
+#main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: dodgerblue;
+    padding: 50px;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    text-align: center;
+    font-size: 30px;
+
+}
+
+input {
+    padding: 5px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+
+
+}
+
+button:hover {
+    background-color: #090720;
+    color: #fff;
+}
+
+.label-float input:focus+label {
+    font: 13px;
+    margin-top: 0;
+    color: #4030a0;
+}

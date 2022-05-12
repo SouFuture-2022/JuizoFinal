@@ -1,38 +1,31 @@
 <?php
 
-use App\Models\Categorias;
+	session_start();
 
+    require __DIR__ . '/vendor/autoload.php';
+	const FILE = __DIR__ . "/Views/";
 
-session_start();
-#$categoria = new Categorias();
-$menu = 0;
-if ($menu == 0) {
-	include('includes/Cabecalhos/menu.php');
-} elseif ($menu == 1) {
-	include('includes/Cabecalhos/menucliente.php');
-} else {
-	include('includes/Cabecalhos/menuadmin.php');
-}
+	try {
+		$data = rota(); 
 
-include('Rotas.php');
-//	Redenriza o corpo da página.
-#function __autoload($class_name) {
-if (file_exists('App/Models/' . $class_name . '.php')) {
-	include('App/Models/' . $class_name . '.php');
-} elseif (file_exists('App/Controllers/' . $class_name . '.php')) {
-	include('App/Controllers/' . $class_name . '.php');
-}
-#}
+		extract($data['data']);
+		#var_dump($data);
 
-$rodape = 0;
-if ($rodape == 0) {
-	include('./Rodapes/rodape.php');
-} elseif ($rodape == 1) {
-	include('./Rodapes/rodape.php');
-} else {
-	include('./Rodapes/rodapeadmin.php');
-}
+		if(!isset($data['view'])){
+			throw new Exception("O índice view não foi encontrado", 1);
+		}
 
-require_once __DIR__ . '/vendor/autoload.php';
+		if(!file_exists(FILE . $data['view'])){
+			var_dump(FILE);
+			die();
+			throw new Exception("Essa view {$data['view']} não existe", 1);
+	
+		}
 
-rota();
+		$view = $data['view'];
+
+		require '/home/daniel/juizo_final/JuizoFinal/Views/Master.php';
+	} catch (\Exception $e) {
+		die($e->getMessage());
+	}
+

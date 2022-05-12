@@ -9,6 +9,5 @@ class Home {
             'view' => 'home.php',
             'data' => ['name' => 'daniel']
         ];
-       
     }
 }

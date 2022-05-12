@@ -1,7 +1,7 @@
 <?php
 
 function rotas(){
-    return require '/home/daniel/juizo_final/JuizoFinal/Rotas.php';
+    return require __DIR__ . '/../Rotas.php';
 }
 
 function matchUri($uri, $routes){
@@ -12,7 +12,7 @@ function matchUri($uri, $routes){
 }
 
 function repairQueryString($uri, $routes){
-    return array_filter(
+    return array_filter( 
         $routes, 
         function($value) use ($uri){ 
             $regex = str_replace('/', '\/', ltrim($value, '/'));
@@ -22,7 +22,7 @@ function repairQueryString($uri, $routes){
     );
 }
 
-function params($uri, $matchUr){
+function params($uri, $matchUri){
     if(!empty($matchUri)){
         $matchToGet = array_keys($matchUri)[0];
         return array_diff(
@@ -49,6 +49,7 @@ function rota(){
     $matchUri = matchUri($uri, $routes);
 
     $params = [];
+    
     if(empty($matchUri)){
         $matchUri = repairQueryString($uri, $routes);
         $uri = explode('/', ltrim($uri, '/'));

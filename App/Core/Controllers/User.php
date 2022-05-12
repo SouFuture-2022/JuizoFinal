@@ -4,7 +4,10 @@ namespace App\Core\Controllers;
 
 class User {
     public function show($params){
-        echo 'Estou no User Show';
+        return [
+            'view' => 'userShow.php',
+            'data' => ['name' => 'userShow']
+        ];
     }
 
     public function create($params){

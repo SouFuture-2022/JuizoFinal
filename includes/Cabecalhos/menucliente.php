@@ -7,6 +7,17 @@
     <meta http-equiv="cache-control" content="max-age=604800" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Loja Demo</title>
+    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Assets/css/all.min.css" type="text/css" rel="stylesheet">
+    <link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
+    <link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
+    <script src="Assets/js/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script src="Assets/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="Assets/js/script.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
 
 <body>

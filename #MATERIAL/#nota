@@ -1,0 +1,81 @@
+<figure class="itemside mb-3">
+    <div class="aside"><img src="bootstrap-ecommerce-html/images/items/1.jpg" class="img-sm border"></div>
+    <figcaption class="info align-self-center">
+        <p class="title">Name of item nice iteme</p>
+        <a href="#" class="float-right">
+            <span class="text-primary">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                </svg>
+            </span>
+        </a>
+        <div class="price">$250</div>
+    </figcaption>
+</figure>
+
+<figure class="itemside mb-3">
+    <div class="aside"><img src="bootstrap-ecommerce-html/images/items/3.jpg" class="img-sm border"></div>
+    <figcaption class="info align-self-center">
+        <p class="title">Another name of item item</p>
+        <a href="#" class="float-right">
+            <span class="text-primary">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                </svg>
+            </span>
+        </a>
+        <div class="price">$250</div>
+    </figcaption>
+</figure>
+<div class="price-wrap text-center py-3 border-top">Subtotal: <strong class="h5 price">$1200</strong>
+</div>
+Carrinho
+<a href="../Carrinho" class="icon icon-sm rounded-circle border" data-toggle="dropdown" aria-expanded="false">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+</a>
+
+<div class="dropdown">
+    Quantidade de Produtos no Carrinho
+    <span class="badge badge-pill badge-danger notify">
+        <? //php echo $qtd_prod_carrinho;
+        ?>
+    </span>
+
+    <class="dropdown-menu p-3 dropdown-menu-right"
+        style="min-width: 280px; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(200px, 38px, 0px);"
+        x-placement="bottom-end">
+        <a href="../Carrinho" class="btn btn-primary btn-block"> Carrinho </a>
+</div>
+
+<div class="text">
+    <span class="text-muted">Seja bem-vindo!</span>
+    <div>
+        <a href="../Login">Login</a> |
+        <a href="../CadastrarUsuario">Registrar</a>
+    </div>
+</div>
+
+<?php
+
+//$ds = new Produtos();
+
+if (isset($_POST['btBuscarProduto'])) {
+    $buscar  = $_POST['buscar'];
+    if (empty($buscar)) { ?>
+<div class="alert alert-danger" role="alert">
+    <p class="text-center"> Digite Algo para Busca! </p>
+</div>
+<?php } else { ?>
+<div class="alert alert-dark" role="alert">
+    <?php foreach ($ds->produto->findAllSearch($buscar) as $key => $value) { ?>
+    <p class="text-center"><a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>">
+            <?php echo $value->nome; ?>
+        </a>
+    </p>
+    <?php } ?>
+</div>
+<?php }
+}
+?>

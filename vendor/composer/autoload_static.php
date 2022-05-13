@@ -6,33 +6,22 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit70c22141d731eabf891657e30a475032
 {
+    public static $files = array (
+        '556f11909e1a03ab235f95ed6105e52b' => __DIR__ . '/../..' . '/App/Router.php',
+        '4e3f276ca78d223cf69ca9b8e88e0b6e' => __DIR__ . '/../..' . '/App/Core/Controllers/loadController.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
-        'S' => 
+        'A' => 
         array (
-            'Services\\' => 9,
-        ),
-        'M' => 
-        array (
-            'Models\\' => 7,
-        ),
-        'I' => 
-        array (
-            'Infra\\' => 6,
+            'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Services\\' => 
+        'App\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/services',
-        ),
-        'Models\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/Modesl',
-        ),
-        'Infra\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/Infra',
+            0 => __DIR__ . '/../..' . '/App',
         ),
     );
 

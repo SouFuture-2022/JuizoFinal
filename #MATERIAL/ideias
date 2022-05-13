@@ -1,0 +1,98 @@
+<header class="section-header">
+    <section class="header-main border-bottom">
+        <div class="container">
+            <div class="row g-3 align-items-center">
+                <div class="col-lg-2 col-sm-3 col-4">
+                    <a href="http://bootstrap-ecommerce.com" class="brand-wrap">
+                        <img class="logo" height="40" src="bootstrap5-ecommerce/images/logo.svg">
+                    </a> <!-- brand-wrap end.// -->
+                </div>
+                <div class="col-lg-5 col-sm-5 col-8">
+                    <form action="#" class="me-3">
+                        <div class="input-group w-100">
+                            <input type="text" class="form-control" placeholder="Search" style="width:55%;">
+                            <button class="input-group-text btn btn-primary">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div> <!-- input-group end.// -->
+                    </form> <!-- search-wrap end.// -->
+                </div> <!-- col end.// -->
+                <div class="col-lg-5 col-sm-4 col-12">
+                    <div class="widgets-wrap float-md-end">
+                        <div class="widget-header me-2">
+                            <a class="icontext" href="#">
+                                <div class="icon">
+                                    <i class="fa-lg fa fa-shopping-cart"></i>
+                                </div>
+                                <div class="text"> <small class="text-muted">My cart</small> <br> <span
+                                        class="text-dark"> 3 items </span> </div>
+                            </a>
+                        </div>
+                        <div class="widget-header dropdown"> <a href="#" class="dropdown-toggle ms-3 icontext"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="icon"> <i class="fa-lg fa fa-user"></i> </div>
+                                <div class="text d-none d-lg-block"> <small class="text-muted">Sign In / Join</small>
+                                    <br> <span class="text-dark"> My account </span> </div>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <form class="px-4 py-3">
+                                        <div class="mb-3"> <label class="form-label">Email address</label> <input
+                                                type="email" class="form-control" placeholder="email@example.com">
+                                        </div>
+                                        <div> <label class="form-label">Password</label> <input type="password"
+                                                class="form-control" placeholder="Password"> </div>
+                                    </form>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li> <a class="dropdown-item" href="#">Have account? Sign up</a> </li>
+                                <li> <a class="dropdown-item" href="#">Forgot password?</a> </li>
+                            </ul>
+                        </div> <!-- widget-header end.// -->
+                    </div> <!-- widgets-wrap end.// -->
+                </div> <!-- col end.// -->
+            </div> <!-- row end.// -->
+        </div> <!-- container end.// -->
+    </section> <!-- header-main end.// -->
+    <nav class="navbar navbar-light bg-white navbar-expand-lg border-bottom">
+        <div class="container"> <button class="navbar-toggler border" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbar_main6" aria-expanded="false" aria-label="Toggle navigation"> <span
+                    class="navbar-toggler-icon"> </span> </button>
+            <div class="collapse navbar-collapse" id="navbar_main6">
+                <ul class="navbar-nav">
+                    <li class="nav-item"> <a class="nav-link ps-0" href="#"> Home </a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Services</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Projects</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Fitness sport</a> </li>
+                    <li class="nav-item dropdown"> <a class="dropdown-toggle nav-link" href="#"
+                            data-bs-toggle="dropdown"> Products </a>
+                        <ul class="dropdown-menu">
+                            <li> <a class="dropdown-item" href="#">Foods and Drink</a> </li>
+                            <li> <a class="dropdown-item" href="#">Home interior</a> </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li> <a class="dropdown-item" href="#">Category name</a> </li>
+                            <li> <a class="dropdown-item" href="#">Another category</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#"
+                            data-bs-toggle="dropdown">USD</a>
+                        <div class="dropdown-menu dropdown-menu-end"> <a class="dropdown-item" href="#">RUBL</a> <a
+                                class="dropdown-item" href="#">UZS</a> </div>
+                    </li>
+                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#"
+                            data-bs-toggle="dropdown">English</a>
+                        <div class="dropdown-menu dropdown-menu-end"> <a class="dropdown-item" href="#">Russian</a> <a
+                                class="dropdown-item" href="#">Uzbek</a> </div>
+                    </li>
+                </ul>
+            </div> <!-- collapse end.// -->
+        </div> <!-- container end.// -->
+    </nav> <!-- navbar end.// -->
+</header>

@@ -2,9 +2,12 @@
     "name" : "juizofinal/mvc", 
     "autoload" : {
         "psr-4": {
-            "Models\\" : "Modesl/",
-            "Infra\\" : "Infra/",
-            "Services\\" : "services/"
-        }
+            "App\\" : "App/"
+        },
+
+        "files": [
+            "App\\Router.php",
+            "App\\Core\\Controllers\\loadController.php"
+        ]
     }
 }

@@ -1,15 +1,18 @@
-<?php  
+<?php
 
-namespace Infra\Dao\Categorias;
+namespace App\Infra\Dao\Categorias;
 
-use Infra\Database\Conexao;
+use App\Infra\Database\Conexao;
 
-class CadastrarCategoria{
+class CadastrarCategoriaDb
+{
 
-public function CadastrarCategoria(){
-    $sqlCategoria  = "INSERT INTO categorias (nome_categoria, criado_em) VALUES (:nome_categoria, NOW())";
-    $stmt = Conexao::prepare($sqlCategoria);
-    $stmt->bindParam(':nome_categoria', $this->nome_categoria);
-    return $stmt->execute();
-}
+    public function insert()
+    {
+        $db = new Conexao();
+        $sqlCategoria  = "INSERT INTO categorias (nome_categoria, criado_em) VALUES (:nome_categoria, NOW())";
+        $stmt = $db->Conexao->prepare($sqlCategoria);
+        $stmt->bindParam(':nome_categoria', $this->nome_categoria);
+        return $stmt->execute();
+    }
 }

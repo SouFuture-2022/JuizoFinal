@@ -1,14 +1,16 @@
 <?php
 
-namespace Infra\Dao\Cores;
+namespace App\Infra\Dao\Cores;
 
-use Infra\Database\Conexao;
+use App\Infra\Database\Conexao;
 use PDO;
 
-class CadastrarCores{
+class CadastrarCoresDb
+{
 
-    public function CadastrarCores(){
-        $db = new Conexao();
+	public function insert()
+	{
+		$db = new Conexao();
 		$sqlUsuario  = "INSERT INTO cores (nome_cor, quantidade_cor, id_produto, criado_em) VALUES (:nome_cor, :quantidade_cor, :id_produto, NOW())";
 		$stmt = $db->Conexao->prepare($sqlUsuario);
 		$stmt->bindParam(':nome_cor', $this->nome_cor);

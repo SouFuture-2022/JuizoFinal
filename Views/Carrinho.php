@@ -1,10 +1,10 @@
 <?php
 
-use Infra\Database\Conexao;
-use Models\Produtos;
+use App\Infra\Database\Conexao;
+use App\Models\Produtos;
 use App\Infra\Dao\Pedido\CadastrarPedidoDb;
 use App\Infra\Dao\Produto\AlterarProdutoDb;
-use Models\Pedidos;
+use App\Models\Pedidos;
 
 include('AcaoCarrinho.php');
 
@@ -13,7 +13,7 @@ if (isset($_SESSION['msg_sucesso'])) {
 	unset($_SESSION['msg_sucesso']);
 }
 
-$produto = new Produtos();
+$produto = new Produtos;
 $alterar_produto = new AlterarProdutoDb;
 $pedido = new Pedidos;
 $cadastrar_pedido = new CadastrarPedidoDb;
@@ -70,6 +70,12 @@ if (isset($_POST['btCadastrar'])) {
 }
 ?>
 
+<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
+<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
+<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">
@@ -93,14 +99,14 @@ if (isset($_POST['btCadastrar'])) {
                     <div class="table-responsive">
                         <table class="table table-borderless table-shopping-cart">
                             <thead class="text-muted">
-                                <!-- <tr class="small text-uppercase">
+                                <tr class="small text-uppercase">
                                     <th scope="col">Produto</th>
                                     <th scope="col" width="120">Quantidade</th>
                                     <th scope="col" width="120">Preço</th>
                                     <th scope="col" width="120">Sub Total</th>
                                     <th scope="col" class="text-right d-none d-md-block" width="200"></th>
                                     <th scope="col" class="text-right d-none d-md-block" width="200"></th>
-                                </tr> -->
+                                </tr>
                             </thead>
                             <tbody>
                                 <form action="?acao=up" method="POST">

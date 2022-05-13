@@ -1,33 +1,29 @@
 <?php
 
-	session_start();
-	$categoria = new Categorias();
+session_start();
 
-	$menu = 0;
-	if($menu == 0) {
-		include('./Cabecalhos/menu.php');
-	} elseif($menu == 1) {
-		include('./Cabecalhos/menucliente.php');
-	} else {
-		include('./Cabecalhos/menuadmin.php');
+require __DIR__ . '/vendor/autoload.php';
+const FILE = __DIR__ . "/Views/";
+
+try {
+	$data = rota();
+
+	extract($data['data']);
+	#var_dump($data);
+
+	if (!isset($data['view'])) {
+		throw new Exception("O índice view não foi encontrado", 1);
 	}
 
-	include('Rotas.php');
-	//	Redenriza o corpo da página.
-	function __autoload($class_name) {
-		if(file_exists('./Models/' . $class_name . '.php')) {
-			include('./Models/' . $class_name . '.php');
-		} elseif(file_exists('./Controllers/' . $class_name . '.php')) {
-			include('./Controllers/' . $class_name . '.php');
-		}
+	if (!file_exists(FILE . $data['view'])) {
+		var_dump(FILE);
+		die();
+		throw new Exception("Essa view {$data['view']} não existe", 1);
 	}
 
-	$rodape = 0;
-	if($rodape == 0) {
-		include('./Rodapes/rodape.php');
-	} elseif($rodape == 1) {
-		include('./Rodapes/rodape.php');
-	} else {
-		include('./Rodapes/rodapeadmin.php');
-	}
-?>
+	$view = $data['view'];
+
+	require '/Views/Master.php';
+} catch (\Exception $e) {
+	die($e->getMessage());
+}

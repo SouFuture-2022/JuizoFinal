@@ -1,14 +1,16 @@
 <?php 
 
-namespace Infra\Dao\Categorias;
-use Infra\Database\Conexao;
+namespace App\Infra\Dao\Categorias;
+
+use App\Infra\Database\Conexao;
 use PDO;
 
-class RemoverCategorias{
+class RemoverCategoriasDb{
 
-	public function RemoverCategorias($id_categoria) {
+	public function delete($id_categoria) {
+		$db = new Conexao();
 		$sql  = "DELETE FROM categorias WHERE id_categoria = :id_categoria";
-		$stmt = Conexao::prepare($sql);
+		$stmt = $db->Conexao->prepare($sql);
 		$stmt->bindParam(':id_categoria', $id_categoria, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}

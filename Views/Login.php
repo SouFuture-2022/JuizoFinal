@@ -20,14 +20,14 @@
                         <form method="post">
                             <div class="mb-3">
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text"><img src="usuario.png" alt="icone de perfil"></span>
+                                    <span class="input-group-text"><img src="Assets/images/usuario.png" alt="icone de perfil"></span>
                                     <input type="email" name="email" class="form-control" placeholder="Email">
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text"><img src="cadeado.png" alt="icone de senha"></span>
+                                    <span class="input-group-text"><img src="Assets/images/cadeado.png" alt="icone de senha"></span>
                                     <input type="password" name="email" class="form-control" placeholder="Senha">
                                 </div>
                             </div>

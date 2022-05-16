@@ -16,16 +16,9 @@ $listar_avaliacao = new ListarAvaliacoesDb;
 
 
 if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
-	$id_categoria = (int)base64_decode($_GET['categoria']);
-	$resultado = $listar_produto->findAllProductCategories($id_categoria);
+    $id_categoria = (int)base64_decode($_GET['categoria']);
+    $resultado = $listar_produto->findAllProductCategories($id_categoria);
 ?>
-
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 
 <section class="section-name bg padding-y-sm">
     <div class="container">
@@ -202,5 +195,5 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
     </div>
 </section>
 <?php } else {
-	echo 'error';
+    echo 'error';
 } ?>

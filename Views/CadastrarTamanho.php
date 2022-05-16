@@ -11,30 +11,24 @@ $listar_produto = new ListarProdutoDb;
 $cadastrar_tamanho = new CadastrarTamanhosDb;
 
 if (isset($_POST['btCadastrar'])) {
-	$sub_categoria  = $_POST['sub_categoria'];
-	$tamanho_superior  = $_POST['tamanho_superior'];
-	$tamanho_inferior  = $_POST['tamanho_inferior'];
-	$quantidade_tamanho = $_POST['quantidade_tamanho'];
-	$id_produto  = $_POST['id_produto'];
+    $sub_categoria  = $_POST['sub_categoria'];
+    $tamanho_superior  = $_POST['tamanho_superior'];
+    $tamanho_inferior  = $_POST['tamanho_inferior'];
+    $quantidade_tamanho = $_POST['quantidade_tamanho'];
+    $id_produto  = $_POST['id_produto'];
 
-	$tamanho->setSubcategoria($sub_categoria);
-	$tamanho->setTamanhosuperior($tamanho_superior);
-	$tamanho->setTamanhoinferior($tamanho_inferior);
-	$tamanho->setQuantidadetamanho($quantidade_tamanho);
-	$tamanho->setIdproduto($id_produto);
+    $tamanho->setSubcategoria($sub_categoria);
+    $tamanho->setTamanhosuperior($tamanho_superior);
+    $tamanho->setTamanhoinferior($tamanho_inferior);
+    $tamanho->setQuantidadetamanho($quantidade_tamanho);
+    $tamanho->setIdproduto($id_produto);
 
-	if ($cadastrar_tamanho->insert()) {
-		include('Includes/MsgSucesso.php');
-	}
+    if ($cadastrar_tamanho->insert()) {
+        include('Includes/MsgSucesso.php');
+    }
 }
 ?>
 
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">

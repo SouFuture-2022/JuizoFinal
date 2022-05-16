@@ -9,7 +9,6 @@ $produto = new Produtos();
 $avaliacao = new Avaliacoes;
 $listar_produto = new ListarProdutoDb;
 $listar_avaliacao = new ListarAvaliacoesDb;
-session_start();
 
 if (isset($_SESSION['msg_sucesso'])) {
 	echo $_SESSION['msg_sucesso'];

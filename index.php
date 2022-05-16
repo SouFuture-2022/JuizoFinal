@@ -23,7 +23,7 @@ try {
 
 	$view = $data['view'];
 
-	require '/Views/Master.php';
+	require '../JuizoFinal/Views/Master.php';
 } catch (\Exception $e) {
 	die($e->getMessage());
 }

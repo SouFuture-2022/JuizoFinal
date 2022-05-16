@@ -12,26 +12,20 @@ $listar_produto = new ListarProdutoDb;
 
 
 if (isset($_POST['btCadastrar'])) {
-	$nome_cor  = $_POST['nome_cor'];
-	$quantidade_cor = $_POST['quantidade_cor'];
-	$id_produto  = $_POST['id_produto'];
+    $nome_cor  = $_POST['nome_cor'];
+    $quantidade_cor = $_POST['quantidade_cor'];
+    $id_produto  = $_POST['id_produto'];
 
-	$cor->setNomecor($nome_cor);
-	$cor->setQuantidadecor($quantidade_cor);
-	$cor->setIdproduto($id_produto);
+    $cor->setNomecor($nome_cor);
+    $cor->setQuantidadecor($quantidade_cor);
+    $cor->setIdproduto($id_produto);
 
-	if ($cadastrar_cor->insert()) {
-		include('Includes/MsgSucesso.php');
-	}
+    if ($cadastrar_cor->insert()) {
+        include('Includes/MsgSucesso.php');
+    }
 }
 ?>
 
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">

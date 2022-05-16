@@ -7,45 +7,39 @@ $usuario = new Usuarios;
 $cadastrar_usuario = new CadastrarUsuario;
 
 if (isset($_POST['btCadastrar'])) {
-	$extensao = strtolower(substr($_FILES['perfil']['name'], -4));
-	$perfil = md5(time()) . $extensao;
-	$diretorio = $_SERVER['DOCUMENT_ROOT'] . '/Uploads/Perfis/';
+    $extensao = strtolower(substr($_FILES['perfil']['name'], -4));
+    $perfil = md5(time()) . $extensao;
+    $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/Uploads/Perfis/';
 
-	move_uploaded_file($_FILES['perfil']['tmp_name'], $diretorio . $perfil);
+    move_uploaded_file($_FILES['perfil']['tmp_name'], $diretorio . $perfil);
 
-	$nome = $_POST['nome'];
-	$email = $_POST['email'];
-	$senha = $_POST['senha'];
-	$telefone = $_POST['telefone'];
-	$cpf = $_POST['cpf'];
-	$data_nascimento = $_POST['data_nascimento'];
-	$sexo = $_POST['sexo'];
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $telefone = $_POST['telefone'];
+    $cpf = $_POST['cpf'];
+    $data_nascimento = $_POST['data_nascimento'];
+    $sexo = $_POST['sexo'];
 
-	$usuario->setNome($nome);
-	$usuario->setEmail($email);
-	$usuario->setSenha($senha);
-	$usuario->setTelefone($telefone);
-	$usuario->setCPF($cpf);
-	$usuario->setDatanascimento($data_nascimento);
-	$usuario->setSexo($sexo);
-	$usuario->setPerfil($perfil);
+    $usuario->setNome($nome);
+    $usuario->setEmail($email);
+    $usuario->setSenha($senha);
+    $usuario->setTelefone($telefone);
+    $usuario->setCPF($cpf);
+    $usuario->setDatanascimento($data_nascimento);
+    $usuario->setSexo($sexo);
+    $usuario->setPerfil($perfil);
 
-	if ($cadastrar_usuario->insert()) {
-		$_SESSION['msg_sucesso'] =
-			'<div class="alert alert-success" role="alert">
+    if ($cadastrar_usuario->insert()) {
+        $_SESSION['msg_sucesso'] =
+            '<div class="alert alert-success" role="alert">
 				<i class="fa fa-check-circle" aria-hidden="true"></i> Cadastro Realizado Com sucesso...
 			</div>';
-		header('Location: ../Index');
-	}
+        header('Location: ../Index');
+    }
 }
 ?>
 
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">

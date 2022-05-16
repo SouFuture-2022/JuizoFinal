@@ -19,8 +19,8 @@ use App\Models\Pedidos;
 session_start();
 
 if (isset($_SESSION['msg_sucesso'])) {
-	echo $_SESSION['msg_sucesso'];
-	unset($_SESSION['msg_sucesso']);
+    echo $_SESSION['msg_sucesso'];
+    unset($_SESSION['msg_sucesso']);
 }
 
 $produto = new Produtos();
@@ -40,84 +40,78 @@ $listar_avaliacao = new ListarAvaliacoesDb;
 $listar_pedidos = new ListarPedidoDb;
 
 if (isset($_POST['btEscolherCor'])) {
-	$id_produto = $_POST['id_produto'];
-	$cor = $_POST['cor'];
+    $id_produto = $_POST['id_produto'];
+    $cor = $_POST['cor'];
 
-	$produto->setCor($cor);
+    $produto->setCor($cor);
 
-	if ($alterar_produto->updateCor($id_produto)) {
-		$_SESSION['msg_sucesso'] =
-			'<div class="alert alert-success" role="alert">
+    if ($alterar_produto->updateCor($id_produto)) {
+        $_SESSION['msg_sucesso'] =
+            '<div class="alert alert-success" role="alert">
 				Cor Escolhida Com sucesso...
 			</div>';
-		header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
-	}
+        header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
+    }
 }
 
 if (isset($_POST['btEscolherTamanho'])) {
-	$id_produto = $_POST['id_produto'];
-	$tamanho = $_POST['tamanho'];
+    $id_produto = $_POST['id_produto'];
+    $tamanho = $_POST['tamanho'];
 
-	$produto->setTamanho($tamanho);
+    $produto->setTamanho($tamanho);
 
-	if ($alterar_produto->updateTamanho($id_produto)) {
-		$_SESSION['msg_sucesso'] =
-			'<div class="alert alert-success" role="alert">
+    if ($alterar_produto->updateTamanho($id_produto)) {
+        $_SESSION['msg_sucesso'] =
+            '<div class="alert alert-success" role="alert">
 				Tamanho Escolhido Com sucesso...
 			</div>';
-		header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
-	}
+        header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
+    }
 }
 
 if (isset($_POST['btFavoritar'])) {
-	$id_usuario  = $_POST['id_usuario'];
-	$id_produto = $_POST['id_produto'];
+    $id_usuario  = $_POST['id_usuario'];
+    $id_produto = $_POST['id_produto'];
 
-	$favoritar->setIdusuario($id_usuario);
-	$favoritar->setIdproduto($id_produto);
+    $favoritar->setIdusuario($id_usuario);
+    $favoritar->setIdproduto($id_produto);
 
-	if ($insert_favoritar->insert()) {
-		$_SESSION['msg_sucesso'] =
-			'<div class="alert alert-success" role="alert">
+    if ($insert_favoritar->insert()) {
+        $_SESSION['msg_sucesso'] =
+            '<div class="alert alert-success" role="alert">
 				Favorito Adicionado Com sucesso...
 			</div>';
-		header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
-	}
+        header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
+    }
 }
 
 if (isset($_POST['btAvaliar'])) {
-	if (isset($_POST['estrela'])) {
-		$id_produto = $_POST['id_produto'];
-		$estrela  = $_POST['estrela'];
+    if (isset($_POST['estrela'])) {
+        $id_produto = $_POST['id_produto'];
+        $estrela  = $_POST['estrela'];
 
-		$avaliacao->setEstrela($estrela);
-		$avaliacao->setIdproduto($id_produto);
+        $avaliacao->setEstrela($estrela);
+        $avaliacao->setIdproduto($id_produto);
 
-		if ($insert_avaliacao->insert()) {
-			$_SESSION['msg_sucesso'] =
-				'<div class="alert alert-success" role="alert">
+        if ($insert_avaliacao->insert()) {
+            $_SESSION['msg_sucesso'] =
+                '<div class="alert alert-success" role="alert">
 					Avaliação Realizada Com sucesso...
 				</div>';
-			header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
-		}
-	} else {
-		$id_produto = $_POST['id_produto'];
-		$_SESSION['msg_sucesso'] =
-			'<div class="alert alert-danger" role="alert">
+            header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
+        }
+    } else {
+        $id_produto = $_POST['id_produto'];
+        $_SESSION['msg_sucesso'] =
+            '<div class="alert alert-danger" role="alert">
 				Escolha Alguma Estrela para sua Avaliação!
 			</div>';
-		header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
-	}
+        header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
+    }
 }
 
 ?>
 
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">
@@ -129,10 +123,10 @@ if (isset($_POST['btAvaliar'])) {
     <div class="container">
         <div class="card">
             <?php
-			if (isset($_GET['acao']) && $_GET['acao'] == 'prod') {
-				$id_produto = (int)base64_decode($_GET['produto']);
-				$resultado = $listar_produto->find($id_produto);
-			?>
+            if (isset($_GET['acao']) && $_GET['acao'] == 'prod') {
+                $id_produto = (int)base64_decode($_GET['produto']);
+                $resultado = $listar_produto->find($id_produto);
+            ?>
             <div class="row no-gutters">
                 <aside class="col-md-6">
                     <article class="gallery-wrap">
@@ -203,8 +197,8 @@ if (isset($_POST['btAvaliar'])) {
                         <div class="rating-wrap my-3">
                             <ul class="rating-stars">
                                 <?php $total_media = $listar_avaliacao->find($id_produto);
-									$media = intval($total_media);
-									$total = $listar_avaliacao->findAllCount($id_produto); ?>
+                                    $media = intval($total_media);
+                                    $total = $listar_avaliacao->findAllCount($id_produto); ?>
                                 <li style="width:80%" class="stars-active">
                                     <?php if ($media == 1) { ?>
                                     <i class="fa fa-star"></i>
@@ -229,20 +223,20 @@ if (isset($_POST['btAvaliar'])) {
 
                             <small class="label-rating text-muted">
                                 <?php
-									if (isset($_COOKIE['contador'])) {
-										$cont = $_COOKIE['contador'];
-										$cont++;
-										echo $cont;
-										setcookie('contador', $cont, time() + 60 * 60 * 365);
-									} else {
-										echo '1ª visita';
-										setcookie('contador', 1, time() + 60 * 60 * 24 * 365);
-									} ?> visualizações</small>
+                                    if (isset($_COOKIE['contador'])) {
+                                        $cont = $_COOKIE['contador'];
+                                        $cont++;
+                                        echo $cont;
+                                        setcookie('contador', $cont, time() + 60 * 60 * 365);
+                                    } else {
+                                        echo '1ª visita';
+                                        setcookie('contador', 1, time() + 60 * 60 * 24 * 365);
+                                    } ?> visualizações</small>
 
                             <small class="label-rating text-success">
                                 <i class="far fa-check-square"></i>
                                 <?php $compras = $listar_pedidos->findAllCountShopping($resultado->id_produto);
-									echo $compras; ?> compras
+                                    echo $compras; ?> compras
                             </small>
 
                             <small class="label-rating">
@@ -302,10 +296,10 @@ if (isset($_POST['btAvaliar'])) {
                         <div class="card mt-3"><strong>Descrição:</strong><?php echo $resultado->descricao; ?></div>
 
                         <?php if ($resultado->habilitar_tamanho == 'S') {
-								$tamanhoP = $tamanho->findAllP($resultado->id_produto);
-								$tamanhoM = $tamanho->findAllM($resultado->id_produto);
-								$tamanhoG = $tamanho->findAllG($resultado->id_produto);
-							?>
+                                $tamanhoP = $tamanho->findAllP($resultado->id_produto);
+                                $tamanhoM = $tamanho->findAllM($resultado->id_produto);
+                                $tamanhoG = $tamanho->findAllG($resultado->id_produto);
+                            ?>
                         <hr>
                         <div class="form-row">
                             <div class="form-group col-md flex-grow-0 mt-3">
@@ -350,8 +344,8 @@ if (isset($_POST['btAvaliar'])) {
                         </div>
                         <?php }
 
-							if ($resultado->habilitar_cor == 'S') {
-								$resultado->cor; ?>
+                            if ($resultado->habilitar_cor == 'S') {
+                                $resultado->cor; ?>
                         <hr>
                         <div class="form-row">
                             <div class="form-group col-md mt-3">
@@ -394,6 +388,6 @@ if (isset($_POST['btAvaliar'])) {
 </section>
 
 <?php include('Includes/Recomendados.php');
-			} else {
-				echo 'Error';
-			} ?>
+            } else {
+                echo 'Error';
+            } ?>

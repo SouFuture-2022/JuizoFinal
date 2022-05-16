@@ -9,8 +9,8 @@ use App\Models\Pedidos;
 include('AcaoCarrinho.php');
 
 if (isset($_SESSION['msg_sucesso'])) {
-	echo $_SESSION['msg_sucesso'];
-	unset($_SESSION['msg_sucesso']);
+    echo $_SESSION['msg_sucesso'];
+    unset($_SESSION['msg_sucesso']);
 }
 
 $produto = new Produtos;
@@ -19,63 +19,57 @@ $pedido = new Pedidos;
 $cadastrar_pedido = new CadastrarPedidoDb;
 
 if (isset($_POST['btCadastrar'])) {
-	$nome = $_POST['nome'];
-	$cor = $_POST['cor'];
-	$tamanho = $_POST['tamanho'];
-	$quantidade = $_POST['qtd'];
-	$preco = $_POST['preco'];
-	$sub_total = $_POST['sub_total'];
-	$id_produto = $_POST['id_produto'];
-	$id_usuario = $_POST['id_usuario'];
+    $nome = $_POST['nome'];
+    $cor = $_POST['cor'];
+    $tamanho = $_POST['tamanho'];
+    $quantidade = $_POST['qtd'];
+    $preco = $_POST['preco'];
+    $sub_total = $_POST['sub_total'];
+    $id_produto = $_POST['id_produto'];
+    $id_usuario = $_POST['id_usuario'];
 
-	$nums = implode('', range(0, 9));
-	$alphaNumeric = $nums;
-	$num_pedido = '';
-	$len = 9;
+    $nums = implode('', range(0, 9));
+    $alphaNumeric = $nums;
+    $num_pedido = '';
+    $len = 9;
 
-	for ($i = 0; $i < $len; $i++) {
-		$num_pedido .= $alphaNumeric[rand(0, strlen($alphaNumeric) - 1)];
-	}
+    for ($i = 0; $i < $len; $i++) {
+        $num_pedido .= $alphaNumeric[rand(0, strlen($alphaNumeric) - 1)];
+    }
 
-	for ($i = 0; $i < count($nome); $i++) {
-		$name = $nome[$i];
-		$color = $cor[$i];
-		$size = $tamanho[$i];
-		$amount = $quantidade[$i];
-		$price = $preco[$i];
-		$total = $sub_total[$i];
-		$id_product = $id_produto[$i];
-		$id_user = $id_usuario[$i];
+    for ($i = 0; $i < count($nome); $i++) {
+        $name = $nome[$i];
+        $color = $cor[$i];
+        $size = $tamanho[$i];
+        $amount = $quantidade[$i];
+        $price = $preco[$i];
+        $total = $sub_total[$i];
+        $id_product = $id_produto[$i];
+        $id_user = $id_usuario[$i];
 
-		$pedido->setNumpedido($num_pedido);
-		$pedido->setNome($name);
-		$pedido->setCor($color);
-		$pedido->setTamanho($size);
-		$pedido->setQuantidade($amount);
-		$pedido->setPreco($price);
-		$pedido->setSubtotal($total);
-		$pedido->setIdproduto($id_product);
-		$pedido->setIdusuario($id_user);
+        $pedido->setNumpedido($num_pedido);
+        $pedido->setNome($name);
+        $pedido->setCor($color);
+        $pedido->setTamanho($size);
+        $pedido->setQuantidade($amount);
+        $pedido->setPreco($price);
+        $pedido->setSubtotal($total);
+        $pedido->setIdproduto($id_product);
+        $pedido->setIdusuario($id_user);
 
-		if ($cadastrar_pedido->insert()) {
-			$Alterar_produto->updateStock($amount, $id_product);
+        if ($cadastrar_pedido->insert()) {
+            $Alterar_produto->updateStock($amount, $id_product);
 
-			$_SESSION['msg_sucesso'] =
-				'<div class="alert alert-success" role="alert">
+            $_SESSION['msg_sucesso'] =
+                '<div class="alert alert-success" role="alert">
 					Pedido Realizado Com sucesso...
 				</div>';
-			header('Location: ../Carrinho');
-		}
-	}
+            header('Location: ../Carrinho');
+        }
+    }
 }
 ?>
 
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">
@@ -111,23 +105,23 @@ if (isset($_POST['btCadastrar'])) {
                             <tbody>
                                 <form action="?acao=up" method="POST">
                                     <?php
-										$db = new Conexao;
-										foreach ($_SESSION['carrinho'] as $id_produto => $qtd) {
-											$sql  = "SELECT * FROM produtos WHERE id_produto = $id_produto";
-											$stmt = $db->Conexao->prepare($sql);
-											$stmt->bindParam(1, $id_produto);
-											$stmt->execute();
-											$ln = $stmt->fetchAll();
+                                        $db = new Conexao;
+                                        foreach ($_SESSION['carrinho'] as $id_produto => $qtd) {
+                                            $sql  = "SELECT * FROM produtos WHERE id_produto = $id_produto";
+                                            $stmt = $db->Conexao->prepare($sql);
+                                            $stmt->bindParam(1, $id_produto);
+                                            $stmt->execute();
+                                            $ln = $stmt->fetchAll();
 
-											$imagem_destaque = $ln[0]->imagem_destaque;
-											$nome = $ln[0]->nome;
-											$peso = $ln[0]->peso;
-											$cor = $ln[0]->cor;
-											$preco = $ln[0]->preco;
-											@$sub_total = $ln[0]->preco * $qtd;
-											@$total += $sub_total;
-											$total_peso += $peso / 1000;
-										?>
+                                            $imagem_destaque = $ln[0]->imagem_destaque;
+                                            $nome = $ln[0]->nome;
+                                            $peso = $ln[0]->peso;
+                                            $cor = $ln[0]->cor;
+                                            $preco = $ln[0]->preco;
+                                            @$sub_total = $ln[0]->preco * $qtd;
+                                            @$total += $sub_total;
+                                            $total_peso += $peso / 1000;
+                                        ?>
                                     <tr>
                                         <td>
                                             <figure class="itemside align-items-center">
@@ -173,13 +167,13 @@ if (isset($_POST['btCadastrar'])) {
                                         </td>
                                     </tr>
                                     <?php } // foreach 
-										?>
+                                        ?>
                                 </form>
                             </tbody>
                         </table>
                     </div>
                     <?php } // else 
-					?>
+                    ?>
 
 
                     <div class="card-body border-top">
@@ -219,22 +213,22 @@ if (isset($_POST['btCadastrar'])) {
 
                         <form action="" method="POST" enctype="multipart/form-data">
                             <?php
-							foreach ($_SESSION['carrinho'] as $id_produto => $qtd) {
-								$sql  = "SELECT * FROM produtos WHERE id_produto = $id_produto";
-								$stmt = $db->Conexao->prepare($sql);
-								$stmt->bindParam(1, $id_produto);
-								$stmt->execute();
-								$ln = $stmt->fetchAll();
+                            foreach ($_SESSION['carrinho'] as $id_produto => $qtd) {
+                                $sql  = "SELECT * FROM produtos WHERE id_produto = $id_produto";
+                                $stmt = $db->Conexao->prepare($sql);
+                                $stmt->bindParam(1, $id_produto);
+                                $stmt->execute();
+                                $ln = $stmt->fetchAll();
 
-								$nome = $ln[0]->nome;
-								$cor = $ln[0]->cor;
-								$preco = $ln[0]->preco;
-								@$sub_total = $ln[0]->preco * $qtd;
-								@$total_carrinho += $sub_total;
-								$id_usuario = 1;
-								$tamanho = 'P';
+                                $nome = $ln[0]->nome;
+                                $cor = $ln[0]->cor;
+                                $preco = $ln[0]->preco;
+                                @$sub_total = $ln[0]->preco * $qtd;
+                                @$total_carrinho += $sub_total;
+                                $id_usuario = 1;
+                                $tamanho = 'P';
 
-								echo '
+                                echo '
 								<input type="hidden" name="nome[]" value="' . $nome . '">
 								<input type="hidden" name="cor[]" value="' . $cor . '">
 								<input type="hidden" name="tamanho[]" value="' . $tamanho . '">
@@ -244,8 +238,8 @@ if (isset($_POST['btCadastrar'])) {
 								<input type="hidden" name="id_produto[]" value="' . $id_produto . '">
 								<input type="hidden" name="id_usuario[]" value="' . $id_usuario . '">
 								';
-							}
-							?>
+                            }
+                            ?>
                             <button type="submit" name="btCadastrar" class="btn btn-primary btn-block">Confirmar
                                 Pedido</button>
                         </form>

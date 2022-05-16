@@ -12,17 +12,11 @@ $listar_avaliacao = new ListarAvaliacoesDb;
 session_start();
 
 if (isset($_SESSION['msg_sucesso'])) {
-	echo $_SESSION['msg_sucesso'];
-	unset($_SESSION['msg_sucesso']);
+    echo $_SESSION['msg_sucesso'];
+    unset($_SESSION['msg_sucesso']);
 }
 ?>
 
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 <section class="section-intro padding-y-sm">
     <div class="container">
         <div id="carousel1_indicator" class="carousel slide" data-ride="carousel">
@@ -108,12 +102,12 @@ if (isset($_SESSION['msg_sucesso'])) {
 
         <div class="row">
             <?php
-			$pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
-			$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
-			$quantidade_pagina = 4;
-			$inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
+            $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
+            $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+            $quantidade_pagina = 4;
+            $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
 
-			foreach ($listar_produto->findAllPopular($inicio, $quantidade_pagina) as $key => $value) { ?>
+            foreach ($listar_produto->findAllPopular($inicio, $quantidade_pagina) as $key => $value) { ?>
             <div class="col-md-3">
                 <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
                     class="card card-product-grid">
@@ -127,8 +121,8 @@ if (isset($_SESSION['msg_sucesso'])) {
                         <div class="rating-wrap">
                             <ul class="rating-stars">
                                 <?php $total_media = $listar_avaliacao->find($value->id_produto);
-									$media = intval($total_media);
-									$total = $listar_avaliacao->findAllCount($value->id_produto); ?>
+                                    $media = intval($total_media);
+                                    $total = $listar_avaliacao->findAllCount($value->id_produto); ?>
                                 <li style="width:80%" class="stars-active">
                                     <?php if ($media == 1) { ?>
                                     <i class="fa fa-star"></i>
@@ -167,31 +161,31 @@ if (isset($_SESSION['msg_sucesso'])) {
                     </a>
                 </li>
                 <?php
-				$linhas = $listar_produto->findAllCount();
-				$quantidade_linhas = ceil($linhas / $quantidade_pagina);
-				$maximo_links = 3;
+                $linhas = $listar_produto->findAllCount();
+                $quantidade_linhas = ceil($linhas / $quantidade_pagina);
+                $maximo_links = 3;
 
-				for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
-					if ($pagina_anterior >= 1) { ?>
+                for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
+                    if ($pagina_anterior >= 1) { ?>
                 <li class="page-item"><a class="page-link"
                         href="../Index?pagina=<?php echo $pagina_anterior; ?>"><?php echo $pagina_anterior; ?></a></li>
                 <?php }
-				}
-				?>
+                }
+                ?>
 
                 <li class="page-item active"><a class="page-link"
                         href="../Index?pagina=<?php echo $pagina; ?>"><?php echo $pagina; ?><span
                             class="sr-only">(atual)</span></a></li>
 
                 <?php
-				for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
-					if ($pagina_posterior <= $quantidade_linhas) { ?>
+                for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
+                    if ($pagina_posterior <= $quantidade_linhas) { ?>
                 <li class="page-item"><a class="page-link"
                         href="../Index?pagina=<?php echo $pagina_posterior; ?>"><?php echo $pagina_posterior; ?></a>
                 </li>
                 <?php }
-				}
-				?>
+                }
+                ?>
                 <li class="page-item">
                     <a class="page-link" href="../Index?pagina=<?php echo $quantidade_linhas; ?>" aria-label="Próximo">
                         <span aria-hidden="true">&raquo;</span>
@@ -211,12 +205,12 @@ if (isset($_SESSION['msg_sucesso'])) {
 
         <div class="row">
             <?php
-			$pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
-			$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
-			$quantidade_pagina = 4;
-			$inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
+            $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
+            $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+            $quantidade_pagina = 4;
+            $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
 
-			foreach ($listar_produto->findAll($inicio, $quantidade_pagina) as $key => $value) { ?>
+            foreach ($listar_produto->findAll($inicio, $quantidade_pagina) as $key => $value) { ?>
             <div class="col-md-3">
                 <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
                     class="card card-product-grid">
@@ -231,8 +225,8 @@ if (isset($_SESSION['msg_sucesso'])) {
                         <div class="rating-wrap">
                             <ul class="rating-stars">
                                 <?php $total_media = $listar_avaliacao->find($value->id_produto);
-									$media = intval($total_media);
-									$total = $listar_avaliacao->findAllCount($value->id_produto); ?>
+                                    $media = intval($total_media);
+                                    $total = $listar_avaliacao->findAllCount($value->id_produto); ?>
                                 <li style="width:80%" class="stars-active">
                                     <?php if ($media == 1) { ?>
                                     <i class="fa fa-star"></i>
@@ -271,31 +265,31 @@ if (isset($_SESSION['msg_sucesso'])) {
                     </a>
                 </li>
                 <?php
-				$linhas = $listar_produto->findAllCount();
-				$quantidade_linhas = ceil($linhas / $quantidade_pagina);
-				$maximo_links = 3;
+                $linhas = $listar_produto->findAllCount();
+                $quantidade_linhas = ceil($linhas / $quantidade_pagina);
+                $maximo_links = 3;
 
-				for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
-					if ($pagina_anterior >= 1) { ?>
+                for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
+                    if ($pagina_anterior >= 1) { ?>
                 <li class="page-item"><a class="page-link"
                         href="../Index?pagina=<?php echo $pagina_anterior; ?>"><?php echo $pagina_anterior; ?></a></li>
                 <?php }
-				}
-				?>
+                }
+                ?>
 
                 <li class="page-item active"><a class="page-link"
                         href="../Index?pagina=<?php echo $pagina; ?>"><?php echo $pagina; ?><span
                             class="sr-only">(atual)</span></a></li>
 
                 <?php
-				for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
-					if ($pagina_posterior <= $quantidade_linhas) { ?>
+                for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
+                    if ($pagina_posterior <= $quantidade_linhas) { ?>
                 <li class="page-item"><a class="page-link"
                         href="../Index?pagina=<?php echo $pagina_posterior; ?>"><?php echo $pagina_posterior; ?></a>
                 </li>
                 <?php }
-				}
-				?>
+                }
+                ?>
                 <li class="page-item">
                     <a class="page-link" href="../Index?pagina=<?php echo $quantidade_linhas; ?>" aria-label="Próximo">
                         <span aria-hidden="true">&raquo;</span>

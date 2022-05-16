@@ -7,38 +7,32 @@ $endereco = new Enderecos();
 $cadastrar_endereco = new CadastrarEndereco;
 
 if (isset($_POST['btCadastrar'])) {
-	$numero = $_POST['numero'];
-	$cep = $_POST['cep'];
-	$rua = $_POST['rua'];
-	$bairro = $_POST['bairro'];
-	$cidade = $_POST['cidade'];
-	$uf = $_POST['uf'];
-	$id_usuario = '1';
+    $numero = $_POST['numero'];
+    $cep = $_POST['cep'];
+    $rua = $_POST['rua'];
+    $bairro = $_POST['bairro'];
+    $cidade = $_POST['cidade'];
+    $uf = $_POST['uf'];
+    $id_usuario = '1';
 
-	$endereco->setNumero($numero);
-	$endereco->setCep($cep);
-	$endereco->setRua($rua);
-	$endereco->setBairro($bairro);
-	$endereco->setCidade($cidade);
-	$endereco->setUf($uf);
-	$endereco->setIdusuario($id_usuario);
+    $endereco->setNumero($numero);
+    $endereco->setCep($cep);
+    $endereco->setRua($rua);
+    $endereco->setBairro($bairro);
+    $endereco->setCidade($cidade);
+    $endereco->setUf($uf);
+    $endereco->setIdusuario($id_usuario);
 
-	if ($cadastrar_endereco->insert()) {
-		$_SESSION['msg_sucesso'] =
-			'<div class="alert alert-success" role="alert">
+    if ($cadastrar_endereco->insert()) {
+        $_SESSION['msg_sucesso'] =
+            '<div class="alert alert-success" role="alert">
 				<i class="fa fa-check-circle" aria-hidden="true"></i> Cadastro Realizado Com sucesso...
 			</div>';
-		header('Location: ../Index');
-	}
+        header('Location: ../Index');
+    }
 }
 ?>
 
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">

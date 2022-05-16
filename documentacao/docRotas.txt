@@ -5,22 +5,23 @@ DOCUMENTATARIO PROJETO #SOUFUTURE2022 (ROTAS);
 TAGS; 'Return', '/', '=>'
 
 
-
 -------------------------------------------------------------------------------------------------------
-
 "Return" = "instrução encerra a execução de uma função e retorna o controle para a função de chamada." 
             retorna um valor para a função que foi chamada
-
 --------------------------------------------------------------------------------------------------------
-
 "=>" = Serve para atribuir um valor a uma chave especifica na definição um array
        e também para separar chave de um valor em um foreach.
-       "Referências de instâncias como 'this' são tomadas dos "arredores"." 
+       "Referências de instâncias como 'this' são tomadas dos "arredores"" 
         é exatamente como uma função normal, só que menos verbosa.
-
 --------------------------------------------------------------------------------------------------------
-
 '/' = Essa informação indica qual o arquivo será exibido logo após.
-
 --------------------------------------------------------------------------------------------------------
 
+
+
+
+
+----------------------------------------- (fluxo)ROTAS -------------------------------------------------
+
+Inicializamos o nosso "php", logo colocamos a tag 'Return', na qual retornando assim o valor, usamos apos isso
+ 

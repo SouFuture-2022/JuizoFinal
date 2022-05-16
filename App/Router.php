@@ -1,6 +1,6 @@
 <?php
 function rotas(){
-    return require __DIR__ . '/../Rotas.php';
+    return require __DIR__ . '/../Rotas.php';  
 }
 
 function matchUri($uri, $routes){

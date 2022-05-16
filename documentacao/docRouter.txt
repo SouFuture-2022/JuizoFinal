@@ -2,25 +2,37 @@
 
 DOCUMENTATARIO PROJETO #SOUFUTURE2022 (ROUTER);
 
-TAGS; 'require', '__DIR__',
+TAGS; 'require', '__DIR__','function()','if'
 
-
-
--------------------------------------------------------------------------------------------------------
-
-"require" = A instrução 'require' pega *todo o texto/código/marcação* que existe no arquivo especificado 
-            e o copia no arquivo que usa a instrução include. 
-            A inclusão de arquivos é muito útil quando você deseja incluir o mesmo PHP, 
-            HTML ou texto em várias páginas de um site.
-
---------------------------------------------------------------------------------------------------------
-
-"__DIR__" = Isso é o diretório do arquivo. 
-            Se usado dentro de um include, 
-            o diretório do arquivo incluído é retornado. 
---------------------------------------------------------------------------------------------------------
-
-" "
 
 
 --------------------------------------------------------------------------------------------------------
+"require"   = A instrução 'require' pega *todo o texto/código/marcação* que existe no arquivo especificado 
+              e o copia no arquivo que usa a instrução include. 
+              A inclusão de arquivos é muito útil quando você deseja incluir o mesmo PHP, 
+              HTML ou texto em várias páginas de um site.
+--------------------------------------------------------------------------------------------------------
+"__DIR__"   = Isso é o diretório do arquivo. 
+              Se usado dentro de um include, 
+              o diretório do arquivo incluído é retornado. 
+--------------------------------------------------------------------------------------------------------
+"function()"= A função é uma ação com retorno, no caso do retorno; valor de retorno pode ser 
+              um valor escalar (único) ou uma tabela.
+--------------------------------------------------------------------------------------------------------
+"if"        = Condição á ser estabelecida, usando 'if' ela pede parametros para que ela seja realizada, 
+              quando assim que a ação é realizada logo é retornado um valor ou operação.
+-------------------------------------------------------------------------------------------------------- 
+'/' = Essa informação indica qual o arquivo será exibido logo após.
+--------------------------------------------------------------------------------------------------------
+
+
+--------------------------------------- (fluxo) ROUTER ----------------------------------------------------------
+
+A "function() rotas" está criando uma ação no qual está retornando (return require) com "require" 
+que pega todo o texto/código/marcação que existe no arquivo especificado logo apos usamos o "__DIR__" dando assim
+uma direção ao arquivo, feito isso, colocamos o caminho usando  '/../Rotas.php'  percebe-se que usamos '/' pois 
+essa informação indica o arquivo será exibido logo apos. 
+
+
+
+

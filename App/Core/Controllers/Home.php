@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Core\Controllers;
-use App\Core\Class\Store;
+//use App\Core\Class\Store;
 
 class Home {
     public function index($params){

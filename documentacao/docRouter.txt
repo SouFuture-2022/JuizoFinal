@@ -1,0 +1,26 @@
+
+
+DOCUMENTATARIO PROJETO #SOUFUTURE2022 (ROUTER);
+
+TAGS; 'require', '__DIR__',
+
+
+
+-------------------------------------------------------------------------------------------------------
+
+"require" = A instrução 'require' pega *todo o texto/código/marcação* que existe no arquivo especificado 
+            e o copia no arquivo que usa a instrução include. 
+            A inclusão de arquivos é muito útil quando você deseja incluir o mesmo PHP, 
+            HTML ou texto em várias páginas de um site.
+
+--------------------------------------------------------------------------------------------------------
+
+"__DIR__" = Isso é o diretório do arquivo. 
+            Se usado dentro de um include, 
+            o diretório do arquivo incluído é retornado. 
+--------------------------------------------------------------------------------------------------------
+
+" "
+
+
+--------------------------------------------------------------------------------------------------------

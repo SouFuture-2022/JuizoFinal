@@ -1,5 +1,4 @@
 <?php
-
 function rotas(){
     return require __DIR__ . '/../Rotas.php';
 }

@@ -8,18 +8,18 @@
                 <form action="">
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Nome completo">
+                            <input type="text" class="form-control" placeholder="Nome completo" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Nome de usuário">
+                            <input type="text" class="form-control" placeholder="Nome de usuário" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Email">
+                            <input type="email" class="form-control" placeholder="Email" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Telefone">
+                            <input type="text" class="form-control" placeholder="Telefone" required>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -38,11 +38,14 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Senha">
+                            <input type="password" class="form-control" placeholder="Senha" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Confirmar senha">
+                            <input type="password" class="form-control" placeholder="Confirmar senha" required>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn w-75 btn-primary">Cadastrar</button> 
                     </div>
                 </form>
                 <hr>

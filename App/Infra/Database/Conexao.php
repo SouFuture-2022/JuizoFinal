@@ -24,6 +24,8 @@ class Conexao{
 		
 		return self::$connection;
 	}
+
+
 }
 
 

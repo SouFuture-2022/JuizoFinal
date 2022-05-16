@@ -16,4 +16,14 @@ class User {
             'data' => ['int' => '1']
         ];
     }
+
+    public function login($params){
+        return [
+            'header' => 'menu.php',
+            'body' => 'Index.php',
+            'footer' => 'rodape.php',
+            'data' => ['name' => 'daniel']
+        ];
+        #require '/home/daniel/juizo_final/JuizoFinal/Views/Login.php';
+     }
 }

@@ -7,17 +7,17 @@ if (isset($_SESSION['msg_error'])) {
 	unset($_SESSION['msg_error']);
 }
 
-use App\Infra\Dao\Imagens\CadastrarImagens;
+use App\Infra\Dao\Imagens\CadastrarImagensDb;
 use App\Models\Imagens;
 use App\Models\Produtos;
 use App\Infra\Dao\Imagens\ListarImagensDb;
-use App\Infra\Dao\Produto\CadastrarProduto;
+use App\Infra\Dao\Produto\CadastrarProdutoDb;
 
 $imagem = new Imagens();
 $listar_imagens = new ListarImagensDb;
 $produto = new Produtos();
-$cadastrar_produto = new CadastrarProduto;
-$cadastrar_imagens = new CadastrarImagens;
+$cadastrar_produto = new CadastrarProdutoDb;
+$cadastrar_imagens = new CadastrarImagensDb;
 
 if (isset($_POST['btCadastrar'])) {
 	$id_produto = $_POST['id_produto'];

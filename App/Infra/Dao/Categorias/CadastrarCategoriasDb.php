@@ -4,7 +4,7 @@ namespace App\Infra\Dao\Categorias;
 
 use App\Infra\Database\Conexao;
 
-class CadastrarCategoriaDb
+class CadastrarCategoriasDb
 {
 
     public function insert()

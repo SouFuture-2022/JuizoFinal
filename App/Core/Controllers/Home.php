@@ -8,7 +8,9 @@ class Home
     public function index($params)
     {
         return [
-            'view' => 'home.php',
+            'header' => 'menu.php',
+            'body' => 'Index.php',
+            'footer' => 'rodape.php',
             'data' => ['name' => 'daniel']
         ];
     }

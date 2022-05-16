@@ -1,22 +1,3 @@
-<?php
-
-use App\Models\Produtos;
-use App\Models\Avaliacoes;
-use App\Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
-use App\Infra\Dao\Produto\ListarProdutoDb;
-
-$produto = new Produtos();
-$avaliacao = new Avaliacoes;
-$listar_produto = new ListarProdutoDb;
-$listar_avaliacao = new ListarAvaliacoesDb;
-session_start();
-
-if (isset($_SESSION['msg_sucesso'])) {
-	echo $_SESSION['msg_sucesso'];
-	unset($_SESSION['msg_sucesso']);
-}
-?>
-
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
 <link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
@@ -113,7 +94,7 @@ if (isset($_SESSION['msg_sucesso'])) {
 			$quantidade_pagina = 4;
 			$inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
 
-			foreach ($listar_produto->findAllPopular($inicio, $quantidade_pagina) as $key => $value) { ?>
+			/*foreach ($listar_produto->findAllPopular($inicio, $quantidade_pagina) as $key => $value) { ?>
             <div class="col-md-3">
                 <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
                     class="card card-product-grid">
@@ -158,6 +139,7 @@ if (isset($_SESSION['msg_sucesso'])) {
             </div>
             <?php } ?>
         </div>
+        
         <nav aria-label="Navegação de página exemplo">
             <ul class="pagination">
                 <li class="page-item">
@@ -167,6 +149,7 @@ if (isset($_SESSION['msg_sucesso'])) {
                     </a>
                 </li>
                 <?php
+                */
 				$linhas = $listar_produto->findAllCount();
 				$quantidade_linhas = ceil($linhas / $quantidade_pagina);
 				$maximo_links = 3;
@@ -304,13 +287,5 @@ if (isset($_SESSION['msg_sucesso'])) {
                 </li>
             </ul>
         </nav>
-    </div>
-</section>
-
-<section class="section-name padding-y">
-    <div class="container">
-        <h3 class="mb-3">Download app demo text</h3>
-        <a href="#"><img src="Assets/images/googleplay.png" height="40"></a>
-        <a href="#"><img src="Assets/images/appstore.png" height="40"></a>
     </div>
 </section>

@@ -1,10 +1,10 @@
 <?php
 
 use App\Models\Usuarios;
-use App\Infra\Dao\Usuario\CadastrarUsuario;
+use App\Infra\Dao\Usuario\CadastrarUsuarioDb;
 
 $usuario = new Usuarios;
-$cadastrar_usuario = new CadastrarUsuario;
+$cadastrar_usuario = new CadastrarUsuarioDb;
 
 if (isset($_POST['btCadastrar'])) {
 	$extensao = strtolower(substr($_FILES['perfil']['name'], -4));

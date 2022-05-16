@@ -25,9 +25,9 @@ class ListarProdutoDb{
 	}
     
 	public function findAllPopular($inicio, $quantidade_pagina) {
-		$db = new Conexao();
+		$stmt = new Conexao();
 		$sql  = "SELECT id_produto, nome, imagem_destaque, habilitar_cor, habilitar_tamanho, cor, tamanho, preco, quantidade, peso, un_medida, descricao, id_categoria FROM produtos LIMIT $inicio, $quantidade_pagina";
-		$stmt = $db->Conexao->prepare($sql);
+		$stmt = $this->Conexao->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}

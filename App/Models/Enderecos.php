@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-class Enderecos
-{
+class Enderecos{
 
 	private $numero;
 	private $cep;
@@ -13,73 +12,59 @@ class Enderecos
 	private $uf;
 	private $id_usuario;
 
-	public function setNumero($numero)
-	{
+	public function setNumero($numero) {
 		$this->numero = $numero;
 	}
 
-	public function getNumero()
-	{
+	public function getNumero() {
 		return $this->numero;
 	}
 
-	public function setCep($cep)
-	{
+	public function setCep($cep) {
 		$this->cep = $cep;
 	}
 
-	public function getCep()
-	{
+	public function getCep() {
 		return $this->cep;
 	}
-
-	public function setRua($rua)
-	{
+	
+	public function setRua($rua) {
 		$this->rua = $rua;
 	}
 
-	public function getRua()
-	{
+	public function getRua() {
 		return $this->rua;
 	}
 
-	public function setBairro($bairro)
-	{
+	public function setBairro($bairro) {
 		$this->bairro = $bairro;
 	}
 
-	public function getBairro()
-	{
+	public function getBairro() {
 		return $this->bairro;
 	}
 
-	public function setCidade($cidade)
-	{
+	public function setCidade($cidade) {
 		$this->cidade = $cidade;
 	}
 
-	public function getCidade()
-	{
+	public function getCidade() {
 		return $this->cidade;
 	}
 
-	public function setUf($uf)
-	{
+	public function setUf($uf) {
 		$this->uf = $uf;
 	}
 
-	public function getUf()
-	{
+	public function getUf() {
 		return $this->uf;
 	}
 
-	public function setIdusuario($id_usuario)
-	{
+	public function setIdusuario($id_usuario) {
 		$this->id_usuario = $id_usuario;
 	}
 
-	public function getIdusuario()
-	{
+	public function getIdusuario() {
 		return $this->id_usuario;
 	}
 }

@@ -3,8 +3,7 @@
 namespace App\Models;
 
 
-class Produtos
-{
+class Produtos{
 
 	private $nome;
 	private $imagem_destaque;
@@ -19,123 +18,99 @@ class Produtos
 	private $descricao;
 	private $id_categoria;
 
-	public function setNome($nome)
-	{
+	public function setNome($nome) {
 		$this->nome = $nome;
 	}
 
-	public function getNome()
-	{
+	public function getNome() {
 		return $this->nome;
 	}
 
-	public function setImagem($imagem_destaque)
-	{
+	public function setImagem($imagem_destaque) {
 		$this->imagem_destaque = $imagem_destaque;
 	}
 
-	public function getImagem()
-	{
+	public function getImagem() {
 		return $this->imagem_destaque;
 	}
 
-	public function setHabilitarcor($habilitar_cor)
-	{
+	public function setHabilitarcor($habilitar_cor) {
 		$this->habilitar_cor = $habilitar_cor;
 	}
-
-	public function getHabilitarcor()
-	{
+	
+	public function getHabilitarcor() {
 		return $this->habilitar_cor;
 	}
 
-	public function setHabilitartamanho($habilitar_tamanho)
-	{
+	public function setHabilitartamanho($habilitar_tamanho) {
 		$this->habilitar_tamanho = $habilitar_tamanho;
 	}
-
-	public function getHabilitartamanho()
-	{
+	
+	public function getHabilitartamanho() {
 		return $this->habilitar_tamanho;
 	}
 
-	public function setCor($cor)
-	{
+	public function setCor($cor) {
 		$this->cor = $cor;
 	}
 
-	public function getCor()
-	{
+	public function getCor() {
 		return $this->cor;
 	}
 
-	public function setTamanho($tamanho)
-	{
+	public function setTamanho($tamanho) {
 		$this->tamanho = $tamanho;
 	}
 
-	public function getTamanho()
-	{
+	public function getTamanho() {
 		return $this->tamanho;
 	}
 
-	public function setPreco($preco)
-	{
+	public function setPreco($preco) {
 		$this->preco = $preco;
 	}
 
-	public function getPreco()
-	{
+	public function getPreco() {
 		return $this->preco;
 	}
 
-	public function setQuantidade($quantidade)
-	{
+	public function setQuantidade($quantidade) {
 		$this->quantidade = $quantidade;
 	}
 
-	public function getQuantidade()
-	{
+	public function getQuantidade() {
 		return $this->quantidade;
 	}
 
-	public function setPeso($peso)
-	{
+	public function setPeso($peso) {
 		$this->peso = $peso;
 	}
 
-	public function getPeso()
-	{
+	public function getPeso() {
 		return $this->peso;
 	}
 
-	public function setUnmedida($un_medida)
-	{
+	public function setUnmedida($un_medida) {
 		$this->un_medida = $un_medida;
 	}
 
-	public function getUnmedida()
-	{
+	public function getUnmedida() {
 		return $this->un_medida;
 	}
 
-	public function setDescricao($descricao)
-	{
+	public function setDescricao($descricao) {
 		$this->descricao = $descricao;
 	}
 
-	public function getDescricao()
-	{
+	public function getDescricao() {
 		return $this->descricao;
 	}
-
-	public function setIdcategoria($id_categoria)
-	{
+	
+	public function setIdcategoria($id_categoria) {
 		$this->id_categoria = $id_categoria;
 	}
 
-	public function getIdcategoria()
-	{
+	public function getIdcategoria() {
 		return $this->id_categoria;
 	}
 }

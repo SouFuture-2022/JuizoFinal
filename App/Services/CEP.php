@@ -1,7 +1,7 @@
 <?php 
 /*
- * Funçao feita para poder pegar as informaçoes e endereço do cliente;
- * Rua, Cidade, Estado etc;
+ * Funçao feita para poder informar endereço do cliente;
+ * Rua, Cidade, Estado etc dentro de um array associativo;
  */
 function get_infor_Cep ($cep){
 

@@ -59,12 +59,10 @@ function rota(){
 
     if(!empty($matchUri)){
         return loadController($matchUri, $params);
-        
 
     }
 
     throw new Exception("Algo deu errado", 1);
-
 
 }
 

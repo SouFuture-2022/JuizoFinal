@@ -8,7 +8,6 @@
 	try {
 		$data = rota(); 
 
-	} catch (\Exception $e) {
-		die($e->getMessage());
+	} catch (\Exception $e) {		
+      die($e->getMessage());
 	}
-

@@ -10,7 +10,7 @@ class CadastrarUsuarioDb{
 		$db = new Conexao();
 		$sql = "INSERT INTO usuarios (nome, email, senha, telefone, cpf, data_nascimento, sexo, perfil, criado_em) 
 		VALUES (:nome, :email, md5(:senha), :telefone, :cpf, :data_nascimento, :sexo, :perfil, NOW())";
-		$stmt = $db->Conexao->prepare($sql);
+		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':email', $this->email);
 		$stmt->bindParam(':senha', $this->senha);

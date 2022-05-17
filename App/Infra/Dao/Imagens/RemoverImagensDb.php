@@ -10,7 +10,7 @@ class RemoverImagensDb{
     public function delete($id_imagem) {
 		$db = new Conexao();
 		$sql  = "DELETE FROM usuarios WHERE id_imagem = :id_imagem";
-		$stmt = $db->Conexao->prepare($sql);
+		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':id_imagem', $id_imagem, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}

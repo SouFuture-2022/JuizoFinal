@@ -11,7 +11,7 @@ class RemoverAvaliacoesDb {
         $db = new Conexao();
 
 		$sql  = "DELETE FROM avaliacoes WHERE id_avaliacao = :id_avaliacao";
-		$stmt = $db->Conexao->prepare($sql);
+		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':id_avaliacao', $id_avaliacao, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}

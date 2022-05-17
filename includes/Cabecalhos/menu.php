@@ -21,7 +21,6 @@
 </head>
 
 <body>
-
     <header class="section-header">
         <section class="header-main">
             <div class="container">
@@ -261,7 +260,8 @@
     <!-- ================ SECTION PRODUCTS END.// ================ -->
 
     <?php
-	/*
+    /*
+
 $ds = new Produtos();
 
 if(isset($_POST['btBuscarProduto'])) { $buscar  = $_POST['buscar'];
@@ -279,4 +279,4 @@ if(isset($_POST['btBuscarProduto'])) { $buscar  = $_POST['buscar'];
     </div>
     <?php }}
 */
-	?>
+    ?>

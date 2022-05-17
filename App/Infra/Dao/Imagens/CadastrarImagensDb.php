@@ -1,14 +1,12 @@
-<?php
+<?php 
 
 namespace App\Infra\Dao\Imagens;
 
 use App\Infra\Database\Conexao;
 
-class CadastrarImagensDb
-{
+class CadastrarImagensDb{
 
-	public function insert()
-	{
+    public function insert(){
 		$db = new Conexao();
 		$sql = "INSERT INTO imagens (nome_imagem, id_produto, criado_em) VALUES (:nome_imagem, :id_produto, NOW())";
 		$stmt = $db->Conexao->prepare($sql);

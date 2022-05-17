@@ -1,14 +1,13 @@
 <?php
 
-use App\Infra\Dao\Categorias\CadastrarCategoria;
+use App\Infra\Dao\Categorias\CadastrarCategoriaDb;
 use App\Models\Categorias;
 
 $categoria = new Categorias();
-$cadastrar_categoria = new CadastrarCategoria;
+$cadastrar_categoria = new CadastrarCategoriaDb;
 
 if (isset($_POST['btCadastrar'])) {
     $nome_categoria  = $_POST['nome_categoria'];
-
     $categoria->setNomeCategotia($nome_categoria);
 
     if ($cadastrar_categoria->insert()) {

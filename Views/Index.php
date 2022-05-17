@@ -9,7 +9,6 @@ $produto = new Produtos();
 $avaliacao = new Avaliacoes;
 $listar_produto = new ListarProdutoDb;
 $listar_avaliacao = new ListarAvaliacoesDb;
-session_start();
 
 if (isset($_SESSION['msg_sucesso'])) {
 	echo $_SESSION['msg_sucesso'];
@@ -215,7 +214,6 @@ if (isset($_SESSION['msg_sucesso'])) {
 			$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
 			$quantidade_pagina = 4;
 			$inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
-
 			foreach ($listar_produto->findAll($inicio, $quantidade_pagina) as $key => $value) { ?>
             <div class="col-md-3">
                 <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"

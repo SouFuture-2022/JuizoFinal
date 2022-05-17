@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-class Usuarios
-{
+class Usuarios{
 
 	private $nome;
 	private $email;
@@ -14,83 +13,67 @@ class Usuarios
 	private $sexo;
 	private $perfil;
 
-	public function setNome($nome)
-	{
+	public function setNome($nome) {
 		$this->nome = $nome;
 	}
 
-	public function getNome()
-	{
+	public function getNome() {
 		return $this->nome;
 	}
 
-	public function setEmail($email)
-	{
+	public function setEmail($email) {
 		$this->email = $email;
 	}
-
-	public function getEmail()
-	{
+	
+	public function getEmail() {
 		return $this->email;
 	}
 
-	public function setSenha($senha)
-	{
+	public function setSenha($senha) {
 		$this->senha = $senha;
 	}
 
-	public function getSenha()
-	{
+	public function getSenha() {
 		return $this->senha;
 	}
 
-	public function setTelefone($telefone)
-	{
+	public function setTelefone($telefone) {
 		$this->telefone = $telefone;
 	}
 
-	public function getTelefone()
-	{
+	public function getTelefone() {
 		return $this->telefone;
-	}
+	}	
 
-	public function setCpf($cpf)
-	{
+	public function setCpf($cpf) {
 		$this->cpf = $cpf;
 	}
 
-	public function getCpf()
-	{
+	public function getCpf() {
 		return $this->cpf;
 	}
 
-	public function setDatanascimento($data_nascimento)
-	{
+	public function setDatanascimento($data_nascimento) {
 		$this->data_nascimento = $data_nascimento;
 	}
 
-	public function getDatanascimento()
-	{
+	public function getDatanascimento() {
 		return $this->data_nascimento;
 	}
 
-	public function setSexo($sexo)
-	{
+	public function setSexo($sexo) {
 		$this->sexo = $sexo;
 	}
 
-	public function getSexo()
-	{
+	public function getSexo() {
 		return $this->sexo;
 	}
 
-	public function setPerfil($perfil)
-	{
+	public function setPerfil($perfil) {
 		$this->perfil = $perfil;
 	}
 
-	public function getPerfil()
-	{
+	public function getPerfil() {
 		return $this->perfil;
 	}
 }

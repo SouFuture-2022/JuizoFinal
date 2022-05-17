@@ -1,9 +1,4 @@
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">

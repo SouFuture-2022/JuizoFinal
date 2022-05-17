@@ -200,6 +200,7 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
             </main>
         </div>
     </div>
+
 </section>
 <?php } else {
 	echo 'error';

@@ -60,7 +60,7 @@ if (isset($_POST['btCadastrar'])) {
 		if ($cadastrar_pedido->insert()) {
 			$Alterar_produto->updateStock($amount, $id_product);
 
-			$_SESSION['msg_sucesso'] =
+			$_SESSION['msg_sucesso'] 
 				'<div class="alert alert-success" role="alert">
 					Pedido Realizado Com sucesso...
 				</div>';

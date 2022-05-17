@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-class Pedidos
-{
+class Pedidos{
 
 	private $num_pedido;
 	private $name;
@@ -15,93 +14,75 @@ class Pedidos
 	private $id_product;
 	private $id_user;
 
-	public function setNumpedido($num_pedido)
-	{
+	public function setNumpedido($num_pedido) {
 		$this->num_pedido = $num_pedido;
 	}
 
-	public function getNumpedido()
-	{
+	public function getNumpedido() {
 		return $this->num_pedido;
 	}
 
-	public function setNome($name)
-	{
+	public function setNome($name) {
 		$this->name = $name;
 	}
-
-	public function getNome()
-	{
+	
+	public function getNome() {
 		return $this->name;
 	}
 
-	public function setCor($color)
-	{
+	public function setCor($color) {
 		$this->color = $color;
 	}
 
-	public function getCor()
-	{
+	public function getCor() {
 		return $this->color;
 	}
 
-	public function setTamanho($size)
-	{
+	public function setTamanho($size) {
 		$this->size = $size;
 	}
 
-	public function getTamanho()
-	{
+	public function getTamanho() {
 		return $this->size;
-	}
+	}	
 
-	public function setQuantidade($amount)
-	{
+	public function setQuantidade($amount) {
 		$this->amount = $amount;
 	}
 
-	public function getQuantidade()
-	{
+	public function getQuantidade() {
 		return $this->amount;
 	}
 
-	public function setPreco($price)
-	{
+	public function setPreco($price) {
 		$this->price = $price;
 	}
 
-	public function getPreco()
-	{
+	public function getPreco() {
 		return $this->price;
 	}
 
-	public function setSubtotal($total)
-	{
+	public function setSubtotal($total) {
 		$this->total = $total;
 	}
 
-	public function getSubtotal()
-	{
+	public function getSubtotal() {
 		return $this->total;
 	}
 
-	public function setIdproduto($id_product)
-	{
+	public function setIdproduto($id_product) {
 		$this->id_product = $id_product;
 	}
 
-	public function getIdproduto()
-	{
+	public function getIdproduto() {
 		return $this->id_product;
 	}
 
-	public function setIdusuario($id_user)
-	{
+	public function setIdusuario($id_user) {
 		$this->id_user = $id_user;
 	}
 
-	public function getIdusuario()
-	{
+	public function getIdusuario() {
 		return $this->id_user;
 	}
 }

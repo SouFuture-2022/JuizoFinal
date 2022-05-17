@@ -3,40 +3,34 @@
 namespace App\Models;
 #Crud não interligado
 
-class Cores
-{
+class Cores {
 
 	private $nome_cor;
 	private $quantidade_cor;
 	private $id_produto;
 
-	public function setNomecor($nome_cor)
-	{
+	public function setNomecor($nome_cor) {
 		$this->nome_cor = $nome_cor;
 	}
 
-	public function getNomecor()
-	{
+	public function getNomecor() {
 		return $this->nome_cor;
 	}
 
-	public function setQuantidadecor($quantidade_cor)
-	{
+	public function setQuantidadecor($quantidade_cor) {
 		$this->quantidade_cor = $quantidade_cor;
 	}
-
-	public function getQuantidadecor()
-	{
+	
+	public function getQuantidadecor() {
 		return $this->quantidade_cor;
 	}
 
-	public function setIdproduto($id_produto)
-	{
+	public function setIdproduto($id_produto) {
 		$this->id_produto = $id_produto;
 	}
 
-	public function getIdproduto()
-	{
+	public function getIdproduto() {
 		return $this->id_produto;
 	}
+
 }

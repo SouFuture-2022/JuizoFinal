@@ -100,7 +100,7 @@ if (isset($_SESSION['msg_sucesso'])) {
 </section>
 
 <section class="section-content">
-    <div class="container">
+<div class="container">
         <header class="section-heading">
             <h3 class="section-title">Produtos Populares</h3>
         </header>

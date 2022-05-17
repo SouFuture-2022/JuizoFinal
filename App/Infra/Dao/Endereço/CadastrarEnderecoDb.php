@@ -10,7 +10,7 @@ class CadastrarEndereco{
 	public function insert(){
         $db = new Conexao();
 		$sql = "INSERT INTO enderecos (numero, cep, rua, bairro, cidade, uf, id_usuario, criado_em) VALUES (:numero, :cep, :rua, :bairro, :cidade, :uf, :id_usuario, NOW())";
-		$stmt = $db->Conexao->prepare($sql);
+		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':numero', $this->numero);
 		$stmt->bindParam(':cep', $this->cep);
 		$stmt->bindParam(':rua', $this->rua);

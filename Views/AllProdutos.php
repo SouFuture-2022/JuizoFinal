@@ -1,7 +1,7 @@
 <?php
 
 use App\Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
-use App\Infra\Dao\Categorias\ListarCategoriaDb;
+use App\Infra\Dao\Categorias\ListarCategoriasDb;
 use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Models\Avaliacoes;
 use App\Models\Categorias;
@@ -10,7 +10,7 @@ use App\Models\Produtos;
 $produto = new Produtos();
 $categoria = new Categorias;
 $avaliacao = new Avaliacoes;
-$listar_categoria = new ListarCategoriaDb;
+$listar_categoria = new ListarCategoriasDb;
 $listar_produto = new ListarProdutoDb;
 $listar_avaliacao = new ListarAvaliacoesDb;
 ?>

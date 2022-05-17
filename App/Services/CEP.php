@@ -1,4 +1,5 @@
 <?php 
+namespace App\Services;
 /*
  * Funçao feita para poder informar endereço do cliente;
  * Rua, Cidade, Estado etc dentro de um array associativo;

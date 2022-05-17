@@ -9,14 +9,13 @@ $produto = new Produtos();
 $avaliacao = new Avaliacoes;
 $listar_produto = new ListarProdutoDb;
 $listar_avaliacao = new ListarAvaliacoesDb;
-session_start();
 
 if (isset($_SESSION['msg_sucesso'])) {
 	echo $_SESSION['msg_sucesso'];
 	unset($_SESSION['msg_sucesso']);
 }
 ?>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
 <link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />

@@ -1,4 +1,4 @@
-<?php #use App\Models\Produtos; #include('./Views/AcaoCarrinho.php'); $categoria = new Produtos(); ?>
+<?php #use App\Models\Produtos; #include('./Views/AcaoCarrinho.php'); $categoria = new Produtos(); require $view; ?>
 
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -20,6 +20,7 @@
 	<script src="Assets/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 	<script src="Assets/js/script.js" type="text/javascript"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 
 <body>

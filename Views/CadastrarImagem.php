@@ -1,85 +1,91 @@
 <?php
 
-	session_start();
+session_start();
 
-	if(isset($_SESSION['msg_error'])) {
-		echo $_SESSION['msg_error'];
-		unset($_SESSION['msg_error']);
-	}
+if (isset($_SESSION['msg_error'])) {
+	echo $_SESSION['msg_error'];
+	unset($_SESSION['msg_error']);
+}
 
-	use Infra\Dao\Imagens\CadastrarImagens;
-	use Models\Imagens;
-	use Models\Produtos;
-	use Infra\Dao\Imagens\ListarImagensDb;
-	use Infra\Dao\Produto\CadastrarProduto;
+use App\Infra\Dao\Imagens\CadastrarImagensDb;
+use App\Models\Imagens;
+use App\Models\Produtos;
+use App\Infra\Dao\Imagens\ListarImagensDb;
+use App\Infra\Dao\Produto\CadastrarProdutoDb;
 
-	$imagem = new Imagens();
-	$listar_imagens = new ListarImagensDb;
-	$produto = new Produtos();
-	$cadastrar_produto = new CadastrarProduto;
-	$cadastrar_imagens = new CadastrarImagens;
+$imagem = new Imagens();
+$listar_imagens = new ListarImagensDb;
+$produto = new Produtos();
+$cadastrar_produto = new CadastrarProdutoDb;
+$cadastrar_imagens = new CadastrarImagensDb;
 
-	if(isset($_POST['btCadastrar'])) {
-		$id_produto = $_POST['id_produto'];
-		$verifica_insercao = $listar_imagem->findAllCount($id_produto);
 
-		if($verifica_insercao < 3) {
-			$extensao = strtolower(substr($_FILES['nome_imagem']['name'], -4));
-			$nome_imagem = md5(time()).$extensao;
-			$diretorio = $_SERVER['DOCUMENT_ROOT'] . '/Uploads/Produtos/';
+if (isset($_POST['btCadastrar'])) {
+	$id_produto = $_POST['id_produto'];
+	$verifica_insercao = $listar_imagem->findAllCount($id_produto);
 
-			move_uploaded_file($_FILES['nome_imagem']['tmp_name'], $diretorio.$nome_imagem);
+	if ($verifica_insercao < 3) {
+		$extensao = strtolower(substr($_FILES['nome_imagem']['name'], -4));
+		$nome_imagem = md5(time()) . $extensao;
+		$diretorio = $_SERVER['DOCUMENT_ROOT'] . '/Uploads/Produtos/';
 
-			$imagem->setNomeimagem($nome_imagem);
-			$imagem->setIdproduto($id_produto);
+		move_uploaded_file($_FILES['nome_imagem']['tmp_name'], $diretorio . $nome_imagem);
 
-			if($cadastrar_imagem->insert()) {
-				include('Includes/MsgSucesso.php');
-			}
+		$imagem->setNomeimagem($nome_imagem);
+		$imagem->setIdproduto($id_produto);
 
-		} else {
-			$_SESSION['msg_error'] = 
-				'<div class="alert alert-danger" role="alert">
+		if ($cadastrar_imagem->insert()) {
+			include('Includes/MsgSucesso.php');
+		}
+	} else {
+		$_SESSION['msg_error'] =
+			'<div class="alert alert-danger" role="alert">
 				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Não é permitido cadastrar mais que 3 imagens...
 				</div>';
-			header('Location: ../CadastrarImagem');
-		}
+		header('Location: ../CadastrarImagem');
 	}
+}
 ?>
 
+<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
+<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
+<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 <section class="section-name bg padding-y-sm">
-	<div class="container">
-	<header class="section-heading">
-		<h3 class="section-title">Cadastrar Imagem</h3>
-	</header>
-	</div>
+    <div class="container">
+        <header class="section-heading">
+            <h3 class="section-title">Cadastrar Imagem</h3>
+        </header>
+    </div>
 </section>
 
 <section class="section-name padding-y">
-	<div class="container">
-		<div class="box">
-			<form action="" method="POST" enctype="multipart/form-data">
-				<div class="form-row">
-					<div class="col-md-6">
-						<div class="form-group">
-							<input type="file" name="nome_imagem" class="form-control" required />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<select class="form-control" name="id_produto" required >
-								<option value="">Produto</option>
-								<?php foreach($listar_produto->findAllSelect() as $key => $value) { ?>
-								<option value="<?php echo $value->id_produto; ?>"><?php echo $value->nome; ?></option>
-								<?php } ?>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<button type="submit" name="btCadastrar" class="btn btn-primary btn-block">Registrar</button>
-				</div>
-			</form>
-		</div>
-	</div>
+    <div class="container">
+        <div class="box">
+            <form action="" method="POST" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="file" name="nome_imagem" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="form-control" name="id_produto" required>
+                                <option value="">Produto</option>
+                                <?php foreach ($listar_produto->findAllSelect() as $key => $value) { ?>
+                                <option value="<?php echo $value->id_produto; ?>"><?php echo $value->nome; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" name="btCadastrar" class="btn btn-primary btn-block">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </section>

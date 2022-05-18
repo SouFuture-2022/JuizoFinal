@@ -23,6 +23,7 @@ if (isset($_POST['btCadastrar'])) {
 		include('Includes/MsgSucesso.php');
 	}
 }
+
 ?>
 
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />

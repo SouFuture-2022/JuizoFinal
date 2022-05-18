@@ -8,6 +8,7 @@ $cadastrar_categoria = new CadastrarCategoriaDb;
 
 if (isset($_POST['btCadastrar'])) {
     $nome_categoria  = $_POST['nome_categoria'];
+
     $categoria->setNomeCategotia($nome_categoria);
 
     if ($cadastrar_categoria->insert()) {

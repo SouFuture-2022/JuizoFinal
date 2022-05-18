@@ -10,7 +10,7 @@ class CadastrarProdutoDb{
 		$db = new Conexao();
 		$sql = "INSERT INTO produtos (nome, imagem_destaque, habilitar_cor, habilitar_tamanho, preco, quantidade, peso, un_medida, descricao, id_categoria, criado_em) 
 		VALUES (:nome, :imagem_destaque, :habilitar_cor, :habilitar_tamanho, :preco, :quantidade, :peso, :un_medida, :descricao, :id_categoria, NOW())";
-		$stmt = $db->Conexao->prepare($sql);
+		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':imagem_destaque', $this->imagem_destaque);
 		$stmt->bindParam(':habilitar_cor', $this->habilitar_cor);

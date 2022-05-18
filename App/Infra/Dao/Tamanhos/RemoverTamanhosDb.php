@@ -11,7 +11,7 @@ class RemoveTamanhosDb {
         $db = new Conexao();
 
 		$sql  = "DELETE FROM tamanhos WHERE id_tamanho = :id_tamanho";
-		$stmt = $db->Conexao->prepare($sql);
+		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':id_tamanho', $id_tamanho, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}

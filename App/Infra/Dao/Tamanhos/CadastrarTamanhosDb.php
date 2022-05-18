@@ -10,7 +10,7 @@ class CadastrarTamanhosDb {
         $db = new Conexao();
 
 		$sql = "INSERT INTO tamanhos (sub_categoria, tamanho_superior, tamanho_inferior, quantidade_tamanho, id_produto, criado_em) VALUES (:sub_categoria, :tamanho_superior, :tamanho_inferior, :quantidade_tamanho, :id_produto, NOW()";
-		$stmt = $db->Conexao->prepare($sql);
+		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':sub_categoria', $this->sub_categoria);
 		$stmt->bindParam(':tamanho_superior', $this->tamanho_superior);
 		$stmt->bindParam(':tamanho_inferior', $this->tamanho_inferior);

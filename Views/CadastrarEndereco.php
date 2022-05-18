@@ -1,47 +1,45 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-<section>
-    <div class="container d-flex justify-content-center">
-        <div class="card shadow p-3 mb-5 bg-body rounded w-50 p-3">
-            <div class="card-body">
-                <h2 class="text-primary">Cadastrar Endereços</h2>
-            </div>
-            <form method="post">
-                <div>
-                    <div class="mb-3">
-                        <input type="text" name="cep" placeholder="CEP" class="form-control">
-                    </div>
-                    <!--AO USUÁRIO DIGITAR O CEP, ESSE CAMPO É PREENCHIDO SOZINHO-->
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input type="text" name="estado" placeholder="Estado" class="form-control">
-                        </div>
-                        <div class="col">
-                            <input type="text" name="cidade" placeholder="Cidade" class="form-control">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" name="bairro" placeholder="Bairro" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" name="rua" placeholder="Rua" class="form-control">
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input type="text" name="numero" placeholder="Número" class="form-control">
-                        </div>
-                        <div class="col">
-                            <input type="text" name="infoadicionais" placeholder="Informações adicionais" class="form-control">
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <button class="btn w-75 btn-primary">Cadastrar</button> 
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</section>
-<!--<section class="section-name bg padding-y-sm">
+<?php
+
+use App\Models\Enderecos;
+use App\Infra\Dao\Endereco\CadastrarEndereco;
+
+$endereco = new Enderecos();
+$cadastrar_endereco = new CadastrarEndereco;
+
+if (isset($_POST['btCadastrar'])) {
+	$numero = $_POST['numero'];
+	$cep = $_POST['cep'];
+	$rua = $_POST['rua'];
+	$bairro = $_POST['bairro'];
+	$cidade = $_POST['cidade'];
+	$uf = $_POST['uf'];
+	$id_usuario = '1';
+
+	$endereco->setNumero($numero);
+	$endereco->setCep($cep);
+	$endereco->setRua($rua);
+	$endereco->setBairro($bairro);
+	$endereco->setCidade($cidade);
+	$endereco->setUf($uf);
+	$endereco->setIdusuario($id_usuario);
+
+	if ($cadastrar_endereco->insert()) {
+		$_SESSION['msg_sucesso'] =
+			'<div class="alert alert-success" role="alert">
+				<i class="fa fa-check-circle" aria-hidden="true"></i> Cadastro Realizado Com sucesso...
+			</div>';
+		header('Location: ../Index');
+	}
+}
+?>
+
+<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
+<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
+<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
+<section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">
             <h3 class="section-title">Cadastrar Endereços</h3>
@@ -63,7 +61,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <input type="text" name="cep" value="000000-000" id="cep" placeholder="CEP" maxlength="9"
-                                onblur="pesquisacep(this.value);" class="form-control" required>
+                                onblur="pesquisacep(this.value);" class="form-control" required />
                         </div>
                     </div>
                 </div>

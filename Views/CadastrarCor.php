@@ -10,18 +10,19 @@ $cadastrar_cor = new CadastrarCoresDb;
 $produto = new Produtos();
 $listar_produto = new ListarProdutoDb;
 
+
 if (isset($_POST['btCadastrar'])) {
-	$nome_cor  = $_POST['nome_cor'];
-	$quantidade_cor = $_POST['quantidade_cor'];
-	$id_produto  = $_POST['id_produto'];
+    $nome_cor  = $_POST['nome_cor'];
+    $quantidade_cor = $_POST['quantidade_cor'];
+    $id_produto  = $_POST['id_produto'];
 
-	$cor->setNomecor($nome_cor);
-	$cor->setQuantidadecor($quantidade_cor);
-	$cor->setIdproduto($id_produto);
+    $cor->setNomecor($nome_cor);
+    $cor->setQuantidadecor($quantidade_cor);
+    $cor->setIdproduto($id_produto);
 
-	if ($cadastrar_cor->insert()) {
-		include('Includes/MsgSucesso.php');
-	}
+    if ($cadastrar_cor->insert()) {
+        include('Includes/MsgSucesso.php');
+    }
 }
 ?>
 

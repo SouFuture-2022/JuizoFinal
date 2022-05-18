@@ -53,7 +53,7 @@
                     <p>Já tem uma conta?</p>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a class="btn w-75 btn-outline-primary" href="#">Entrar</a>
+                    <a href="Login" class="btn w-75 btn-outline-primary" href="#">Entrar</a>
                 </div>
             </div>
         </div>

@@ -45,7 +45,7 @@
                             <p>Ainda não tem uma conta?</p>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <a class="btn w-75 btn-outline-primary">Criar conta</a>
+                            <a href="Cadastrar" class="btn w-75 btn-outline-primary">Criar conta</a>
                         </div>
                     </div>
                 </div>

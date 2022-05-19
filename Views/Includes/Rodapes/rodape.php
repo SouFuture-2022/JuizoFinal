@@ -1,4 +1,4 @@
-<footer class="section-footer border-top bg-$gray-300">
+<footer class="section-footer bg-gray-light">
     <div class="container">
         <section class="footer-top  padding-y">
             <div class="row">
@@ -36,7 +36,7 @@
                 <aside class="col-md col-6">
                     <h6 class="title">Minha Conta</h6>
                     <ul class="list-unstyled">
-                        <li><a href="../Login">Login</a></li>
+                        <li><a href="Login">Login</a></li>
                         <li><a href="../CadastrarUsuario">Registrar</a></li>
                     </ul>
                 </aside>
@@ -81,7 +81,7 @@
 
         <section class="footer-bottom row">
             <div class="col-md-2">
-                <p class="text-muted"> &copy 2021 Company </p>
+                <p class="text-muted"> &copy 2022 Companhia </p>
             </div>
             <div class="col-md-8 text-md-center">
                 <span class="px-2">info@lojademooficial.com</span>

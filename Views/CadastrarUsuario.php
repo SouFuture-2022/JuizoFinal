@@ -1,4 +1,3 @@
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <section>
@@ -25,16 +24,10 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <select class="form-select text-muted">
-                                <option value="">Estado...</option>
-                                <option value="uz">Mais opções</option>
-                            </select>
+                            <input type="text" class="form-control" placeholder="CPF" required>
                         </div>
                         <div class="col">
-                            <select class="form-select text-muted">
-                                <option value="">Cidade...</option>
-                                <option value="uz">Mais opções</option>
-                            </select>
+                            <input type="date" class="form-control text-muted" placeholder="Data de nascimento" required>
                         </div>
                     </div>
                     <div class="row mb-3">

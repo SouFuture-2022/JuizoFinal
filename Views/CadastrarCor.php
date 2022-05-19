@@ -1,14 +1,15 @@
 <?php
 
-use App\Infra\Dao\Cores\CadastrarCoresDb;
+use App\Infra\Dao\Cores\CadastrarCores;
 use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Models\Cores;
 use App\Models\Produtos;
 
 $cor = new Cores();
-$cadastrar_cor = new CadastrarCoresDb;
+$cadastrar_cor = new CadastrarCores;
 $produto = new Produtos();
 $listar_produto = new ListarProdutoDb;
+
 
 if (isset($_POST['btCadastrar'])) {
 	$nome_cor  = $_POST['nome_cor'];
@@ -24,58 +25,42 @@ if (isset($_POST['btCadastrar'])) {
 	}
 }
 ?>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
-<section class="section-name bg padding-y-sm">
-    <div class="container">
-        <header class="section-heading">
-            <h3 class="section-title">Cadastrar Cor</h3>
-        </header>
-    </div>
-</section>
+<section>
+    <div class="container d-flex justify-content-center">
+        <div class="card shadow p-3 mb-5 bg-body rounded w-50 p-3">
+            <div class="card-body">
+                <h2 class="mb-3 text-primary">Cadastrar Cor</h2>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <select class="form-select text-muted" aria-label="Default select example">
+                                <option selected>Produtos</option>
+                                <option value="1">Produto 1</option>
+                                <option value="2">Produto 2</option>
+                                <option value="3">Produto 3</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col mb-3">
+                            <input type="text" class="form-control" placeholder="Nome da cor" required>
 
-<section class="section-name padding-y">
-    <div class="container">
-        <div class="box">
-            <form action="" method="POST" enctype="multipart/form-data">
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" name="nome_cor" id="nome" placeholder="Nome da Cor" class="form-control"
-                                required />
+                        </div>
+                        <div class="col mb-3">
+                            <input type="text" class="form-control" placeholder="Quantidade da cor" required>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="number" name="quantidade_cor" id="quantidadeCor"
-                                placeholder="Quantidade da Cor" class="form-control" required />
-                        </div>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn w-75 btn-primary">Registrar</button>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <select class="form-control" name="id_produto" required>
-                                <option value="">Produto</option>
-                                <?php foreach ($listar_produto->findAllSelect() as $key => $value) { ?>
-                                <option value="<?php echo $value->id_produto; ?>"><?php echo $value->nome; ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <button type="submit" name="btCadastrar"
-                                class="btn btn-primary btn-block">Registrar</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </section>
+                                <!--<?php foreach ($listar_produto->findAllSelect() as $key => $value) { ?>
+                                <option value="<!--?php echo $value->id_produto; ?>"><?php echo $value->nome; ?></option>
+                                <?php } ?>-->
+  

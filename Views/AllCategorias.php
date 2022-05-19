@@ -1,16 +1,16 @@
-<?php
+<!--<?php
 
 use App\Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
-use App\Infra\Dao\Categorias\ListarCategoriasDb;
+use App\Infra\Dao\Categorias\ListarCategoriaDb;
 use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Models\Produtos;
 use App\Models\Categorias;
 use App\Models\Avaliacoes;
 
-$produto = new Produtos;
-$categoria = new Categorias;
+$produto = new Produtos();
+$categoria = new Categorias();
 $avaliacao = new Avaliacoes;
-$listar_categoria = new ListarCategoriasDb;
+$listar_categoria = new ListarCategoriaDb;
 $listar_produto = new ListarProdutoDb;
 $listar_avaliacao = new ListarAvaliacoesDb;
 
@@ -19,13 +19,8 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
 	$id_categoria = (int)base64_decode($_GET['categoria']);
 	$resultado = $listar_produto->findAllProductCategories($id_categoria);
 ?>
-
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
+-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 <section class="section-name bg padding-y-sm">
     <div class="container">
@@ -70,8 +65,6 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
                         </div>
                     </article>
 
-
-
                     <article class="filter-group">
                         <header class="card-header">
                             <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
@@ -106,7 +99,6 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
 
                 </div>
             </aside>
-
 
             <main class="col-md-9">
                 <header class="border-bottom mb-4 pb-3">
@@ -171,7 +163,6 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
                     </div>
                 </article>
 
-
                 <nav aria-label="Navegação de página exemplo">
                     <ul class="pagination">
                         <li class="page-item">
@@ -183,7 +174,6 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
                         </li>
                         <li class="page-item"><a class="page-link" href="../AllCategorias?acao=cate&categoria="> </a>
                         </li>
-
 
                         <li class="page-item active"><a class="page-link"
                                 href="../AllCategorias?acao=cate&categoria=&pagina="> <span
@@ -200,7 +190,6 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
             </main>
         </div>
     </div>
-
 </section>
 <?php } else {
 	echo 'error';

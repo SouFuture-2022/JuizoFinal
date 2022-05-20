@@ -20,7 +20,7 @@
                             <div class="mb-3">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text"><img src="../Assets/images/cadeado.png" alt="icone de senha"></span>
-                                    <input type="password" name="email" class="form-control" placeholder="Senha" required>
+                                    <input type="password" name="senha" class="form-control" placeholder="Senha" required>
                                 </div>
                             </div>
 
@@ -37,7 +37,8 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <button class="btn mt-3 w-75 btn-primary" type="button">Entrar</button>
+                            <input type="submit" id="submit" name="submit" value="Entrar">
+                            <!--<input type="submit" id="submit" name="login" value="Entrar">-->
                             </div>
                         </form>
                         <hr>
@@ -53,3 +54,26 @@
         </div>
     </div>
 </section>
+
+<?php 
+
+use App\Models\SessionLogin;
+
+if ($_POST){
+
+$login = $_SESSION['login'] ?? false;
+
+if (isset($_POST['submit'])){
+$email = $_POST['email'];
+$senha = $_POST['senha'];
+
+$login = new SessionLogin;
+$dados = $login->login($email, $senha);
+foreach ($dados as $key){ 
+    if($email == $key['email']){if($senha == $key['senha'])
+    {$_SESSION ['login'] = true;}
+    echo "<a href='/'>Voltar</a>";
+}else{
+    echo "Login não realizado";
+}
+}}}

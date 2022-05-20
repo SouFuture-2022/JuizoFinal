@@ -4,6 +4,7 @@
 <link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
 <link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
 <link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">

@@ -17,10 +17,6 @@ TAGS; 'Return', '/', '=>'
 '/' = Essa informação indica qual o arquivo será exibido logo após.
 --------------------------------------------------------------------------------------------------------
 
-
-
-
-
 ----------------------------------------- (fluxo)ROTAS -------------------------------------------------
 
 Inicializamos o nosso "php", logo colocamos a tag 'Return', na qual retornando assim o valor, usamos apos isso

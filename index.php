@@ -24,7 +24,7 @@
 
 		$view = $data['view'];
 
-		require '/home/daniel/juizo_final/JuizoFinal/Views/Master.php';
+		require './Views/Master.php';
 	} catch (\Exception $e) {
 		die($e->getMessage());
 	}

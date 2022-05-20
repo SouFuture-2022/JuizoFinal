@@ -30,14 +30,24 @@
                     </div>
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="float-end">
-                            <a href="Login" class="btn btn-light">
-                                <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Login </span>
-                            </a>
-                            <a href="#" class="btn btn-light">
+                            <?php
+
+                            session_start();
+                            $login = $_SESSION['login'] ?? False;
+                            if($login){ 
+                                echo "<a href='/Logout' class='btn btn-light'>
+                                <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Sair</span>
+                            </a>";} 
+                            else{
+                                echo "<a href='/Login' class='btn btn-light'>
+                                <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Entrar </span>
+                            </a>";
+                            }?>
+                            <a href="/Favoritos" class="btn btn-light">
                                 <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Favoritos
                                 </span>
                             </a>
-                            <a data-bs-toggle="offcanvas" href="#offcanvas_cart" class="btn btn-light">
+                            <a data-bs-toggle="offcanvas" href="/Carrinho" class="btn btn-light">
                                 <i class="fa fa-shopping-cart"></i> <span class="ms-1">Carrinho </span>
                             </a>
                         </div>

@@ -114,7 +114,7 @@ if (isset($_POST['btCadastrar'])) {
 										$db = new Conexao;
 										foreach ($_SESSION['carrinho'] as $id_produto => $qtd) {
 											$sql  = "SELECT * FROM produtos WHERE id_produto = $id_produto";
-											$stmt = $db->Conexao->prepare($sql);
+											$stmt = $db->getConnection()->prepare($sql);
 											$stmt->bindParam(1, $id_produto);
 											$stmt->execute();
 											$ln = $stmt->fetchAll();
@@ -124,8 +124,8 @@ if (isset($_POST['btCadastrar'])) {
 											$peso = $ln[0]->peso;
 											$cor = $ln[0]->cor;
 											$preco = $ln[0]->preco;
-											@$sub_total = $ln[0]->preco * $qtd;
-											@$total += $sub_total;
+											$sub_total = $ln[0]->preco * $qtd;
+											$total += $sub_total;
 											$total_peso += $peso / 1000;
 										?>
                                     <tr>
@@ -229,8 +229,8 @@ if (isset($_POST['btCadastrar'])) {
 								$nome = $ln[0]->nome;
 								$cor = $ln[0]->cor;
 								$preco = $ln[0]->preco;
-								@$sub_total = $ln[0]->preco * $qtd;
-								@$total_carrinho += $sub_total;
+								$sub_total = $ln[0]->preco * $qtd;
+								$total_carrinho += $sub_total;
 								$id_usuario = 1;
 								$tamanho = 'P';
 

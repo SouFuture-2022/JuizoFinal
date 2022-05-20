@@ -13,4 +13,20 @@ return [
 	'/Cadastrar' => 'Cadastrar@cadastrar',
 	'/user/create' => 'User@create',
 	'/user/[0-9]+' => 'User@show',
+
+	'/Contato' => 'Contato@contato',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/Sobre' => 'Sobre@sobre',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/Carrinho' => 'Carrinho@carrinho',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/Logout' => 'Logout@logout',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 ];

@@ -4,10 +4,10 @@ namespace App\Core\Controllers;
 
 use App\Core\Store;
 
-class Login {
-    public function login(){
+class  Logout{
+    public function logout(){
         Store::Layout([
-            'Login',
+            'Logout'
         ]);
     }
 }

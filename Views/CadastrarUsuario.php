@@ -46,122 +46,56 @@ if (isset($_POST['btCadastrar'])) {
 <link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
 <link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
 <link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
-<section class="section-name bg padding-y-sm">
-    <div class="container">
-        <header class="section-heading">
-            <h3 class="section-title">Cadastrar Conta</h3>
-        </header>
-    </div>
-</section>
-
-<section class="section-name padding-y">
-    <div class="container">
-        <div class="box">
-            <form action="" method="POST" enctype="multipart/form-data">
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
-                            </div>
-                            <input type="text" name="nome" id="nome" placeholder="Nome Completo" class="form-control"
-                                required />
+<section>
+    <div class="container d-flex justify-content-center">
+        <div class="card shadow p-3 mb-5 bg-body rounded w-50 p-3">
+            <div class="card-body">
+                <h2 class="mb-3 text-primary">Cadastre-se</h2>
+                <form action="">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Nome completo" required>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Nome de usuário" required>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                            </div>
-                            <input type="date" name="data_nascimento" id="dataNascimento" class="form-control"
-                                required="required" />
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Telefone" required>
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="CPF" required>
+                        </div>
+                        <div class="col">
+                            <input type="date" class="form-control text-muted" placeholder="Data de nascimento" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="password" class="form-control" placeholder="Senha" required>
+                        </div>
+                        <div class="col">
+                            <input type="password" class="form-control" placeholder="Confirmar senha" required>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn w-75 btn-primary">Cadastrar</button> 
+                    </div>
+                </form>
+                <hr>
+                <div class="d-flex justify-content-center">
+                    <p>Já tem uma conta?</p>
                 </div>
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                            </div>
-                            <input type="email" name="email" id="email" placeholder="E-mail" class="form-control"
-                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-                            </div>
-                            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Telefone"
-                                maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}" required />
-
-                        </div>
-                    </div>
+                <div class="d-flex justify-content-center">
+                    <a class="btn w-75 btn-outline-primary" href="#">Entrar</a>
                 </div>
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-unlock-alt"
-                                        aria-hidden="true"></i></span>
-                            </div>
-                            <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control"
-                                maxlength="10" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-eye" onclick="mouseoverPass();"
-                                        onmouseout="mouseoutPass();" aria-hidden="true"></i></span>
-                            </div>
-                            <small class="form-text text-muted">
-                                <p class="text-danger">Para sua segurança, sua senha deve conter pelo menos, 08
-                                    Caracteres, 01 Letra Maiúscula e 01 Número.</p>
-                            </small>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
-                            </div>
-                            <input type="text" name="cpf" id="cpf" placeholder="CPF" class="form-control" maxlength="11"
-                                required />
-                        </div>
-                    </div>
-                </div>
-                Sexo:&nbsp;&nbsp;&nbsp;
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="custom-control custom-radio mb-3">
-                            <input type="radio" name="sexo" value="M" id="sexo" class="custom-control-input" required
-                                checked />
-                            <div class="custom-control-label">M</div>
-                        </label>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;
-                    <div class="form-group">
-                        <label class="custom-control custom-radio mb-3">
-                            <input type="radio" name="sexo" value="F" id="sexo" class="custom-control-input" required />
-                            <div class="custom-control-label">F</div>
-                        </label>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
-                            </div>
-                            <input type="file" name="perfil" id="imgPerfil" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <button type="submit" name="btCadastrar"
-                                class="btn btn-primary btn-block">Registrar</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </section>

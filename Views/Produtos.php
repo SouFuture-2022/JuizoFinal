@@ -16,8 +16,6 @@ use App\Models\Favoritos;
 use App\Models\Avaliacoes;
 use App\Models\Pedidos;
 
-session_start();
-
 if (isset($_SESSION['msg_sucesso'])) {
 	echo $_SESSION['msg_sucesso'];
 	unset($_SESSION['msg_sucesso']);

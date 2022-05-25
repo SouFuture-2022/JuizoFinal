@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h2 class="text-primary ">Entrar</h2>
 
-                        <form method="post">
+                        <form method="post" action="">
                             <div class="mb-3">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text"><img src="../Assets/images/usuario.png" alt="icone de perfil"></span>
@@ -58,22 +58,25 @@
 <?php 
 
 use App\Models\SessionLogin;
+session_start();
+$logar = $_SESSION['logar'] ?? false;
 
 if ($_POST){
-
-$login = $_SESSION['login'] ?? false;
 
 if (isset($_POST['submit'])){
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-$login = new SessionLogin;
-$dados = $login->login($email, $senha);
-foreach ($dados as $key){ 
-    if($email == $key['email']){if($senha == $key['senha'])
-    {$_SESSION ['login'] = true;}
-    echo "<a href='/'>Voltar</a>";
-}else{
-    echo "Login não realizado";
+$logar = new SessionLogin();
+$dados = $logar->login($email, $senha);
+$num = $dados->rowCount();
+if ($num == 1) {
+    $_SESSION ['logar'] = true;
+    header('Location:/');
+} else {
+    echo "Dados inválidos, tente novamente";
 }
-}}}
+
+}
+
+}

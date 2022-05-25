@@ -41,7 +41,6 @@
                     <div class="d-flex justify-content-center">
                         <input type="submit" id="button" name="cadastrar" value="Cadastrar">
                     </div>
-                   
                 </form>
                 <hr>
                 <div class="d-flex justify-content-center">
@@ -63,5 +62,5 @@ use App\Infra\Dao\Usuario\CadastrarUsuarioDb;
 if (isset($_POST['cadastrar'])){
     $cadastrar = new CadastrarUsuarioDb;
     $cadastrar ->insert();
-    header ('Location : ./home.php');
+    header('location:/');
 }

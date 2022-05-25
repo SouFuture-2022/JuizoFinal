@@ -1,123 +1,12 @@
-<?php
-
-use App\Infra\Dao\Avaliacoes\CadastrarAvaliacoesDb;
-use App\Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
-use App\Infra\Dao\Favoritos\CadastrarFavoritosDb;
-use App\Infra\Dao\Imagens\ListarImagensDb;
-use App\Infra\Dao\Pedido\ListarPedidoDb;
-use App\Infra\Dao\Produto\AlterarProdutoDb;
-use App\Infra\Dao\Produto\ListarProdutoDb;
-use App\Models\Produtos;
-use App\Models\Categorias;
-use App\Models\Tamanho;
-use App\Models\Imagens;
-use App\Models\Cores;
-use App\Models\Favoritos;
-use App\Models\Avaliacoes;
-use App\Models\Pedidos;
-
-session_start();
-
-if (isset($_SESSION['msg_sucesso'])) {
-	echo $_SESSION['msg_sucesso'];
-	unset($_SESSION['msg_sucesso']);
-}
-
-$produto = new Produtos();
-$categoria = new Categorias();
-$imagem = new Imagens();
-$cor = new Cores();
-$tamanho = new Tamanho();
-$favoritar = new Favoritos();
-$avaliacao = new Avaliacoes();
-$pedidos = new Pedidos();
-$alterar_produto = new AlterarProdutoDb;
-$insert_favoritar = new CadastrarFavoritosDb;
-$insert_avaliacao = new CadastrarAvaliacoesDb;
-$listar_produto = new ListarProdutoDb;
-$listar_imagem = new ListarImagensDb;
-$listar_avaliacao = new ListarAvaliacoesDb;
-$listar_pedidos = new ListarPedidoDb;
-
-if (isset($_POST['btEscolherCor'])) {
-	$id_produto = $_POST['id_produto'];
-	$cor = $_POST['cor'];
-
-	$produto->setCor($cor);
-
-	if ($alterar_produto->updateCor($id_produto)) {
-		$_SESSION['msg_sucesso'] =
-			'<div class="alert alert-success" role="alert">
-				Cor Escolhida Com sucesso...
-			</div>';
-		header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
-	}
-}
-
-if (isset($_POST['btEscolherTamanho'])) {
-	$id_produto = $_POST['id_produto'];
-	$tamanho = $_POST['tamanho'];
-
-	$produto->setTamanho($tamanho);
-
-	if ($alterar_produto->updateTamanho($id_produto)) {
-		$_SESSION['msg_sucesso'] =
-			'<div class="alert alert-success" role="alert">
-				Tamanho Escolhido Com sucesso...
-			</div>';
-		header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
-	}
-}
-
-if (isset($_POST['btFavoritar'])) {
-	$id_usuario  = $_POST['id_usuario'];
-	$id_produto = $_POST['id_produto'];
-
-	$favoritar->setIdusuario($id_usuario);
-	$favoritar->setIdproduto($id_produto);
-
-	if ($insert_favoritar->insert()) {
-		$_SESSION['msg_sucesso'] =
-			'<div class="alert alert-success" role="alert">
-				Favorito Adicionado Com sucesso...
-			</div>';
-		header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
-	}
-}
-
-if (isset($_POST['btAvaliar'])) {
-	if (isset($_POST['estrela'])) {
-		$id_produto = $_POST['id_produto'];
-		$estrela  = $_POST['estrela'];
-
-		$avaliacao->setEstrela($estrela);
-		$avaliacao->setIdproduto($id_produto);
-
-		if ($insert_avaliacao->insert()) {
-			$_SESSION['msg_sucesso'] =
-				'<div class="alert alert-success" role="alert">
-					Avaliação Realizada Com sucesso...
-				</div>';
-			header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
-		}
-	} else {
-		$id_produto = $_POST['id_produto'];
-		$_SESSION['msg_sucesso'] =
-			'<div class="alert alert-danger" role="alert">
-				Escolha Alguma Estrela para sua Avaliação!
-			</div>';
-		header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
-	}
-}
-
-?>
-
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
 <link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
 <link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
 <link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
 <link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">
@@ -128,11 +17,7 @@ if (isset($_POST['btAvaliar'])) {
 <section class="section-name padding-y">
     <div class="container">
         <div class="card">
-            <?php
-			if (isset($_GET['acao']) && $_GET['acao'] == 'prod') {
-				$id_produto = (int)base64_decode($_GET['produto']);
-				$resultado = $listar_produto->find($id_produto);
-			?>
+
             <div class="row no-gutters">
                 <aside class="col-md-6">
                     <article class="gallery-wrap">
@@ -146,17 +31,13 @@ if (isset($_POST['btAvaliar'])) {
                                 </ol>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img class="d-block w-100"
-                                            src="Uploads/ProdutosDestaque/<?php echo $resultado->imagem_destaque; ?>"
-                                            alt="First slide">
+                                        <img class="d-block w-100" src="/Assets/images/big.jpg" alt="First slide">
                                     </div>
-                                    <?php foreach ($listar_imagem->find($id_produto) as $key => $value) { ?>
+
                                     <div class="carousel-item">
-                                        <img class="d-block w-100"
-                                            src="Uploads/Produtos/<?php echo $value->nome_imagem; ?>"
-                                            alt="Second slide">
+                                        <img class="d-block w-100" src="/Assets/images/thumb2.jpg" alt="Second slide">
                                     </div>
-                                    <?php } ?>
+
                                 </div>
                                 <a class="carousel-control-prev" href="#carousel1_indicator" role="button"
                                     data-slide="prev">
@@ -198,51 +79,44 @@ if (isset($_POST['btAvaliar'])) {
                 <main class="col-md-6 border-left">
                     <article class="content-body">
 
-                        <h2 class="title"><?php echo $resultado->nome; ?></h2>
+                        <h2 class="title">
+                            Nome
+                        </h2>
 
                         <div class="rating-wrap my-3">
                             <ul class="rating-stars">
-                                <?php $total_media = $listar_avaliacao->find($id_produto);
-									$media = intval($total_media);
-									$total = $listar_avaliacao->findAllCount($id_produto); ?>
+
                                 <li style="width:80%" class="stars-active">
-                                    <?php if ($media == 1) { ?>
+                                    1
                                     <i class="fa fa-star"></i>
-                                    <?php } elseif ($media == 2) { ?>
+                                    2
                                     <i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <?php } elseif ($media == 3) { ?>
+                                    3
                                     <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <?php } elseif ($media == 4) { ?>
+                                    4
                                     <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
                                         class="fa fa-star"></i>
-                                    <?php } elseif ($media == 5) { ?>
+                                    5
                                     <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
                                         class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <?php } ?>
+
                                 </li>
                                 <li>
                                     <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
                                         class="fa fa-star"></i><i class="fa fa-star"></i>
                                 </li>
                             </ul>
-                            <span class="label-rating"><?php echo $media . '/' . $total; ?></span>
+                            <span class="label-rating">
+
+                            </span>
 
                             <small class="label-rating text-muted">
-                                <?php
-									if (isset($_COOKIE['contador'])) {
-										$cont = $_COOKIE['contador'];
-										$cont++;
-										echo $cont;
-										setcookie('contador', $cont, time() + 60 * 60 * 365);
-									} else {
-										echo '1ª visita';
-										setcookie('contador', 1, time() + 60 * 60 * 24 * 365);
-									} ?> visualizações</small>
+
+                            </small>
 
                             <small class="label-rating text-success">
                                 <i class="far fa-check-square"></i>
-                                <?php $compras = $listar_pedidos->findAllCountShopping($resultado->id_produto);
-									echo $compras; ?> compras
+
                             </small>
 
                             <small class="label-rating">
@@ -252,13 +126,13 @@ if (isset($_POST['btAvaliar'])) {
                                 </button>
                             </small>
 
-                            <small class="label-rating"><?php $id_usuario = 1; ?>
+                            <small class="label-rating">
+
                                 <form action="" method="POST">
                                     <input type="hidden" name="id_usuario" value="<?php echo $id_usuario; ?>" />
-                                    <input type="hidden" name="id_produto"
-                                        value="<?php echo $resultado->id_produto; ?>" />
-                                    <button type="submit" name="btFavoritar" class="btn btn-danger" title="Favoritar">
-                                        <i class="far fa-heart"></i>
+                                    <input type="hidden" name="id_produto" <button type="submit" name="btFavoritar"
+                                        class="btn btn-danger" title="Favoritar">
+                                    <i class="far fa-heart"></i>
                                     </button>
                                 </form>
                             </small>
@@ -283,38 +157,52 @@ if (isset($_POST['btAvaliar'])) {
                         </div>
 
                         <div class="mb-3">
-                            <var class="price h4">R$<?php echo number_format($resultado->preco, 2, ',', ' '); ?></var>
+                            <var class="price h4">R$ 23,00
+
+                            </var>
                         </div>
 
                         <dl class="row">
                             <dt class="col-sm-3">Categoria:</dt>
-                            <dd class="col-sm-9"><?php echo $resultado->id_categoria; ?></dd>
+                            <dd class="col-sm-9">
+
+                            </dd>
                             <dt class="col-sm-3">Quantidade em Estoque:</dt>
-                            <dd class="col-sm-9"><?php echo $resultado->quantidade; ?></dd>
+                            <dd class="col-sm-9">
+
+                            </dd>
                             <dt class="col-sm-3">Peso:</dt>
-                            <dd class="col-sm-9"><?php echo $resultado->peso; ?>g</dd>
-                            <?php if ($resultado->cor != 0) { ?>
+                            <dd class="col-sm-9">
+
+                            </dd>
+
                             <dt class="col-sm-3">Cor Escolhida:</dt>
-                            <dd class="col-sm-9"><?php echo $resultado->cor; ?></dd>
-                            <?php } ?>
+                            <dd class="col-sm-9">
+
+                            </dd>
+
                         </dl>
 
-                        <div class="card mt-3"><strong>Descrição:</strong><?php echo $resultado->descricao; ?></div>
+                        <div class="card mt-3"><strong>Descrição:</strong>
 
-                        <?php if ($resultado->habilitar_tamanho == 'S') {
-								$tamanhoP = $tamanho->findAllP($resultado->id_produto);
-								$tamanhoM = $tamanho->findAllM($resultado->id_produto);
-								$tamanhoG = $tamanho->findAllG($resultado->id_produto);
-							?>
+                        </div>
+
+
                         <hr>
                         <div class="form-row">
                             <div class="form-group col-md flex-grow-0 mt-3">
                                 <label><strong>Tamanhos Disponiveis</strong></label>
                                 <div class="input-group mb-3 input-spinner">
                                     <ul>
-                                        <li>P: <?php echo $tamanhoP; ?></li>
-                                        <li>M: <?php echo $tamanhoM; ?></li>
-                                        <li>G: <?php echo $tamanhoG; ?></li>
+                                        <li>P:
+                                            <?php echo $tamanhoP; ?>
+                                        </li>
+                                        <li>M:
+                                            <?php echo $tamanhoM; ?>
+                                        </li>
+                                        <li>G:
+                                            <?php echo $tamanhoG; ?>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -348,10 +236,7 @@ if (isset($_POST['btAvaliar'])) {
                                 </div>
                             </div>
                         </div>
-                        <?php }
 
-							if ($resultado->habilitar_cor == 'S') {
-								$resultado->cor; ?>
                         <hr>
                         <div class="form-row">
                             <div class="form-group col-md mt-3">
@@ -360,13 +245,15 @@ if (isset($_POST['btAvaliar'])) {
                                     <form action="" method="POST">
                                         <input type="hidden" name="id_produto"
                                             value="<?php echo $resultado->id_produto; ?>" />
-                                        <?php foreach ($cor->find($resultado->id_produto) as $key => $value) { ?>
+
                                         <label class="custom-control custom-radio custom-control-inline">
                                             <input type="radio" name="cor" value="<?php echo $value->nome_cor; ?>"
-                                                id="<?php echo $value->nome_cor; ?>" class="custom-control-input">
-                                            <div class="custom-control-label"><?php echo $value->nome_cor; ?></div>
+                                                class="custom-control-input">
+                                            <div class="custom-control-label">
+
+                                            </div>
                                         </label>
-                                        <?php } ?>
+
                                         <div class="form-group">
                                             <button type="submit" name="btEscolherCor"
                                                 class="btn btn-primary mt-3">Escolher Cor</button>
@@ -376,7 +263,7 @@ if (isset($_POST['btAvaliar'])) {
                             </div>
                         </div>
 
-                        <?php } ?>
+
 
                         <hr>
                         <a href="../Carrinho?acao=add&produto=<?php echo base64_encode($resultado->id_produto); ?>"
@@ -393,7 +280,8 @@ if (isset($_POST['btAvaliar'])) {
     </div>
 </section>
 
-<?php include('Includes/Recomendados.php');
-			} else {
-				echo 'Error';
-			} ?>
+<? //php include('Includes/Recomendados.php');
+//} else {
+//echo 'Error';
+//} 
+?>

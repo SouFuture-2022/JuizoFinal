@@ -8,18 +8,17 @@ class SessionLogin{
 
 	public function login($email, $senha) {
 		$db = new Conexao();
-		$sql  = "SELECT email, senha FROM usuarios WHERE email = '$email' and senha = '$senha'";
+		$sql  = "SELECT email, senha FROM usuarios WHERE email = '$email' and senha = md5('$senha')";
 		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam($email, $_POST ['email']);
 		$stmt->bindParam($senha, $_POST ['senha']);
-		$stmt->execute();
+		$stmt->execute();	
 		return $stmt;
 	}
-
-	
-
 	public function logout() {
+		session_start();
+		unset($_SESSION['logar']);
 		session_destroy();
-		echo "<script> alert('Sessão Encerrada...'); window.location='http://homolocacaominhalojinha.orgfree.com/Login'</script>";
+		echo "<script> alert('Sessão Encerrada...') ; window.location='http://Localhost:8000/'</script>";
     }
 }

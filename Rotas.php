@@ -29,4 +29,16 @@ return [
 	'/Logout' => 'Logout@logout',
 	'/user/create' => 'User@create',
 	'/user/[0-9]+' => 'User@show',
+
+	'/Table' => 'Table@table',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/Categorias' => 'Categorias@categorias',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/Produtos' => 'Produtos@produtos',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 ];

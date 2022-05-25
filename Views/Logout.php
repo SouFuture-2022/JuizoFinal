@@ -16,11 +16,9 @@
         if (isset($_GET['Logout'])){
             $logout = new SessionLogin();
             $logout ->logout();
-           {$_SESSION['login'] = false;}
         }
 
-?>   <a href='/' class='btn w-75 btn-outline-primary' name='logout'>Voltar</a>
-
+?>  
     </div>
 </body>
 </html>

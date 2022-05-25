@@ -4,11 +4,11 @@ namespace App\Core\Controllers;
 
 use App\Core\Store;
 
-class  Cadastrar{
-    public function cadastrar(){
+class  Produtos{
+    public function produtos(){
         Store::Layout([
             'includes/Cabecalhos/menu',
-            'CadastrarUsuario',
+            'Produtos',
             'includes/Rodapes/rodape',
         ]);
     }

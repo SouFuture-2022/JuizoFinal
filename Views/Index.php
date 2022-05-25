@@ -13,7 +13,7 @@ $listar_avaliacao = new ListarAvaliacoesDb;
 if (isset($_SESSION['msg_sucesso'])) {
 	echo $_SESSION['msg_sucesso'];
 	unset($_SESSION['msg_sucesso']);
-}
+} 
 ?>
 
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />

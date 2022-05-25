@@ -221,18 +221,18 @@ if (isset($_POST['btCadastrar'])) {
                             <?php
 							foreach ($_SESSION['carrinho'] as $id_produto => $qtd) {
 								$sql  = "SELECT * FROM produtos WHERE id_produto = $id_produto";
-								$stmt = $db->Conexao->prepare($sql);
+								$stmt = $db->getConnection()->prepare($sql);
 								$stmt->bindParam(1, $id_produto);
 								$stmt->execute();
 								$ln = $stmt->fetchAll();
 
-								$nome = $ln[0]->nome;
-								$cor = $ln[0]->cor;
-								$preco = $ln[0]->preco;
-								$sub_total = $ln[0]->preco * $qtd;
-								$total_carrinho += $sub_total;
-								$id_usuario = 1;
-								$tamanho = 'P';
+								//$nome = $ln[0]->nome;
+								//$cor = $ln[0]->cor;
+								//$preco = $ln[0]->preco;
+								//$sub_total = $ln[0]->preco * $qtd;
+								//$total_carrinho += $sub_total;
+								//$id_usuario = 1;
+								//$tamanho = 'P';
 
 								echo '
 								<input type="hidden" name="nome[]" value="' . $nome . '">

@@ -18,12 +18,5 @@ class Home
 
             ])
         ];
-
-        /* return [
-            'header' => 'menu.php',
-            'view' => 'Index.php',
-            'footer' => 'rodape.php',
-            'data' => ['name' => 'daniel']
-        ];*/
     }
 }

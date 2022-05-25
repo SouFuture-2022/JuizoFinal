@@ -1,0 +1,10 @@
+
+-----------------------------Finalizar compra------------------------------
+
+<select name="" class="form-control">
+                                        <option value="">Tashkent</option>
+                                        <option value="">Buxoro</option>
+                                        <option value="">Samarqand</option>
+                                    </select>
+
+-----------------------------------------------------------------------------

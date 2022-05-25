@@ -8,6 +8,7 @@
 	try {
 		$data = rota(); 
 
+<<<<<<< HEAD
 		extract($data['data']);
 		#var_dump($data);
 
@@ -27,5 +28,8 @@
 		require './Views/Master.php';
 	} catch (\Exception $e) {
 		die($e->getMessage());
+=======
+	} catch (\Exception $e) {		
+      die($e->getMessage());
+>>>>>>> f241c7cddf35cad4776990ee970f1ecdd5acfb85
 	}
-

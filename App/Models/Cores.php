@@ -24,6 +24,7 @@ class Cores {
 	public function getQuantidadecor() {
 		return $this->quantidade_cor;
 	}
+	
 
 	public function setIdproduto($id_produto) {
 		$this->id_produto = $id_produto;

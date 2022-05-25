@@ -9,7 +9,7 @@ class AlterarUsuarioDb {
     public function update($id_usuario) {
 		$db = new Conexao();
 		$sql  = "UPDATE usuarios SET nome = :nome, email = :email WHERE id = :id";
-		$stmt = $db->Conexao->prepare($sql);
+		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':nome', $this->nome);
 		$stmt->bindParam(':email', $this->email);
     //id não é uma variável válida

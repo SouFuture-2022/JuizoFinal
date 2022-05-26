@@ -36,8 +36,8 @@
                 <aside class="col-md col-6">
                     <h6 class="title">Minha Conta</h6>
                     <ul class="list-unstyled">
-                        <li><a href="../Login">Login</a></li>
-                        <li><a href="../Cadastrar">Registrar</a></li>
+                        <li><a href="Login">Login</a></li>
+                        <li><a href="Cadastrar">Registrar</a></li>
                     </ul>
                 </aside>
                 <aside class="col-md col-6">
@@ -101,7 +101,6 @@
     </div>
 </footer>
 
-
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- Máscara Telefone -->
@@ -116,7 +115,6 @@
 <script type="text/javascript">
 $("#cep").mask("00000-000");
 </script>
-
 <!-- Contador de Caracteres -->
 <script type="text/javascript" src="Assets/js/contador-caracteres.js"></script>
 <!-- JavaScript CalcularFrete -->

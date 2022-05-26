@@ -22,6 +22,23 @@ if (isset($_SESSION['msg_sucesso'])) {
 <link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
 <link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
 <link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
+<!-- ================ SECTION INTRO ================ -->
+<section class="section-intro bg-info padding-y-lg">
+    <div class="container">
+
+        <article class="my-5">
+            <h1 class="display-4 text-white">
+                Melhores produtos & <br> marcas em nossa loja </h1>
+            <p class="lead text-white">Produtos da moda, preços de fábrica, excelente serviço</p>
+            <a href="#" class="btn btn-warning"> Compre agora</a>
+            <a href="#" class="btn btn-light"> Saber mais </a>
+        </article>
+
+    </div> <!-- container end.// -->
+</section>
+<!-- ================ SECTION INTRO END.// ================ -->
+
+<!-- ================ SECTION PRODUCTS ================ -->
 <section class="section-intro padding-y-sm">
     <div class="container">
         <div id="carousel1_indicator" class="carousel slide" data-ride="carousel">
@@ -33,13 +50,13 @@ if (isset($_SESSION['msg_sucesso'])) {
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="Assets/images/1.jpg" alt="First slide">
+                    <img class="d-block w-100" src="Assets/images/vision.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="Assets/images/1.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="Assets/images/vision.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="Assets/images/1.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="Assets/images/vision.jpg" alt="Third slide">
                 </div>
             </div>
 
@@ -99,20 +116,167 @@ if (isset($_SESSION['msg_sucesso'])) {
     </div>
 </section>
 
-<section class="section-content">
-<div class="container">
+<section class="padding-y">
+    <div class="container">
+
+        <header class="section-heading">
+            <h3 class="section-title">Novo Produtos</h3>
+        </header>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/1.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$790.50</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">GoPro HERO6 4K Action Camera - Black</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/2.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$320.00</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">Canon camera 20x zoom, Black color EOS 2000</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/3.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$120.00</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">Xiaomi Redmi 8 Original Global Version 4GB</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/4.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$120.00</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">Apple iPhone 12 Pro 6.1" RAM 6GB 512GB Unlocked</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/5.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$120.00</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">Apple Watch Series 1 Sport Case 38mm Black</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/6.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$120.00</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">T-shirts with multiple colors, for men and lady</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/7.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$99.50</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">Gaming Headset 32db Blackbuilt in mic</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/8.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$120.00</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">T-shirts with multiple colors, for men and lady</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+        </div> <!-- row end.// -->
+
+    </div> <!-- container end.// -->
+</section>
+<!--<section class="section-content">
+    <div class="container">
         <header class="section-heading">
             <h3 class="section-title">Produtos Populares</h3>
         </header>
 
         <div class="row">
             <?php
-			$pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
-			$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
-			$quantidade_pagina = 4;
-			$inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
+            $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
+            $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+            $quantidade_pagina = 4;
+            $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
 
-			foreach ($listar_produto->findAllPopular($inicio, $quantidade_pagina) as $key => $value) { ?>
+            foreach ($listar_produto->findAllPopular($inicio, $quantidade_pagina) as $key => $value) { ?>
             <div class="col-md-3">
                 <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
                     class="card card-product-grid">
@@ -126,8 +290,8 @@ if (isset($_SESSION['msg_sucesso'])) {
                         <div class="rating-wrap">
                             <ul class="rating-stars">
                                 <?php $total_media = $listar_avaliacao->find($value->id_produto);
-									$media = intval($total_media);
-									$total = $listar_avaliacao->findAllCount($value->id_produto); ?>
+                                $media = intval($total_media);
+                                $total = $listar_avaliacao->findAllCount($value->id_produto); ?>
                                 <li style="width:80%" class="stars-active">
                                     <?php if ($media == 1) { ?>
                                     <i class="fa fa-star"></i>
@@ -157,50 +321,57 @@ if (isset($_SESSION['msg_sucesso'])) {
             </div>
             <?php } ?>
         </div>
-        <nav aria-label="Navegação de página exemplo">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="../Index?pagina=1" aria-label="Anterior">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Anterior</span>
-                    </a>
-                </li>
-                <?php
-				$linhas = $listar_produto->findAllCount();
-				$quantidade_linhas = ceil($linhas / $quantidade_pagina);
-				$maximo_links = 3;
+<nav aria-label="Navegação de página exemplo">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="../Index?pagina=1" aria-label="Anterior">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Anterior</span>
+            </a>
+        </li>
+        <//?php
+        $linhas = $listar_produto->findAllCount();
+        $quantidade_linhas = ceil($linhas / $quantidade_pagina);
+        $maximo_links = 3;
 
-				for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
-					if ($pagina_anterior >= 1) { ?>
-                <li class="page-item"><a class="page-link"
-                        href="../Index?pagina=<?php echo $pagina_anterior; ?>"><?php echo $pagina_anterior; ?></a></li>
-                <?php }
-				}
-				?>
+        //for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
+            if ($pagina_anterior >= 1) { ?>
+        <li class="page-item"><a class="page-link"
+                href="../Index?pagina=<? //php echo $pagina_anterior; 
+                                        ?>"><? //php echo $pagina_anterior; 
+                                            ?></a></li>
+        <//?php }
+        }
+        ?>
 
-                <li class="page-item active"><a class="page-link"
-                        href="../Index?pagina=<?php echo $pagina; ?>"><?php echo $pagina; ?><span
-                            class="sr-only">(atual)</span></a></li>
+        <li class="page-item active"><a class="page-link"
+                href="../Index?pagina=<? //php echo $pagina; 
+                                        ?>"><?php echo $pagina; ?><span
+                    class="sr-only">(atual)</span></a></li>
 
-                <?php
-				for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
-					if ($pagina_posterior <= $quantidade_linhas) { ?>
-                <li class="page-item"><a class="page-link"
-                        href="../Index?pagina=<?php echo $pagina_posterior; ?>"><?php echo $pagina_posterior; ?></a>
-                </li>
-                <?php }
-				}
-				?>
-                <li class="page-item">
-                    <a class="page-link" href="../Index?pagina=<?php echo $quantidade_linhas; ?>" aria-label="Próximo">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Próximo</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</section>
+        <?php
+        //for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
+        //if ($pagina_posterior <= $quantidade_linhas) { 
+        ?>
+        <li class="page-item"><a class="page-link"
+                href="../Index?pagina=<? //php echo $pagina_posterior; 
+                                        ?>"><? //php echo $pagina_posterior; 
+                                            ?></a>
+        </li>
+        <? //php }
+        //}
+        ?>
+        <li class="page-item">
+            <a class="page-link" href="../Index?pagina=<? //php echo $quantidade_linhas; 
+                                                        ?>" aria-label="Próximo">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Próximo</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+</div>
+</section> -->
 
 <section class="section-content">
     <div class="container">
@@ -210,11 +381,11 @@ if (isset($_SESSION['msg_sucesso'])) {
 
         <div class="row">
             <?php
-			$pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
-			$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
-			$quantidade_pagina = 4;
-			$inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
-			foreach ($listar_produto->findAll($inicio, $quantidade_pagina) as $key => $value) { ?>
+            $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
+            $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+            $quantidade_pagina = 4;
+            $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
+            foreach ($listar_produto->findAll($inicio, $quantidade_pagina) as $key => $value) { ?>
             <div class="col-md-3">
                 <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
                     class="card card-product-grid">
@@ -229,8 +400,8 @@ if (isset($_SESSION['msg_sucesso'])) {
                         <div class="rating-wrap">
                             <ul class="rating-stars">
                                 <?php $total_media = $listar_avaliacao->find($value->id_produto);
-									$media = intval($total_media);
-									$total = $listar_avaliacao->findAllCount($value->id_produto); ?>
+                                    $media = intval($total_media);
+                                    $total = $listar_avaliacao->findAllCount($value->id_produto); ?>
                                 <li style="width:80%" class="stars-active">
                                     <?php if ($media == 1) { ?>
                                     <i class="fa fa-star"></i>
@@ -269,31 +440,31 @@ if (isset($_SESSION['msg_sucesso'])) {
                     </a>
                 </li>
                 <?php
-				$linhas = $listar_produto->findAllCount();
-				$quantidade_linhas = ceil($linhas / $quantidade_pagina);
-				$maximo_links = 3;
+                $linhas = $listar_produto->findAllCount();
+                $quantidade_linhas = ceil($linhas / $quantidade_pagina);
+                $maximo_links = 3;
 
-				for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
-					if ($pagina_anterior >= 1) { ?>
+                for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
+                    if ($pagina_anterior >= 1) { ?>
                 <li class="page-item"><a class="page-link"
                         href="../Index?pagina=<?php echo $pagina_anterior; ?>"><?php echo $pagina_anterior; ?></a></li>
                 <?php }
-				}
-				?>
+                }
+                ?>
 
                 <li class="page-item active"><a class="page-link"
                         href="../Index?pagina=<?php echo $pagina; ?>"><?php echo $pagina; ?><span
                             class="sr-only">(atual)</span></a></li>
 
                 <?php
-				for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
-					if ($pagina_posterior <= $quantidade_linhas) { ?>
+                for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
+                    if ($pagina_posterior <= $quantidade_linhas) { ?>
                 <li class="page-item"><a class="page-link"
                         href="../Index?pagina=<?php echo $pagina_posterior; ?>"><?php echo $pagina_posterior; ?></a>
                 </li>
                 <?php }
-				}
-				?>
+                }
+                ?>
                 <li class="page-item">
                     <a class="page-link" href="../Index?pagina=<?php echo $quantidade_linhas; ?>" aria-label="Próximo">
                         <span aria-hidden="true">&raquo;</span>
@@ -304,7 +475,7 @@ if (isset($_SESSION['msg_sucesso'])) {
         </nav>
     </div>
 </section>
-
+<!-- ================ SECTION PRODUCTS END.// ================ -->
 <section class="section-name padding-y">
     <div class="container">
         <h3 class="mb-3">Download app demo text</h3>

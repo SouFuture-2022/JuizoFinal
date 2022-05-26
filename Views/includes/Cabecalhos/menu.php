@@ -38,11 +38,11 @@
                             $logar = $_SESSION['logar'] ?? false;
                             if($logar){
                                 echo  "<a href='/Logout?Logout' class='btn btn-light'>
-                                <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Logout </span>
+                                <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Sair </span>
                             </a>";
                         } else{
                                 echo "<a href='/Login' class='btn btn-light'>
-                                <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Login </span>
+                                <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Entrar </span>
                             </a>";
                         }
                         ?></div>

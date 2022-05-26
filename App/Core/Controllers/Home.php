@@ -9,7 +9,7 @@ class Home {
         Store::layout([
             'includes/Cabecalhos/menu',
             'Index',
-            'includes/Rodapes/rodape'
+            'includes/Rodapes/rodape',
         ]);
     }
 }

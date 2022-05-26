@@ -1,4 +1,4 @@
-<footer class="section-footer border-top bg-$gray-300">
+<footer class="section-footer bg-gray-light">
     <div class="container">
         <section class="footer-top  padding-y">
             <div class="row">
@@ -81,7 +81,7 @@
 
         <section class="footer-bottom row">
             <div class="col-md-2">
-                <p class="text-muted"> &copy 2021 Company </p>
+                <p class="text-muted"> &copy 2022 Companhia </p>
             </div>
             <div class="col-md-8 text-md-center">
                 <span class="px-2">info@lojademooficial.com</span>
@@ -101,6 +101,7 @@
     </div>
 </footer>
 
+
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- Máscara Telefone -->
@@ -115,6 +116,7 @@
 <script type="text/javascript">
 $("#cep").mask("00000-000");
 </script>
+
 <!-- Contador de Caracteres -->
 <script type="text/javascript" src="Assets/js/contador-caracteres.js"></script>
 <!-- JavaScript CalcularFrete -->

@@ -96,7 +96,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link pl-0" data-toggle="dropdown" href="#">
                             <strong>
-                                <i class="fas fa-align-justify"></i>&nbsp Todas as Categorias
+                                <i class="fas fa-align-justify"></i>Todas as Categorias
                             </strong>
                         </a>
 
@@ -104,7 +104,7 @@
                             <div class="dropdown-divider"></div>
                             <?php foreach ($categoria->findAll() as $key => $value) { ?>
                             <a class="dropdown-item"
-                                href="../AllCategorias?acao=cate&categoria=<?php echo base64_encode($value->id_categoria); ?>"><?php echo $value->nome_categoria; ?></a>
+                                href="../Categorias?acao=cate&categoria=<?php echo base64_encode($value->id_categoria); ?>"><?php echo $value->nome_categoria; ?></a>
                             <?php } ?>
                         </div>
                     </li>
@@ -125,4 +125,3 @@
         </div>
     </nav>
 </body>
-

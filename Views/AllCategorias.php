@@ -16,8 +16,8 @@ $listar_avaliacao = new ListarAvaliacoesDb;
 
 
 if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
-	$id_categoria = (int)base64_decode($_GET['categoria']);
-	$resultado = $listar_produto->findAllProductCategories($id_categoria);
+    $id_categoria = (int)base64_decode($_GET['categoria']);
+    $resultado = $listar_produto->findAllProductCategories($id_categoria);
 ?>
 
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -200,8 +200,7 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
             </main>
         </div>
     </div>
-
 </section>
 <?php } else {
-	echo 'error';
+    echo 'error';
 } ?>

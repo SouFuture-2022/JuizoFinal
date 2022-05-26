@@ -15,7 +15,6 @@ class Home
                 '/Includes/Cabecalhos/menu',
                 'Index',
                 '/Includes/Rodapes/rodape'
-
             ])
         ];
     }

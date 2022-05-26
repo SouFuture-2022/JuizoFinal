@@ -36,13 +36,8 @@
                 <aside class="col-md col-6">
                     <h6 class="title">Minha Conta</h6>
                     <ul class="list-unstyled">
-<<<<<<<< HEAD:Views/includes/Rodapes/rodape.php
                         <li><a href="../Login">Login</a></li>
                         <li><a href="../Cadastrar">Registrar</a></li>
-========
-                        <li><a href="Login">Login</a></li>
-                        <li><a href="../CadastrarUsuario">Registrar</a></li>
->>>>>>>> 4c995b128880beea0566d0a1dfd646bf5566118e:Views/Includes/Rodapes/rodape.php
                     </ul>
                 </aside>
                 <aside class="col-md col-6">

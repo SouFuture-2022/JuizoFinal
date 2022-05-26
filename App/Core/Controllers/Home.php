@@ -4,8 +4,7 @@ namespace App\Core\Controllers;
 
 use App\Core\Store;
 
-class Home
-{
+class Home{
 
     public function index($params)
     {

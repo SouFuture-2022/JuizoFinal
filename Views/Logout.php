@@ -7,13 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Home</h2>
-    <h3> teste</h3>
 
     <div class="container">
-        <?php require $view;  ?>
-        
+        <?php
 
+        use App\Models\SessionLogin;
+
+        if (isset($_GET['Logout'])){
+            $logout = new SessionLogin();
+            $logout ->logout();
+        }
+
+?>  
     </div>
 </body>
 </html>

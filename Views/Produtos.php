@@ -16,8 +16,6 @@ use App\Models\Favoritos;
 use App\Models\Avaliacoes;
 use App\Models\Pedidos;
 
-session_start();
-
 if (isset($_SESSION['msg_sucesso'])) {
 	echo $_SESSION['msg_sucesso'];
 	unset($_SESSION['msg_sucesso']);
@@ -150,7 +148,7 @@ if (isset($_POST['btAvaliar'])) {
                                             src="Uploads/ProdutosDestaque/<?php echo $resultado->imagem_destaque; ?>"
                                             alt="First slide">
                                     </div>
-                                    <?php foreach ($listar_imagem->find($id_produto) as $key => $value) { ?>
+                                    <?php foreach ($listar_imagem->find($id_produto) as $key/**Indíce*/ => $value/**Conteúdo do indíce */) { ?>
                                     <div class="carousel-item">
                                         <img class="d-block w-100"
                                             src="Uploads/Produtos/<?php echo $value->nome_imagem; ?>"

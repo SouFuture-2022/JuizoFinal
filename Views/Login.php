@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h2 class="text-primary ">Entrar</h2>
 
-                        <form method="post">
+                        <form method="post" action="">
                             <div class="mb-3">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text"><img src="../Assets/images/usuario.png" alt="icone de perfil"></span>
@@ -20,7 +20,7 @@
                             <div class="mb-3">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text"><img src="../Assets/images/cadeado.png" alt="icone de senha"></span>
-                                    <input type="password" name="email" class="form-control" placeholder="Senha" required>
+                                    <input type="password" name="senha" class="form-control" placeholder="Senha" required>
                                 </div>
                             </div>
 
@@ -37,7 +37,8 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <button class="btn mt-3 w-75 btn-primary" type="button">Entrar</button>
+                            <input type="submit" id="submit" name="submit" value="Entrar">
+                            <!--<input type="submit" id="submit" name="login" value="Entrar">-->
                             </div>
                         </form>
                         <hr>
@@ -45,7 +46,7 @@
                             <p>Ainda não tem uma conta?</p>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <a class="btn w-75 btn-outline-primary">Criar conta</a>
+                            <a href="Cadastrar" class="btn w-75 btn-outline-primary">Criar conta</a>
                         </div>
                     </div>
                 </div>
@@ -53,3 +54,29 @@
         </div>
     </div>
 </section>
+
+<?php 
+
+use App\Models\SessionLogin;
+session_start();
+$logar = $_SESSION['logar'] ?? false;
+
+if ($_POST){
+
+if (isset($_POST['submit'])){
+$email = $_POST['email'];
+$senha = $_POST['senha'];
+
+$logar = new SessionLogin();
+$dados = $logar->login($email, $senha);
+$num = $dados->rowCount();
+if ($num == 1) {
+    $_SESSION ['logar'] = true;
+    header('Location:/');
+} else {
+    echo "Dados inválidos, tente novamente";
+}
+
+}
+
+}

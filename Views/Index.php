@@ -13,7 +13,7 @@ $listar_avaliacao = new ListarAvaliacoesDb;
 if (isset($_SESSION['msg_sucesso'])) {
 	echo $_SESSION['msg_sucesso'];
 	unset($_SESSION['msg_sucesso']);
-}
+} 
 ?>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -100,7 +100,7 @@ if (isset($_SESSION['msg_sucesso'])) {
 </section>
 
 <section class="section-content">
-    <div class="container">
+<div class="container">
         <header class="section-heading">
             <h3 class="section-title">Produtos Populares</h3>
         </header>
@@ -214,7 +214,6 @@ if (isset($_SESSION['msg_sucesso'])) {
 			$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
 			$quantidade_pagina = 4;
 			$inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
-
 			foreach ($listar_produto->findAll($inicio, $quantidade_pagina) as $key => $value) { ?>
             <div class="col-md-3">
                 <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"

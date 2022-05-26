@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Infra\Database;
-
+require './global.php';
 use PDO;
 use PDOException;
 
@@ -12,7 +12,7 @@ class Conexao{
 	public static function getConnection() {
 
 			try {
-				self::$connection = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+				self::$connection = new PDO('mysql:host=' . getenv('HOST') . ';dbname=' . getenv('DBNAME'), getenv('USER'), getenv('PASS'));
 				self::$connection->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				self::$connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 

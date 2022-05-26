@@ -1,15 +1,14 @@
 <?php
 
-use App\Infra\Dao\Cores\CadastrarCores;
+use App\Infra\Dao\Cores\CadastrarCoresDb;
 use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Models\Cores;
 use App\Models\Produtos;
 
 $cor = new Cores();
-$cadastrar_cor = new CadastrarCores;
+$cadastrar_cor = new CadastrarCoresDb;
 $produto = new Produtos();
 $listar_produto = new ListarProdutoDb;
-
 
 if (isset($_POST['btCadastrar'])) {
 	$nome_cor  = $_POST['nome_cor'];
@@ -24,6 +23,7 @@ if (isset($_POST['btCadastrar'])) {
 		include('Includes/MsgSucesso.php');
 	}
 }
+
 ?>
 
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />

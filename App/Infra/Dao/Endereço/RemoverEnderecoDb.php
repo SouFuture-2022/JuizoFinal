@@ -10,7 +10,7 @@ class RemoverEndereco{
     public function delete($id_endereco) {
         $db = new Conexao();
 		$sql  = "DELETE FROM enderecos WHERE id_endereco = :id_endereco";
-		$stmt = $db->Conexao->prepare($sql);
+		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':id_endereco', $id_endereco, PDO::PARAM_INT);
 		return $stmt->execute(); 
 	}

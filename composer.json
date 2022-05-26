@@ -9,5 +9,8 @@
             "App\\Router.php",
             "App\\Core\\Controllers\\loadController.php"
         ]
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.4"
     }
 }

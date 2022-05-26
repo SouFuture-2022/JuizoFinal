@@ -2,11 +2,14 @@
 
 namespace App\Core\Controllers;
 
+use App\Core\Store;
+
 class Home {
     public function index($params){
-        return [
-            'view' => 'Index.php',
-            'data' => ['name' => 'daniel']
-        ];
+        Store::layout([
+            'includes/Cabecalhos/menu',
+            'Index',
+            'includes/Rodapes/rodape'
+        ]);
     }
 }

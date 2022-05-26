@@ -26,15 +26,15 @@
             <div class="container">
                 <div class="row gy-3 align-items-center">
                     <div class="col-lg-2 col-6">
-                        <a href="index.php" class="brand-wrap"><img class="logo" src="Assets/images/logo.png"></a>
+                        <a href="/" class="brand-wrap"><img class="logo" src="Assets/images/logo.png"></a>
                     </div>
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="float-end">
-                            <a href="#" class="btn btn-light">
+                            <a href="/Favoritos" class="btn btn-light">
                                 <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Favoritos
                                 </span>
                             </a>
-                            <a data-bs-toggle="offcanvas" href="#offcanvas_cart" class="btn btn-light">
+                            <a data-bs-toggle="offcanvas" href="Carrinho" class="btn btn-light">
                                 <i class="fa fa-shopping-cart"></i> <span class="ms-1">Carrinho </span>
                             </a>
                             <a href="Login" class="btn btn-light">
@@ -66,10 +66,10 @@
                 <div class="collapse navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link ps-0" href="#">Categorias</a>
+                            <a class="nav-link ps-0" href="/Categorias">Categorias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Produtos</a>
+                            <a class="nav-link" href="/Produtos">Produtos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Meus itens</a>

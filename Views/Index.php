@@ -5,6 +5,12 @@
 <link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
 <link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 <!-- ================ SECTION INTRO ================ -->
+<?php
+
+use App\Infra\Dao\Produto\ListarProdutoDb;
+
+$listar_produto = new ListarProdutoDb;
+ ?>
 <section class="section-intro bg-info padding-y-lg">
     <div class="container">
 
@@ -70,7 +76,7 @@
                     </figure>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4">  
                     <figure class="item-feature">
                         <span class="text-primary">
                             <i class="fas fa-comment-dots"></i>
@@ -97,7 +103,7 @@
         </article>
     </div>
 </section>
-
+<!-- parte de produtos do index -->
 <section class="padding-y">
     <div class="container">
 
@@ -106,23 +112,28 @@
         </header>
 
         <div class="row">
+
+
+
+        <?php //inicio?>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
-                        <img src="Assets/images/1.jpg">
+                        <img src="Assets/images/1.jpg"> <?php //  aqui que fica a imagem?>
                     </div>
                     <figcaption class="info-wrap border-top">
                         <div class="price-wrap">
-                            <span class="price">$790.50</span>
+                            <span class="price">$790.50</span> <?php //  aqui que fica o preço do produto?>
                         </div> <!-- price-wrap.// -->
-                        <p class="title mb-2">GoPro HERO6 4K Action Camera - Black</p>
+                        <p class="title mb-2">GoPro HERO6 4K Action Camera - Black</p> <?php //  aqui que fica as informaçoes do produto?>
 
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
-            </div> <!-- col end.// -->
-
+            </div> 
+<!-- col end.// -->
+<!--/////////////
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -131,14 +142,14 @@
                     <figcaption class="info-wrap border-top">
                         <div class="price-wrap">
                             <span class="price">$320.00</span>
-                        </div> <!-- price-wrap.// -->
+                        </div> 
                         <p class="title mb-2">Canon camera 20x zoom, Black color EOS 2000</p>
 
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
-            </div> <!-- col end.// -->
+            </div> 
 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
@@ -148,14 +159,14 @@
                     <figcaption class="info-wrap border-top">
                         <div class="price-wrap">
                             <span class="price">$120.00</span>
-                        </div> <!-- price-wrap.// -->
+                        </div> 
                         <p class="title mb-2">Xiaomi Redmi 8 Original Global Version 4GB</p>
 
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
-            </div> <!-- col end.// -->
+            </div> 
 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
@@ -165,15 +176,14 @@
                     <figcaption class="info-wrap border-top">
                         <div class="price-wrap">
                             <span class="price">$120.00</span>
-                        </div> <!-- price-wrap.// -->
+                        </div> 
                         <p class="title mb-2">Apple iPhone 12 Pro 6.1" RAM 6GB 512GB Unlocked</p>
 
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
-            </div> <!-- col end.// -->
-
+            </div> 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -182,14 +192,14 @@
                     <figcaption class="info-wrap border-top">
                         <div class="price-wrap">
                             <span class="price">$120.00</span>
-                        </div> <!-- price-wrap.// -->
+                        </div> 
                         <p class="title mb-2">Apple Watch Series 1 Sport Case 38mm Black</p>
 
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
-            </div> <!-- col end.// -->
+            </div> 
 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
@@ -199,14 +209,14 @@
                     <figcaption class="info-wrap border-top">
                         <div class="price-wrap">
                             <span class="price">$120.00</span>
-                        </div> <!-- price-wrap.// -->
+                        </div> 
                         <p class="title mb-2">T-shirts with multiple colors, for men and lady</p>
 
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
-            </div> <!-- col end.// -->
+            </div> 
 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
@@ -216,14 +226,14 @@
                     <figcaption class="info-wrap border-top">
                         <div class="price-wrap">
                             <span class="price">$99.50</span>
-                        </div> <!-- price-wrap.// -->
+                        </div> 
                         <p class="title mb-2">Gaming Headset 32db Blackbuilt in mic</p>
 
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
-            </div> <!-- col end.// -->
+            </div> <
 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
@@ -233,14 +243,15 @@
                     <figcaption class="info-wrap border-top">
                         <div class="price-wrap">
                             <span class="price">$120.00</span>
-                        </div> <!-- price-wrap.// -->
+                        </div> 
                         <p class="title mb-2">T-shirts with multiple colors, for men and lady</p>
 
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
-            </div> <!-- col end.// -->
+            </div> 
+-->
         </div> <!-- row end.// -->
 
     </div> <!-- container end.// -->

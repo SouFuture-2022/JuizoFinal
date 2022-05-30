@@ -507,5 +507,4 @@ if (isset($_POST['btCadastrar'])) {
             </aside>
         </div>
     </div>
->>>>>>> 4c995b128880beea0566d0a1dfd646bf5566118e
 </section>

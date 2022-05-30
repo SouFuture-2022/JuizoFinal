@@ -1,5 +1,19 @@
+<?php
+
+session_start();
+$email = $_SESSION['email'] ?? null;
+
+use App\Infra\Dao\Usuario\ListarUsuarioDb;
+$a = new ListarUsuarioDb;
+$dados = $a->all($email);
+foreach ($dados as $key => $value){  
+$b = $dados[$key];
+foreach ($b as $key => $value){
+}}?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,20 +36,28 @@
             <div class="container">
                 <div class="row gy-3 align-items-center">
                     <div class="col-lg-2 col-6">
-                        <a href="index.php" class="brand-wrap"><img class="logo" src="Assets/images/logo.png"></a>
+                        <a href="/" class="brand-wrap"><img class="logo" src="Assets/images/logo.png"></a>
                     </div>
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="float-end">
-                            <a href="#" class="btn btn-light">
-                                <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Favoritos
+                            <?php
+                            $logar = $_SESSION['logar'] ?? false;
+                            if($logar){  
+                            echo "<a href='/Favoritos?$value' class='btn btn-light'>
+                                <i class='fa fa-heart'></i> <span class='ms-1 d-none d-sm-inline-block'>Favoritos
                                 </span>
-                            </a>
-                            <a data-bs-toggle="offc" href="/Carrinho" class="btn btn-light">
+                            </a>";} else {
+                                echo "<a href='/Favoritos' class='btn btn-light'>
+                                <i class='fa fa-heart'></i> <span class='ms-1 d-none d-sm-inline-block'>Favoritos
+                                </span>
+                            </a>";
+                            } ?>
+                            <a data-bs-toggle="offcanvas" href="Carrinho" class="btn btn-light">
                                 <i class="fa fa-shopping-cart"></i> <span class="ms-1">Carrinho </span>
                             </a>
                             <?php 
-                            session_start();
-                            $logar = $_SESSION['logar'] ?? false;
+                            
+                            
                             if($logar){
                                 echo  "<a href='/Logout?Logout' class='btn btn-light'>
                                 <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Sair </span>
@@ -61,7 +83,7 @@
             </div> <!-- container end.// -->
         </section> <!-- header-main end.// -->
 
-        <nav class="navbar navbar-dark bg-primary navbar-expand-lg mb-4">
+        <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
             <div class="container">
                 <button class="navbar-toggler border" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbar_main">
@@ -80,10 +102,10 @@
                             <a class="nav-link" href="/Produtos">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Meus itens</a>
+                            <a class="nav-link" href="/Itens">Meus itens</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Meu perfil</a>
+                            <a class="nav-link" href="/Perfil">Meu perfil</a>
                         </li>
                     </ul>
                 </div> <!-- collapse end.// -->
@@ -91,3 +113,24 @@
         </nav> <!-- navbar end.// -->
     </header> <!-- section-header end.// -->
 </body>
+<?php
+/*
+
+$ds = new Produtos();
+
+if(isset($_POST['btBuscarProduto'])) { $buscar  = $_POST['buscar'];
+	if(empty($buscar)) { ?>
+<div class="alert alert-danger" role="alert">
+    <p class="text-center"> Digite Algo para Busca! </p>
+</div>
+<?php } else { ?>
+<div class="alert alert-dark" role="alert">
+    <?php foreach($ds->produto->findAllSearch($buscar) as $key => $value) { ?>
+    <p class="text-center"><a
+            href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"><?php echo $value->nome; ?></a>
+    </p>
+    <?php } ?>
+</div>
+<?php }}
+*/
+?>

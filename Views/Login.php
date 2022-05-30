@@ -58,6 +58,7 @@
 <?php 
 
 use App\Models\SessionLogin;
+
 session_start();
 $logar = $_SESSION['logar'] ?? false;
 
@@ -66,13 +67,14 @@ if ($_POST){
 if (isset($_POST['submit'])){
 $email = $_POST['email'];
 $senha = $_POST['senha'];
-
+$_SESSION['email'] = $email;
 $logar = new SessionLogin();
 $dados = $logar->login($email, $senha);
 $num = $dados->rowCount();
+
 if ($num == 1) {
     $_SESSION ['logar'] = true;
-    header('Location:/');
+    echo "<script> alert('Sessão Iniciada...') ; window.location='http://Localhost:8000/'</script>";
 } else {
     echo "Dados inválidos, tente novamente";
 }

@@ -10,7 +10,6 @@ class Login {
             //'includes/Cabecalhos/menu',
             'Login',
             'includes/Rodapes/rodape'
-
         ]);
     }
 }

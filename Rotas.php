@@ -5,9 +5,7 @@ return [
 	'/' => 'Home@index',
 	'/user/create' => 'User@create',
 	'/user/[0-9]+' => 'User@show',
-	'/login' => 'Login@login',
 	#'/user/[0-9]+/name/[a-z]' => 'User@index'
-
 	'/Login' => 'Login@login',
 	'/user/create' => 'User@create',
 	'/user/[0-9]+' => 'User@show',
@@ -41,6 +39,10 @@ return [
 	'/user/[0-9]+' => 'User@show',
 
 	'/Produtos' => 'Produtos@produtos',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/Favoritos' => 'Favoritos@favoritos',
 	'/user/create' => 'User@create',
 	'/user/[0-9]+' => 'User@show',
 ];

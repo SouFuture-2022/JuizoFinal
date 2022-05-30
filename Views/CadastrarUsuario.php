@@ -47,7 +47,7 @@ if (isset($_POST['btCadastrar'])) {
 <link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
 <link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 <section>
-    <div class="container d-flex justify-content-center">
+    <div class="container d-flex justify-content-center mt-4">
         <div class="card shadow p-3 mb-5 bg-body rounded w-50 p-3">
             <div class="card-body">
                 <h2 class="mb-3 text-primary">Cadastre-se</h2>
@@ -78,14 +78,14 @@ if (isset($_POST['btCadastrar'])) {
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="password" name="senha" class="form-control" placeholder="Senha" required>
+                            <input type="password" class="form-control" name="senha" placeholder="Senha" required>
                         </div>
                         <div class="col">
-                            <input type="password" name="senha" class="form-control" placeholder="Confirmar senha" required>
+                            <input type="password" class="form-control" name="senha" placeholder="Confirmar senha" required>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <input type="submit" id="button" name="cadastrar" value="Cadastrar">
+                        <input class="btn btn-primary w-75 " type="submit" id="button" name="cadastrar" value="Cadastrar">
                     </div>
                 </form>
                 <hr>
@@ -100,10 +100,14 @@ if (isset($_POST['btCadastrar'])) {
     </div>
 </section>
 
+
 <?php  
 
 if (isset($_POST['cadastrar'])){
+    $email = $_POST['email'];
     $cadastrar = new CadastrarUsuarioDb;
     $cadastrar ->insert();
-    header('location:/');
+    $_SESSION ['logar'] = true;
+    $_SESSION['email'] = $email;
+    echo "<script> alert('Usuário Cadastrado...') ; window.location='http://Localhost:8000/'</script>";
 }

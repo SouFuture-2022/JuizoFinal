@@ -11,19 +11,20 @@ use App\Infra\Dao\Produto\ListarProdutoDb;
 
 $listar_produto = new ListarProdutoDb;
  ?>
-<section class="section-intro bg-info padding-y-lg">
-    <div class="container">
 
-        <article class="my-5">
-            <h1 class="display-4 text-white">
+</section>
+
+
+<div class="card bg-dark text-white">
+  <img src="/bla.jpg" class="card-img" alt="...">
+  <div class="card-img-overlay ">
+  <h1 class="display-4 text-white">
                 Melhores produtos & <br> marcas em nossa loja </h1>
             <p class="lead text-white">Produtos da moda, preços de fábrica, excelente serviço</p>
             <a href="#" class="btn btn-warning"> Compre agora</a>
             <a href="#" class="btn btn-light"> Saber mais </a>
-        </article>
-
-    </div> <!-- container end.// -->
-</section>
+  </div>
+</div>
 <!-- ================ SECTION INTRO END.// ================ -->
 
 <!-- ================ SECTION PRODUCTS ================ -->
@@ -108,30 +109,47 @@ $listar_produto = new ListarProdutoDb;
     <div class="container">
 
         <header class="section-heading">
-            <h3 class="section-title">Novo Produtos</h3>
+            <h3 class="section-title">Produtos</h3>
         </header>
 
         <div class="row">
 
 
-
-        <?php //inicio?>
+            <?php   
+                $dados = $listar_produto->findAllPopular(0,10);
+                foreach($dados as $key => $value){
+                    
+                    $b = $dados["$key"];
+                    $a = '';
+                    foreach($b as $key => $value){
+                        if ($value == null){
+                            $value = 'none';
+                        }
+                        $a = $a . "$value/";
+                    }
+                    $array = explode('/',$a);
+                    
+                    
+                
+                 ?>
+        
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
-                        <img src="Assets/images/1.jpg"> <?php //  aqui que fica a imagem?>
+                        <img src="Assets/images/<?php echo $array[2]; ?>"> 
                     </div>
                     <figcaption class="info-wrap border-top">
                         <div class="price-wrap">
-                            <span class="price">$790.50</span> <?php //  aqui que fica o preço do produto?>
-                        </div> <!-- price-wrap.// -->
-                        <p class="title mb-2">GoPro HERO6 4K Action Camera - Black</p> <?php //  aqui que fica as informaçoes do produto?>
+                            <span class="price">$<?php echo $array[7]; ?></span> 
+                        </div> 
+                        <p class="title mb-2"><?php echo $array[11]; ?> - <?php echo $array[5]; ?></p> 
 
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
-            </div> 
+            </div>
+            <?php } ?>
 <!-- col end.// -->
 <!--/////////////
             <div class="col-lg-3 col-md-6 col-sm-6">
@@ -256,6 +274,7 @@ $listar_produto = new ListarProdutoDb;
 
     </div> <!-- container end.// -->
 </section>
+<?php /*
 <!--<section class="section-content">
     <div class="container">
         <header class="section-heading">
@@ -365,7 +384,7 @@ $listar_produto = new ListarProdutoDb;
 </nav>
 </div>
 </section> -->
-
+------------------------ 
 <section class="section-content">
     <div class="container">
         <header class="section-heading">
@@ -467,7 +486,7 @@ $listar_produto = new ListarProdutoDb;
             </ul>
         </nav>
     </div>
-</section>
+</section>*/?>
 <!-- ================ SECTION PRODUCTS END.// ================ -->
 <section class="section-name padding-y">
     <div class="container">

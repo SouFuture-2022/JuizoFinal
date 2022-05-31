@@ -63,6 +63,7 @@
                 </table>
                 <div class="row">
                     <div class="col">
+                        <!--Lembrando que esse 1 de 1 muda de acordo com a quantidade de paginas que poderão ser mostradas-->
                         Mostrando 1 de 1
                     </div>
                     <div class="col">

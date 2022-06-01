@@ -1,22 +1,29 @@
+<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
+<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
+<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
+<!-- ================ SECTION INTRO ================ -->
 <?php
 
-use App\Models\Produtos;
-use App\Models\Avaliacoes;
-use App\Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
 use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Infra\Dao\Favoritos\CadastrarFavoritosDb;
 
-$produto = new Produtos();
-$avaliacao = new Avaliacoes;
 $listar_produto = new ListarProdutoDb;
 $listar_avaliacao = new ListarAvaliacoesDb;
 $favoritos = new CadastrarFavoritosDb;
+ ?>
+<section class="section-intro bg-info padding-y-lg">
+    <div class="container">
 
-if (isset($_SESSION['msg_sucesso'])) {
-	echo $_SESSION['msg_sucesso'];
-	unset($_SESSION['msg_sucesso']);
-} 
-?>
+        <article class="my-5">
+            <h1 class="display-4 text-white">
+                Melhores produtos & <br> marcas em nossa loja </h1>
+            <p class="lead text-white">Produtos da moda, preços de fábrica, excelente serviço</p>
+            <a href="#" class="btn btn-warning"> Compre agora</a>
+            <a href="#" class="btn btn-light"> Saber mais </a>
+        </article>
 
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
@@ -39,7 +46,6 @@ $listar_produto = new ListarProdutoDb;
             <a href="#" class="btn btn-warning"> Compre agora</a>
             <a href="#" class="btn btn-light"> Saber mais </a>
         </article>
-
     </div> <!-- container end.// -->
 </section>
 <!-- ================ SECTION INTRO END.// ================ -->
@@ -146,7 +152,8 @@ $listar_produto = new ListarProdutoDb;
                         <p class="title mb-2">GoPro HERO6 4K Action Camera - Black</p> <?php //  aqui que fica as informaçoes do produto?>
 
                         <a href="#" class="btn btn-primary">Adicionar</a>
-                        <a href="#" class="btn btn-primarylight btn-icon"> <i class="fa fa-heart"></i> </a>
+
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div> 

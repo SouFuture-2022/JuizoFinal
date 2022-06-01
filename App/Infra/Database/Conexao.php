@@ -5,11 +5,6 @@ namespace App\Infra\Database;
 use PDO;
 use PDOException;
 
-const HOST = 'localhost';
-const USER = 'root';
-const PASS = '';
-const DBNAME = 'db';
-
 class Conexao{
 
 	private static $connection;

@@ -9,7 +9,8 @@ $dados = $a->all($email);
 foreach ($dados as $key => $value){  
 $b = $dados[$key];
 foreach ($b as $key => $value){
-}}?>
+}
+}?>
 
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -42,8 +43,8 @@ foreach ($b as $key => $value){
                         <div class="float-end">
                             <?php
                             $logar = $_SESSION['logar'] ?? false;
-                            if($logar){  
-                            echo "<a href='/Favoritos?$value' class='btn btn-light'>
+                            if($logar){   
+                            echo "<a href='/Favoritos?a=$value' class='btn btn-light'>
                                 <i class='fa fa-heart'></i> <span class='ms-1 d-none d-sm-inline-block'>Favoritos
                                 </span>
                             </a>";} else {

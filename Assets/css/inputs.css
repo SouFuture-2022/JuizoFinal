@@ -1,3 +1,4 @@
+/*Tira as setinhas do input number*/
 input[type="number"]{
     outline: none;
     -moz-appearance: textfield;

@@ -1,150 +1,84 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../Assets/css/inputnumber.css">
-
-<section>
-    <div class="container w-50">
-        <div class="row d-flex justify-content-center">
-            <div class="col">
-                <div class="card shadow p-3 mb-5 bg-body rounded">
-                    <div class="card-body">
-                        <h2 class="text-primary mb-3">Cadastrar produto</h2>
-                        <form action="">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" placeholder="Nome do produto">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <select class="form-select text-muted" aria-label="Default select example">
-                                            <option value="">Categoria</option>
-                                            <option value="">Roupas</option>
-                                            <option value="">Calçados</option>
-                                            <option value="">Tecnologia?</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col d-flex justify-content-center">
-                                    <Label>
-                                        Selecionar fotos do produto
-                                        <br>
-                                        <small>Máximo 5 produtos</small>
-                                    </Label>
-                                </div>
-                                <div class="col">
-                                    imagens do produto
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Preço unitáro">
-                                </div>
-                                <div class="col">
-                                    <input type="number" class="form-control" placeholder="Quantidade">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col d-flex justify-content-center">
-                                    <button class="btn btn-primary w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-                                        Cores
-                                    </button>
-                                    <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
-                                        <div class="offcanvas-header">
-                                          <h3 class="offcanvas-title text-primary" id="staticBackdropLabel">Cadastrar cor</h3>
-                                          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<link rel="stylesheet" href="../Assets/css/inputs.css">
+<body>
+    <section>
+        <div class="container w-50">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <div class="card shadow p-3 mb-5 bg-body rounded">
+                        <div class="card-body">
+                            <h2 class="text-primary mb-3">Cadastrar produto</h2>
+                            <form action="">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Nome do produto">
                                         </div>
-                                        <div class="offcanvas-body">
-                                            <div>
-                                                <form action="">
-                                                    <div class="row">
-                                                        <div class="col mb-3">
-                                                            <input type="text" class="form-control" placeholder="Nome da cor" required>
-                                                        </div>
-                                                        <div class="col">
-                                                            <input type="text" class="form-control" placeholder="Quantidade da cor" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex justify-content-center mb-3">
-                                                        <button class="btn w-75 btn-primary">Cadastrar</button>
-                                                    </div>
-                                                </form>
-                                                <div>
-                                                    <table class="table table-striped">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Cor</th>
-                                                                <th scope="col">Quantidade</th>
-                                                                <th scope="col">Deletar</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Verde</th>
-                                                                <td>3</td>
-                                                                <td>
-                                                                    <button class="btn btn-outline-dark">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                                                    </svg>
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Vermelho</th>
-                                                                <td>5</td>
-                                                                <td>
-                                                                    <button class="btn btn-outline-dark">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                                                        </svg>
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <select class="form-select text-muted" aria-label="Default select example">
+                                                <option value="">Categoria</option>
+                                                <option value="">Roupas</option>
+                                                <option value="">Calçados</option>
+                                                <option value="">Tecnologia?</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col d-flex justify-content-center">
+                                        <Label>
+                                            Selecionar fotos do produto
+                                            <br>
+                                            <small>Máximo 5 fotos</small>
+                                        </Label>
+                                    </div>
+                                    <div class="col d-flex align-items-center">
+                                        <label for="addfoto" id="imgicon" style="cursor: pointer;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                            </svg>
+                                        </label>
+                                        <input type="file" name="addfoto" id="addfoto" accept="image/*" style="display: none;">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <input type="number" class="form-control" placeholder="Preço unitáro">
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" class="form-control" placeholder="Quantidade">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col d-flex justify-content-center">
+                                        <button class="btn btn-primary w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                                            Cores
+                                        </button>
+                                        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                                            <div class="offcanvas-header">
+                                              <h3 class="offcanvas-title text-primary" id="staticBackdropLabel">Cadastrar cor</h3>
+                                              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col d-flex justify-content-center">                         
-                                    <button class="btn btn-primary w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Tamanhos disponíveis</button>
-                                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                                        <div class="offcanvas-header">
-                                            <h3 class="offcanvas-title text-primary" id="offcanvasRightLabel">Cadastrar tamanho</h3>
-                                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                        </div>
-                                        <div class="offcanvas-body">
-                                            <form action="">
-                                                <div class="row" style="margin-left: 3px;">
-                                                    <div class="col">
-                                                        <select class="form-select text-muted" aria-label="Default select example">
-                                                            <option selected>Tamanho superior</option>
-                                                            <option value="P">P</option>
-                                                            <option value="M">M</option>
-                                                            <option value="G">G</option>
-                                                            <option value="GG">GG</option>
-                                                        </select>
-                                                    </div>
-                                                    <!--A QUANTIDADE ESTÁ EM TIPO TEXT POR MOTIVOS ESTETICOS. CABE AO BACK, QUE A GENTE TANTO AMA,
-                                                    NAO PERMITIR A ENTRADA DE CARACTERES, APENAS NUMEROS.-->
-                            
-                                                    <!--O TAMANHO INFERIOR OU SUPERIOR NÃO PODE SER OBRIGATÓRIAMENTE REQUERIDO, PARTINDO DA IDEIA DE
-                                                    QUE UM TAMANHO SUPERIOR NAO PRECISA TER UM TAMANHO INFERIOR. EX: UMA BLUSA JA TEM O TAMANHO P, ENTAO
-                                                    ELA NAO PODE TER TAMANHO 45 AO MESMO TEMPO-->
-                                                    <div class="col">
-                                                        <input type="number" name="" placeholder="Tamanho infeiror" class="form-control">
-                                                    </div>
-                                                    <div class="row mt-3 mb-3">
-                                                        <div class="d-flex justify-content-center">
+                                            <div class="offcanvas-body">
+                                                <div>
+                                                    <form action="">
+                                                        <div class="row">
+                                                            <div class="col mb-3">
+                                                                <input type="text" class="form-control" placeholder="Nome da cor" required>
+                                                            </div>
+                                                            <div class="col">
+                                                                <input type="number" class="form-control" placeholder="Quantidade da cor" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-center mb-3">
                                                             <button class="btn w-75 btn-primary">Cadastrar</button>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
+                                                    </form>
+                                                    <div>
                                                         <table class="table table-striped">
                                                             <thead>
                                                                 <tr>
@@ -180,23 +114,97 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col d-flex justify-content-center">                         
+                                        <button class="btn btn-primary w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Tamanhos disponíveis</button>
+                                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                                            <div class="offcanvas-header">
+                                                <h3 class="offcanvas-title text-primary" id="offcanvasRightLabel">Cadastrar tamanho</h3>
+                                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                            </div>
+                                            <div class="offcanvas-body">
+                                                <form action="">
+                                                    <div class="row" style="margin-left: 3px;">
+                                                        <div class="col">
+                                                            <select class="form-select text-muted" aria-label="Default select example">
+                                                                <option selected>Tamanho superior</option>
+                                                                <option value="P">P</option>
+                                                                <option value="M">M</option>
+                                                                <option value="G">G</option>
+                                                                <option value="GG">GG</option>
+                                                            </select>
+                                                        </div>
+                                                        <!--A QUANTIDADE ESTÁ EM TIPO TEXT POR MOTIVOS ESTETICOS. CABE AO BACK, QUE A GENTE TANTO AMA,
+                                                        NAO PERMITIR A ENTRADA DE CARACTERES, APENAS NUMEROS.-->
+                                
+                                                        <!--O TAMANHO INFERIOR OU SUPERIOR NÃO PODE SER OBRIGATÓRIAMENTE REQUERIDO, PARTINDO DA IDEIA DE
+                                                        QUE UM TAMANHO SUPERIOR NAO PRECISA TER UM TAMANHO INFERIOR. EX: UMA BLUSA JA TEM O TAMANHO P, ENTAO
+                                                        ELA NAO PODE TER TAMANHO 45 AO MESMO TEMPO-->
+                                                        <div class="col">
+                                                            <input type="number" name="" placeholder="Tamanho infeiror" class="form-control">
+                                                        </div>
+                                                        <div class="row mt-3 mb-3">
+                                                            <div class="d-flex justify-content-center">
+                                                                <button class="btn w-75 btn-primary">Cadastrar</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Tamanho</th>
+                                                                        <th scope="col">Quantidade</th>
+                                                                        <th scope="col">Deletar</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>P</th>
+                                                                        <td>3</td>
+                                                                        <td>
+                                                                            <button class="btn btn-outline-dark">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                                                            </svg>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>45</th>
+                                                                        <td>5</td>
+                                                                        <td>
+                                                                            <button class="btn btn-outline-dark">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                                                                </svg>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="d-flex justify-content-center">
-                                    <a class="btn w-75 btn-outline-primary">Cadastrar produto</a>
+                                <hr>
+                                <div class="row">
+                                    <div class="d-flex justify-content-center">
+                                        <a class="btn w-75 btn-outline-primary">Cadastrar produto</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-</section>
+    </section>
+    <script src="../Assets/js/inputs.js"></script>
+</body>
 <!--<?php
 
 use App\Models\Produtos;

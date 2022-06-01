@@ -125,7 +125,7 @@ $listar_produto = new ListarProdutoDb;
                         if ($value == null){
                             $value = 'none';
                         }
-                        $a = $a . "$value/";
+                        $a = $a . "$value/"; 
                     }
                     $array = explode('/',$a);
                     
@@ -146,7 +146,7 @@ $listar_produto = new ListarProdutoDb;
 
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                    </figcaption>
+                </figcaption>
                 </figure>
             </div>
             <?php } ?>

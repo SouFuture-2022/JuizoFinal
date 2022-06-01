@@ -7,7 +7,9 @@ use App\Core\Store;
 class  Carrinho{
     public function carrinho(){
         Store::Layout([
-            'Carrinho'
+            'includes/Cabecalhos/menu',
+            'Carrinho',
+            '/includes/Rodapes/rodape'
         ]);
     }
 }

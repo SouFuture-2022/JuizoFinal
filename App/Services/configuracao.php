@@ -23,3 +23,7 @@ if ($sandbox) {
     define("MOEDA_PAGAMENTO", "BRL");
     define("URL_NOTIFICACAO", "https://sualoja.com.br/notifica.html");
 }
+
+
+
+

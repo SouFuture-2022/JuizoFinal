@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h2 class="text-primary ">Entrar</h2>
 
-                        <form method="post" action="">
+                        <form method="POST" action="">
                             <div class="mb-3">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text"><img src="../Assets/images/usuario.png"
@@ -56,7 +56,7 @@
 <?php 
 
 use App\Models\SessionLogin;
-session_start();
+//session_start();
 $logar = $_SESSION['logar'] ?? false;
 
 if ($_POST){

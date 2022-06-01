@@ -1,7 +1,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 <!--Essa section só é apresentada quando o cliente nao tem nada adicionado no carrinho-->
-<!--<section>
+<?php 
+if (empty($_SESSION['carrinho']) and $_SESSION['logar'] ?? false == true)
+{?>
+<section>
     <div class="container col-lg-4 col-md-6">
         <div class="card card shadow p-3 mb-5 bg-body rounded">
             <div class="card-body">
@@ -14,11 +17,13 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>-->
+    </div> 
+</section> <?php }
+ if (empty($_SESSION['logar']))
+{ ?>
 
 <!--Essa section é apresentada caso o usuário não seja logado-->
-<!--<section>
+<section>
     <div class="container col-lg-4 col-md-6">
         <div class="card card shadow p-3 mb-5 bg-body rounded">
             <div class="card-body">
@@ -27,14 +32,15 @@
                     <h4 class="alert-heading">Seu carrinho está vazio.</h4>
                     <p>Para adicionar produtos no seu carrinho, acesse sua conta</p>
                     <hr>
-                    <p class="mb-0"><a href="#" class="alert-link">Entrar</a></p>
+                    <p class="mb-0"><a href="/Login" class="alert-link">Entrar</a></p>
                 </div>
             </div>
         </div>
     </div>
-</section>-->
+</section> <?php } ?>
 
 <!--Essa section é apresentada para os usuários que tem produtos adicionados aos seus carrinhos-->
+<?php  if (!empty($_SESSION['carrinho']) and $_SESSION['logar'] == true){ echo $_SESSION['carrinho'];?>
 <div class="container">
     <div class="row">
         <div class="col-lg-9">
@@ -216,7 +222,7 @@
     
     </div>
 </div>
-
+<?php } ?>
 <!--<?php
 
 use App\Infra\Database\Conexao;
@@ -507,4 +513,4 @@ if (isset($_POST['btCadastrar'])) {
             </aside>
         </div>
     </div>
-</section>
+</section> -->

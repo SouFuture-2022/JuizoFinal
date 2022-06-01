@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <header class="section-header">
+    <header class="section-header mb-5">
         <section class="header-main">
             <div class="container">
                 <div class="row gy-3 align-items-center">

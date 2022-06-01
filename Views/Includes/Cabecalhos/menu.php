@@ -31,11 +31,13 @@
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="float-end">
                             <a href="#" class="btn btn-light">
-                                <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Favoritos
+                                <i class="fa fa-comments"></i> <span class="ms-1 d-none d-sm-inline-block">
+                                    Contato
                                 </span>
                             </a>
-                            <a data-bs-toggle="offcanvas" href="#offcanvas_cart" class="btn btn-light">
-                                <i class="fa fa-shopping-cart"></i> <span class="ms-1">Carrinho </span>
+                            <a href="#" class="btn btn-light">
+                                <i class="fa fa-address-book"></i> <span class="ms-1 d-none d-sm-inline-block">
+                                    Cadastrar</span>
                             </a>
                             <a href="Login" class="btn btn-light">
                                 <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Login </span>
@@ -58,24 +60,16 @@
 
         <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
             <div class="container">
-                <button class="navbar-toggler border" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbar_main">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link ps-0" href="#">Categorias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Produtos</a>
+                            <a class="nav-link" href="/Produto">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Meus itens</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Meu perfil</a>
+                            <a class="nav-link" href="#">Ofertas</a>
                         </li>
                     </ul>
                 </div> <!-- collapse end.// -->

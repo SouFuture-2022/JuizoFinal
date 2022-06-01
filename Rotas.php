@@ -1,86 +1,45 @@
 <?php
 
-	Route::set('Index', function() {
-		Index::CreateView('Index');
-	});
 
-	#Route::set('Admin', function() {
-		#Admin::CreateView('Admin');
-	#});
+return [
+	'/' => 'Home@index',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+	'/login' => 'Login@login',
+	#'/user/[0-9]+/name/[a-z]' => 'User@index'
+	'/Login' => 'Login@login',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 
-	Route::set('AllCategorias', function() {
-		AllCategorias::CreateView('AllCategorias');
-	});
+	'/Cadastrar' => 'Cadastrar@cadastrar',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 
-	Route::set('AllProdutos', function() {
-		AllProdutos::CreateView('AllProdutos');
-	});
+	'/Contato' => 'Contato@contato',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 
-	Route::set('CadastrarCor', function() {
-		CadastrarCor::CreateView('CadastrarCor');
-	});
+	'/Sobre' => 'Sobre@sobre',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 
-	Route::set('CadastrarCategoria', function() {
-		CadastrarCategoria::CreateView('CadastrarCategoria');
-	});
+	'/Carrinho' => 'Carrinho@carrinho',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 
-	Route::set('CadastrarEndereco', function() {
-		CadastrarEndereco::CreateView('CadastrarEndereco');
-	});
+	'/Logout' => 'Logout@logout',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 
-	Route::set('CadastrarImagem', function() {
-		CadastrarImagem::CreateView('CadastrarImagem');
-	});
+	'/Table' => 'Table@table',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 
-	Route::set('CadastrarProduto', function() {
-		CadastrarProduto::CreateView('CadastrarProduto');
-	});
+	'/Categorias' => 'Categorias@categorias',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 
-	Route::set('CadastrarTamanho', function() {
-		CadastrarTamanho::CreateView('CadastrarTamanho');
-	});
-
-	Route::set('CadastrarUsuario', function() {
-		CadastrarUsuario::CreateView('CadastrarUsuario');
-	});
-
-	/* Classe da view não existente
-	Route::set('ConsultarPedido', function() {
-		ConsultarPedido::CreateView('ConsultarPedido');
-	});
-	*/
-
-	Route::set('Contato', function() {
-		Contato::CreateView('Contato');
-	});
-
-	Route::set('Carrinho', function() {
-		Carrinho::CreateView('Carrinho');
-	});
-
-	Route::set('FinalizarCompra', function() {
-		FinalizarCompra::CreateView('FinalizarCompra');
-	});
-
-	/* Classe da view não existente
-	Route::set('ListarCategorias', function() {
-		ListarCategorias::CreateView('ListarCategorias');
-	});
-
-	/* Classe da view não existente
-	Route::set('ListarProdutos', function() {
-		ListarProdutos::CreateView('ListarProdutos');
-	});
-	*/
-
-	Route::set('Login', function() {
-		Login::CreateView('Login');
-	});
-
-	Route::set('Produto', function() {
-		Produto::CreateView('Produto');
-	});
-
-	Route::set('Sobre', function() {
-		Sobre::CreateView('Sobre');
-	});
+	'/Produtos' => 'Produtos@produtos',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+];

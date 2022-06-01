@@ -2,9 +2,15 @@
     "name" : "juizofinal/mvc", 
     "autoload" : {
         "psr-4": {
-            "Models\\" : "Models/",
-            "Infra\\" : "Infra/",
-            "Services\\" : "services/"
-        }
+            "App\\" : "App/"
+        },
+
+        "files": [
+            "App\\Router.php",
+            "App\\Core\\Controllers\\loadController.php"
+        ]
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.4"
     }
 }

@@ -14,11 +14,14 @@ if (isset($_GET['a'])){
                 $id_produto = $valor;
                 $produto = new ListarProdutoDb;
                 $prod = $produto->find($id_produto);
-                var_dump($prod);
-                
+                foreach ($prod as $key => $value){  
+                    $c = $prod[$key];
+                    foreach ($c as $key => $value)
+                    {
+                        echo $value . "/";
+                    }}
 }
-    } 
-
-    } else {
+}
+ } else {
         echo "<script> alert('Entre na sua conta para ver a tabela de favoritos') ; window.location='http://Localhost:8000/'</script>";
     }?>

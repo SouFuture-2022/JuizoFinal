@@ -13,7 +13,7 @@ class ListarProdutoDb{
 		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':id_produto', $id_produto, PDO::PARAM_INT);
 		$stmt->execute();
-		return $stmt->fetch();
+		return $stmt->fetchAll();
 	}
 
 	public function findAll($inicio, $quantidade_pagina) {

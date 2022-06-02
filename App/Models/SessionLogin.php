@@ -14,6 +14,7 @@ class SessionLogin{
 		$stmt->bindParam($senha, $_POST ['senha']);
 		$stmt->execute();	
 		return $stmt;
+		
 	}
 	public function logout() {
 		session_start();

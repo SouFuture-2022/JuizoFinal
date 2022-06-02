@@ -8,7 +8,6 @@ class AlterarAvaliacoesDb {
 
     public function update($id_avaliacao) {
         $db = new Conexao();
-
 		$sql  = "UPDATE avaliacoes SET estrela = :estrela WHERE id_avaliacao = :id_avaliacao";
 		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':estrela', $this->estrela);

@@ -1,5 +1,9 @@
+<?php #use App\Models\Produtos; #include('./Views/AcaoCarrinho.php'); $categoria = new Produtos(); 
+?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,7 +34,7 @@
                                 <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Favoritos
                                 </span>
                             </a>
-                            <a data-bs-toggle="offc" href="/Carrinho" class="btn btn-light">
+                            <a data-bs-toggle="offcanvas" href="/Carrinho" class="btn btn-light">
                                 <i class="fa fa-shopping-cart"></i> <span class="ms-1">Carrinho </span>
                             </a>
                             <?php 
@@ -61,7 +65,7 @@
             </div> <!-- container end.// -->
         </section> <!-- header-main end.// -->
 
-        <nav class="navbar navbar-dark bg-primary navbar-expand-lg mb-4">
+        <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
             <div class="container">
                 <button class="navbar-toggler border" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbar_main">
@@ -70,11 +74,14 @@
 
                 <div class="collapse navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav">
+                    <li class="nav-item">
+                            <a class="nav-link ps-0" href="/">Página inicial</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link ps-0" href="/Categorias">Categorias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Produtos">Produtos</a>
+                            <a class="nav-link" href="Produtos">Produtos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Meus itens</a>
@@ -88,3 +95,24 @@
         </nav> <!-- navbar end.// -->
     </header> <!-- section-header end.// -->
 </body>
+<?php
+/*
+
+$ds = new Produtos();
+
+if(isset($_POST['btBuscarProduto'])) { $buscar  = $_POST['buscar'];
+	if(empty($buscar)) { ?>
+<div class="alert alert-danger" role="alert">
+    <p class="text-center"> Digite Algo para Busca! </p>
+</div>
+<?php } else { ?>
+<div class="alert alert-dark" role="alert">
+    <?php foreach($ds->produto->findAllSearch($buscar) as $key => $value) { ?>
+    <p class="text-center"><a
+            href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"><?php echo $value->nome; ?></a>
+    </p>
+    <?php } ?>
+</div>
+<?php }}
+*/
+?>

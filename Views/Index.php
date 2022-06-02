@@ -100,9 +100,8 @@
 
 <section class="padding-y">
     <div class="container">
-
         <header class="section-heading">
-            <h3 class="section-title">Novos Produtos</h3>
+            <h3 class="section-title">Novo Produtos</h3>
         </header>
 
         <div class="row">
@@ -248,10 +247,161 @@
 <!--<section class="section-content">
     <div class="container">
         <header class="section-heading">
+            <h3 class="section-title">Novos Produtos</h3>
+        </header>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/1.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$790.50</span>
+                        </div> price-wrap.// -->
+                        <p class="title mb-2">GoPro HERO6 4K Action Camera - Black</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/2.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$320.00</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">Canon camera 20x zoom, Black color EOS 2000</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/3.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$120.00</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">Xiaomi Redmi 8 Original Global Version 4GB</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/4.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$120.00</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">Apple iPhone 12 Pro 6.1" RAM 6GB 512GB Unlocked</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/5.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$120.00</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">Apple Watch Series 1 Sport Case 38mm Black</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/6.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$120.00</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">T-shirts with multiple colors, for men and lady</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/7.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$99.50</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">Gaming Headset 32db Blackbuilt in mic</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="Assets/images/8.jpg">
+                    </div>
+                    <figcaption class="info-wrap border-top">
+                        <div class="price-wrap">
+                            <span class="price">$120.00</span>
+                        </div> <!-- price-wrap.// -->
+                        <p class="title mb-2">T-shirts with multiple colors, for men and lady</p>
+
+                        <a href="#" class="btn btn-primary">Adicionar</a>
+                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                    </figcaption>
+                </figure>
+            </div> <!-- col end.// -->
+        </div> <!-- row end.// -->
+
+    </div> <!-- container end.// -->
+</section>
+<!--<section class="section-content">
+    <div class="container">
+        <header class="section-heading">
             <h3 class="section-title">Produtos Populares</h3>
         </header>
         <div class="row">
             <?php
+
+        use App\Infra\Dao\Produto\ListarProdutoDb;
+
+        $listar_produto = new ListarProdutoDb();
+
             $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
             $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
             $quantidade_pagina = 4;

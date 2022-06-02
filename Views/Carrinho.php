@@ -46,7 +46,7 @@
                         <figure class="itemside me-lg-5">
                             <div class="aside"><img src="../Assets/images/3.jpg" class="img-sm img-thumbnail" style="width: 60px;"></div>
                             <figcaption class="info">
-                                <a href="#" class="title">Item 1</a>
+                                <a href="#" class="title">Produto 1</a>
                                 <p class="text-muted">Celulares, Azul...</p>
                             </figcaption>
                         </figure>
@@ -82,7 +82,7 @@
                         <figure class="itemside me-lg-5">
                             <div class="aside"><img src="../Assets/images/4.jpg" class="img-sm img-thumbnail" style="width: 60px;"></div>
                             <figcaption class="info">
-                                <a href="#" class="title">Item 2</a>
+                                <a href="#" class="title">Produto 2</a>
                                 <p class="text-muted">Azul, Tamanho M...</p>
                             </figcaption>
                         </figure>
@@ -119,7 +119,7 @@
                         <figure class="itemside me-lg-5">
                             <div class="aside"><img src="../Assets/images/5.jpg" class="img-sm img-thumbnail" style="width: 60px;"></div>
                             <figcaption class="info">
-                                <a href="#" class="title">Item 3</a>
+                                <a href="#" class="title">Produto 3</a>
                                 <p class="text-muted"> XL size, Jeans, Blue </p>
                             </figcaption>
                         </figure>
@@ -507,4 +507,3 @@ if (isset($_POST['btCadastrar'])) {
             </aside>
         </div>
     </div>
-</section>

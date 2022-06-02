@@ -11,47 +11,18 @@ use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Infra\Dao\Favoritos\CadastrarFavoritosDb;
 
 $listar_produto = new ListarProdutoDb;
-$listar_avaliacao = new ListarAvaliacoesDb;
-$favoritos = new CadastrarFavoritosDb;
- ?>
-
-</section>
-
+?>
 
 <div class="card bg-dark text-white">
-  <img src="/bla.jpg" class="card-img" alt="...">
-  <div class="card-img-overlay ">
-  <h1 class="display-4 text-white">
-                Melhores produtos & <br> marcas em nossa loja </h1>
-            <p class="lead text-white">Produtos da moda, preços de fábrica, excelente serviço</p>
-            <a href="#" class="btn btn-warning"> Compre agora</a>
-            <a href="#" class="btn btn-light"> Saber mais </a>
-
-        </article>
-
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
-<!-- ================ SECTION INTRO ================ -->
-<?php
-
-$listar_produto = new ListarProdutoDb;
- ?>
-<section class="section-intro bg-info padding-y-lg">
-    <div class="container">
-
-        <article class="my-5">
-            <h1 class="display-4 text-white">
-                Melhores produtos & <br> marcas em nossa loja </h1>
-            <p class="lead text-white">Produtos da moda, preços de fábrica, excelente serviço</p>
-            <a href="#" class="btn btn-warning"> Compre agora</a>
-            <a href="#" class="btn btn-light"> Saber mais </a>
-        </article>
-    </div> <!-- container end.// -->
-</section>
+    <img src="Assets/images/bla.jpg" class="card-img" alt="...">
+    <div class="card-img-overlay ">
+        <h1 class="display-4 text-white">
+            Melhores produtos & <br> marcas em nossa loja </h1>
+        <p class="lead text-white">Produtos da moda, preços de fábrica, excelente serviço</p>
+        <a href="#" class="btn btn-warning"> Compre agora</a>
+        <a href="#" class="btn btn-light"> Saber mais </a>
+    </div>
+</div>
 
 <!-- ================ SECTION INTRO END.// ================ -->
 
@@ -142,45 +113,43 @@ $listar_produto = new ListarProdutoDb;
 
         <div class="row">
 
+            <?php
+            $dados = $listar_produto->findAllPopular(0, 10);
+            foreach ($dados as $key => $value) {
 
-            <?php   
-                $dados = $listar_produto->findAllPopular(0,10);
-                foreach($dados as $key => $value){
-                    
-                    $b = $dados["$key"];
-                    $a = '';
-                    foreach($b as $key => $value){
-                        if ($value == null){
-                            $value = 'none';
-                        }
-                        $a = $a . "$value/";
+                $b = $dados["$key"];
+                $a = '';
+                foreach ($b as $key => $value) {
+                    if ($value == null) {
+                        $value = 'none';
                     }
-                    $array = explode('/',$a);
-                    
-                    
-                
-                 ?>
-        
+                    $a = $a . "$value/";
+                }
+                $array = explode('/', $a);
+
+            ?>
+
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
-                        <img src="Assets/images/<?php echo $array[2]; ?>"> 
+                        <img src="Assets/images/<?php echo $array[2]; ?>">
                     </div>
                     <figcaption class="info-wrap border-top">
                         <div class="price-wrap">
-                            <span class="price">$<?php echo $array[7]; ?></span> 
-                        </div> 
-                        <p class="title mb-2"><?php echo $array[11]; ?> - <?php echo $array[5]; ?></p> 
+                            <span class="price">$<?php echo $array[7]; ?></span>
+                        </div>
+                        <p class="title mb-2"><?php echo $array[11]; ?> - <?php echo $array[5]; ?></p>
 
-                        <a href="#" class="btn btn-primary">Adicionar</a>
-
-                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                        <button class="btn btn-primary" onclick="adicionar_carrinho(<?= $produto->id_produto ?>)">
+                            <i class="fas fa-shopping-cart me-2"></i> Adicionar</button>
+                        <button class="btn btn-outline-danger btn-icon"> <i class="fa fa-heart"></i> </button>
                     </figcaption>
                 </figure>
             </div>
             <?php } ?>
-<!-- col end.// -->
-<!--/////////////
+
+            <!-- col end.// -->
+            <!--/////////////
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -318,50 +287,49 @@ $listar_produto = new ListarProdutoDb;
             $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
 
             foreach ($listar_produto->findAllPopular($inicio, $quantidade_pagina) as $key => $value) { ?>
-            <div class="col-md-3">
-                <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
-                    class="card card-product-grid">
-                    <a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
-                        class="img-wrap"><img
-                            src="Uploads/ProdutosDestaque/<?php echo $value->imagem_destaque; ?>" /></a>
-                    <figcaption class="info-wrap">
-                        <a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
-                            class="title"><?php echo $value->nome; ?></a>
+<div class="col-md-3">
+    <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
+        class="card card-product-grid">
+        <a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>" class="img-wrap"><img
+                src="Uploads/ProdutosDestaque/<?php echo $value->imagem_destaque; ?>" /></a>
+        <figcaption class="info-wrap">
+            <a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
+                class="title"><?php echo $value->nome; ?></a>
 
-                        <div class="rating-wrap">
-                            <ul class="rating-stars">
-                                <?php $total_media = $listar_avaliacao->find($value->id_produto);
+            <div class="rating-wrap">
+                <ul class="rating-stars">
+                    <?php $total_media = $listar_avaliacao->find($value->id_produto);
                                 $media = intval($total_media);
                                 $total = $listar_avaliacao->findAllCount($value->id_produto); ?>
-                                <li style="width:80%" class="stars-active">
-                                    <?php if ($media == 1) { ?>
-                                    <i class="fa fa-star"></i>
-                                    <?php } elseif ($media == 2) { ?>
-                                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <?php } elseif ($media == 3) { ?>
-                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <?php } elseif ($media == 4) { ?>
-                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                        class="fa fa-star"></i>
-                                    <?php } elseif ($media == 5) { ?>
-                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                        class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <?php } ?>
-                                </li>
-                                <li>
-                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                        class="fa fa-star"></i><i class="fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <span class="label-rating"><?php echo $media . '/' . $total; ?></span>
-                            <span class="label-rating text-muted"> 34 reviws</span>
-                        </div>
-                        <div class="price mt-1">R$<?php echo number_format($value->preco, 2, ',', ' '); ?></div>
-                    </figcaption>
-                </div>
+                    <li style="width:80%" class="stars-active">
+                        <?php if ($media == 1) { ?>
+                        <i class="fa fa-star"></i>
+                        <?php } elseif ($media == 2) { ?>
+                        <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        <?php } elseif ($media == 3) { ?>
+                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        <?php } elseif ($media == 4) { ?>
+                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                            class="fa fa-star"></i>
+                        <?php } elseif ($media == 5) { ?>
+                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                            class="fa fa-star"></i><i class="fa fa-star"></i>
+                        <?php } ?>
+                    </li>
+                    <li>
+                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                            class="fa fa-star"></i><i class="fa fa-star"></i>
+                    </li>
+                </ul>
+                <span class="label-rating"><?php echo $media . '/' . $total; ?></span>
+                <span class="label-rating text-muted"> 34 reviws</span>
             </div>
-            <?php } ?>
-        </div>
+            <div class="price mt-1">R$<?php echo number_format($value->preco, 2, ',', ' '); ?></div>
+        </figcaption>
+    </div>
+</div>
+<?php } ?>
+</div>
 <nav aria-label="Navegação de página exemplo">
     <ul class="pagination">
         <li class="page-item">
@@ -370,50 +338,49 @@ $listar_produto = new ListarProdutoDb;
                 <span class="sr-only">Anterior</span>
             </a>
         </li>
-        <//?php
-        $linhas = $listar_produto->findAllCount();
+        </ /?php $linhas=$listar_produto->findAllCount();
         $quantidade_linhas = ceil($linhas / $quantidade_pagina);
         $maximo_links = 3;
 
-        //for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
-            if ($pagina_anterior >= 1) { ?>
-        <li class="page-item"><a class="page-link"
-                href="../Index?pagina=<? //php echo $pagina_anterior; 
-                                        ?>"><? //php echo $pagina_anterior; 
-                                            ?></a></li>
-        <//?php }
-        }
-        ?>
+        //for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) { if
+            ($pagina_anterior>= 1) { ?>
+            <li class="page-item"><a class="page-link" href="../Index?pagina=<? //php echo $pagina_anterior; 
+                                        ?>">
+                    <? //php echo $pagina_anterior; 
+                                            ?>
+                </a></li>
+            </ /?php } } ?>
 
-        <li class="page-item active"><a class="page-link"
-                href="../Index?pagina=<? //php echo $pagina; 
-                                        ?>"><?php echo $pagina; ?><span
-                    class="sr-only">(atual)</span></a></li>
+            <li class="page-item active"><a class="page-link" href="../Index?pagina=<? //php echo $pagina; 
+                                        ?>"><?php echo $pagina; ?><span class="sr-only">(atual)</span></a></li>
 
-        <?php
+            <?php
         //for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
         //if ($pagina_posterior <= $quantidade_linhas) { 
         ?>
-        <li class="page-item"><a class="page-link"
-                href="../Index?pagina=<? //php echo $pagina_posterior; 
-                                        ?>"><? //php echo $pagina_posterior; 
-                                            ?></a>
-        </li>
-        <? //php }
+            <li class="page-item"><a class="page-link" href="../Index?pagina=<? //php echo $pagina_posterior; 
+                                        ?>">
+                    <? //php echo $pagina_posterior; 
+                                            ?>
+                </a>
+            </li>
+            <? //php }
         //}
         ?>
-        <li class="page-item">
-            <a class="page-link" href="../Index?pagina=<? //php echo $quantidade_linhas; 
+            <li class="page-item">
+                <a class="page-link" href="../Index?pagina=<? //php echo $quantidade_linhas; 
                                                         ?>" aria-label="Próximo">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Próximo</span>
-            </a>
-        </li>
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Próximo</span>
+                </a>
+            </li>
     </ul>
 </nav>
 </div>
 </section> -->
------------------------- 
+
+------------------------
+
 <section class="section-content">
     <div class="container">
         <header class="section-heading">
@@ -515,7 +482,8 @@ $listar_produto = new ListarProdutoDb;
             </ul>
         </nav>
     </div>
-</section>*/?>
+</section>*/ ?>
+
 <!-- ================ SECTION PRODUCTS END.// ================ -->
 <section class="section-name padding-y">
     <div class="container">

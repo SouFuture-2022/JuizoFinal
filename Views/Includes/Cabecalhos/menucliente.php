@@ -7,12 +7,14 @@
     <meta http-equiv="cache-control" content="max-age=604800" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Loja Demo</title>
-    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="Assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="Assets/css/all.min.css" type="text/css" rel="stylesheet">
+    <link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
+    <link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
     <link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
     <link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
     <script src="Assets/js/jquery-2.0.0.min.js" type="text/javascript"></script>
     <script src="Assets/js/bootstrap.bundle.min.js" type="text/javascript"></script>
@@ -58,24 +60,19 @@
 
         <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
             <div class="container">
-                <button class="navbar-toggler border" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbar_main">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link ps-0" href="#">Categorias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Produtos</a>
+                            <a class="nav-link" href="/Produto">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Ofertas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Meus itens</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Meu perfil</a>
                         </li>
                     </ul>
                 </div> <!-- collapse end.// -->
@@ -83,3 +80,24 @@
         </nav> <!-- navbar end.// -->
     </header> <!-- section-header end.// -->
 </body>
+<?php
+/*
+
+$ds = new Produtos();
+
+if(isset($_POST['btBuscarProduto'])) { $buscar  = $_POST['buscar'];
+	if(empty($buscar)) { ?>
+<div class="alert alert-danger" role="alert">
+    <p class="text-center"> Digite Algo para Busca! </p>
+</div>
+<?php } else { ?>
+<div class="alert alert-dark" role="alert">
+    <?php foreach($ds->produto->findAllSearch($buscar) as $key => $value) { ?>
+    <p class="text-center"><a
+            href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"><?php echo $value->nome; ?></a>
+    </p>
+    <?php } ?>
+</div>
+<?php }}
+*/
+?>

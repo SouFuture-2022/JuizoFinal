@@ -76,7 +76,7 @@ $listar_avaliacao = new ListarAvaliacoesDb;
                         <div class="card-body">
                             <ul class="list-menu">
 
-                                <li><a href="../AllCategorias?acao=cate&categoria="></a></li>
+                                <li><a href="../Categorias?acao=cate&categoria=">Teste</a></li>
 
                             </ul>
                         </div>

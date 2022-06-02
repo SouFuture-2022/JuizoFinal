@@ -1,6 +1,6 @@
 <?php
 
-use App\Infra\Dao\Cores\CadastrarCores;
+use App\Infra\Dao\Cores\CadastrarCoresDb;
 use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Models\Cores;
 use App\Models\Produtos;

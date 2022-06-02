@@ -8,8 +8,11 @@
 <?php
 
 use App\Infra\Dao\Produto\ListarProdutoDb;
+use App\Infra\Dao\Favoritos\CadastrarFavoritosDb;
 
 $listar_produto = new ListarProdutoDb;
+$listar_avaliacao = new ListarAvaliacoesDb;
+$favoritos = new CadastrarFavoritosDb;
  ?>
 
 </section>
@@ -23,8 +26,33 @@ $listar_produto = new ListarProdutoDb;
             <p class="lead text-white">Produtos da moda, preços de fábrica, excelente serviço</p>
             <a href="#" class="btn btn-warning"> Compre agora</a>
             <a href="#" class="btn btn-light"> Saber mais </a>
-  </div>
-</div>
+
+        </article>
+
+<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
+<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
+<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
+<!-- ================ SECTION INTRO ================ -->
+<?php
+
+$listar_produto = new ListarProdutoDb;
+ ?>
+<section class="section-intro bg-info padding-y-lg">
+    <div class="container">
+
+        <article class="my-5">
+            <h1 class="display-4 text-white">
+                Melhores produtos & <br> marcas em nossa loja </h1>
+            <p class="lead text-white">Produtos da moda, preços de fábrica, excelente serviço</p>
+            <a href="#" class="btn btn-warning"> Compre agora</a>
+            <a href="#" class="btn btn-light"> Saber mais </a>
+        </article>
+    </div> <!-- container end.// -->
+</section>
+
 <!-- ================ SECTION INTRO END.// ================ -->
 
 <!-- ================ SECTION PRODUCTS ================ -->
@@ -145,6 +173,7 @@ $listar_produto = new ListarProdutoDb;
                         <p class="title mb-2"><?php echo $array[11]; ?> - <?php echo $array[5]; ?></p> 
 
                         <a href="#" class="btn btn-primary">Adicionar</a>
+
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>

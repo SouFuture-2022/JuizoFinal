@@ -12,6 +12,9 @@ foreach ($b as $key => $value){
 }
 }?>
 
+<?php #use App\Models\Produtos; #include('./Views/AcaoCarrinho.php'); $categoria = new Produtos(); 
+?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 
@@ -37,38 +40,23 @@ foreach ($b as $key => $value){
             <div class="container">
                 <div class="row gy-3 align-items-center">
                     <div class="col-lg-2 col-6">
-                        <a href="/" class="brand-wrap"><img class="logo" src="Assets/images/logo.png"></a>
+                        <a href="index.php" class="brand-wrap"><img class="logo" src="Assets/images/logo.png"></a>
                     </div>
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="float-end">
-                            <?php
-                            $logar = $_SESSION['logar'] ?? false;
-                            if($logar){   
-                            echo "<a href='/Favoritos?a=$value' class='btn btn-light'>
-                                <i class='fa fa-heart'></i> <span class='ms-1 d-none d-sm-inline-block'>Favoritos
+                            <a href="#" class="btn btn-light">
+                                <i class="fa fa-comments"></i> <span class="ms-1 d-none d-sm-inline-block">
+                                    Contato
                                 </span>
-                            </a>";} else {
-                                echo "<a href='/Favoritos' class='btn btn-light'>
-                                <i class='fa fa-heart'></i> <span class='ms-1 d-none d-sm-inline-block'>Favoritos
-                                </span>
-                            </a>";
-                            } ?>
-                            <a data-bs-toggle="offcanvas" href="Carrinho" class="btn btn-light">
-                                <i class="fa fa-shopping-cart"></i> <span class="ms-1">Carrinho </span>
                             </a>
-                            <?php 
-                            
-                            
-                            if($logar){
-                                echo  "<a href='/Logout?Logout' class='btn btn-light'>
-                                <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Sair </span>
-                            </a>";
-                        } else{
-                                echo "<a href='/Login' class='btn btn-light'>
-                                <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Entrar </span>
-                            </a>";
-                        }
-                        ?></div>
+                            <a href="#" class="btn btn-light">
+                                <i class="fa fa-address-book"></i> <span class="ms-1 d-none d-sm-inline-block">
+                                    Cadastrar</span>
+                            </a>
+                            <a href="Login" class="btn btn-light">
+                                <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Login </span>
+                            </a>
+                        </div>
                     </div> <!-- col end.// -->
                     <div class="col-lg-5 col-md-12 col-12">
                         <form action="#" class="">
@@ -86,27 +74,16 @@ foreach ($b as $key => $value){
 
         <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
             <div class="container">
-                <button class="navbar-toggler border" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbar_main">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav">
-                    <li class="nav-item">
-                            <a class="nav-link ps-0" href="/">Página Inicial</a>
+                        <li class="nav-item">
+                            <a class="nav-link ps-0" href="#">Categorias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ps-0" href="/Categorias">Categorias</a>
+                            <a class="nav-link" href="/Produto">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Produtos">Produtos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Itens">Meus itens</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Perfil">Meu perfil</a>
+                            <a class="nav-link" href="#">Ofertas</a>
                         </li>
                     </ul>
                 </div> <!-- collapse end.// -->
@@ -116,9 +93,7 @@ foreach ($b as $key => $value){
 </body>
 <?php
 /*
-
 $ds = new Produtos();
-
 if(isset($_POST['btBuscarProduto'])) { $buscar  = $_POST['buscar'];
 	if(empty($buscar)) { ?>
 <div class="alert alert-danger" role="alert">

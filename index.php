@@ -1,12 +1,11 @@
 <?php
 
-session_start();
+    require __DIR__ . '/vendor/autoload.php';
+	const FILE = __DIR__ . "/Views/";
 
-require __DIR__ . '/vendor/autoload.php';
-const FILE = __DIR__ . "/Views/";
+	try {
+		$data = rota(); 
 
-try {
-	$data = rota();
-} catch (\Exception $e) {
-	die($e->getMessage());
-}
+	} catch (\Exception $e) {		
+      die($e->getMessage());
+	}

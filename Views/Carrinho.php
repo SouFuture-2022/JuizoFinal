@@ -507,4 +507,3 @@ if (isset($_POST['btCadastrar'])) {
             </aside>
         </div>
     </div>
-</section>

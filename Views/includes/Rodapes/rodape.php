@@ -37,7 +37,7 @@
                     <h6 class="title">Minha Conta</h6>
                     <ul class="list-unstyled">
                         <li><a href="Login">Login</a></li>
-                        <li><a href="../CadastrarUsuario">Registrar</a></li>
+                        <li><a href="Cadastrar">Registrar</a></li>
                     </ul>
                 </aside>
                 <aside class="col-md col-6">

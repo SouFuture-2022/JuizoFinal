@@ -47,33 +47,33 @@ if (isset($_POST['btCadastrar'])) {
 <link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
 <link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
 <section>
-    <div class="container d-flex justify-content-center">
+    <div class="container d-flex justify-content-center mt-4">
         <div class="card shadow p-3 mb-5 bg-body rounded w-50 p-3">
             <div class="card-body">
                 <h2 class="mb-3 text-primary">Cadastre-se</h2>
-                <form action="">
+                <form method="post" action="">
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Nome completo" required>
+                            <input type="text" class="form-control" name="nome" placeholder="Nome completo" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Nome de usuário" required>
+                            <input type="text" class="form-control" name="perfil" placeholder="Nome de usuário" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="email" class="form-control" placeholder="Email" required>
+                            <input type="text" class="form-control" name="cpf" placeholder="CPF" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Telefone" required>
+                            <input type="text" class="form-control" name="telefone" placeholder="Telefone" required>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="CPF" required>
+                    <div class="col">
+                            <input type="date" class="form-control" name="data_nascimento" placeholder="Data de Nascimento" required>
                         </div>
                         <div class="col">
-                            <input type="date" class="form-control text-muted" placeholder="Data de nascimento" required>
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -85,7 +85,7 @@ if (isset($_POST['btCadastrar'])) {
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button class="btn w-75 btn-primary">Cadastrar</button> 
+                        <input class="btn btn-primary w-75 " type="submit" id="button" name="cadastrar" value="Cadastrar">
                     </div>
                 </form>
                 <hr>
@@ -93,9 +93,18 @@ if (isset($_POST['btCadastrar'])) {
                     <p>Já tem uma conta?</p>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a class="btn w-75 btn-outline-primary" href="#">Entrar</a>
+                    <a href="Login" class="btn w-75 btn-outline-primary" href="#">Entrar</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+<?php  
+
+if (isset($_POST['cadastrar'])){
+    $cadastrar = new CadastrarUsuarioDb;
+    $cadastrar ->insert();
+    header('location:/');
+}

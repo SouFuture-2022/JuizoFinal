@@ -74,7 +74,7 @@ $listar_produto = new ListarProdutoDb;
                     </figure>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4">  
                     <figure class="item-feature">
                         <span class="text-primary">
                             <i class="fas fa-comment-dots"></i>
@@ -110,6 +110,7 @@ $listar_produto = new ListarProdutoDb;
         </header>
 
         <div class="row">
+
             <?php
             $dados = $listar_produto->findAllPopular(0, 10);
             foreach ($dados as $key => $value) {
@@ -144,6 +145,7 @@ $listar_produto = new ListarProdutoDb;
                 </figure>
             </div>
             <?php } ?>
+
             <!-- col end.// -->
             <!--/////////////
             <div class="col-lg-3 col-md-6 col-sm-6">
@@ -374,7 +376,9 @@ $listar_produto = new ListarProdutoDb;
 </nav>
 </div>
 </section> -->
+
 ------------------------
+
 <section class="section-content">
     <div class="container">
         <header class="section-heading">
@@ -477,6 +481,7 @@ $listar_produto = new ListarProdutoDb;
         </nav>
     </div>
 </section>*/ ?>
+
 <!-- ================ SECTION PRODUCTS END.// ================ -->
 <section class="section-name padding-y">
     <div class="container">

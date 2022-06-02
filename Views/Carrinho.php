@@ -2,7 +2,8 @@
 
 <!--Essa section só é apresentada quando o cliente nao tem nada adicionado no carrinho-->
 <?php 
-if (empty($_SESSION['carrinho']) and $_SESSION['logar'] ?? false == true)
+
+if (isset($_SESSION['carrinho']) and $_SESSION['logar'] ?? false == true)
 {?>
 <section>
     <div class="container col-lg-4 col-md-6">
@@ -13,7 +14,7 @@ if (empty($_SESSION['carrinho']) and $_SESSION['logar'] ?? false == true)
                     <h4 class="alert-heading">Seu carrinho está vazio.</h4>
                     <p>Você ainda não tem nenhum produto adicionado ao seu carrinho.</p>
                     <hr>
-                    <p class="mb-0"><a href="#" class="alert-link">Navegar no site</a></p>
+                    <p class="mb-0"><a href="/" class="alert-link">Navegar no site</a></p>
                 </div>
             </div>
         </div>
@@ -40,7 +41,7 @@ if (empty($_SESSION['carrinho']) and $_SESSION['logar'] ?? false == true)
 </section> <?php } ?>
 
 <!--Essa section é apresentada para os usuários que tem produtos adicionados aos seus carrinhos-->
-<?php  if (!empty($_SESSION['carrinho']) and $_SESSION['logar'] == true){ echo $_SESSION['carrinho'];?>
+<?php  if (!isset($_SESSION['carrinho']) and $_SESSION['logar'] == true){ echo $_SESSION['carrinho'];?>
 <div class="container">
     <div class="row">
         <div class="col-lg-9">
@@ -223,7 +224,30 @@ if (empty($_SESSION['carrinho']) and $_SESSION['logar'] ?? false == true)
     </div>
 </div>
 <?php } ?>
-<!--<?php
+    
+<?php 
+
+//lucas-->
+
+
+
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+<!--<?php /*
 
 use App\Infra\Database\Conexao;
 use App\Models\Produtos;
@@ -478,7 +502,7 @@ if (isset($_POST['btCadastrar'])) {
                 <div class="card">
                     <div class="card-body">
                         <input type="hidden" id="peso" value="<?php echo $total_peso; ?>" />
-                        <input type="hidden" id="valor" value="<?php echo $total_carrinho; ?>" />
+                        <input type="hidden" id="valor" value="<?php echo $total_carrinho; */ ?>" />
                         <div class="form-group">
                             <select id="frete" class="form-control" required>
                                 <option value="">Escolha o Tipo de Frete</option>

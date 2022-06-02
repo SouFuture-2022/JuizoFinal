@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+$email = $_SESSION['email'] ?? null;
+
+use App\Infra\Dao\Usuario\ListarUsuarioDb;
+$a = new ListarUsuarioDb;
+$dados = $a->all($email);
+foreach ($dados as $key => $value){  
+$b = $dados[$key];
+foreach ($b as $key => $value){
+}
+}?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 

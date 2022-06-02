@@ -66,6 +66,17 @@
                 <div class="collapse navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav">
                         <li class="nav-item">
+                            <a class="nav-link ps-0" href="#">Categorias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Meus itens</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Meu perfil</a>
+
                             <a class="nav-link ps-0" href="/Categorias">Categorias</a>
                         </li>
                         <li class="nav-item">

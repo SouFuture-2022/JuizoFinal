@@ -78,10 +78,10 @@ if (isset($_POST['btCadastrar'])) {
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="password" class="form-control" placeholder="Senha" required>
+                            <input type="password" class="form-control" name="senha" placeholder="Senha" required>
                         </div>
                         <div class="col">
-                            <input type="password" class="form-control" placeholder="Confirmar senha" required>
+                            <input type="password" class="form-control" name="senha" placeholder="Confirmar senha" required>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
@@ -104,7 +104,10 @@ if (isset($_POST['btCadastrar'])) {
 <?php  
 
 if (isset($_POST['cadastrar'])){
+    $email = $_POST['email'];
     $cadastrar = new CadastrarUsuarioDb;
     $cadastrar ->insert();
-    header('location:/');
+    $_SESSION ['logar'] = true;
+    $_SESSION['email'] = $email;
+    echo "<script> alert('Usuário Cadastrado...') ; window.location='http://Localhost:8000/'</script>";
 }

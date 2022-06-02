@@ -42,4 +42,16 @@ return [
 	'/Produtos' => 'Produtos@produtos',
 	'/user/create' => 'User@create',
 	'/user/[0-9]+' => 'User@show',
+
+	'/Favoritos' => 'Favoritos@favoritos',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/Itens' => 'Itens@itens',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/Perfil' => 'Perfil@perfil',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 ];

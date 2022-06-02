@@ -8,6 +8,7 @@
 <?php
 
 use App\Infra\Dao\Produto\ListarProdutoDb;
+use App\Infra\Dao\Favoritos\CadastrarFavoritosDb;
 
 $listar_produto = new ListarProdutoDb;
 ?>
@@ -22,6 +23,7 @@ $listar_produto = new ListarProdutoDb;
         <a href="#" class="btn btn-light"> Saber mais </a>
     </div>
 </div>
+
 <!-- ================ SECTION INTRO END.// ================ -->
 
 <!-- ================ SECTION PRODUCTS ================ -->

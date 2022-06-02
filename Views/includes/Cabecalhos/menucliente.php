@@ -44,17 +44,34 @@ foreach ($b as $key => $value){
                     </div>
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="float-end">
-                            <a href="/Favoritos" class="btn btn-light">
-                                <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Favoritos
+                            <?php
+                            $logar = $_SESSION['logar'] ?? false;
+                            if($logar){   
+                            echo "<a href='/Favoritos?a=$value' class='btn btn-light'>
+                                <i class='fa fa-heart'></i> <span class='ms-1 d-none d-sm-inline-block'>Favoritos
                                 </span>
-                            </a>
-                            <a data-bs-toggle="offcanvas" href="/Carrinho" class="btn btn-light">
+                            </a>";} else {
+                                echo "<a href='/Favoritos' class='btn btn-light'>
+                                <i class='fa fa-heart'></i> <span class='ms-1 d-none d-sm-inline-block'>Favoritos
+                                </span>
+                            </a>";
+                            } ?>
+                            <a data-bs-toggle="offcanvas" href="Carrinho" class="btn btn-light">
                                 <i class="fa fa-shopping-cart"></i> <span class="ms-1">Carrinho </span>
                             </a>
-                            <a href="/Login" class="btn btn-light">
-                                <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Login </span>
-                            </a>
-                        </div>
+                            <?php 
+                            
+                            
+                            if($logar){
+                                echo  "<a href='/Logout?Logout' class='btn btn-light'>
+                                <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Sair </span>
+                            </a>";
+                        } else{
+                                echo "<a href='/Login' class='btn btn-light'>
+                                <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Entrar </span>
+                            </a>";
+                        }
+                        ?></div>
                     </div> <!-- col end.// -->
                     <div class="col-lg-5 col-md-12 col-12">
                         <form action="#" class="">

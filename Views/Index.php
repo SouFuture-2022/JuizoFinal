@@ -10,8 +10,19 @@
 use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Infra\Dao\Favoritos\CadastrarFavoritosDb;
 
+$email = $_SESSION['email'] ?? null;
+
+use App\Infra\Dao\Usuario\ListarUsuarioDb;
+$a = new ListarUsuarioDb;
+$dados = $a->all($email);
+foreach ($dados as $key => $value){  
+$b = $dados[$key];
+foreach ($b as $key => $value){
+    $id_usuario = $value;
+}
+}
+$id_usuario = $value;
 $listar_produto = new ListarProdutoDb;
-$listar_avaliacao = new ListarAvaliacoesDb;
 $favoritos = new CadastrarFavoritosDb;
  ?>
 
@@ -157,12 +168,15 @@ $listar_produto = new ListarProdutoDb;
                     }
                     $array = explode('/',$a);
                     
-                    
-                
-                 ?>
+                    $id_produto = $array[0];
+                ?>
         
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
+                    <?php $id_produto = $array[0];?> 
+                    <div class="price-wrap">
+                            <span class="price">$<?php echo $id_produto; ?></span> 
+                        </div> 
                     <div class="img-wrap">
                         <img src="Assets/images/<?php echo $array[2]; ?>"> 
                     </div>
@@ -171,14 +185,21 @@ $listar_produto = new ListarProdutoDb;
                             <span class="price">$<?php echo $array[7]; ?></span> 
                         </div> 
                         <p class="title mb-2"><?php echo $array[11]; ?> - <?php echo $array[5]; ?></p> 
-
+                        
                         <a href="#" class="btn btn-primary">Adicionar</a>
-
-                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                    </figcaption>
+                        <form method="post" action="">
+                        <input type="submit" name="submit" class="btn btn-light btn-icon" value="submit"> <i class="fa fa-heart"></i>
+                </form> </figcaption>
                 </figure>
             </div>
-            <?php } ?>
+            <?php }
+            if (isset($_POST['submit'])){
+                $fav = $favoritos->insert($id_usuario,$id_produto);
+                echo "<script> alert ('Produto adicionado nos favoritos $id_produto'); window.location='http://Localhost:8000/'</script>";
+
+            }
+            
+            ?>
 <!-- col end.// -->
 <!--/////////////
             <div class="col-lg-3 col-md-6 col-sm-6">

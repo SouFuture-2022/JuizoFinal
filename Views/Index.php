@@ -128,7 +128,6 @@ $listar_produto = new ListarProdutoDb;
                 $array = explode('/', $a);
 
             ?>
-
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -140,13 +139,12 @@ $listar_produto = new ListarProdutoDb;
                         </div>
                         <p class="title mb-2"><?php echo $array[11]; ?> - <?php echo $array[5]; ?></p>
 
-                        <button class="btn btn-primary" onclick="adicionar_carrinho(<?= $produto->id_produto ?>)">
-                            <i class="fas fa-shopping-cart me-2"></i> Adicionar</button>
-                        <button class="btn btn-outline-danger btn-icon"> <i class="fa fa-heart"></i> </button>
+                        <a class="btn btn-primary" href="?id_produto=<?php echo $array[0]; ?>"> Adicionar</a>
+                        <a class="btn btn-outline-danger btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div>
-            <?php } ?>
+            <?php }  require_once __DIR__ . "./AcaoCarrinho.php"; ?>
 
             <!-- col end.// -->
             <!--/////////////

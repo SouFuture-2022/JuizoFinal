@@ -35,6 +35,23 @@
 </section>-->
 
 <!--Essa section é apresentada para os usuários que tem produtos adicionados aos seus carrinhos-->
+<?php
+
+            use App\Infra\Dao\Produto\ListarProdutoDb;
+            $listar_produto = new ListarProdutoDb;
+            $dados = $listar_produto->printAll();
+            foreach ($dados as $key => $value) {
+                $b = $dados["$key"];
+                $a = '';
+                foreach ($b as $key => $value) {
+                    if ($value == null) {
+                        $value = 'none';
+                    }
+                    $a = $a . "$value/";
+                }
+                $array = explode('/', $a);
+
+            ?>
 <div class="container">
     <div class="row">
         <div class="col-lg-9">
@@ -75,8 +92,10 @@
                         </div>
                     </div>
                 </article>
-                <!--Esse hr só aparece se tiver um item embaixo-->
-                <hr>
+                <hr> <?php } ?>
+
+                <!--
+
                 <article class="row gy-3 mb-4">
                     <div class="col">
                         <figure class="itemside me-lg-5">
@@ -88,7 +107,7 @@
                         </figure>
                     </div>
                     <div style="width: 120px;">
-                        <!--A quantidade ja vai estar pré estabelecida.-->
+                       A quantidade ja vai estar pré estabelecida.
                         <p><strong>Quantidade</strong></p>
                         <input type="text" class="form-control"> 
                     </div>
@@ -111,7 +130,7 @@
                         </div>
                     </div>
                 </article>
-                <!--Esse hr só aparece se tiver um item embaixo-->
+                Esse hr só aparece se tiver um item embaixo
                 <hr>
     
                 <article class="row gy-3 mb-4">
@@ -125,7 +144,7 @@
                         </figure>
                     </div>
                     <div style="width: 120px;">
-                        <!--A quantidade ja vai estar pré estabelecida.-->
+                        A quantidade ja vai estar pré estabelecida.
                         <p><strong>Quantidade</strong></p>
                         <input type="text" class="form-control"> 
                     </div>
@@ -148,6 +167,9 @@
                         </div>
                     </div>
                 </article>
+
+
+            -->
             </div> 
     </div> 
 </div>

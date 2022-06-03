@@ -1,5 +1,13 @@
 <?php
+$_SESSION['carrinho'] = $_SESSION['carrinho'] ?? ['']; 
+if (isset($_GET['id_produto'])){
+		array_push($_SESSION['carrinho'],['produto'=> $_GET['id_produto'], 'quantidade'=> 1]);
+	}else{
+	echo 'id produto nao iniciado';
+}
 
+print_r($_SESSION['carrinho']);
+/*
 if(!isset($_SESSION['carrinho'])) {
 	$_SESSION['carrinho'] = array();
 }
@@ -39,4 +47,4 @@ if(isset($_GET['acao'])) {
 		}
 	}
 }
-?>
+*/?>

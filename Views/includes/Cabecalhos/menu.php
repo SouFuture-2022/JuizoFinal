@@ -44,12 +44,12 @@ foreach ($b as $key => $value){
                     </div>
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="float-end">
-                            <a href="#" class="btn btn-light">
+                            <a href="Contato" class="btn btn-light">
                                 <i class="fa fa-comments"></i> <span class="ms-1 d-none d-sm-inline-block">
                                     Contato
                                 </span>
                             </a>
-                            <a href="#" class="btn btn-light">
+                            <a href="Cadastrar" class="btn btn-light">
                                 <i class="fa fa-address-book"></i> <span class="ms-1 d-none d-sm-inline-block">
                                     Cadastrar</span>
                             </a>
@@ -77,13 +77,13 @@ foreach ($b as $key => $value){
                 <div class="collapse navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link ps-0" href="#">Categorias</a>
+                            <a class="nav-link ps-0" href="Categorias">Categorias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Produto">Produtos</a>
+                            <a class="nav-link" href="Produto">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Ofertas</a>
+                            <a class="nav-link" href="Ofertas">Ofertas</a>
                         </li>
                     </ul>
                 </div> <!-- collapse end.// -->

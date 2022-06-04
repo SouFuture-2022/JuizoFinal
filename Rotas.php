@@ -54,4 +54,8 @@ return [
 	'/Perfil' => 'Perfil@perfil',
 	'/user/create' => 'User@create',
 	'/user/[0-9]+' => 'User@show',
+
+	'/Ofertas' => 'Ofertas@ofertas',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 ];

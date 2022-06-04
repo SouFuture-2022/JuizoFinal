@@ -108,7 +108,7 @@ $listar_avaliacao = new ListarAvaliacoesDb;
                     <aside class="col-md-3">
                         <a href="../Produto?acao=prod&produto=" class="img-wrap">
                             <!-- <span class="badge badge-danger"> NEW </span> -->
-                            <img src="Upload/">
+                            <img src="../Assets/images/big.jpg">
                         </a>
                     </aside>
 

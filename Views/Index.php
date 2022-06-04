@@ -9,8 +9,21 @@
 
 use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Infra\Dao\Favoritos\CadastrarFavoritosDb;
+use App\Infra\Dao\Favoritos\ListarFavoritosDb;
+$logar = $_SESSION['logar'] ?? false;
+$email = $_SESSION['email'] ?? null;
 
+use App\Infra\Dao\Usuario\ListarUsuarioDb;
+$a = new ListarUsuarioDb;
+$dados = $a->all($email);
+foreach ($dados as $key => $value){  
+$b = $dados[$key];
+foreach ($b as $key => $value){
+    $id_usuario = $value;
+}
+}  
 $listar_produto = new ListarProdutoDb;
+$favoritos = new CadastrarFavoritosDb;
 ?>
 
 <div class="card bg-dark text-white">
@@ -131,6 +144,7 @@ $listar_produto = new ListarProdutoDb;
 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
+                <?php $id_produto = $array[0];?>
                     <div class="img-wrap">
                         <img src="Assets/images/<?php echo $array[2]; ?>">
                     </div>
@@ -142,11 +156,33 @@ $listar_produto = new ListarProdutoDb;
 
                         <button class="btn btn-primary" onclick="adicionar_carrinho(<?= $produto->id_produto ?>)">
                             <i class="fas fa-shopping-cart me-2"></i> Adicionar</button>
-                        <button class="btn btn-outline-danger btn-icon"> <i class="fa fa-heart"></i> </button>
+                        <a href="?id_prod=<?php echo $id_produto;?>" class="btn btn-outline-danger btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div>
-            <?php } ?>
+            <?php }
+            
+            $listar_favoritos = new ListarFavoritosDb;
+
+            if (isset($_GET['id_prod'])){
+                if($logar){
+                $id_produto = $_GET['id_prod'];
+                $favorit = $listar_favoritos->findProd($id_produto, $id_usuario);
+                foreach ($favorit as $keys => $values){
+                    $object = get_object_vars($values);
+                    if(!empty($object)){
+                        echo "<script> alert ('Produto já existente na tabela de favoritos'); window.location='http://Localhost:8000/'</script>";
+                        die();
+                    }
+                }   
+                $fav = $favoritos->insert($id_usuario,$id_produto);
+                echo "<script> alert ('Produto adicionado nos favoritos'); window.location='http://Localhost:8000/'</script>";
+
+            } else {
+                echo "<script> alert ('Faça login na sua conta para adicionar um produto na tabela de favoritos')</script>";
+            }
+            
+        }?>
 
             <!-- col end.// -->
             <!--/////////////

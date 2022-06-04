@@ -9,6 +9,7 @@
 
 use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Infra\Dao\Favoritos\CadastrarFavoritosDb;
+use App\Infra\Dao\Favoritos\ListarFavoritosDb;
 
 $email = $_SESSION['email'] ?? null;
 
@@ -21,7 +22,6 @@ foreach ($b as $key => $value){
     $id_usuario = $value;
 }
 }
-$id_usuario = $value;
 $listar_produto = new ListarProdutoDb;
 $favoritos = new CadastrarFavoritosDb;
  ?>
@@ -173,10 +173,7 @@ $listar_produto = new ListarProdutoDb;
         
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
-                    <?php $id_produto = $array[0];?> 
-                    <div class="price-wrap">
-                            <span class="price">$<?php echo $id_produto; ?></span> 
-                        </div> 
+                    <?php $id_produto = $array[0];?>  
                     <div class="img-wrap">
                         <img src="Assets/images/<?php echo $array[2]; ?>"> 
                     </div>
@@ -187,15 +184,26 @@ $listar_produto = new ListarProdutoDb;
                         <p class="title mb-2"><?php echo $array[11]; ?> - <?php echo $array[5]; ?></p> 
                         
                         <a href="#" class="btn btn-primary">Adicionar</a>
-                        <form method="post" action="">
-                        <input type="submit" name="submit" class="btn btn-light btn-icon" value="submit"> <i class="fa fa-heart"></i>
-                </form> </figcaption>
+                    
+                        <a href="?id_prod=<?php echo $id_produto;?>" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i></a>
+                </figcaption>
                 </figure>
             </div>
             <?php }
-            if (isset($_POST['submit'])){
+    $listar_favoritos = new ListarFavoritosDb;
+
+            if (isset($_GET['id_prod'])){
+                $id_produto = $_GET['id_prod'];
+                $favorit = $listar_favoritos->findProd($id_produto, $id_usuario);
+                foreach ($favorit as $keys => $values){
+                    $object = get_object_vars($values);
+                    if(!empty($object)){
+                        echo "<script> alert ('Produto já existente na tabela de favoritos'); window.location='http://Localhost:8000/'</script>";
+                        die();
+                    }
+                }   
                 $fav = $favoritos->insert($id_usuario,$id_produto);
-                echo "<script> alert ('Produto adicionado nos favoritos $id_produto'); window.location='http://Localhost:8000/'</script>";
+                echo "<script> alert ('Produto adicionado nos favoritos'); window.location='http://Localhost:8000/'</script>";
 
             }
             

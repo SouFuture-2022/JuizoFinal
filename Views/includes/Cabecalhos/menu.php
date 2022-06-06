@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 $email = $_SESSION['email'] ?? null;
 
 use App\Infra\Dao\Usuario\ListarUsuarioDb;
@@ -76,6 +75,9 @@ foreach ($b as $key => $value){
             <div class="container">
                 <div class="collapse navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav">
+                    <li class="nav-item">
+                            <a class="nav-link ps-0" href="/">Página Inicial</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link ps-0" href="Categorias">Categorias</a>
                         </li>

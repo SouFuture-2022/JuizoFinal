@@ -58,4 +58,8 @@ return [
 	'/Ofertas' => 'Ofertas@ofertas',
 	'/user/create' => 'User@create',
 	'/user/[0-9]+' => 'User@show',
+
+	'/AllCategorias' => 'AllCategorias@allcategorias',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 ];

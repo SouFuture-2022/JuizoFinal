@@ -97,7 +97,6 @@ $favoritos = new CadastrarFavoritosDb;
                     $a = $a . "$value/";
                 }
                 $array = explode('/', $a);
-
             ?>
 
             <div class="col-lg-3 col-md-6 col-sm-6">
@@ -114,6 +113,7 @@ $favoritos = new CadastrarFavoritosDb;
 
                         <button class="btn btn-primary" onclick="adicionar_carrinho(<?= $produto->id_produto ?>)">
                             <i class="fas fa-shopping-cart me-2"></i> Adicionar</button>
+
                         <a href="?id_prod=<?php echo $id_produto;?>" class="btn btn-outline-danger btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>

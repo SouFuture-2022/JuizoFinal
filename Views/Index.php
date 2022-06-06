@@ -1,13 +1,11 @@
 <?php
     session_start();
-
     $logar = $_SESSION['logar'] ?? false;
 
     if($logar){
-        require_once __DIR__ . "./includes/Cabecalhos/menucliente.php";
-    
+        require __DIR__ . "./includes/Cabecalhos/menucliente.php";
     } else {
-        require_once __DIR__ . "./includes/Cabecalhos/menu.php";
+        require __DIR__ . "./includes/Cabecalhos/menu.php";
     }
 
 ?>
@@ -40,23 +38,9 @@ $listar_produto = new ListarProdutoDb;
 $favoritos = new CadastrarFavoritosDb;
 ?>
 
-<div class="card bg-dark text-white">
-    <img src="Assets/images/bla.jpg" class="card-img" alt="...">
-    <div class="card-img-overlay ">
-        <h1 class="display-4 text-white">
-            Melhores produtos & <br> marcas em nossa loja </h1>
-        <p class="lead text-white">Produtos da moda, preços de fábrica, excelente serviço</p>
-        <a href="#" class="btn btn-warning"> Compre agora</a>
-        <a href="#" class="btn btn-light"> Saber mais </a>
-    </div>
-</div>
-
-<!-- ================ SECTION INTRO END.// ================ -->
-
-<!-- ================ SECTION PRODUCTS ================ -->
 <section class="section-intro padding-y-sm">
     <div class="container">
-        <div id="carousel1_indicator" class="carousel slide" data-ride="carousel">
+        <div id="carousel1_indicator" class="carousel slide" data-bs-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carousel1_indicator" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel1_indicator" data-slide-to="1"></li>
@@ -68,7 +52,7 @@ $favoritos = new CadastrarFavoritosDb;
                     <img class="d-block w-100" src="Assets/images/vision.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="Assets/images/vision.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="Assets/images/bla.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="Assets/images/vision.jpg" alt="Third slide">
@@ -87,50 +71,10 @@ $favoritos = new CadastrarFavoritosDb;
     </div>
 </section>
 
-<section class="section-content padding-y-sm">
-    <div class="container">
-        <article class="card card-body">
-            <div class="row">
-                <div class="col-md-4">
-                    <figure class="item-feature">
-                        <span class="text-primary">
-                            <i class="fas fa-truck"></i>
-                        </span>
-                        <figcaption class="pt-3">
-                            <h5 class="title">Entrega Rápida</h5>
-                            <p>Entrega rápida e segura para todo Brasil.</p>
-                        </figcaption>
-                    </figure>
-                </div>
+<!-- ================ SECTION INTRO END.// ================ -->
 
-                <div class="col-md-4">  
-                    <figure class="item-feature">
-                        <span class="text-primary">
-                            <i class="fas fa-comment-dots"></i>
-                        </span>
-                        <figcaption class="pt-3">
-                            <h5 class="title">Suporte Necessário</h5>
-                            <p>Compra prática e rápida, em todo o site.</p>
-                        </figcaption>
-                    </figure>
-                </div>
+<!-- ================ SECTION PRODUCTS ================ -->
 
-                <div class="col-md-4">
-                    <figure class="item-feature">
-                        <span class="text-primary">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                        <figcaption class="pt-3">
-                            <h5 class="title">Altamente Seguro</h5>
-                            <p>Faça suas compras sem se preocupar com a entrega de seu pedido.</p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-        </article>
-    </div>
-</section>
-<!-- parte de produtos do index -->
 <section class="padding-y">
     <div class="container">
 
@@ -140,7 +84,7 @@ $favoritos = new CadastrarFavoritosDb;
 
         <div class="row">
 
-            <?php
+        <?php
             $dados = $listar_produto->findAllPopular(0, 10);
             foreach ($dados as $key => $value) {
 
@@ -210,13 +154,11 @@ $favoritos = new CadastrarFavoritosDb;
                             <span class="price">$320.00</span>
                         </div> 
                         <p class="title mb-2">Canon camera 20x zoom, Black color EOS 2000</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div> 
-
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -227,13 +169,11 @@ $favoritos = new CadastrarFavoritosDb;
                             <span class="price">$120.00</span>
                         </div> 
                         <p class="title mb-2">Xiaomi Redmi 8 Original Global Version 4GB</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div> 
-
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -244,7 +184,6 @@ $favoritos = new CadastrarFavoritosDb;
                             <span class="price">$120.00</span>
                         </div> 
                         <p class="title mb-2">Apple iPhone 12 Pro 6.1" RAM 6GB 512GB Unlocked</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
@@ -260,13 +199,11 @@ $favoritos = new CadastrarFavoritosDb;
                             <span class="price">$120.00</span>
                         </div> 
                         <p class="title mb-2">Apple Watch Series 1 Sport Case 38mm Black</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div> 
-
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -277,13 +214,11 @@ $favoritos = new CadastrarFavoritosDb;
                             <span class="price">$120.00</span>
                         </div> 
                         <p class="title mb-2">T-shirts with multiple colors, for men and lady</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div> 
-
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -294,13 +229,11 @@ $favoritos = new CadastrarFavoritosDb;
                             <span class="price">$99.50</span>
                         </div> 
                         <p class="title mb-2">Gaming Headset 32db Blackbuilt in mic</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div> <
-
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -311,13 +244,11 @@ $favoritos = new CadastrarFavoritosDb;
                             <span class="price">$120.00</span>
                         </div> 
                         <p class="title mb-2">T-shirts with multiple colors, for men and lady</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
-            </div> 
--->
+            </div> -->
         </div> <!-- row end.// -->
 
     </div> <!-- container end.// -->
@@ -328,14 +259,12 @@ $favoritos = new CadastrarFavoritosDb;
         <header class="section-heading">
             <h3 class="section-title">Produtos Populares</h3>
         </header>
-
         <div class="row">
             <?php
             $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
             $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
             $quantidade_pagina = 4;
             $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
-
             foreach ($listar_produto->findAllPopular($inicio, $quantidade_pagina) as $key => $value) { ?>
 <div class="col-md-3">
     <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
@@ -345,7 +274,6 @@ $favoritos = new CadastrarFavoritosDb;
         <figcaption class="info-wrap">
             <a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
                 class="title"><?php echo $value->nome; ?></a>
-
             <div class="rating-wrap">
                 <ul class="rating-stars">
                     <?php $total_media = $listar_avaliacao->find($value->id_produto);
@@ -391,7 +319,6 @@ $favoritos = new CadastrarFavoritosDb;
         </ /?php $linhas=$listar_produto->findAllCount();
         $quantidade_linhas = ceil($linhas / $quantidade_pagina);
         $maximo_links = 3;
-
         //for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) { if
             ($pagina_anterior>= 1) { ?>
             <li class="page-item"><a class="page-link" href="../Index?pagina=<? //php echo $pagina_anterior; 
@@ -400,10 +327,8 @@ $favoritos = new CadastrarFavoritosDb;
                                             ?>
                 </a></li>
             </ /?php } } ?>
-
             <li class="page-item active"><a class="page-link" href="../Index?pagina=<? //php echo $pagina; 
                                         ?>"><?php echo $pagina; ?><span class="sr-only">(atual)</span></a></li>
-
             <?php
         //for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
         //if ($pagina_posterior <= $quantidade_linhas) { 
@@ -428,15 +353,12 @@ $favoritos = new CadastrarFavoritosDb;
 </nav>
 </div>
 </section> -->
-
 ------------------------
-
 <section class="section-content">
     <div class="container">
         <header class="section-heading">
             <h3 class="section-title">Adicionados Recentemente</h3>
         </header>
-
         <div class="row">
             <?php
             $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
@@ -454,7 +376,6 @@ $favoritos = new CadastrarFavoritosDb;
                         <span class="badge badge-danger">NEW</span><a
                             href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
                             class="title"><?php echo $value->nome; ?></a>
-
                         <div class="rating-wrap">
                             <ul class="rating-stars">
                                 <?php $total_media = $listar_avaliacao->find($value->id_produto);
@@ -501,7 +422,6 @@ $favoritos = new CadastrarFavoritosDb;
                 $linhas = $listar_produto->findAllCount();
                 $quantidade_linhas = ceil($linhas / $quantidade_pagina);
                 $maximo_links = 3;
-
                 for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
                     if ($pagina_anterior >= 1) { ?>
                 <li class="page-item"><a class="page-link"
@@ -509,11 +429,9 @@ $favoritos = new CadastrarFavoritosDb;
                 <?php }
                 }
                 ?>
-
                 <li class="page-item active"><a class="page-link"
                         href="../Index?pagina=<?php echo $pagina; ?>"><?php echo $pagina; ?><span
                             class="sr-only">(atual)</span></a></li>
-
                 <?php
                 for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
                     if ($pagina_posterior <= $quantidade_linhas) { ?>
@@ -534,6 +452,49 @@ $favoritos = new CadastrarFavoritosDb;
     </div>
 </section>*/ ?>
 
+<section class="section-content padding-y-sm">
+    <div class="container">
+        <article class="card card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <figure class="item-feature">
+                        <span class="text-primary">
+                            <i class="fas fa-truck"></i>
+                        </span>
+                        <figcaption class="pt-3">
+                            <h5 class="title">Entrega Rápida</h5>
+                            <p>Entrega rápida e segura para todo Brasil.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="col-md-4">
+                    <figure class="item-feature">
+                        <span class="text-primary">
+                            <i class="fas fa-comment-dots"></i>
+                        </span>
+                        <figcaption class="pt-3">
+                            <h5 class="title">Suporte Necessário</h5>
+                            <p>Compra prática e rápida, em todo o site.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="col-md-4">
+                    <figure class="item-feature">
+                        <span class="text-primary">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <figcaption class="pt-3">
+                            <h5 class="title">Altamente Seguro</h5>
+                            <p>Faça suas compras sem se preocupar com a entrega de seu pedido.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
 <!-- ================ SECTION PRODUCTS END.// ================ -->
 <section class="section-name padding-y">
     <div class="container">

@@ -1,4 +1,19 @@
 <?php
+    session_start();
+
+    $logar = $_SESSION['logar'] ?? false;
+
+    if($logar){
+        require_once __DIR__ . "./includes/Cabecalhos/menucliente.php";
+    
+    } else {
+        require_once __DIR__ . "./includes/Cabecalhos/menu.php";
+    }
+
+?>
+
+
+<?php
 
 use App\Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
 use App\Infra\Dao\Categorias\ListarCategoriasDb;
@@ -27,8 +42,7 @@ $listar_avaliacao = new ListarAvaliacoesDb;
             <h2 class="title-page">Todas as Categorias</h2>
             <nav>
                 <ol class="breadcrumb text-white">
-                    <li class="breadcrumb-item"><a href="../Index">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Todas as Categoria</a></li>
+                    <li class="breadcrumb-item active"><a href="AllCategorias">Todas as Categoria</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Ótimos artigos</li>
                 </ol>
             </nav>
@@ -108,7 +122,7 @@ $listar_avaliacao = new ListarAvaliacoesDb;
                     <aside class="col-md-3">
                         <a href="../Produto?acao=prod&produto=" class="img-wrap">
                             <!-- <span class="badge badge-danger"> NEW </span> -->
-                            <img src="Upload/">
+                            <img src="../Assets/images/big.jpg">
                         </a>
                     </aside>
 

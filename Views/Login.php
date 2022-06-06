@@ -74,6 +74,7 @@ $num = $dados->rowCount();
 
 if ($num == 1) {
     $_SESSION ['logar'] = true;
+    $_SESSION ['email'] = $email;
     echo "<script> alert('Sessão Iniciada...') ; window.location='http://Localhost:8000/'</script>";
 } else {
     echo "Dados inválidos, tente novamente";

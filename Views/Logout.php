@@ -12,19 +12,7 @@
 <body>
 
     <div class="container">
-<<<<<<< HEAD:Views/Logout.php
         <?php
-=======
-        <?php require $view;  ?>
-
-
-        <?php #require $header;
-        ?>
-        <?php #require $view;  
-        ?>
-        <?php #require $rodape;  
-        ?>
->>>>>>> 8f4234cd3dfa15036e6bdaddedc2a35cc3f98c12:Views/Master.php
 
         use App\Models\SessionLogin;
 

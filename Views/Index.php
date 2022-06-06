@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    $logar = $_SESSION['logar'] ?? false;
+
+    if($logar){
+        require __DIR__ . "./includes/Cabecalhos/menucliente.php";
+    } else {
+        require __DIR__ . "./includes/Cabecalhos/menu.php";
+    }
+
+?>
+
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
 <link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
@@ -9,8 +21,21 @@
 
 use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Infra\Dao\Favoritos\CadastrarFavoritosDb;
+use App\Infra\Dao\Favoritos\ListarFavoritosDb;
+$logar = $_SESSION['logar'] ?? false;
+$email = $_SESSION['email'] ?? null;
 
+use App\Infra\Dao\Usuario\ListarUsuarioDb;
+$a = new ListarUsuarioDb;
+$dados = $a->all($email);
+foreach ($dados as $key => $value){  
+$b = $dados[$key];
+foreach ($b as $key => $value){
+    $id_usuario = $value;
+}
+}  
 $listar_produto = new ListarProdutoDb;
+$favoritos = new CadastrarFavoritosDb;
 ?>
 
 <section class="section-intro padding-y-sm">
@@ -59,7 +84,7 @@ $listar_produto = new ListarProdutoDb;
 
         <div class="row">
 
-            <?php
+        <?php
             $dados = $listar_produto->findAllPopular(0, 10);
             foreach ($dados as $key => $value) {
 
@@ -76,6 +101,7 @@ $listar_produto = new ListarProdutoDb;
 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
+                <?php $id_produto = $array[0];?>
                     <div class="img-wrap">
                         <img src="Assets/images/<?php echo $array[2]; ?>">
                     </div>
@@ -87,12 +113,34 @@ $listar_produto = new ListarProdutoDb;
 
                         <button class="btn btn-primary" onclick="adicionar_carrinho(<?= $produto->id_produto ?>)">
                             <i class="fas fa-shopping-cart me-2"></i> Adicionar</button>
-                        <button class="btn btn-outline-danger btn-icon" data-bs-toggle="button" aria-pressed="true">
-                            <i class="fa fa-heart"></i> </button>
+
+                        <a href="?id_prod=<?php echo $id_produto;?>" class="btn btn-outline-danger btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div>
-            <?php } ?>
+            <?php }
+            
+            $listar_favoritos = new ListarFavoritosDb;
+
+            if (isset($_GET['id_prod'])){
+                if($logar){
+                $id_produto = $_GET['id_prod'];
+                $favorit = $listar_favoritos->findProd($id_produto, $id_usuario);
+                foreach ($favorit as $keys => $values){
+                    $object = get_object_vars($values);
+                    if(!empty($object)){
+                        echo "<script> alert ('Produto já existente na tabela de favoritos'); window.location='http://Localhost:8000/'</script>";
+                        die();
+                    }
+                }   
+                $fav = $favoritos->insert($id_usuario,$id_produto);
+                echo "<script> alert ('Produto adicionado nos favoritos'); window.location='http://Localhost:8000/'</script>";
+
+            } else {
+                echo "<script> alert ('Faça login na sua conta para adicionar um produto na tabela de favoritos')</script>";
+            }
+            
+        }?>
 
             <!-- col end.// -->
             <!--/////////////
@@ -106,13 +154,11 @@ $listar_produto = new ListarProdutoDb;
                             <span class="price">$320.00</span>
                         </div> 
                         <p class="title mb-2">Canon camera 20x zoom, Black color EOS 2000</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div> 
-
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -123,13 +169,11 @@ $listar_produto = new ListarProdutoDb;
                             <span class="price">$120.00</span>
                         </div> 
                         <p class="title mb-2">Xiaomi Redmi 8 Original Global Version 4GB</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div> 
-
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -140,7 +184,6 @@ $listar_produto = new ListarProdutoDb;
                             <span class="price">$120.00</span>
                         </div> 
                         <p class="title mb-2">Apple iPhone 12 Pro 6.1" RAM 6GB 512GB Unlocked</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
@@ -156,13 +199,11 @@ $listar_produto = new ListarProdutoDb;
                             <span class="price">$120.00</span>
                         </div> 
                         <p class="title mb-2">Apple Watch Series 1 Sport Case 38mm Black</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div> 
-
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -173,13 +214,11 @@ $listar_produto = new ListarProdutoDb;
                             <span class="price">$120.00</span>
                         </div> 
                         <p class="title mb-2">T-shirts with multiple colors, for men and lady</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div> 
-
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -190,13 +229,11 @@ $listar_produto = new ListarProdutoDb;
                             <span class="price">$99.50</span>
                         </div> 
                         <p class="title mb-2">Gaming Headset 32db Blackbuilt in mic</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div> <
-
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
                     <div class="img-wrap">
@@ -207,7 +244,6 @@ $listar_produto = new ListarProdutoDb;
                             <span class="price">$120.00</span>
                         </div> 
                         <p class="title mb-2">T-shirts with multiple colors, for men and lady</p>
-
                         <a href="#" class="btn btn-primary">Adicionar</a>
                         <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
@@ -223,14 +259,12 @@ $listar_produto = new ListarProdutoDb;
         <header class="section-heading">
             <h3 class="section-title">Produtos Populares</h3>
         </header>
-
         <div class="row">
             <?php
             $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
             $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
             $quantidade_pagina = 4;
             $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
-
             foreach ($listar_produto->findAllPopular($inicio, $quantidade_pagina) as $key => $value) { ?>
 <div class="col-md-3">
     <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
@@ -240,7 +274,6 @@ $listar_produto = new ListarProdutoDb;
         <figcaption class="info-wrap">
             <a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
                 class="title"><?php echo $value->nome; ?></a>
-
             <div class="rating-wrap">
                 <ul class="rating-stars">
                     <?php $total_media = $listar_avaliacao->find($value->id_produto);
@@ -286,7 +319,6 @@ $listar_produto = new ListarProdutoDb;
         </ /?php $linhas=$listar_produto->findAllCount();
         $quantidade_linhas = ceil($linhas / $quantidade_pagina);
         $maximo_links = 3;
-
         //for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) { if
             ($pagina_anterior>= 1) { ?>
             <li class="page-item"><a class="page-link" href="../Index?pagina=<? //php echo $pagina_anterior; 
@@ -295,10 +327,8 @@ $listar_produto = new ListarProdutoDb;
                                             ?>
                 </a></li>
             </ /?php } } ?>
-
             <li class="page-item active"><a class="page-link" href="../Index?pagina=<? //php echo $pagina; 
                                         ?>"><?php echo $pagina; ?><span class="sr-only">(atual)</span></a></li>
-
             <?php
         //for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
         //if ($pagina_posterior <= $quantidade_linhas) { 
@@ -323,15 +353,12 @@ $listar_produto = new ListarProdutoDb;
 </nav>
 </div>
 </section> -->
-
 ------------------------
-
 <section class="section-content">
     <div class="container">
         <header class="section-heading">
             <h3 class="section-title">Adicionados Recentemente</h3>
         </header>
-
         <div class="row">
             <?php
             $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
@@ -349,7 +376,6 @@ $listar_produto = new ListarProdutoDb;
                         <span class="badge badge-danger">NEW</span><a
                             href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
                             class="title"><?php echo $value->nome; ?></a>
-
                         <div class="rating-wrap">
                             <ul class="rating-stars">
                                 <?php $total_media = $listar_avaliacao->find($value->id_produto);
@@ -396,7 +422,6 @@ $listar_produto = new ListarProdutoDb;
                 $linhas = $listar_produto->findAllCount();
                 $quantidade_linhas = ceil($linhas / $quantidade_pagina);
                 $maximo_links = 3;
-
                 for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
                     if ($pagina_anterior >= 1) { ?>
                 <li class="page-item"><a class="page-link"
@@ -404,11 +429,9 @@ $listar_produto = new ListarProdutoDb;
                 <?php }
                 }
                 ?>
-
                 <li class="page-item active"><a class="page-link"
                         href="../Index?pagina=<?php echo $pagina; ?>"><?php echo $pagina; ?><span
                             class="sr-only">(atual)</span></a></li>
-
                 <?php
                 for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
                     if ($pagina_posterior <= $quantidade_linhas) { ?>

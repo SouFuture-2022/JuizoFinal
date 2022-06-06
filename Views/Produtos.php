@@ -1,4 +1,18 @@
 <?php
+    session_start();
+
+    $logar = $_SESSION['logar'] ?? false;
+
+    if($logar){
+        require_once __DIR__ . "./includes/Cabecalhos/menucliente.php";
+    
+    } else {
+        require_once __DIR__ . "./includes/Cabecalhos/menu.php";
+    }
+
+?>
+
+<?php
 
 use App\Infra\Dao\Avaliacoes\CadastrarAvaliacoesDb;
 use App\Infra\Dao\Avaliacoes\ListarAvaliacoesDb;

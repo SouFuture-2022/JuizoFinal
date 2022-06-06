@@ -4,12 +4,11 @@ namespace App\Core\Controllers;
 
 use App\Core\Store;
 
-
-
-class Home {
-    public function index($params){
+class Ofertas {
+    public function ofertas($params){
         Store::layout([
-            'Index',
+            'includes/Cabecalhos/menu',
+            'Ofertas',
             'includes/Rodapes/rodape'
         ]);
     }

@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    $logar = $_SESSION['logar'] ?? false;
+
+    if($logar){
+        require __DIR__ . "./includes/Cabecalhos/menucliente.php";
+    } else {
+        require __DIR__ . "./includes/Cabecalhos/menu.php";
+    }
+
+?>
+
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
 <link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
@@ -9,27 +21,26 @@
 
 use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Infra\Dao\Favoritos\CadastrarFavoritosDb;
+use App\Infra\Dao\Favoritos\ListarFavoritosDb;
+$logar = $_SESSION['logar'] ?? false;
+$email = $_SESSION['email'] ?? null;
 
+use App\Infra\Dao\Usuario\ListarUsuarioDb;
+$a = new ListarUsuarioDb;
+$dados = $a->all($email);
+foreach ($dados as $key => $value){  
+$b = $dados[$key];
+foreach ($b as $key => $value){
+    $id_usuario = $value;
+}
+}  
 $listar_produto = new ListarProdutoDb;
+$favoritos = new CadastrarFavoritosDb;
 ?>
 
-<div class="card bg-dark text-white">
-    <img src="Assets/images/bla.jpg" class="card-img" alt="...">
-    <div class="card-img-overlay ">
-        <h1 class="display-4 text-white">
-            Melhores produtos & <br> marcas em nossa loja </h1>
-        <p class="lead text-white">Produtos da moda, preços de fábrica, excelente serviço</p>
-        <a href="#" class="btn btn-warning"> Compre agora</a>
-        <a href="#" class="btn btn-light"> Saber mais </a>
-    </div>
-</div>
-
-<!-- ================ SECTION INTRO END.// ================ -->
-
-<!-- ================ SECTION PRODUCTS ================ -->
 <section class="section-intro padding-y-sm">
     <div class="container">
-        <div id="carousel1_indicator" class="carousel slide" data-ride="carousel">
+        <div id="carousel1_indicator" class="carousel slide" data-bs-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carousel1_indicator" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel1_indicator" data-slide-to="1"></li>
@@ -41,7 +52,7 @@ $listar_produto = new ListarProdutoDb;
                     <img class="d-block w-100" src="Assets/images/vision.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="Assets/images/vision.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="Assets/images/bla.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="Assets/images/vision.jpg" alt="Third slide">
@@ -60,50 +71,10 @@ $listar_produto = new ListarProdutoDb;
     </div>
 </section>
 
-<section class="section-content padding-y-sm">
-    <div class="container">
-        <article class="card card-body">
-            <div class="row">
-                <div class="col-md-4">
-                    <figure class="item-feature">
-                        <span class="text-primary">
-                            <i class="fas fa-truck"></i>
-                        </span>
-                        <figcaption class="pt-3">
-                            <h5 class="title">Entrega Rápida</h5>
-                            <p>Entrega rápida e segura para todo Brasil.</p>
-                        </figcaption>
-                    </figure>
-                </div>
+<!-- ================ SECTION INTRO END.// ================ -->
 
-                <div class="col-md-4">  
-                    <figure class="item-feature">
-                        <span class="text-primary">
-                            <i class="fas fa-comment-dots"></i>
-                        </span>
-                        <figcaption class="pt-3">
-                            <h5 class="title">Suporte Necessário</h5>
-                            <p>Compra prática e rápida, em todo o site.</p>
-                        </figcaption>
-                    </figure>
-                </div>
+<!-- ================ SECTION PRODUCTS ================ -->
 
-                <div class="col-md-4">
-                    <figure class="item-feature">
-                        <span class="text-primary">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                        <figcaption class="pt-3">
-                            <h5 class="title">Altamente Seguro</h5>
-                            <p>Faça suas compras sem se preocupar com a entrega de seu pedido.</p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-        </article>
-    </div>
-</section>
-<!-- parte de produtos do index -->
 <section class="padding-y">
     <div class="container">
 
@@ -113,7 +84,7 @@ $listar_produto = new ListarProdutoDb;
 
         <div class="row">
 
-            <?php
+        <?php
             $dados = $listar_produto->findAllPopular(0, 10);
             foreach ($dados as $key => $value) {
 
@@ -126,10 +97,10 @@ $listar_produto = new ListarProdutoDb;
                     $a = $a . "$value/";
                 }
                 $array = explode('/', $a);
-
             ?>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <figure class="card card-product-grid">
+                <?php $id_produto = $array[0];?>
                     <div class="img-wrap">
                         <img src="Assets/images/<?php echo $array[2]; ?>">
                     </div>
@@ -139,16 +110,12 @@ $listar_produto = new ListarProdutoDb;
                         </div>
                         <p class="title mb-2"><?php echo $array[11]; ?> - <?php echo $array[5]; ?></p>
 
-                        <a class="btn btn-primary" href="?produto=<?php echo $array[0]; ?>"> Adicionar</a>
-                        <a class="btn btn-outline-danger btn-icon"> <i class="fa fa-heart"></i> </a>
-                    </figcaption>
-                </figure>
-            </div>
-            <?php }  require_once __DIR__ . "./AcaoCarrinho.php"; ?>
+
         </div> <!-- row end.// -->
 
     </div> <!-- container end.// -->
 </section>
+
 <!-- ================ SECTION PRODUCTS END.// ================ -->
 <section class="section-name padding-y">
     <div class="container">

@@ -39,47 +39,48 @@ if (isset($_POST['btCadastrar'])) {
     }
 }
 ?>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <section>
-    <div class="container d-flex justify-content-center mt-4">
+    <div class="container d-flex justify-content-center">
         <div class="card shadow p-3 mb-5 bg-body rounded w-50 p-3">
             <div class="card-body">
                 <h2 class="mb-3 text-primary">Cadastre-se</h2>
-                <form method="post" action="">
+                <form action="">
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" name="nome" placeholder="Nome completo" required>
+                            <input type="text" class="form-control" placeholder="Nome completo" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" name="perfil" placeholder="Nome de usuário" required>
+                            <input type="text" class="form-control" placeholder="Nome de usuário" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" name="cpf" placeholder="CPF" required>
+                            <input type="email" class="form-control" placeholder="Email" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" name="telefone" placeholder="Telefone" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                    <div class="col">
-                            <input type="date" class="form-control" name="data_nascimento" placeholder="Data de Nascimento" required>
-                        </div>
-                        <div class="col">
-                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                            <input type="text" class="form-control" placeholder="Telefone" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="password" class="form-control" name="senha" placeholder="Senha" required>
+                            <input type="text" class="form-control" placeholder="CPF" required>
                         </div>
                         <div class="col">
-                            <input type="password" class="form-control" name="senha" placeholder="Confirmar senha" required>
+                            <input type="date" class="form-control text-muted" placeholder="Data de nascimento" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="password" class="form-control" placeholder="Senha" required>
+                        </div>
+                        <div class="col">
+                            <input type="password" class="form-control" placeholder="Confirmar senha" required>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <input class="btn btn-primary w-75 " type="submit" id="button" name="cadastrar" value="Cadastrar">
+                        <button class="btn w-75 btn-primary">Cadastrar</button> 
                     </div>
                 </form>
                 <hr>
@@ -87,7 +88,7 @@ if (isset($_POST['btCadastrar'])) {
                     <p>Já tem uma conta?</p>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a href="Login" class="btn w-75 btn-outline-primary" href="#">Entrar</a>
+                    <a class="btn w-75 btn-outline-primary" href="#">Entrar</a>
                 </div>
             </div>
         </div>

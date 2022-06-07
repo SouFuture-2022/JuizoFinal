@@ -39,7 +39,7 @@ foreach ($b as $key => $value){
             <div class="container">
                 <div class="row gy-3 align-items-center">
                     <div class="col-lg-2 col-6">
-                        <a href="index.php" class="brand-wrap"><img class="logo" src="Assets/images/logo.png"></a>
+                        <a href="/" class="brand-wrap"><img class="logo" src="Assets/images/logo.png"></a>
                     </div>
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="float-end">

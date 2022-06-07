@@ -43,34 +43,17 @@ foreach ($b as $key => $value){
                     </div>
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="float-end">
-                            <?php
-                            $logar = $_SESSION['logar'] ?? false;
-                            if($logar){   
-                            echo "<a href='/Favoritos?a=$value' class='btn btn-light'>
-                                <i class='fa fa-heart'></i> <span class='ms-1 d-none d-sm-inline-block'>Favoritos
+                            <a href="/Favoritos?a=<?php echo base64_encode($value);?>" class="btn btn-light">
+                                <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Favoritos
                                 </span>
-                            </a>";} else {
-                                echo "<a href='/Favoritos' class='btn btn-light'>
-                                <i class='fa fa-heart'></i> <span class='ms-1 d-none d-sm-inline-block'>Favoritos
-                                </span>
-                            </a>";
-                            } ?>
+                            </a>
                             <a data-bs-toggle="offcanvas" href="Carrinho" class="btn btn-light">
                                 <i class="fa fa-shopping-cart"></i> <span class="ms-1">Carrinho </span>
                             </a>
-                            <?php 
-                            
-                            
-                            if($logar){
-                                echo  "<a href='/Logout?Logout' class='btn btn-light'>
-                                <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Sair </span>
-                            </a>";
-                        } else{
-                                echo "<a href='/Login' class='btn btn-light'>
-                                <i class='fa fa-user'></i> <span class='ms-1 d-none d-sm-inline-block'>Entrar </span>
-                            </a>";
-                        }
-                        ?></div>
+                            <a href="/Logout?Logout" class="btn btn-light">
+                                <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Sair </span>
+                            </a>
+                        </div>
                     </div> <!-- col end.// -->
                     <div class="col-lg-5 col-md-12 col-12">
                         <form action="#" class="">
@@ -100,9 +83,6 @@ foreach ($b as $key => $value){
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ps-0" href="/Categorias">Categorias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Produtos">Produtos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/Itens">Meus itens</a>

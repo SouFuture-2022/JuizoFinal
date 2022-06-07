@@ -7,8 +7,6 @@ use PDO;
 
 class ListarProdutoDb{
 
-	 
-
 	public function printAll(){
 		$db = new Conexao();
 		$sql  = "SELECT nome FROM produtos";

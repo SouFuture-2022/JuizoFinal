@@ -4,7 +4,7 @@ use App\Infra\Dao\Favoritos\ListarFavoritosDb;
 use App\Infra\Dao\Produto\ListarProdutoDb;
 use App\Infra\Dao\Favoritos\RemoverFavoritosDb;
 
-$id_usuario = $_GET['a'];
+$id_usuario = base64_decode($_GET['a']);
 if (isset($_GET['a'])){
     $favoritos = new ListarFavoritosDb;
     echo "Tabela de Favoritos <br>";
@@ -41,7 +41,7 @@ if (isset($_GET['a'])){
         <p class="title mb-2"><?php echo $array[11]; ?> - <?php echo $array[5]; ?></p> 
 
         <a href="#" class="btn btn-primary">Adicionar</a>
-        <form method="post">
+    <form method="post">
         <button name="delete" class="btn btn-light btn-icon"><i class="fa fa-heart"></i> </button>
     </form> </figcaption>
 </figure>
@@ -52,7 +52,8 @@ if (isset($_GET['a'])){
     if(isset($_POST['delete'])){
     $del = new RemoverFavoritosDb;
     $delete = $del->delete($id_usuario, $id_produto);
-    echo "<script> alert('Produto removido da tabela de favoritos') ; window.location='http://Localhost:8000/Favoritos?a=$id_usuario'</script>";
+    $teste = base64_encode($id_usuario);
+    echo "<script> alert('Produto removido da tabela de favoritos') ; window.location='http://Localhost:8000/Favoritos?a=$teste'</script>";
 }
  } else {
         echo "<script> alert('Entre na sua conta para ver a tabela de favoritos') ; window.location='http://Localhost:8000/'</script>";

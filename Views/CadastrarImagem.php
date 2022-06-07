@@ -3,8 +3,8 @@
 session_start();
 
 if (isset($_SESSION['msg_error'])) {
-	echo $_SESSION['msg_error'];
-	unset($_SESSION['msg_error']);
+    echo $_SESSION['msg_error'];
+    unset($_SESSION['msg_error']);
 }
 
 use App\Infra\Dao\Imagens\CadastrarImagensDb;
@@ -19,31 +19,30 @@ $produto = new Produtos();
 $cadastrar_produto = new CadastrarProdutoDb;
 $cadastrar_imagens = new CadastrarImagensDb;
 
-
 if (isset($_POST['btCadastrar'])) {
-	$id_produto = $_POST['id_produto'];
-	$verifica_insercao = $listar_imagem->findAllCount($id_produto);
+    $id_produto = $_POST['id_produto'];
+    $verifica_insercao = $listar_imagem->findAllCount($id_produto);
 
-	if ($verifica_insercao < 3) {
-		$extensao = strtolower(substr($_FILES['nome_imagem']['name'], -4));
-		$nome_imagem = md5(time()) . $extensao;
-		$diretorio = $_SERVER['DOCUMENT_ROOT'] . '/Uploads/Produtos/';
+    if ($verifica_insercao < 3) {
+        $extensao = strtolower(substr($_FILES['nome_imagem']['name'], -4));
+        $nome_imagem = md5(time()) . $extensao;
+        $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/Uploads/Produtos/';
 
-		move_uploaded_file($_FILES['nome_imagem']['tmp_name'], $diretorio . $nome_imagem);
+        move_uploaded_file($_FILES['nome_imagem']['tmp_name'], $diretorio . $nome_imagem);
 
-		$imagem->setNomeimagem($nome_imagem);
-		$imagem->setIdproduto($id_produto);
+        $imagem->setNomeimagem($nome_imagem);
+        $imagem->setIdproduto($id_produto);
 
-		if ($cadastrar_imagem->insert()) {
-			include('Includes/MsgSucesso.php');
-		}
-	} else {
-		$_SESSION['msg_error'] =
-			'<div class="alert alert-danger" role="alert">
+        if ($cadastrar_imagem->insert()) {
+            include('Includes/MsgSucesso.php');
+        }
+    } else {
+        $_SESSION['msg_error'] =
+            '<div class="alert alert-danger" role="alert">
 				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Não é permitido cadastrar mais que 3 imagens...
 				</div>';
-		header('Location: ../CadastrarImagem');
-	}
+        header('Location: ../CadastrarImagem');
+    }
 }
 ?>
 

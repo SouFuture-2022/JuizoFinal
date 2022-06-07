@@ -1,46 +1,45 @@
-<?php
-
-use App\Infra\Dao\Categorias\CadastrarCategoriaDb;
+<!--<?php
+//ola mundo...
+use App\Infra\Dao\Categorias\CadastrarCategoria;
 use App\Models\Categorias;
 
 $categoria = new Categorias();
-$cadastrar_categoria = new CadastrarCategoriaDb;
+$cadastrar_categoria = new CadastrarCategoria;
 
 if (isset($_POST['btCadastrar'])) {
     $nome_categoria  = $_POST['nome_categoria'];
-    $categoria->setNomeCategotia($nome_categoria);
+
+    $categoria->setNomeCategoria($nome_categoria);
 
     if ($cadastrar_categoria->insert()) {
         include('Includes/MsgSucesso.php');
     }
 }
 ?>
-
-<link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="Assets/css/ui.css" rel="stylesheet" type="text/css" />
-<link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
-<link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
-<section class="section-name bg padding-y-sm">
-    <div class="container">
-        <header class="section-heading">
-            <h3 class="section-title">Cadastrar Categoria</h3>
-        </header>
-    </div>
-</section>
-<section class="section-name padding-y">
-    <div class="container">
-        <div class="box">
-            <form action="" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <input type="text" name="nome_categoria" id="nomeCategoria" placeholder="Nome da Categotia"
-                        class="form-control" required />
-                </div>
-                <div class="form-group">
-                    <button type="submit" name="btCadastrar" class="btn btn-primary btn-block">Registrar</button>
-                </div>
-            </form>
+-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+ 
+<section>
+    <div class="container d-flex justify-content-center">
+        <div class="card shadow p-3 mb-5 bg-body rounded w-50 p-3">
+            <div class="card-body">
+                <h2 class="mb-3 text-primary">Cadastrar Categoria</h2>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <select class="form-select text-muted" aria-label="Default select example">
+                                <option selected>Nome da categoria</option>
+                                <option value="1">Categooria 1</option>
+                                <option value="2">Categoria 2</option>
+                                <option value="3">Categoria 3</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn w-75 btn-primary">Registrar</button> 
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</section>
+</section>   

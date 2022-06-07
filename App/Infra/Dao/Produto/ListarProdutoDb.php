@@ -7,13 +7,23 @@ use PDO;
 
 class ListarProdutoDb{
 
+	 
+
+	public function printAll(){
+		$db = new Conexao();
+		$sql  = "SELECT nome FROM produtos";
+		$stmt = $db->getConnection()->prepare($sql);
+		$stmt->execute();
+		return $stmt;
+	}
+
     public function find($id_produto) {
 		$db = new Conexao();
 		$sql  = "SELECT id_produto, nome, imagem_destaque, habilitar_cor, habilitar_tamanho, cor, tamanho, preco, quantidade, peso, un_medida, descricao, id_categoria FROM produtos WHERE id_produto = :id_produto";
 		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':id_produto', $id_produto, PDO::PARAM_INT);
 		$stmt->execute();
-		return $stmt->fetch();
+		return $stmt->fetchAll();
 	}
 
 	public function findAll($inicio, $quantidade_pagina) {

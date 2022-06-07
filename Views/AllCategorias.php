@@ -1,4 +1,18 @@
 <?php
+    session_start();
+
+    $logar = $_SESSION['logar'] ?? false;
+
+    if($logar){
+        require_once __DIR__ . "./includes/Cabecalhos/menucliente.php";
+    
+    } else {
+        require_once __DIR__ . "./includes/Cabecalhos/menu.php";
+    }
+
+?>
+
+<?php
 
 use App\Infra\Dao\Avaliacoes\ListarAvaliacoesDb;
 use App\Infra\Dao\Categorias\ListarCategoriasDb;
@@ -16,8 +30,8 @@ $listar_avaliacao = new ListarAvaliacoesDb;
 
 
 if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
-	$id_categoria = (int)base64_decode($_GET['categoria']);
-	$resultado = $listar_produto->findAllProductCategories($id_categoria);
+    $id_categoria = (int)base64_decode($_GET['categoria']);
+    $resultado = $listar_produto->findAllProductCategories($id_categoria);
 ?>
 
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -200,8 +214,7 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
             </main>
         </div>
     </div>
-
 </section>
 <?php } else {
-	echo 'error';
+    echo 'error';
 } ?>

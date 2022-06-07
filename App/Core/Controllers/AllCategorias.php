@@ -4,11 +4,10 @@ namespace App\Core\Controllers;
 
 use App\Core\Store;
 
-class  Cadastrar{
-    public function cadastrar(){
+class  AllCategorias{
+    public function allcategorias(){
         Store::Layout([
-            'includes/Cabecalhos/menu',
-            'CadastrarUsuario',
+            'AllCategorias',
             'includes/Rodapes/rodape',
         ]);
     }

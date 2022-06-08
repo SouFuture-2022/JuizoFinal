@@ -106,19 +106,13 @@ if (isset($_POST['btAvaliar'])) {
 		$avaliacao->setIdproduto($id_produto);
 
 		if ($insert_avaliacao->insert()) {
-			$_SESSION['msg_sucesso'] =
-				'<div class="alert alert-success" role="alert">
-					Avaliação Realizada Com sucesso...
-				</div>';
-			//header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
+                $id_prod = base64_encode($id_produto);
+			echo "<script> alert ('Avaliação realizada'); window.location='http://Localhost:8000/Produtos?id_produto=$id_prod'</script></script>";
 		}
 	} else {
 		$id_produto = $_POST['id_produto'];
-		$_SESSION['msg_sucesso'] =
-			'<div class="alert alert-danger" role="alert">
-				Escolha Alguma Estrela para sua Avaliação!
-			</div>';
-		header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
+            $id_prod = base64_encode($id_produto);
+			echo "<script> alert ('Avaliação não realizada'); window.location='http://Localhost:8000/Produtos?id_produto=$id_prod'</script></script>";  
 	}
 }
 

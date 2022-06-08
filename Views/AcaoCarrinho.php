@@ -1,5 +1,5 @@
 <?php
-
+//
 $_SESSION['carrinho'] = $_SESSION['carrinho'] ?? [[0]]; 
 if (isset($_GET['produto'])){
 	$existe = false;

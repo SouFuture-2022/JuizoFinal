@@ -41,6 +41,7 @@ if ($_SESSION['logar'] and $_SESSION['carrinho'] == [[0]]){ ?>
 
 
 <?php
+//
 require_once __DIR__ . "./AcaoCarrinho.php";
 use App\Infra\Dao\Produto\ListarProdutoDb;
 if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinho'][0])){ ?>

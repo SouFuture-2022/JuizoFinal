@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                            <input type="submit" id="submit" name="submit" value="Entrar">
+                            <input type="submit" id="submit" name="submit" class="btn w-75 btn-outline-primary" value="Entrar">
                             <!--<input type="submit" id="submit" name="login" value="Entrar">-->
                             </div>
                         </form>

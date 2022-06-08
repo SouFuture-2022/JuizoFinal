@@ -82,9 +82,6 @@ foreach ($b as $key => $value){
                             <a class="nav-link ps-0" href="Categorias">Categorias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Produto">Produtos</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="Ofertas">Ofertas</a>
                         </li>
                     </ul>

@@ -103,7 +103,7 @@ $favoritos = new CadastrarFavoritosDb;
                 <figure class="card card-product-grid">
                 <?php $id_produto = $array[0];?>
                     <div class="img-wrap">
-                        <img src="Assets/images/<?php echo $array[2]; ?>">
+                       <a href="/Produtos?id_produto=<?php echo base64_encode($id_produto);?>"><img src="Assets/images/<?php echo $array[2]; ?>"></a>
                     </div>
                     <figcaption class="info-wrap border-top">
                         <div class="price-wrap">
@@ -111,10 +111,12 @@ $favoritos = new CadastrarFavoritosDb;
                         </div>
                         <p class="title mb-2"><?php echo $array[11]; ?> - <?php echo $array[5]; ?></p>
 
-                        <a class="btn btn-primary" href="?produto=<?php echo $id_produto; ?>">
-                            <i class="fas fa-shopping-cart me-2"></i> Adicionar</a>
 
-                        <a href="?id_prod=<?php echo $id_produto;?>" class="btn btn-outline-danger btn-icon"> <i class="fa fa-heart"></i> </a>
+                        <a class="btn btn-primary" href="?produto=<?php echo base64_encode($id_produto); ?>">
+                            <i class="fas fa-shopping-cart me-2"></i> Adicionar </a>
+
+
+                        <a href="?id_prod=<?php echo base64_encode($id_produto);?>" class="btn btn-outline-danger btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div>
@@ -125,7 +127,7 @@ $favoritos = new CadastrarFavoritosDb;
 
             if (isset($_GET['id_prod'])){
                 if($logar){
-                $id_produto = $_GET['id_prod'];
+                $id_produto = base64_decode($_GET['id_prod']);
                 $favorit = $listar_favoritos->findProd($id_produto, $id_usuario);
                 foreach ($favorit as $keys => $values){
                     $object = get_object_vars($values);

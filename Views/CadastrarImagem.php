@@ -22,13 +22,12 @@ $cadastrar_produto = new CadastrarProdutoDb;
 $cadastrar_imagem = new CadastrarImagensDb;
 
 if (isset($_POST['btCadastrar'])) {
-    $nome_imagem = $_POST['nome_imagem'];
     $id_produto = $_POST['id_produto'];
     $verifica_insercao = $listar_imagem->findAllCount($id_produto);
 
     if ($verifica_insercao < 3) {
         $extensao = strtolower(substr($_FILES['nome_imagem']['name'], -4));
-        $nome_imagem = md5(time()) . $extensao;
+        $nome_imagem = md5((time())) . $extensao;
         $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/Assets/images/';
 
         move_uploaded_file($_FILES['nome_imagem']['tmp_name'], $diretorio . $nome_imagem);
@@ -36,8 +35,8 @@ if (isset($_POST['btCadastrar'])) {
         $imagem->setNomeimagem($nome_imagem);
         $imagem->setIdproduto($id_produto);
 
-        if ($cadastrar_imagem->insert()) {
-            include('Includes/MsgSucesso.php');
+        if ($cadastrar_imagem->insert($id_produto, $nome_imagem)) {
+            echo "<script> alert ('Imagem cadastrada'); window.location = 'http://Localhost:8000/'</script>";
         }
     } else {
         $_SESSION['msg_error'] =
@@ -70,7 +69,7 @@ if (isset($_POST['btCadastrar'])) {
                 <div class="form-row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="file" name="nome_imagem" class="form-control" required />
+                            <input type="file" name="nome_imagem" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-6">

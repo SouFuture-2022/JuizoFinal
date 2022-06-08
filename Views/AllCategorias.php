@@ -29,9 +29,9 @@ $listar_produto = new ListarProdutoDb;
 $listar_avaliacao = new ListarAvaliacoesDb;
 
 
-if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
-    $id_categoria = (int)base64_decode($_GET['categoria']);
-    $resultado = $listar_produto->findAllProductCategories($id_categoria);
+/*if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
+    $id_categoria = (int)base64_decode($_GET['categoria']);*/
+    $resultado = $listar_produto->findAllProductCategories();
 ?>
 
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -47,9 +47,8 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
             <h2 class="title-page">Todas as Categorias</h2>
             <nav>
                 <ol class="breadcrumb text-white">
-                    <li class="breadcrumb-item"><a href="../Index">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Todas as Categoria</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Ótimos artigos</li>
+                    <li class="breadcrumb-item"><a href="AllCategorias">Todas as Categoria</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="Categorias">Ótimos artigos</a></li>
                 </ol>
             </nav>
         </header>
@@ -70,7 +69,7 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
 
                         <div class="filter-content collapse show" id="collapse_1">
                             <div class="card-body">
-                                <form action="" method="POST" class="pb-3">
+                                <form action="" method="POST" class="pb-3"> 
                                     <div class="input-group">
                                         <input type="text" name="buscar" class="form-control"
                                             placeholder="Buscar Categoria">
@@ -92,10 +91,21 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
                                 <h6 class="title">Categorias</h6>
                             </a>
                         </header>
-
                         <div class="filter-content collapse show" id="collapse_2">
                             <div class="card-body">
                                 <ul class="list-menu">
+                    <?php  
+                            $teste = $listar_categoria->findAll();
+                            foreach ($teste as $key => $value){
+                                $b = $teste[$key];
+                                $c = '';
+                                foreach ($b as $key => $valor){
+                                    $c = $c . "$valor/";
+                                }
+                                $array = explode('/', $c);
+                                echo $valor . "<br>";
+                            }?>
+
 
                                 </ul>
                             </div>
@@ -215,6 +225,4 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
         </div>
     </div>
 </section>
-<?php } else {
-    echo 'error';
-} ?>
+<?php ?>

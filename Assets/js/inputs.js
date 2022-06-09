@@ -7,7 +7,7 @@ inputQuantidade.addEventListener("input", function(){
     if(quantidadeEstabelecida != inputQuantidade.value){
         var botaoAtualizar = document.querySelector("#botao-atualizar");
         botaoAtualizar.classList.remove("btn-outline-primary");
-        botaoAtualizar.classList.add("btn-primary");
+        botaoAtualizar.classList.add("btn-primary");   
     }
 });
 

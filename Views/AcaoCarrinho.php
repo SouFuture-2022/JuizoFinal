@@ -1,5 +1,5 @@
 <?php
-//
+//git 
 $_SESSION['carrinho'] = $_SESSION['carrinho'] ?? [[0]]; 
 if (isset($_GET['produto'])){
 	$existe = false;
@@ -18,5 +18,4 @@ if (isset($_GET['produto'])){
 		$_SESSION['carrinho'] = [['produto'=>$_GET['produto'],'quantidade'=>1]];
 	}
 }
-print_r($_SESSION['carrinho']);	
 ?>

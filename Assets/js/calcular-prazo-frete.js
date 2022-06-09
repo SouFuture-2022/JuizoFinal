@@ -4,7 +4,7 @@ function calculo(){
 	var peso = $("#peso").val();
 	var valor = $("#valor").val();
 
-	$.post('Apis/CalcularFrete.php',{cep:cep, frete:frete, peso:peso, valor:valor},function(data){
+	$.post('/../Services/CalcularFrete.php',{cep:cep, frete:frete, peso:peso, valor:valor},function(data){
 	$("#retorno").html(data);
 	});
 }

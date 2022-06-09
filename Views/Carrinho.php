@@ -1,8 +1,20 @@
+<?php 
+session_start();
+    if (isset($_POST['quantidade'])){
+        foreach($_SESSION['carrinho'] as $key => $value ){
+            @$produto = base64_decode($value['produto']);
+            if ($produto == $_POST['id_produto']){
+                $_SESSION['carrinho'][$key]['quantidade'] = $_POST['quantidade'];
+            }
+        }
+    }
+    
+?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <link rel="stylesheet" href="/Assets/css/inputs.css">
 <!--Essa section só é apresentada quando o cliente nao tem nada adicionado no carrinho-->
 <?php 
-session_start();
+
 $_SESSION['logar'] = $_SESSION['logar'] ?? false;
 if ($_SESSION['logar'] and $_SESSION['carrinho'] == [[0]]){ ?>
 <section>
@@ -14,13 +26,13 @@ if ($_SESSION['logar'] and $_SESSION['carrinho'] == [[0]]){ ?>
                     <h4 class="alert-heading">Seu carrinho está vazio.</h4>
                     <p>Você ainda não tem nenhum produto adicionado ao seu carrinho.</p>
                     <hr>
-                    <p class="mb-0"><a href="#" class="alert-link">Navegar no site</a></p>
+                    <p class="mb-0"><a href="/" class="alert-link">Navegar no site</a></p>
                 </div>
             </div>
         </div>
     </div>
 </section> <?php }?>
-<?php if ($_SESSION['logar'] == false){ var_dump($_SESSION['logar']) ;?>
+<?php if ($_SESSION['logar'] == false){ ?>
 <!--Essa section é apresentada caso o usuário não seja logado-->
 
 <section>
@@ -32,7 +44,7 @@ if ($_SESSION['logar'] and $_SESSION['carrinho'] == [[0]]){ ?>
                     <h4 class="alert-heading">Seu carrinho está vazio.</h4>
                     <p>Para adicionar produtos no seu carrinho, acesse sua conta</p>
                     <hr>
-                    <p class="mb-0"><a href="#" class="alert-link">Entrar</a></p>
+                    <p class="mb-0"><a href="/Login" class="alert-link">Entrar</a></p>
                 </div>
             </div>
         </div>
@@ -44,6 +56,8 @@ if ($_SESSION['logar'] and $_SESSION['carrinho'] == [[0]]){ ?>
 //
 require_once __DIR__ . "./AcaoCarrinho.php";
 use App\Infra\Dao\Produto\ListarProdutoDb;
+use App\Services\Calcular;
+
 if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinho'][0])){ ?>
     <!--Essa section é apresentada para os usuários que tem produtos adicionados aos seus carrinhos-->
     <div class="container">
@@ -55,8 +69,9 @@ if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinh
 
                     <?php
                     $listar_produto = new ListarProdutoDb;
+                    $valortotal = $valor_total ?? 0;
                     foreach($_SESSION['carrinho'] as $key => $value){
-                        $produto = $value['produto'];
+                        @$produto = base64_decode($value['produto']);
                         $dados = $listar_produto->find($produto);
                         $cont = 0;
                         $quantidade = $_SESSION['carrinho'][$key]['quantidade'];
@@ -73,12 +88,6 @@ if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinh
                                 $a = $a . "$value/";
                             }
                             $array = explode('/', $a);echo "<br>";
-                            echo "<br> //"; print_r($array); echo " // <br>";
-                            print_r($_SESSION['carrinho']);
-                            
-                                        
-                                
-                            
                     ?>
                     <hr>
                     <article class="row">
@@ -93,37 +102,40 @@ if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinh
                         </div>
                         <div style="width: 120px;">
                             <!--A quantidade ja vai estar pré estabelecida.-->
-                            <form action="/Carrinho" method="POST">
-                            <p><strong>Quantidade</strong></p>
-                            <input type="number" name="quantidade" value="<?php echo $quantidade; ?>" class="form-control"> 
-                            <input type="submit"  name="ok" >
-                            </form>
+                        <form action="#" method="POST">
+                            <div class="mb-3"><strong>Quantidade</strong></div>
+                            <input type="hidden" name="id_produto" value="<?php echo $array[0]; ?>">
+                            <input type="number" name="quantidade" value="<?php echo $quantidade; ?>" class="form-control" id="input-quantidade">
+                            <input type="submit" value="Atualizar" class="btn btn-outline-primary mt-2" id="botao-atualizar">
+                        </form>
                         </div>
-                        <?php   
-                            if (isset($_POST['ok'])){
-                                $_SESSION['carrinho'][$key]['quantidade'] = $_POST['quantidade'];
-                            }
-                        ?>
+
                         <div class="col-lg-2 col-sm-4 col-6">             
-                            <p><strong>Preço</strong></p> 
-                            <small class="text-muted"><?php echo $array[7]; ?></small> 
+                            <div class="mb-3"><strong>Preço</strong></div> 
+                            <small class="text-muted"></small><?php echo $array[7]; @$valor_total += $array[7]; ?></small> 
                         </div>
-                        <div class="col-lg col-sm-4">
-                            <div class="float-lg-end">
-                                <button class="btn btn-outline-danger">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                    </svg>
-                                </button> 
-                                <button class="btn btn-outline-dark">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                    </svg>
-                                </button>
+                        <div class="col-lg col-sm-4 col-6">
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <div class="float-lg-end">
+                                        <button class="btn btn-outline-danger">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                            </svg>
+                                        </button> 
+                                        <button class="btn btn-outline-dark">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
+                            
                         </div>
                     </article> <?php }} ?>
-                    
+                    <script src="../Assets/js/inputs.js"></script>
+                    <script src="/App/Services/CalcularFrete.php">Calculo(); </script>
                 </div> 
         </div> 
     </div>
@@ -131,7 +143,7 @@ if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinh
         
                 <div class="card mb-3 shadow p-3 bg-body rounded">
                 <div class="card-body">
-                <form>
+                <form method="POST" >
                     <div class="form-group">
                         <div class="mb-2">
                             <select id="inputState" class="form-select">
@@ -142,11 +154,12 @@ if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinh
                             </select>
                         </div>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="CEP">
-                            <button class="btn btn-outline-primary" type="button" id="button-addon2">Calcular frete</button>
+                            <input type="text" name="cep" class="form-control" placeholder="CEP">
+                            <button class="btn btn-outline-primary" onclick="Calculo(); alert('ola')" type="button" id="cep">Calcular frete</button>
                         </div>
                     </div>
                 </form>
+               
                 <div class="d-flex justify-content-between">
                     <div>
                         <strong>Valor do frete:</strong>
@@ -161,15 +174,19 @@ if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinh
                 <div class="card shadow bg-body rounded">
                 <div class="card-body">
                     <dl class="dlist-align">
-                    <dt>Preço total:</dt>
+                    <dt>Total da Compra:</dt>
                     <dd class="text-end">R$3.000,00</dd>
+                    </dl>
+                    <dl class="dlist-align">
+                    <dt>Preço total (Sem Frete):</dt>
+                    <dd class="text-end">R$<?php echo $valor_total; ?></dd>
                     </dl>
                     <dl class="dlist-align">
                     <dt>Descontos:</dt>
                     <dd class="text-muted">Cupom 1</dd>
                     <dd class="text-end text-success">- R$60.00</dd>
                     <dd class="text-muted">Cupom 2</dd>
-                    <dd class="text-end text-success">- R$4</dd>
+                    <dd class="text-end text-success">- R$40</dd>
                     </dl>
                     <dl class="dlist-align">
                     <dt>Frete:</dt>
@@ -189,9 +206,10 @@ if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinh
                 </div> 
         
             </aside> 
-        
+            
         </div>
     </div>
     </div>
     </div>
+    
 <?php } ?>

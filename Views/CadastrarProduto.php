@@ -247,7 +247,7 @@ if (isset($_POST['btCadastrar'])) {
         $produto = new CadastrarProdutoDb;
         $produto->insert();
     }
-}
+} $categorias = new ListarCategoriasDb;
 ?>
 
 <section class="section-name bg padding-y-sm">
@@ -271,7 +271,7 @@ if (isset($_POST['btCadastrar'])) {
                         <div class="form-group">
                             <select class="form-control" name="id_categoria" required>
                                 <option value="">Categoria</option>
-                                <?php foreach ($categoria->findAll() as $key => $value) { ?>
+                                <?php foreach ($categorias->findAll() as $key => $value) { ?>
                                 <option value="<?php echo $value->id_categoria; ?>">
                                     <?php echo $value->nome_categoria; ?></option>
                                 <?php } ?>

@@ -9,7 +9,7 @@ class Login {
         Store::Layout([
             //'includes/Cabecalhos/menu',
             'Login',
-            'includes/Rodapes/rodape'
+            //'includes/Rodapes/rodape'
         ]);
     }
 }

@@ -29,9 +29,9 @@ $listar_produto = new ListarProdutoDb;
 $listar_avaliacao = new ListarAvaliacoesDb;
 
 
-if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
-    $id_categoria = (int)base64_decode($_GET['categoria']);
-    $resultado = $listar_produto->findAllProductCategories($id_categoria);
+/*if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
+    $id_categoria = (int)base64_decode($_GET['categoria']);*/
+    $resultado = $listar_produto->findAllProductCategories();
 ?>
 
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -47,8 +47,7 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
             <h2 class="title-page">Todas as Categorias</h2>
             <nav>
                 <ol class="breadcrumb text-white">
-                    <li class="breadcrumb-item"><a href="../Index">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Todas as Categoria</a></li>
+                    <li class="breadcrumb-item"><a href="AllCategorias">Todas as Categoria</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Ótimos artigos</li>
                 </ol>
             </nav>
@@ -70,13 +69,27 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
 
                         <div class="filter-content collapse show" id="collapse_1">
                             <div class="card-body">
-                                <form action="" method="POST" class="pb-3">
+                                <form action="" method="POST" class="pb-3"> 
                                     <div class="input-group">
                                         <input type="text" name="buscar" class="form-control"
                                             placeholder="Buscar Categoria">
                                         <div class="input-group-append">
                                             <button type="submit" name="btBuscarCategoria" class="btn btn-primary"><i
                                                     class="fa fa-search"></i></button>
+
+                                                    <?php
+                                    if (isset($_POST['btBuscarCategoria'])){
+                                        $buscar = $_POST['buscar'];
+                                        $find_categorias = $listar_categoria->findAllSearch($buscar);
+                                        foreach ($find_categorias as $key => $value){
+                                            $cate = $find_categorias[$key];
+                                            $a = '';
+                                            foreach ($cate as $key => $vallue){
+                                                $a = $a . $vallue;
+                                            }$array = explode('/', $a);
+                                        }
+                                    }?>
+                                                    
                                         </div>
                                     </div>
                                 </form>
@@ -84,18 +97,29 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
                         </div>
                     </article>
 
-
-
+                    <div class="card-body">           
+                                   </div>
                     <article class="filter-group">
                         <header class="card-header">
                             <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
                                 <h6 class="title">Categorias</h6>
                             </a>
                         </header>
-
                         <div class="filter-content collapse show" id="collapse_2">
                             <div class="card-body">
                                 <ul class="list-menu">
+                    <?php  
+                            $teste = $listar_categoria->findAll();
+                            foreach ($teste as $key => $value){
+                                $b = $teste[$key];
+                                $c = '';
+                                foreach ($b as $key => $valor){
+                                    $c = $c . "$valor/";
+                                }
+                                $array = explode('/', $c);
+                                echo $valor . "<br>";
+                            }?>
+
 
                                 </ul>
                             </div>
@@ -137,25 +161,47 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
                         </div>
                     </div>
                 </header>
+                <?php
+            $dados = $listar_produto->findAllPopular(0, 10);
+            foreach ($dados as $key => $value) {
+
+                $b = $dados["$key"];
+                $a = '';
+                foreach ($b as $key => $value) {
+                    if ($value == null) {
+                        $value = 'none';
+                    }
+                    $a = $a . "$value/";
+                }
+                $array = explode('/', $a);
+            ?>
+
                 <article class="card card-product-list">
                     <div class="row no-gutters">
                         <aside class="col-md-3">
                             <a href="../Produto?acao=prod&produto=" class="img-wrap">
                                 <!-- <span class="badge badge-danger"> NEW </span> -->
-                                <img src="Upload/">
+                                <img src="Assets/images/<?php echo $array[2]?>">
                             </a>
                         </aside>
-
                         <div class="col-md-6">
                             <div class="info-main">
+                                <?php echo $array[1];
+                                      echo "<br>" . $array[11];
+                                ?>
                                 <a href="#" class="h5 title"></a>
                                 <div class="rating-wrap mb-3">
+                                    <?php
+                                    $id_produto = $array[0];
+                                    $avaliar = $listar_avaliacao->find($id_produto);
+                                    ?>
                                     <ul class="rating-stars">
                                         </li>
                                         <li>
                                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i
                                                 class="fa fa-star"></i><i class="fa fa-star"></i><i
                                                 class="fa fa-star"></i>
+                                                <input type="hidden">
                                         </li>
                                     </ul>
                                     <div class="label-rating"> </div>
@@ -167,15 +213,15 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
                         <aside class="col-sm-3">
                             <div class="info-aside">
                                 <div class="price-wrap">
-                                    <span class="price h5">R$ </span>
+                                    <span class="price h5">R$<?php echo $array[7];?> </span>
                                     <!-- <del class="price-old">$198</del> -->
                                 </div>
                                 <p class="text-success">Free shipping</p>
                                 <br>
                                 <p>
-                                    <a href="../Produto?acao=prod&produto=" class="btn btn-primary btn-block"> Details
+                                    <a href="/Produtos?=" class="btn btn-primary btn-block"> Details
                                     </a>
-                                    <a href="../Carrinho?acao=add&produto=" class="btn btn-light btn-block">
+                                    <a href="/Carrinho?produto=<?php echo base64_encode($id_produto) ?>" class="btn btn-light btn-block">
                                         <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                         <span class="text">Adicionar ao Carrinho</span>
                                     </a>
@@ -184,27 +230,22 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
                         </aside>
                     </div>
                 </article>
-
+<?php } ?>
 
                 <nav aria-label="Navegação de página exemplo">
                     <ul class="pagination">
                         <li class="page-item">
-                            <a class="page-link" href="../AllCategorias?acao=cate&categoria=&pagina=1"
-                                aria-label="Anterior">
+                            <a class="page-link" href="../AllCategorias?acao=cate&categoria=&pagina=1">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Anterior</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="../AllCategorias?acao=cate&categoria="> </a>
-                        </li>
-
 
                         <li class="page-item active"><a class="page-link"
-                                href="../AllCategorias?acao=cate&categoria=&pagina="> <span
-                                    class="sr-only">(atual)</span></a></li>
+                                href="../AllCategorias?acao=cate&categoria=&pagina="><span
+                                    class="sr-only">atual</span>A</a></li>
                         <li class="page-item">
-                            <a class="page-link" href="../AllCategorias?acao=cate&categoria=&pagina="
-                                aria-label="Próximo">
+                            <a class="page-link" href="../AllCategorias?acao=cate&categoria=&pagina=">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Próximo</span>
                             </a>
@@ -215,6 +256,4 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'cate') {
         </div>
     </div>
 </section>
-<?php } else {
-    echo 'error';
-} ?>
+<?php ?>

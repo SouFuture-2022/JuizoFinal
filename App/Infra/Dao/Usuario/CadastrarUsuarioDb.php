@@ -9,7 +9,7 @@ class CadastrarUsuarioDb{
     public function insert(){
 		$db = new Conexao();
 		$sql = "INSERT INTO usuarios (nome, perfil, cpf, telefone, data_nascimento, email, senha, data_registro) 
-		VALUES (:nome, :perfil, :cpf, :telefone, :data_nascimento, :email, md5(:senha), NOW())";
+		VALUES (:nome, :perfil, md5(:cpf), :telefone, :data_nascimento, :email, md5(:senha), NOW())";
 		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':nome', $_POST['nome']);
 		$stmt->bindParam(':perfil', $_POST['perfil']);

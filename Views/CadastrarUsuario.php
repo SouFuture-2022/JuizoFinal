@@ -50,7 +50,7 @@ if (isset($_POST['btCadastrar'])) {
             </svg>
         </a>    
     </div>  
-    <div class="container d-flex justify-content-center" id="teste">
+    <div class="container d-flex justify-content-center" id="centralizar">
         <div class="card shadow p-3 mb-5 bg-body rounded w-50 p-3">
             <div class="card-body">
                 <h2 class="mb-3 text-primary">Cadastre-se</h2>

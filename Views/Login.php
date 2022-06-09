@@ -9,7 +9,7 @@
             </svg>
         </a>    
     </div>
-    <div class="container" id="teste">
+    <div class="container" id="centralizar">
         <div class="row d-flex justify-content-center">
             <div class="col-lg-4 col-md-6">
                 <div class="card shadow p-3 mb-5 bg-body rounded">

@@ -1,5 +1,10 @@
-<?php 
-session_start();
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="stylesheet" href="/Assets/css/inputs.css">
+<!--Essa section só é apresentada quando o cliente nao tem nada adicionado no carrinho// // -->
+<?php
+
+    session_start();
+    
     if (isset($_POST['quantidade'])){
         foreach($_SESSION['carrinho'] as $key => $value ){
             @$produto = base64_decode($value['produto']);
@@ -8,12 +13,6 @@ session_start();
             }
         }
     }
-    
-?>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-<link rel="stylesheet" href="/Assets/css/inputs.css">
-<!--Essa section só é apresentada quando o cliente nao tem nada adicionado no carrinho// // -->
-<?php 
 
 $_SESSION['logar'] = $_SESSION['logar'] ?? false;
 if ($_SESSION['logar'] and $_SESSION['carrinho'] == [[0]]){ ?>
@@ -56,7 +55,7 @@ if ($_SESSION['logar'] and $_SESSION['carrinho'] == [[0]]){ ?>
 //
 require_once __DIR__ . "./AcaoCarrinho.php";
 use App\Infra\Dao\Produto\ListarProdutoDb;
-use App\Services\Calcular;
+
 
 if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinho'][0])){ ?>
     <!--Essa section é apresentada para os usuários que tem produtos adicionados aos seus carrinhos-->
@@ -112,7 +111,7 @@ if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinh
 
                         <div class="col-lg-2 col-sm-4 col-6">             
                             <div class="mb-3"><strong>Preço</strong></div> 
-                            <small class="text-muted"></small><?php echo $array[7]; @$valor_total += $array[7]; ?></small> 
+                            <small class="text-muted"></small><?php echo $array[7]; $bla = $array[7]*$quantidade; @$valor_total += $bla ; @$peso_total += $array[9]; ?></small> 
                         </div>
                         <div class="col-lg col-sm-4 col-6">
                             <div class="row mb-2">
@@ -123,11 +122,11 @@ if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinh
                                                 <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
                                             </svg>
                                         </button> 
-                                        <button class="btn btn-outline-dark">
+                                        <a class="btn btn-outline-dark" href="?delete_id=<?php echo base64_encode($array[0]); ?>">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                                             </svg>
-                                        </button>
+                                         </a>
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +134,6 @@ if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinh
                         </div>
                     </article> <?php }} ?>
                     <script src="../Assets/js/inputs.js"></script>
-                    <script src="/App/Services/CalcularFrete.php">Calculo(); </script>
                 </div> 
         </div> 
     </div>
@@ -146,57 +144,28 @@ if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinh
                 <form method="POST" >
                     <div class="form-group">
                         <div class="mb-2">
-                            <select id="inputState" class="form-select">
-                                <option selected>Escolha o tipo de frete</option>
-                                <option>Receber no balcão</option>
-                                <option>Expresso</option>
-                                <option>Correios</option>
+                            <select name="frete" id="inputState" class="form-select">
+								<option name="frete" value="">Escolha o Tipo de Frete</option>
+								<option name="frete" value="balcao">Receber no Balcão</option>
+								<option name="frete" value="41106">PAC</option>
+								<option name="frete" value="40010">SEDEX</option>
                             </select>
                         </div>
                         <div class="input-group">
                             <input type="text" name="cep" class="form-control" placeholder="CEP">
-                            <button class="btn btn-outline-primary" onclick="alert('ola mundo')" type="button" id="cep">Calcular frete</button>
+                            <button class="btn btn-outline-primary" name="confirmar" type="submit" id="cep">Calcular frete</button>
                         </div>
                     </div>
                 </form>
                
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <strong>Valor do frete:</strong>
-                    </div>
-                    <div>
-                        R$14.00
-                    </div>
-                </div>
+               
+
                 </div> 
                 </div> 
-        
+                
                 <div class="card shadow bg-body rounded">
                 <div class="card-body">
-                    <dl class="dlist-align">
-                    <dt>Total da Compra:</dt>
-                    <dd class="text-end">R$3.000,00</dd>
-                    </dl>
-                    <dl class="dlist-align">
-                    <dt>Preço total (Sem Frete):</dt>
-                    <dd class="text-end">R$<?php echo $valor_total; ?></dd>
-                    </dl>
-                    <dl class="dlist-align">
-                    <dt>Descontos:</dt>
-                    <dd class="text-muted">Cupom 1</dd>
-                    <dd class="text-end text-success">- R$60.00</dd>
-                    <dd class="text-muted">Cupom 2</dd>
-                    <dd class="text-end text-success">- R$40</dd>
-                    </dl>
-                    <dl class="dlist-align">
-                    <dt>Frete:</dt>
-                    <dd class="text-end">R$14.00</dd>
-                    </dl>
-                    <hr>
-                    <dl class="dlist-align">
-                    <dt>Total:</dt>
-                    <dd class="text-end text-dark h5">R$2.954,00</dd>
-                    </dl>
+                <?php require_once __DIR__ . "/../App/Services/CalcularFrete.php"; ?>
                     
                     <div class="d-grid gap-2 my-3">
                         <a href="#" class="btn btn-primary w-100">Confirmar compra</a>

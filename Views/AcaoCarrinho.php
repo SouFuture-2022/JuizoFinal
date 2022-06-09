@@ -18,4 +18,13 @@ if (isset($_GET['produto'])){
 		$_SESSION['carrinho'] = [['produto'=>$_GET['produto'],'quantidade'=>1]];
 	}
 }
+if (isset($_GET['delete_id'])){
+	foreach($_SESSION['carrinho'] as $key => $value){
+		$produto = $value['produto'];
+		if ( $produto == $_GET['delete_id']){
+			unset($_SESSION['carrinho'][$key]);
+			echo "<script>alert('Produto Deletado com Sucesso!'); window.location = 'http://localhost:8000/Carrinho'; </script>"; 
+		}
+	}
+}
 ?>

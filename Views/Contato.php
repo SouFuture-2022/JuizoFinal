@@ -48,14 +48,13 @@
                  
                     <div class="row mb-3">
                         <div class="d-flex justify-content-center">
-                            <textarea name="" id="" cols="70" rows="5"></textarea>
+                            <textarea name="" id="" cols="70" rows="5" placeholder="Essa mensagem vai ser enviada para o nosso email: empresatestpjse@gmail.com"></textarea>
                         </div>
                     </div>    
                 <div class="row">
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button class="btn btn-primary me-2" type="button">Enviar</button>
-                        <button class="btn btn-primary" type="button">E-mail</button>
-                    </div>
+                    <div class="">
+                        <button class="btn btn-primary w-25" type="button">Enviar</button>
+                    </div>     
                 </div>
             </div>
         </div>

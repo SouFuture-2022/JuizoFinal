@@ -1,6 +1,7 @@
 <?php
 
 //Necessário testar em dominio com SSL
+
 define("URL", "https://localhost/celke/");
 
 $sandbox = true;

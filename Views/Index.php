@@ -7,7 +7,7 @@
     } else {
         require __DIR__ . "./includes/Cabecalhos/menu.php";
     }
-
+//
 ?>
 
 <link href="Assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -103,7 +103,7 @@ $favoritos = new CadastrarFavoritosDb;
                 <figure class="card card-product-grid">
                 <?php $id_produto = $array[0];?>
                     <div class="img-wrap">
-                        <img src="Assets/images/<?php echo $array[2]; ?>">
+                       <a href="/Produtos?id_produto=<?php echo base64_encode($id_produto);?>"><img src="Assets/images/<?php echo $array[2]; ?>"></a>
                     </div>
                     <figcaption class="info-wrap border-top">
                         <div class="price-wrap">
@@ -111,20 +111,23 @@ $favoritos = new CadastrarFavoritosDb;
                         </div>
                         <p class="title mb-2"><?php echo $array[11]; ?> - <?php echo $array[5]; ?></p>
 
-                        <button class="btn btn-primary" onclick="adicionar_carrinho(<?= $produto->id_produto ?>)">
-                            <i class="fas fa-shopping-cart me-2"></i> Adicionar</button>
 
-                        <a href="?id_prod=<?php echo $id_produto;?>" class="btn btn-outline-danger btn-icon"> <i class="fa fa-heart"></i> </a>
+                        <a class="btn btn-primary" href="?produto=<?php echo base64_encode($id_produto); ?>">
+                            <i class="fas fa-shopping-cart me-2"></i> Adicionar </a>
+
+
+                        <a href="?id_prod=<?php echo base64_encode($id_produto);?>" class="btn btn-outline-danger btn-icon"> <i class="fa fa-heart"></i> </a>
                     </figcaption>
                 </figure>
             </div>
             <?php }
-            
+            require_once __DIR__ . "/AcaoCarrinho.php";
             $listar_favoritos = new ListarFavoritosDb;
+
 
             if (isset($_GET['id_prod'])){
                 if($logar){
-                $id_produto = $_GET['id_prod'];
+                $id_produto = base64_decode($_GET['id_prod']);
                 $favorit = $listar_favoritos->findProd($id_produto, $id_usuario);
                 foreach ($favorit as $keys => $values){
                     $object = get_object_vars($values);
@@ -142,315 +145,10 @@ $favoritos = new CadastrarFavoritosDb;
             
         }?>
 
-            <!-- col end.// -->
-            <!--/////////////
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="Assets/images/2.jpg">
-                    </div>
-                    <figcaption class="info-wrap border-top">
-                        <div class="price-wrap">
-                            <span class="price">$320.00</span>
-                        </div> 
-                        <p class="title mb-2">Canon camera 20x zoom, Black color EOS 2000</p>
-                        <a href="#" class="btn btn-primary">Adicionar</a>
-                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                    </figcaption>
-                </figure>
-            </div> 
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="Assets/images/3.jpg">
-                    </div>
-                    <figcaption class="info-wrap border-top">
-                        <div class="price-wrap">
-                            <span class="price">$120.00</span>
-                        </div> 
-                        <p class="title mb-2">Xiaomi Redmi 8 Original Global Version 4GB</p>
-                        <a href="#" class="btn btn-primary">Adicionar</a>
-                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                    </figcaption>
-                </figure>
-            </div> 
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="Assets/images/4.jpg">
-                    </div>
-                    <figcaption class="info-wrap border-top">
-                        <div class="price-wrap">
-                            <span class="price">$120.00</span>
-                        </div> 
-                        <p class="title mb-2">Apple iPhone 12 Pro 6.1" RAM 6GB 512GB Unlocked</p>
-                        <a href="#" class="btn btn-primary">Adicionar</a>
-                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                    </figcaption>
-                </figure>
-            </div> 
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="Assets/images/5.jpg">
-                    </div>
-                    <figcaption class="info-wrap border-top">
-                        <div class="price-wrap">
-                            <span class="price">$120.00</span>
-                        </div> 
-                        <p class="title mb-2">Apple Watch Series 1 Sport Case 38mm Black</p>
-                        <a href="#" class="btn btn-primary">Adicionar</a>
-                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                    </figcaption>
-                </figure>
-            </div> 
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="Assets/images/6.jpg">
-                    </div>
-                    <figcaption class="info-wrap border-top">
-                        <div class="price-wrap">
-                            <span class="price">$120.00</span>
-                        </div> 
-                        <p class="title mb-2">T-shirts with multiple colors, for men and lady</p>
-                        <a href="#" class="btn btn-primary">Adicionar</a>
-                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                    </figcaption>
-                </figure>
-            </div> 
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="Assets/images/7.jpg">
-                    </div>
-                    <figcaption class="info-wrap border-top">
-                        <div class="price-wrap">
-                            <span class="price">$99.50</span>
-                        </div> 
-                        <p class="title mb-2">Gaming Headset 32db Blackbuilt in mic</p>
-                        <a href="#" class="btn btn-primary">Adicionar</a>
-                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                    </figcaption>
-                </figure>
-            </div> <
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="Assets/images/8.jpg">
-                    </div>
-                    <figcaption class="info-wrap border-top">
-                        <div class="price-wrap">
-                            <span class="price">$120.00</span>
-                        </div> 
-                        <p class="title mb-2">T-shirts with multiple colors, for men and lady</p>
-                        <a href="#" class="btn btn-primary">Adicionar</a>
-                        <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                    </figcaption>
-                </figure>
-            </div> -->
         </div> <!-- row end.// -->
 
     </div> <!-- container end.// -->
 </section>
-<?php /*
-<!--<section class="section-content">
-    <div class="container">
-        <header class="section-heading">
-            <h3 class="section-title">Produtos Populares</h3>
-        </header>
-        <div class="row">
-            <?php
-            $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
-            $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
-            $quantidade_pagina = 4;
-            $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
-            foreach ($listar_produto->findAllPopular($inicio, $quantidade_pagina) as $key => $value) { ?>
-<div class="col-md-3">
-    <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
-        class="card card-product-grid">
-        <a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>" class="img-wrap"><img
-                src="Uploads/ProdutosDestaque/<?php echo $value->imagem_destaque; ?>" /></a>
-        <figcaption class="info-wrap">
-            <a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
-                class="title"><?php echo $value->nome; ?></a>
-            <div class="rating-wrap">
-                <ul class="rating-stars">
-                    <?php $total_media = $listar_avaliacao->find($value->id_produto);
-                                $media = intval($total_media);
-                                $total = $listar_avaliacao->findAllCount($value->id_produto); ?>
-                    <li style="width:80%" class="stars-active">
-                        <?php if ($media == 1) { ?>
-                        <i class="fa fa-star"></i>
-                        <?php } elseif ($media == 2) { ?>
-                        <i class="fa fa-star"></i><i class="fa fa-star"></i>
-                        <?php } elseif ($media == 3) { ?>
-                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                        <?php } elseif ($media == 4) { ?>
-                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                            class="fa fa-star"></i>
-                        <?php } elseif ($media == 5) { ?>
-                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                            class="fa fa-star"></i><i class="fa fa-star"></i>
-                        <?php } ?>
-                    </li>
-                    <li>
-                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                            class="fa fa-star"></i><i class="fa fa-star"></i>
-                    </li>
-                </ul>
-                <span class="label-rating"><?php echo $media . '/' . $total; ?></span>
-                <span class="label-rating text-muted"> 34 reviws</span>
-            </div>
-            <div class="price mt-1">R$<?php echo number_format($value->preco, 2, ',', ' '); ?></div>
-        </figcaption>
-    </div>
-</div>
-<?php } ?>
-</div>
-<nav aria-label="Navegação de página exemplo">
-    <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link" href="../Index?pagina=1" aria-label="Anterior">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Anterior</span>
-            </a>
-        </li>
-        </ /?php $linhas=$listar_produto->findAllCount();
-        $quantidade_linhas = ceil($linhas / $quantidade_pagina);
-        $maximo_links = 3;
-        //for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) { if
-            ($pagina_anterior>= 1) { ?>
-            <li class="page-item"><a class="page-link" href="../Index?pagina=<? //php echo $pagina_anterior; 
-                                        ?>">
-                    <? //php echo $pagina_anterior; 
-                                            ?>
-                </a></li>
-            </ /?php } } ?>
-            <li class="page-item active"><a class="page-link" href="../Index?pagina=<? //php echo $pagina; 
-                                        ?>"><?php echo $pagina; ?><span class="sr-only">(atual)</span></a></li>
-            <?php
-        //for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
-        //if ($pagina_posterior <= $quantidade_linhas) { 
-        ?>
-            <li class="page-item"><a class="page-link" href="../Index?pagina=<? //php echo $pagina_posterior; 
-                                        ?>">
-                    <? //php echo $pagina_posterior; 
-                                            ?>
-                </a>
-            </li>
-            <? //php }
-        //}
-        ?>
-            <li class="page-item">
-                <a class="page-link" href="../Index?pagina=<? //php echo $quantidade_linhas; 
-                                                        ?>" aria-label="Próximo">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Próximo</span>
-                </a>
-            </li>
-    </ul>
-</nav>
-</div>
-</section> -->
-------------------------
-<section class="section-content">
-    <div class="container">
-        <header class="section-heading">
-            <h3 class="section-title">Adicionados Recentemente</h3>
-        </header>
-        <div class="row">
-            <?php
-            $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
-            $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
-            $quantidade_pagina = 4;
-            $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
-            foreach ($listar_produto->findAll($inicio, $quantidade_pagina) as $key => $value) { ?>
-            <div class="col-md-3">
-                <div href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
-                    class="card card-product-grid">
-                    <a href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
-                        class="img-wrap"><img
-                            src="Uploads/ProdutosDestaque/<?php echo $value->imagem_destaque; ?>" /></a>
-                    <figcaption class="info-wrap">
-                        <span class="badge badge-danger">NEW</span><a
-                            href="../Produto?acao=prod&produto=<?php echo base64_encode($value->id_produto); ?>"
-                            class="title"><?php echo $value->nome; ?></a>
-                        <div class="rating-wrap">
-                            <ul class="rating-stars">
-                                <?php $total_media = $listar_avaliacao->find($value->id_produto);
-                                    $media = intval($total_media);
-                                    $total = $listar_avaliacao->findAllCount($value->id_produto); ?>
-                                <li style="width:80%" class="stars-active">
-                                    <?php if ($media == 1) { ?>
-                                    <i class="fa fa-star"></i>
-                                    <?php } elseif ($media == 2) { ?>
-                                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <?php } elseif ($media == 3) { ?>
-                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <?php } elseif ($media == 4) { ?>
-                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                        class="fa fa-star"></i>
-                                    <?php } elseif ($media == 5) { ?>
-                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                        class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <?php } ?>
-                                </li>
-                                <li>
-                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                        class="fa fa-star"></i><i class="fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <span class="label-rating"><?php echo $media . '/' . $total; ?></span>
-                            <span class="label-rating text-muted"> 34 reviws</span>
-                        </div>
-                        <div class="price mt-1">R$<?php echo number_format($value->preco, 2, ',', ' '); ?></div>
-                    </figcaption>
-                </div>
-            </div>
-            <?php } ?>
-        </div>
-        <nav aria-label="Navegação de página exemplo">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="../Index?pagina=1" aria-label="Anterior">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Anterior</span>
-                    </a>
-                </li>
-                <?php
-                $linhas = $listar_produto->findAllCount();
-                $quantidade_linhas = ceil($linhas / $quantidade_pagina);
-                $maximo_links = 3;
-                for ($pagina_anterior = $pagina - $maximo_links; $pagina_anterior <= $pagina - 1; $pagina_anterior++) {
-                    if ($pagina_anterior >= 1) { ?>
-                <li class="page-item"><a class="page-link"
-                        href="../Index?pagina=<?php echo $pagina_anterior; ?>"><?php echo $pagina_anterior; ?></a></li>
-                <?php }
-                }
-                ?>
-                <li class="page-item active"><a class="page-link"
-                        href="../Index?pagina=<?php echo $pagina; ?>"><?php echo $pagina; ?><span
-                            class="sr-only">(atual)</span></a></li>
-                <?php
-                for ($pagina_posterior = $pagina + 1; $pagina_posterior <= $pagina + $maximo_links; $pagina_posterior++) {
-                    if ($pagina_posterior <= $quantidade_linhas) { ?>
-                <li class="page-item"><a class="page-link"
-                        href="../Index?pagina=<?php echo $pagina_posterior; ?>"><?php echo $pagina_posterior; ?></a>
-                </li>
-                <?php }
-                }
-                ?>
-                <li class="page-item">
-                    <a class="page-link" href="../Index?pagina=<?php echo $quantidade_linhas; ?>" aria-label="Próximo">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Próximo</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</section>*/ ?>
 
 <section class="section-content padding-y-sm">
     <div class="container">

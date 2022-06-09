@@ -62,4 +62,8 @@ return [
 	'/AllCategorias' => 'AllCategorias@allcategorias',
 	'/user/create' => 'User@create',
 	'/user/[0-9]+' => 'User@show',
+
+	'/CadastrarImagem' => 'CadastrarImagem@cadastrarimagem',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 ];

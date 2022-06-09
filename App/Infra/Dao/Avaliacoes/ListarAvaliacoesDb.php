@@ -9,7 +9,6 @@ class ListarAvaliacoesDb {
     
     public function find($id_produto) {
         $db = new Conexao();
-
 		$sql  = "SELECT AVG(estrela) FROM avaliacoes WHERE id_produto = :id_produto";
 		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':id_produto', $id_produto, PDO::PARAM_INT);

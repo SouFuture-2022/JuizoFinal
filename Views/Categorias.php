@@ -39,11 +39,11 @@ $listar_avaliacao = new ListarAvaliacoesDb;
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">
-            <h2 class="title-page">Todas as Categorias</h2>
+            <h2 class="title-page">Categorias</h2>
             <nav>
                 <ol class="breadcrumb text-white">
                     <li class="breadcrumb-item active"><a href="AllCategorias">Todas as Categoria</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Ótimos artigos</li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="Categorias">Ótimos artigos</a></li>
                 </ol>
             </nav>
         </header>
@@ -89,9 +89,18 @@ $listar_avaliacao = new ListarAvaliacoesDb;
                     <div class="filter-content collapse show" id="collapse_2">
                         <div class="card-body">
                             <ul class="list-menu">
-
-                                <li><a href="../Categorias?acao=cate&categoria=">Teste</a></li>
-
+                            <?php 
+                            $teste = $listar_categoria->findAll();
+                            foreach ($teste as $key => $value){
+                                $b = $teste[$key];
+                                $c = '';
+                                foreach ($b as $key => $valor){
+                                    $c = $c . "$valor/";
+                                }
+                                $array = explode('/', $c);
+                                echo $valor . "<br>";
+                            }
+                            ?>
                             </ul>
                         </div>
                     </div>
@@ -178,11 +187,12 @@ $listar_avaliacao = new ListarAvaliacoesDb;
                             <span class="sr-only">Anterior</span>
                         </a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="../Produto?acao=prod&produto=&pagina="></a></li>
-                    <li class="page-item active"><a class="page-link" href="../Produto?acao=prod&produto=&pagina="><span
-                                class="sr-only">(atual)</span></a></li>
-
-                    <li class="page-item"><a class="page-link" href="../Produto?acao=prod&produto=&pagina="></a></li>
+                    <li class="page-item active">
+                        <a class="page-link" href="../Produto?acao=prod&produto=&pagina=">
+                        <span aria-hidden="true"> a</span>
+                        <span class="sr-only">(atual)</span>
+                    </a>
+                </li>
 
                     <li class="page-item">
                         <a class="page-link" href="../Produto?acao=prod&produto=&pagina=" aria-label="Próximo">

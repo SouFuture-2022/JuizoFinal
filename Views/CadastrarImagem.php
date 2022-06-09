@@ -1,4 +1,33 @@
-<?php
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<section>
+    <div class="container d-flex justify-content-center">
+        <div class="card w-50 shadow p-3 mb-5 bg-body rounded">
+            <div class="card-body">
+                <h2 class="text-primary mb-3">Cadastrar imagem</h2>
+                <form>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="file" name="" id="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <select class="form-select">
+                                <option value="">Produto</option>
+                                <option value="">produto cadastrado 1</option>
+                                <option value="">produto cadastrado 2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <button class="btn btn-primary w-75">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--?php
 
 session_start();
 
@@ -54,6 +83,7 @@ if (isset($_POST['btCadastrar'])) {
 <link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
 <link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
 <link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">

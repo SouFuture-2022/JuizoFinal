@@ -66,66 +66,39 @@ $listar_avaliacao = new ListarAvaliacoesDb;
                                 <h6 class="title">Buscar Categoria</h6>
                             </a>
                         </header>
-
+                    
                         <div class="filter-content collapse show" id="collapse_1">
                             <div class="card-body">
                                 <form action="" method="POST" class="pb-3"> 
-                                    <div class="input-group">
-                                        <input type="text" name="buscar" class="form-control"
-                                            placeholder="Buscar Categoria">
-                                        <div class="input-group-append">
-                                            <button type="submit" name="btBuscarCategoria" class="btn btn-primary"><i
-                                                    class="fa fa-search"></i></button>
-
-                                                    <?php
-                                    if (isset($_POST['btBuscarCategoria'])){
-                                        $buscar = $_POST['buscar'];
-                                        $find_categorias = $listar_categoria->findAllSearch($buscar);
-                                        foreach ($find_categorias as $key => $value){
-                                            $cate = $find_categorias[$key];
-                                            $a = '';
+                                    <?php  
+                                        $teste = $listar_categoria->findAll();
+                                        foreach ($teste as $key => $value){
+                                            $b = $teste[$key];
+                                            $c = '';
+                                            foreach ($b as $key => $valor){
+                                                $c = $c . "$valor/";
+                                            }
+                                            $array = explode('/', $c);
+                                            
+                                        ?>
+                                            <a href="?nome_categoria=<?php echo base64_encode($valor);?>"><?php echo $valor . "<br>";}?></a>
+                        <?php
+                            if (isset($_GET['nome_categoria'])){
+                                $buscar = base64_decode($_GET['nome_categoria']);
+                                $find_categorias = $listar_categoria->findAllSearch($buscar);
+                                    foreach ($find_categorias as $key => $value){
+                                        $cate = $find_categorias[$key];
+                                        $a = '';
                                             foreach ($cate as $key => $vallue){
                                                 $a = $a . $vallue;
-                                            }$array = explode('/', $a);
+                                                }$array = explode('/', $a);
                                         }
                                     }?>
                                                     
                                         </div>
                                     </div>
                                 </form>
-                            </div>
-                        </div>
-                    </article>
-
-                    <div class="card-body">           
-                                   </div>
-                    <article class="filter-group">
-                        <header class="card-header">
-                            <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
-                                <h6 class="title">Categorias</h6>
-                            </a>
-                        </header>
-                        <div class="filter-content collapse show" id="collapse_2">
-                            <div class="card-body">
-                                <ul class="list-menu">
-                    <?php  
-                            $teste = $listar_categoria->findAll();
-                            foreach ($teste as $key => $value){
-                                $b = $teste[$key];
-                                $c = '';
-                                foreach ($b as $key => $valor){
-                                    $c = $c . "$valor/";
-                                }
-                                $array = explode('/', $c);
-                                echo $valor . "<br>";
-                            }?>
-
-
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-
+                                </article>
                     <article class="filter-group">
                         <header class="card-header">
                             <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
@@ -147,20 +120,6 @@ $listar_avaliacao = new ListarAvaliacoesDb;
 
 
             <main class="col-md-9">
-                <header class="border-bottom mb-4 pb-3">
-                    <div class="form-inline">
-                        <span class="mr-md-auto">itens encontrados</span>
-                        <select class="mr-2 form-control">
-                            <option>Latest items</option>
-                            <option>Trending</option>
-                            <option>Most Popular</option>
-                            <option>Cheapest</option>
-                        </select>
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-primary btn-block">Buscar</a>
-                        </div>
-                    </div>
-                </header>
                 <?php
             $dados = $listar_produto->findAllPopular(0, 10);
             foreach ($dados as $key => $value) {
@@ -179,7 +138,8 @@ $listar_avaliacao = new ListarAvaliacoesDb;
                 <article class="card card-product-list">
                     <div class="row no-gutters">
                         <aside class="col-md-3">
-                            <a href="../Produto?acao=prod&produto=" class="img-wrap">
+                            <?php $id_produto = $array[0]; ?>
+                            <a href="/Produto?id_produto=<?php echo base64_encode($id_produto);?>" class="img-wrap">
                                 <!-- <span class="badge badge-danger"> NEW </span> -->
                                 <img src="Assets/images/<?php echo $array[2]?>">
                             </a>
@@ -218,8 +178,8 @@ $listar_avaliacao = new ListarAvaliacoesDb;
                                 </div>
                                 <p class="text-success">Free shipping</p>
                                 <br>
-                                <p>
-                                    <a href="/Produtos?=" class="btn btn-primary btn-block"> Details
+                                <p><?php $id_produto = $array[0];?></p>
+                                    <a href="/Produtos?id_produto=<?php echo base64_encode($id_produto);?>" class="btn btn-primary btn-block"> Details
                                     </a>
                                     <a href="/Carrinho?produto=<?php echo base64_encode($id_produto) ?>" class="btn btn-light btn-block">
                                         <i class="fa fa-cart-plus" aria-hidden="true"></i>

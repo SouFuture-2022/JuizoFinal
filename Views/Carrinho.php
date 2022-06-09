@@ -12,7 +12,7 @@ session_start();
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <link rel="stylesheet" href="/Assets/css/inputs.css">
-<!--Essa section só é apresentada quando o cliente nao tem nada adicionado no carrinho-->
+<!--Essa section só é apresentada quando o cliente nao tem nada adicionado no carrinho// // -->
 <?php 
 
 $_SESSION['logar'] = $_SESSION['logar'] ?? false;
@@ -155,7 +155,7 @@ if ($_SESSION['logar'] == true and array_key_exists('produto',$_SESSION['carrinh
                         </div>
                         <div class="input-group">
                             <input type="text" name="cep" class="form-control" placeholder="CEP">
-                            <button class="btn btn-outline-primary" onclick="Calculo(); alert('ola')" type="button" id="cep">Calcular frete</button>
+                            <button class="btn btn-outline-primary" onclick="alert('ola mundo')" type="button" id="cep">Calcular frete</button>
                         </div>
                     </div>
                 </form>

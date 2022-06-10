@@ -6,7 +6,7 @@ use App\Infra\Dao\Usuario\CadastrarUsuarioDb;
 $usuario = new Usuarios;
 $cadastrar_usuario = new CadastrarUsuarioDb;
 
-if (isset($_POST['btCadastrar'])) {
+/*if (isset($_POST['btCadastrar'])) {
     $extensao = strtolower(substr($_FILES['perfil']['name'], -4));
     $perfil = md5(time()) . $extensao;
     $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/Uploads/Perfis/';
@@ -37,7 +37,7 @@ if (isset($_POST['btCadastrar'])) {
 			</div>';
         header('Location: ../Index');
     }
-}
+}*/
 ?>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -54,41 +54,41 @@ if (isset($_POST['btCadastrar'])) {
         <div class="card shadow p-3 mb-5 bg-body rounded w-50 p-3">
             <div class="card-body">
                 <h2 class="mb-3 text-primary">Cadastre-se</h2>
-                <form action="">
+                <form method="post" action="">
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Nome completo" required>
+                            <input type="text" name="nome" class="form-control" placeholder="Nome completo" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Nome de usuário" required>
+                            <input type="text" name="perfil" class="form-control" placeholder="Nome de usuário" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="email" class="form-control" placeholder="Email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Email" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Telefone" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="CPF" required>
-                        </div>
-                        <div class="col">
-                            <input type="date" class="form-control text-muted" placeholder="Data de nascimento" required>
+                            <input type="text" name="telefone" class="form-control" placeholder="Telefone" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="password" class="form-control" placeholder="Senha" required>
+                            <input type="text" name="cpf" class="form-control" placeholder="CPF" required>
                         </div>
                         <div class="col">
-                            <input type="password" class="form-control" placeholder="Confirmar senha" required>
+                            <input type="date" name="data_nascimento" class="form-control text-muted" placeholder="Data de nascimento" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="password" name="senha" class="form-control" placeholder="Senha" required>
+                        </div>
+                        <div class="col">
+                            <input type="password"name="confirmar_senha" class="form-control" placeholder="Confirmar senha" required>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button class="btn w-75 btn-primary">Cadastrar</button> 
+                        <input type="submit" name="cadastrar" class="btn w-75 btn-primary" value="Cadastrar">
                     </div>
                 </form>
                 <hr>
@@ -106,10 +106,14 @@ if (isset($_POST['btCadastrar'])) {
 <?php  
 
 if (isset($_POST['cadastrar'])){
+    if($_POST['senha'] == $_POST['confirmar_senha']){
     $email = $_POST['email'];
     $cadastrar = new CadastrarUsuarioDb;
     $cadastrar ->insert();
     $_SESSION ['logar'] = true;
     $_SESSION['email'] = $email;
     echo "<script> alert('Usuário Cadastrado...') ; window.location='http://Localhost:8000/'</script>";
+} else {
+    echo "Sua senha precisa a mesma nos dois campos";
+}
 }

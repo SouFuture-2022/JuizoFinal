@@ -112,6 +112,7 @@ $favoritos = new CadastrarFavoritosDb;
                         <p class="title mb-2"><?php echo $array[11]; ?> - <?php echo $array[5]; ?></p>
 
 
+
                         <a class="btn btn-primary" href="?produto=<?php echo base64_encode($id_produto); ?>">
                             <i class="fas fa-shopping-cart me-2"></i> Adicionar </a>
 
@@ -192,6 +193,7 @@ $favoritos = new CadastrarFavoritosDb;
             </div>
         </article>
     </div>
+
 </section>
 <!-- ================ SECTION PRODUCTS END.// ================ -->
 <section class="section-name padding-y">

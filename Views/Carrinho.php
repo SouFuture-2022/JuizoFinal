@@ -4,7 +4,6 @@
 <?php
 
     session_start();
-    $_SESSION['logar'] = true;
     if (isset($_POST['quantidade'])){
         foreach($_SESSION['carrinho'] as $key => $value ){
             @$produto = base64_decode($value['produto']);
@@ -15,7 +14,7 @@
     }
 
 $_SESSION['logar'] = $_SESSION['logar'] ?? false;
-if ($_SESSION['logar'] and $_SESSION['carrinho'] == [[0]]){ ?>
+if ($_SESSION['logar'] and $_SESSION['carrinho'] == [[0]] or $_SESSION['carrinho'] == [] ){ ?>
 <section>
     <div class="container col-lg-4 col-md-6 mt-5">
         <div class="card card shadow p-3 mb-5 bg-body rounded">
@@ -54,16 +53,23 @@ if ($_SESSION['logar'] and $_SESSION['carrinho'] == [[0]]){ ?>
 <?php
 //
 require_once __DIR__ . "./AcaoCarrinho.php";
+
+use App\Infra\Dao\Favoritos\CadastrarFavoritosDb;
+use App\Infra\Dao\Favoritos\ListarFavoritosDb;
 use App\Infra\Dao\Produto\ListarProdutoDb;
-$existe = $existe ?? 0; 
-foreach ($_SESSION['carrinho'] as $key => $value){ 
-    if (array_key_exists('produto',$_SESSION['carrinho'][$key])){
-        $existe += 1; 
-    }
+use App\Infra\Dao\Usuario\ListarUsuarioDb;
+
+$a = new ListarUsuarioDb;
+$email = $_SESSION['email'] ?? null;
+$dados = $a->all($email);
+foreach ($dados as $key => $value){  
+$b = $dados[$key];
+foreach ($b as $key => $value){
+    $id_usuario = $value;
+}
 }
 
-
-    if ($_SESSION['logar'] == true and !empty($_SESSION['carrinho'])){ ?>
+    if ($_SESSION['logar'] == true and !$_SESSION['carrinho']==[]) {  ?>
         <!--Essa section é apresentada para os usuários que tem produtos adicionados aos seus carrinhos-->
         <div class="container">
             <div class="row">
@@ -100,7 +106,7 @@ foreach ($_SESSION['carrinho'] as $key => $value){
                                 <figure class="itemside me-lg-5">
                                     <div class="aside"><img src="../Assets/images/<?php echo "$array[2]"; ?>" class="img-sm img-thumbnail" style="width: 60px;"></div>
                                     <figcaption class="info">
-                                        <a href="#" class="title"><?php echo $array[11]; ?></a>
+                                        <a href="/Produtos?id_produto=<?php echo base64_encode($array[0]);?>" class="title"><?php echo $array[11]; ?></a>
                                         <p class="text-muted"><?php echo $array[1]; ?>, <?php echo $array[5]; ?>...</p>
                                     </figcaption>
                                 </figure>
@@ -123,11 +129,11 @@ foreach ($_SESSION['carrinho'] as $key => $value){
                                 <div class="row mb-2">
                                     <div class="col">
                                         <div class="float-lg-end">
-                                            <button class="btn btn-outline-danger">
+                                            <a class="btn btn-outline-danger" href="?id_prod=<?php echo base64_encode($array[0]); ?>" >
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
                                                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
                                                 </svg>
-                                            </button> 
+                                            </a> 
                                             <a class="btn btn-outline-dark" href="?delete_id=<?php echo base64_encode($array[0]); ?>">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                                     <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
@@ -187,5 +193,27 @@ foreach ($_SESSION['carrinho'] as $key => $value){
         </div>
         </div>
         
-    <?php } ?>
+    <?php } 
+    $listar_favoritos = new ListarFavoritosDb;
+    $favoritos = new CadastrarFavoritosDb;
+    $logar = $_SESSION['logar'] ?? false;
+    if (isset($_GET['id_prod'])){
+        if($logar){
+        $id_produto = base64_decode($_GET['id_prod']);
+        $favorit = $listar_favoritos->findProd($id_produto, $id_usuario);
+        foreach ($favorit as $keys => $values){
+            $object = get_object_vars($values);
+            if(!empty($object)){
+                echo "<script> alert ('Produto já existente na tabela de favoritos'); window.location='http://Localhost:8000/Carrinho'</script>";
+                die();
+            }
+        }   
+        $fav = $favoritos->insert($id_usuario,$id_produto);
+        echo "<script> alert ('Produto adicionado nos favoritos'); window.location='http://Localhost:8000/'</script>";
+
+    } else {
+        echo "<script> alert ('Faça login na sua conta para adicionar um produto na tabela de favoritos')</script>";
+    }
+    
+}?>
     

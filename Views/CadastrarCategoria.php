@@ -9,7 +9,7 @@ $cadastrar_categoria = new CadastrarCategoria;
 if (isset($_POST['btCadastrar'])) {
     $nome_categoria  = $_POST['nome_categoria'];
 
-    $categoria->setNomeCategotia($nome_categoria);
+    $categoria->setNomeCategoria($nome_categoria);
 
     if ($cadastrar_categoria->insert()) {
         include('Includes/MsgSucesso.php');

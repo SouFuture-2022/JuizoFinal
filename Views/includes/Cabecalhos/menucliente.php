@@ -1,3 +1,16 @@
+<?php
+
+$email = $_SESSION['email'] ?? null;
+
+use App\Infra\Dao\Usuario\ListarUsuarioDb;
+$a = new ListarUsuarioDb;
+$dados = $a->all($email);
+foreach ($dados as $key => $value){  
+$b = $dados[$key];
+foreach ($b as $key => $value){
+}
+}?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 
@@ -26,19 +39,19 @@
             <div class="container">
                 <div class="row gy-3 align-items-center">
                     <div class="col-lg-2 col-6">
-                        <a href="index.php" class="brand-wrap"><img class="logo" src="Assets/images/logo.png"></a>
+                        <a href="/" class="brand-wrap"><img class="logo" src="Assets/images/logo.png"></a>
                     </div>
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="float-end">
-                            <a href="/Favoritos" class="btn btn-light">
+                            <a href="/Favoritos?a=<?php echo base64_encode($value);?>" class="btn btn-light">
                                 <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Favoritos
                                 </span>
                             </a>
-                            <a data-bs-toggle="offcanvas" href="/Carrinho" class="btn btn-light">
+                            <a data-bs-toggle="offcanvas" href="Carrinho" class="btn btn-light">
                                 <i class="fa fa-shopping-cart"></i> <span class="ms-1">Carrinho </span>
                             </a>
-                            <a href="/Login" class="btn btn-light">
-                                <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Login </span>
+                            <a href="/Logout?Logout" class="btn btn-light">
+                                <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Sair </span>
                             </a>
                         </div>
                     </div> <!-- col end.// -->
@@ -65,18 +78,17 @@
 
                 <div class="collapse navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link ps-0" href="/Categorias">Categorias</a>
+                    <li class="nav-item">
+                            <a class="nav-link ps-0" href="/">Página Inicial</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Produtos">Produtos</a>
+                            <a class="nav-link ps-0" href="/AllCategorias">Categorias</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/Itens">Meus itens</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Perfil">Meu perfil</a>
-                        </li>
+                            <a class="nav-link" href="/Perfil?email=<?php echo $_SESSION['email']; ?>">Meu perfil</a>
                     </ul>
                 </div> <!-- collapse end.// -->
             </div> <!-- container end.// -->

@@ -42,4 +42,32 @@ return [
 	'/Produtos' => 'Produtos@produtos',
 	'/user/create' => 'User@create',
 	'/user/[0-9]+' => 'User@show',
+
+	'/Favoritos' => 'Favoritos@favoritos',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/Itens' => 'Itens@itens',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/Perfil' => 'Perfil@perfil',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/Ofertas' => 'Ofertas@ofertas',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/AllCategorias' => 'AllCategorias@allcategorias',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/CadastrarImagem' => 'CadastrarImagem@cadastrarimagem',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
+
+	'/CadastrarProduto' => 'CadastrarProduto@cadastrarproduto',
+	'/user/create' => 'User@create',
+	'/user/[0-9]+' => 'User@show',
 ];

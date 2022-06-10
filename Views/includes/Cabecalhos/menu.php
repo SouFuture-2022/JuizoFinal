@@ -1,3 +1,16 @@
+<?php
+
+$email = $_SESSION['email'] ?? null;
+
+use App\Infra\Dao\Usuario\ListarUsuarioDb;
+$a = new ListarUsuarioDb;
+$dados = $a->all($email);
+foreach ($dados as $key => $value){  
+$b = $dados[$key];
+foreach ($b as $key => $value){
+}
+}?>
+
 <?php #use App\Models\Produtos; #include('./Views/AcaoCarrinho.php'); $categoria = new Produtos(); 
 ?>
 
@@ -30,12 +43,14 @@
                     </div>
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="float-end">
-                            <a href="/Favoritos" class="btn btn-light">
-                                <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Favoritos
+                            <a href="Contato" class="btn btn-light">
+                                <i class="fa fa-comments"></i> <span class="ms-1 d-none d-sm-inline-block">
+                                    Contato
                                 </span>
                             </a>
-                            <a data-bs-toggle="offcanvas" href="Carrinho" class="btn btn-light">
-                                <i class="fa fa-shopping-cart"></i> <span class="ms-1">Carrinho </span>
+                            <a href="Cadastrar" class="btn btn-light">
+                                <i class="fa fa-address-book"></i> <span class="ms-1 d-none d-sm-inline-block">
+                                    Cadastrar</span>
                             </a>
                             <a href="Login" class="btn btn-light">
                                 <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Login </span>
@@ -58,24 +73,16 @@
 
         <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
             <div class="container">
-                <button class="navbar-toggler border" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbar_main">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link ps-0" href="/Categorias">Categorias</a>
+                    <li class="nav-item">
+                            <a class="nav-link ps-0" href="/">Página Inicial</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Produtos">Produtos</a>
+                            <a class="nav-link ps-0" href="Categorias">Categorias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Meus itens</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Meu perfil</a>
+                            <a class="nav-link" href="Ofertas">Ofertas</a>
                         </li>
                     </ul>
                 </div> <!-- collapse end.// -->
@@ -85,9 +92,7 @@
 </body>
 <?php
 /*
-
 $ds = new Produtos();
-
 if(isset($_POST['btBuscarProduto'])) { $buscar  = $_POST['buscar'];
 	if(empty($buscar)) { ?>
 <div class="alert alert-danger" role="alert">

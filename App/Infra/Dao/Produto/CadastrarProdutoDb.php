@@ -11,16 +11,16 @@ class CadastrarProdutoDb{
 		$sql = "INSERT INTO produtos (nome, imagem_destaque, habilitar_cor, habilitar_tamanho, preco, quantidade, peso, un_medida, descricao, id_categoria, data_registro) 
 		VALUES (:nome, :imagem_destaque, :habilitar_cor, :habilitar_tamanho, :preco, :quantidade, :peso, :un_medida, :descricao, :id_categoria, NOW())";
 		$stmt = $db->getConnection()->prepare($sql);
-		$stmt->bindParam(':nome', $this->nome);
-		$stmt->bindParam(':imagem_destaque', $this->imagem_destaque);
-		$stmt->bindParam(':habilitar_cor', $this->habilitar_cor);
-		$stmt->bindParam(':habilitar_tamanho', $this->habilitar_tamanho);
-		$stmt->bindParam(':preco', $this->preco);
-		$stmt->bindParam(':quantidade', $this->quantidade);
-		$stmt->bindParam(':peso', $this->peso);
+		$stmt->bindParam(':nome', $_POST['nome']);
+		$stmt->bindParam(':imagem_destaque', $_POST['imagem_destaque']);
+		$stmt->bindParam(':habilitar_cor', $_POST['habilitar_cor']);
+		$stmt->bindParam(':habilitar_tamanho', $_POST['habilitar_tamanho']);
+		$stmt->bindParam(':preco', $_POST['preco']);
+		$stmt->bindParam(':quantidade', $_POST['quantidade']);
+		$stmt->bindParam(':peso', $_POST['peso']);
 		$stmt->bindParam(':un_medida', $this->un_medida);
-		$stmt->bindParam(':descricao', $this->descricao);
-		$stmt->bindParam(':id_categoria', $this->id_categoria);
+		$stmt->bindParam(':descricao', $_POST['descricao']);
+		$stmt->bindParam(':id_categoria', $_POST['id_categoria']);
 		return $stmt->execute();
 	}
 }

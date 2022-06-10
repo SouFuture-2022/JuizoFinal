@@ -7,8 +7,6 @@ use PDO;
 
 class ListarProdutoDb{
 
-	 
-
 	public function printAll(){
 		$db = new Conexao();
 		$sql  = "SELECT nome FROM produtos";
@@ -23,7 +21,7 @@ class ListarProdutoDb{
 		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':id_produto', $id_produto, PDO::PARAM_INT);
 		$stmt->execute();
-		return $stmt->fetch();
+		return $stmt->fetchAll();
 	}
 
 	public function findAll($inicio, $quantidade_pagina) {
@@ -59,15 +57,15 @@ class ListarProdutoDb{
 		return $stmt->fetchAll();
 	}
 
-	public function findAllProductCategories($id_categoria) {
+	public function findAllProductCategories() {
 		$db = new Conexao();
-		$sql  = "SELECT id_produto, nome, imagem_destaque, preco, descricao, id_categoria FROM produtos WHERE id_categoria =:id_categoria ORDER BY nome ASC";
+		$sql  = "SELECT id_produto, nome, imagem_destaque, preco, descricao, id_categoria FROM produtos" ;
 		$stmt = $db->getConnection()->prepare($sql);
 		$stmt->bindParam(':id_categoria', $id_categoria, PDO::PARAM_INT);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
-
+	//WHERE id_categoria =:id_categoria ORDER BY nome ASC"
 	public function findAllSearch($buscar) {
 		$db = new Conexao();
 		$sql  = "SELECT id_produto, nome FROM produtos WHERE nome LIKE '%$buscar%'";

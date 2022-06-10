@@ -7,7 +7,7 @@ use App\Core\Store;
 class Login {
     public function login(){
         Store::Layout([
-            //'includes/Cabecalhos/menu',
+            'includes/Cabecalhos/menu',
             'Login',
             //'includes/Rodapes/rodape'
         ]);

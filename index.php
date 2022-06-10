@@ -1,7 +1,8 @@
 <?php
 
     require __DIR__ . '/vendor/autoload.php';
-	const FILE = __DIR__ . "/Views/";
+	
+	session_start();
 
 	try {
 		$data = rota(); 

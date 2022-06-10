@@ -1,4 +1,5 @@
 <?php
+
 $cep_origem    = "61648510";
 $cep_destino   = $_POST['cep'] ?? 0;
 $peso          = $peso_total ?? 0;
@@ -114,3 +115,4 @@ if ($tipo_do_frete == 'balcao') {
 			</form>
 
 	<?php }}?>
+

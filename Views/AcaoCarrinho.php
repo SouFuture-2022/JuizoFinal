@@ -26,5 +26,5 @@ if (isset($_GET['delete_id'])){
 			echo "<script>alert('Produto Deletado com Sucesso!'); window.location = 'http://localhost:8000/Carrinho'; </script>"; 
 		}
 	}
-}
+} */
 ?>

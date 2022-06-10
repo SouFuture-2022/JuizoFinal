@@ -3,7 +3,7 @@
 $_SESSION['carrinho'] = $_SESSION['carrinho'] ?? [[0]]; 
 if (isset($_GET['produto'])){
 	$existe = false;
-	if (array_key_exists('produto',$_SESSION['carrinho'][0]) >=1 ){
+	if (array_key_exists('produto',$_SESSION['carrinho'][0]) >= 1 ){
 		foreach($_SESSION['carrinho'] as $key => $value){
 			if ($_GET['produto'] == $_SESSION['carrinho'][$key]['produto']){
 				$existe = true;

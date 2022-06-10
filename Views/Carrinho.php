@@ -178,10 +178,12 @@ foreach ($b as $key => $value){
                     <div class="card shadow bg-body rounded">
                     <div class="card-body">
                     <?php require_once __DIR__ . "/../App/Services/CalcularFrete.php"; ?>
+                    
                         
                         <div class="d-grid gap-2 my-3">
-                            <a href="#" class="btn btn-primary w-100">Confirmar compra</a>
-                            <a href="#" class="btn btn-outline-primary w-100">Continuar comprando</a>
+                        
+                            <a href="/Views/FinalizarCompra.php?total_venda=<?php echo number_format($valor, 2, ',', ' '); ?>" class="btn btn-primary w-100">Confirmar compra</a>
+                            <a href="/" class="btn btn-outline-primary w-100">Continuar comprando</a>
                         </div>
                     </div> 
                     </div> 

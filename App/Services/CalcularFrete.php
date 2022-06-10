@@ -101,17 +101,17 @@ if ($tipo_do_frete == 'balcao') {
 			<form>
 				<dl class="dlist-align">
 					<dt>Frete:</dt>
-					<dd class="text-right text-danger">+ R$<?php echo $frete->Valor; ?></dd>
+					<dd class="text-right text-danger">+ R$: <?php echo $frete->Valor; ?></dd>
 				</dl>
 				
 				<dl class="dlist-align">
 					<dt>Sub Total:</dt>
-					<dd class="text-right text-dark b"><strong>R$<?php echo number_format($valor, 2, ',', ' '); ?></strong></dd>
+					<dd class="text-right text-dark b"><strong>R$: <?php echo number_format($valor, 2, ',', ' '); ?></strong></dd>
 				</dl>
 
 				<dl class="dlist-align">
 					<dt><strong>Total:</strong></dt>
-					<dd class="text-right text-dark b"><strong>R$<?php echo number_format($valor + $frete->Valor, 2, ',', ' '); ?></strong></dd>
+					<dd class="text-right text-dark b"><strong>R$: <?php echo number_format($valor + $frete->Valor, 2, ',', ' '); ?></strong></dd>
 				</dl>
 			</form>
 

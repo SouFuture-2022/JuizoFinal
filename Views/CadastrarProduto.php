@@ -22,7 +22,7 @@
                                                 <option value="">Categoria</option>
                                                 <option value="">Roupas</option>
                                                 <option value="">Calçados</option>
-                                                <option value="">Tecnologia?</option>
+                                                <option value="">Tecnologia</option>
                                             </select>
                                         </div>
                                     </div>
@@ -65,17 +65,17 @@
                                             </div>
                                             <div class="offcanvas-body">
                                                 <div>
-                                                    <form action="">
+                                                    <form method="post" action="">
                                                         <div class="row">
                                                             <div class="col mb-3">
-                                                                <input type="text" class="form-control" placeholder="Nome da cor" required>
+                                                                <input type="text" name="nome_cor" class="form-control" placeholder="Nome da cor" required>
                                                             </div>
                                                             <div class="col">
-                                                                <input type="number" class="form-control" placeholder="Quantidade da cor" required>
+                                                                <input type="number" name="quantidade_cor" class="form-control" placeholder="Quantidade da cor" required>
                                                             </div>
                                                         </div>
                                                         <div class="d-flex justify-content-center mb-3">
-                                                            <button class="btn w-75 btn-primary">Cadastrar</button>
+                                                            <input type="submit" name="cadastrar_cor" class="btn w-75 btn-primary" value="Cadastrar">
                                                         </div>
                                                     </form>
                                                     <div>

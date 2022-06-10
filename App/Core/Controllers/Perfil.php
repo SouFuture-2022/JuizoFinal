@@ -7,7 +7,7 @@ use App\Core\Store;
 class  Perfil{
     public function perfil(){
         Store::Layout([
-            'includes/Cabecalhos/menucliente',
+           // 'includes/Cabecalhos/menucliente',
             'Perfil',
             'includes/Rodapes/rodape',
         ]);

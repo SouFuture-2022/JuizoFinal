@@ -27,7 +27,7 @@
         </div>
     </div>
 </section>
-<!--?php
+<!--<?php
 
 session_start();
 
@@ -64,7 +64,7 @@ if (isset($_POST['btCadastrar'])) {
         $imagem->setNomeimagem($nome_imagem);
         $imagem->setIdproduto($id_produto);
 
-        if ($cadastrar_imagem->insert($id_produto, $nome_imagem)) {
+        if ($cadastrar_imagem->updateImagem($id_produto)) {
             echo "<script> alert ('Imagem cadastrada'); window.location = 'http://Localhost:8000/'</script>";
         }
     } else {

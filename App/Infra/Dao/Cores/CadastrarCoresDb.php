@@ -11,9 +11,9 @@ class CadastrarCoresDb{
         $db = new Conexao();
 		$sqlUsuario  = "INSERT INTO cores (nome_cor, quantidade_cor, id_produto, data_registro) VALUES (:nome_cor, :quantidade_cor, :id_produto, NOW())";
 		$stmt = $db->getConnection()->prepare($sqlUsuario);
-		$stmt->bindParam(':nome_cor', $this->nome_cor);
-		$stmt->bindParam(':quantidade_cor', $this->quantidade_cor);
-		$stmt->bindParam(':id_produto', $this->id_produto);
+		$stmt->bindParam(':nome_cor', $_POST['nome_cor']);
+		$stmt->bindParam(':quantidade_cor', $_POST['quantidade_cor']);
+		$stmt->bindParam(':id_produto', $_POST['id_produto']);
 		return $stmt->execute();
 	}
 }

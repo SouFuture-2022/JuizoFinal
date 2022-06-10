@@ -39,7 +39,7 @@ foreach ($b as $key => $value){
             <div class="container">
                 <div class="row gy-3 align-items-center">
                     <div class="col-lg-2 col-6">
-                        <a href="index.php" class="brand-wrap"><img class="logo" src="Assets/images/logo.png"></a>
+                        <a href="/" class="brand-wrap"><img class="logo" src="Assets/images/logo.png"></a>
                     </div>
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="float-end">
@@ -88,7 +88,7 @@ foreach ($b as $key => $value){
                             <a class="nav-link" href="/Itens">Meus itens</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Perfil">Meu perfil</a>
+                            <a class="nav-link" href="/Perfil?email=<?php echo $_SESSION['email']; ?>">Meu perfil</a>
                     </ul>
                 </div> <!-- collapse end.// -->
             </div> <!-- container end.// -->

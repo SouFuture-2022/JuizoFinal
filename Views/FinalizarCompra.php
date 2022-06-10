@@ -1,6 +1,8 @@
 <link href="/App/Services/css/personalizado.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <link rel="stylesheet" href="../Assets/css/inputs.css">
+<script src="/App/Services/js/personalizado.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <section class="section-name padding-y ">
     <div class="container card">
@@ -103,18 +105,13 @@
     
                     <input type="hidden" name="notificationURL" id="notificationURL" value="<?php echo URL_NOTIFICACAO; ?>">
                     <?php
-                    $query_car = "SELECT SUM(valor_venda * qnt_produto) AS total_venda, carrinho_id FROM carrinhos_produtos WHERE carrinho_id = 1";
-    
-                    $resultado_car = $conn->prepare($query_car);
-                    $resultado_car->execute();
-    
-                    $row_car = $resultado_car->fetch(PDO::FETCH_ASSOC);
-    
-                    $total_venda = number_format($row_car['total_venda'], 2, '.', '');
+                
+                    $total_venda = $_GET['total_venda'];
     
                     ?>
     
-                    <input type="hidden" name="reference" id="reference" value="<?php echo $row_car['carrinho_id'] ?>">
+                    <!-- <input type="hidden" name="reference" id="reference" value="<? //php echo $row_car['carrinho_id']
+                                                                            ?>"> -->
     
                     <input type="hidden" name="amount" id="amount" value="<?php echo $total_venda; ?>">
     
@@ -179,10 +176,8 @@
     
                     <input type="submit" name="btnComprar" id="btnComprar" value="Comprar" class="btn btn-primary">
                 </form>
-    
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
                 <script type="text/javascript" src="<?php echo SCRIPT_PAGSEGURO; ?>"></script>
-                <script src="/App/Services/js/personalizado.js"></script>
             </body>
         </div>
         

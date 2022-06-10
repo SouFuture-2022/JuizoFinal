@@ -49,4 +49,13 @@ class AlterarProdutoDb{
 		$stmt->bindParam(':id_product', $id_product, PDO::PARAM_INT);
 		return $stmt->execute();
 	}
+
+	public function updateImagem($id_produto) {
+		$db = new Conexao();
+		$sql  = "UPDATE produtos SET imagem_destaque = :imagem_destaque WHERE id_produto = :id_produto";
+		$stmt = $db->getConnection()->prepare($sql);
+		$stmt->bindParam(':cor', $_POST['imagem_destaque']);
+		$stmt->bindParam(':id_produto', $id_produto);
+		return $stmt->execute();
+	}
 }

@@ -38,8 +38,6 @@ if ($tipo_do_frete == 'balcao') {
 					<dt><strong>Total:</strong></dt>
 					<dd class="text-right text-dark b"><strong>R$<?php echo number_format($valor, 2, ',', ' '); ?></strong></dd>
 				</dl>
-
-				<a href="../FinalizarCompra" class="btn btn-primary btn-block">Finalizar Compra</a>
 			</form>
 		</div>
 	</div>

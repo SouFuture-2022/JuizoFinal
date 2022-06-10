@@ -1,4 +1,33 @@
-<?php
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<section>
+    <div class="container d-flex justify-content-center">
+        <div class="card w-50 shadow p-3 mb-5 bg-body rounded">
+            <div class="card-body">
+                <h2 class="text-primary mb-3">Cadastrar imagem</h2>
+                <form>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="file" name="" id="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <select class="form-select">
+                                <option value="">Produto</option>
+                                <option value="">produto cadastrado 1</option>
+                                <option value="">produto cadastrado 2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <button class="btn btn-primary w-75">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--<?php
 
 session_start();
 
@@ -12,12 +41,14 @@ use App\Models\Imagens;
 use App\Models\Produtos;
 use App\Infra\Dao\Imagens\ListarImagensDb;
 use App\Infra\Dao\Produto\CadastrarProdutoDb;
+use App\Infra\Dao\Produto\ListarProdutoDb;
 
+$listar_produto = new ListarProdutoDb;
 $imagem = new Imagens();
-$listar_imagens = new ListarImagensDb;
+$listar_imagem = new ListarImagensDb;
 $produto = new Produtos();
 $cadastrar_produto = new CadastrarProdutoDb;
-$cadastrar_imagens = new CadastrarImagensDb;
+$cadastrar_imagem = new CadastrarImagensDb;
 
 if (isset($_POST['btCadastrar'])) {
     $id_produto = $_POST['id_produto'];
@@ -25,23 +56,23 @@ if (isset($_POST['btCadastrar'])) {
 
     if ($verifica_insercao < 3) {
         $extensao = strtolower(substr($_FILES['nome_imagem']['name'], -4));
-        $nome_imagem = md5(time()) . $extensao;
-        $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/Uploads/Produtos/';
+        $nome_imagem = md5((time())) . $extensao;
+        $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/Assets/images/';
 
         move_uploaded_file($_FILES['nome_imagem']['tmp_name'], $diretorio . $nome_imagem);
 
         $imagem->setNomeimagem($nome_imagem);
         $imagem->setIdproduto($id_produto);
 
-        if ($cadastrar_imagem->insert()) {
-            include('Includes/MsgSucesso.php');
+        if ($cadastrar_imagem->updateImagem($id_produto)) {
+            echo "<script> alert ('Imagem cadastrada'); window.location = 'http://Localhost:8000/'</script>";
         }
     } else {
         $_SESSION['msg_error'] =
             '<div class="alert alert-danger" role="alert">
 				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Não é permitido cadastrar mais que 3 imagens...
 				</div>';
-        header('Location: ../CadastrarImagem');
+        //header('Location: ../CadastrarImagem');
     }
 }
 ?>
@@ -52,6 +83,7 @@ if (isset($_POST['btCadastrar'])) {
 <link href="Assets/css/ocultar-exibir.css" type="text/css" rel="stylesheet">
 <link href="Assets/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
 <link href="Assets/css/avaliacao-estrelas.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <section class="section-name bg padding-y-sm">
     <div class="container">
         <header class="section-heading">
@@ -67,7 +99,7 @@ if (isset($_POST['btCadastrar'])) {
                 <div class="form-row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="file" name="nome_imagem" class="form-control" required />
+                            <input type="file" name="nome_imagem" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -75,7 +107,7 @@ if (isset($_POST['btCadastrar'])) {
                             <select class="form-control" name="id_produto" required>
                                 <option value="">Produto</option>
                                 <?php foreach ($listar_produto->findAllSelect() as $key => $value) { ?>
-                                <option value="<?php echo $value->id_produto; ?>"><?php echo $value->nome; ?></option>
+                                <option value="<?php echo $value->id_produto; ?>"><?php $value->id_produto; echo $value->nome; ?></option>
                                 <?php } ?>
                             </select>
                         </div>

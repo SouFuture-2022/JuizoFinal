@@ -1,7 +1,9 @@
 <?php
 
 //Necessário testar em dominio com SSL
+
 define("URL", "http://localhost/proc/");
+
 
 $sandbox = false;
 if ($sandbox) {

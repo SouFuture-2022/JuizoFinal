@@ -69,7 +69,7 @@ foreach ($b as $key => $value){
 }
 }
 
-    if ($_SESSION['logar'] == true and @$_SESSION['carrinho'][0]['produto']) {  ?>
+    if ($_SESSION['logar'] == true and @$_SESSION['carrinho'][0]['produto'] or @$_SESSION['carrinho'][1]['produto'] or @$_SESSION['carrinho'][3 ]['produto']) {  ?>
         <!--Essa section é apresentada para os usuários que tem produtos adicionados aos seus carrinhos-->
         <div class="container">
             <div class="row">

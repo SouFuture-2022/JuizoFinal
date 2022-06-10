@@ -84,7 +84,7 @@ $favoritos = new CadastrarFavoritosDb;
 
         <div class="row">
 
-        <?php
+            <?php
             $dados = $listar_produto->findAllPopular(0, 10);
             foreach ($dados as $key => $value) {
 

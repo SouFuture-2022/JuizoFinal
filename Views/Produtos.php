@@ -89,11 +89,7 @@ if (isset($_POST['btFavoritar'])) {
 	$favoritar->setIdproduto($id_produto);
 
 	if ($insert_favoritar->insert($id_usuario, $id_produto)) {
-		$_SESSION['msg_sucesso'] =
-			'<div class="alert alert-success" role="alert">
-				Favorito Adicionado Com sucesso...
-			</div>';
-		header('Location: ../Produto?acao=prod&produto=' . base64_encode($id_produto));
+		echo "<script> alert ('Produto Favoritado'); window.location= 'http://localhost:8000/Favoritos?a=$user'</script>";
 	}
 }
 
